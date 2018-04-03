@@ -1,0 +1,43 @@
+/*wrap:引入bootstrap*/
+.paging_simple_numbers {
+  /*ul*/
+  .pagination {
+    li {
+      a {
+        color: @color-gray6;
+      }
+
+    }
+    .active {
+      a {
+        border-color: @color-base;
+        background: @color-base;
+        color: @color-white;
+      }
+    }
+  }
+}
+/*wrap:没有引入bootstrap时*/
+.paging_simple_numbers {
+  >a,
+  >span a,
+  >span span{
+    display:inline-block;
+    padding:5px 10px;
+    line-height:30px;
+    min-width:40px;
+    text-align: center;
+    border:1px solid @color-gray14;
+    color: @color-gray6;
+    cursor: pointer;
+    &:hover{
+      color:@color-gray3;
+    }
+  }
+  >span a.current{
+    border:1px solid @color-base;
+    background:@color-base;
+    color:@color-white;
+  }
+}
+

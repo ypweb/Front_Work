@@ -1,0 +1,268 @@
+<div ng-controller="EquipmentController as equipment_ctrl">
+    <div class="struct-layout-container struct-layout-default">
+        <div class="struct-layout-main">
+            <!--设备管理-->
+            <h1 class="admin-layout-theme3 g-clear-pt">
+                <span>设备管理：&nbsp;{{equipment_ctrl.record.organizationName===''?equipment_ctrl.record.structName:equipment_ctrl.record.organizationName}}</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-default g-c-blue3" ng-disabled="equipment_ctrl.record.organizationId==='' && equipment_ctrl.record.currentId===''" ng-show="equipment_ctrl.powerlist.device_add" ng-click="equipment_ctrl.toggleModal({display:'show',area:'send'})"><i class="btn-action admin-btn-action1"></i>&nbsp;添加发货信息</button>
+            </h1>
+
+
+            <!--操作条-->
+            <div class="admin-action-item">
+
+                <!--过滤-->
+                <div class="action-item-input g-w-percent10">
+                    <label class="action-indent-b2">过滤:<input class="form-control input-sm" placeholder="" ng-model="equipment_ctrl.record.filter" ng-keyup="equipment_ctrl.filterDataTable()"  type="search"></label>
+                </div>
+
+                <!--开始时间-->
+                <div class="action-item-input g-w-percent12">
+                    <label class="action-indent-b2 dt-icon-after">开始时间:<input ng-model="equipment_ctrl.record.startTime"  class="form-control" id="search_startTime" placeholder="开始时间" readonly type="text"></label>
+                </div>
+
+                <!--结束时间-->
+                <div class="action-item-input g-w-percent12">
+                    <label class="action-indent-b2 dt-icon-after">结束时间:<input class="form-control" placeholder="结束时间" id="search_endTime" ng-model="equipment_ctrl.record.endTime" readonly type="text"></label>
+                </div>
+
+                <!--打印，导出-->
+                <div ng-show="false" class="action-item-btn action-item-export g-w-percent8">
+                    <span ng-show="equipment_ctrl.powerlist.deviceprint" class="btn btn-export g-br3 g-c-blue3">打印</span>
+                    <span ng-show="equipment_ctrl.powerlist.deviceexport" class="btn btn-export g-br3 g-c-blue3">导出</span>
+                </div>
+
+                <div class="action-item-btn action-item-export g-gap-mr4 g-w-percent5">
+                    <span ng-click="equipment_ctrl.queryEquipment()" class="btn btn-export g-br3 g-w-percent50 g-c-blue3">查询</span>
+                </div>
+
+
+                <!--列控制-->
+                <div class="action-item-ul g-w-percent6 g-pos-r" ng-show="::equipment_ctrl.table.tablecolumn.columnshow">
+                    <div class="action-theme action-theme-btn g-br3 g-t-c">显示列</div>
+                    <div class="action-ul g-d-hidei" id="admin_table_checkcolumn">
+                        <ul class="action-list-wrap" ></ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--表格-->
+            <table id="admin_list_wrap" class="table table-bordered table-striped table-hover admin-layout-table">
+                <!--分组样式-->
+                <colgroup id="admin_list_colgroup">
+                    <col class="g-w-percent13">
+                    <col class="g-w-percent5">
+                    <col class="g-w-percent5">
+                    <col class="g-w-percent5">
+                    <col class="g-w-percent12">
+                    <col class="g-w-percent5">
+                    <col class="g-w-percent5">
+                </colgroup>
+
+                <!--表头-->
+                <thead>
+                <tr>
+                    <th>收货人名称</th>
+                    <th>物流</th>
+                    <th>发货数量</th>
+                    <th>状态</th>
+                    <th>订单时间</th>
+                    <th>设备类型</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+
+                <!--表主体-->
+                <tbody id="admin_batchlist_wrap" class="middle-align"></tbody>
+            </table>
+
+
+            <!--分页-->
+            <div class="admin-page-wrap">
+                <div class="easyui-pagination g-w-percent50" id="admin_page_wrap" data-options="links:5,layout:['manual','first','prev','links','next','last'],displayMsg:'显示{from}&nbsp;到&nbsp;{to}&nbsp;共&nbsp;{total}条记录'"></div>
+            </div>
+        </div>
+
+        <div class="struct-layout-side">
+            <!--子菜单组件-->
+            <ul class="sub-menu-wrap">
+                <li>
+                    <a class="sub-menu-title sub-menu-titleactive" data-parentid="" data-id="equipment_ctrl.record.currentId" data-layer="0" ng-click="equipment_ctrl.initSubMenu()">{{equipment_ctrl.record.currentName}}</a>
+                    <ul class="g-d-showi ui-sub-menu" ng-click="equipment_ctrl.toggleSubMenu($event)" id="admin_equipment_submenu" ng-init="equipment_ctrl.initSubMenu()"></ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!--弹出层--提示操作界面-->
+    <!--发货-->
+    <div class="modal fade custom-width" id="admin_send_dialog">
+        <div class="modal-dialog g-w-percent46">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!--权限-->
+                    <div class="g-f-l g-w-percent34" ng-show="equipment_ctrl.send.imei===true">
+                        <div class="admin-layout-theme4 admin-theme-close g-t-c g-b-gray17 g-pos-r">选择IMEI码</div>
+                        <table class="table table-bordered table-striped table-hover admin-layout-table">
+                            <colgroup>
+                                <col class="g-w-percent10"/>
+                                <col class="g-w-percent10"/>
+                                <col class="g-w-percent10"/>
+                                <col class="g-w-percent10"/>
+                                <col class="g-w-percent10"/>
+                            </colgroup>
+                            <tbody id="admin_imei_list"></tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-sm-5 g-t-r">
+                                <span ng-click="equipment_ctrl.getIMEI()" class="btn btn-red g-br3 g-w-percent15">确定</span>
+                            </div>
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-5 g-t-l">
+                                <span ng-click="equipment_ctrl.clearIMEI()" class="btn btn-red g-br3 g-w-percent15">取消</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--表单-->
+                    <div class="g-f-r g-w-percent14">
+                        <div class="admin-layout-theme4 admin-theme-close g-t-c g-b-gray17 g-pos-r">发货信息
+                            <span class="mini-icon admin-mini-icon1" ng-click="equipment_ctrl.toggleModal({display:'hide',area:'send'})"></span>
+                        </div>
+
+                        <form ng-submit="equipment_ctrl.formSubmit('send')" name="sendFrom" role="form" novalidate method="post" class="admin-layout-form">
+                            <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon2"></span>&nbsp;基本信息</div>
+
+
+                            <div class="form-group-self1">
+                                <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>设备类型</label>
+
+                                <div class="self-input g-pos-r g-w-percent35">
+                                    <label class="self-label" ng-init="equipment_ctrl.send.deviceType=1">
+                                        <input type="radio" ng-model="equipment_ctrl.send.deviceType" ng-value="1" name="deviceType">
+                                        &nbsp;S67
+                                    </label>
+                                    <label class="self-label">
+                                        <input type="radio" ng-model="equipment_ctrl.send.deviceType" ng-value="2" name="deviceType">
+                                        &nbsp;T6
+                                    </label>
+                                    <label class="self-label">
+                                        <input type="radio" ng-model="equipment_ctrl.send.deviceType" ng-value="3" name="deviceType">
+                                        &nbsp;其他
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-self1">
+                                <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>发货数量</label>
+
+                                <div class="self-input g-pos-r g-w-percent35">
+                                    <input type="text" name="deliveryQuantity" placeholder="请输入发货数量" required ng-model="equipment_ctrl.send.deliveryQuantity" maxlength="5"  ng-pattern="/^(\d*)$/"  />
+                                    <span ng-show="sendFrom.deliveryQuantity.$dirty && sendFrom.deliveryQuantity.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">发货数量不能为空</span>
+                                    <span ng-show="sendFrom.deliveryQuantity.$dirty && sendFrom.deliveryQuantity.$error.pattern" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">发货数量只能为数字</span>
+                                    <span ng-show="sendFrom.deliveryQuantity.$dirty && sendFrom.deliveryQuantity.$valid" class="self-tips self-tips-yes"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group-self1">
+                                <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>物流</label>
+
+                                <div class="self-input g-pos-r g-w-percent35">
+                                    <input type="text" name="logistics" placeholder="请输入物流" required ng-model="equipment_ctrl.send.logistics" />
+                                    <span ng-show="sendFrom.logistics.$dirty && sendFrom.logistics.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">物流不能为空</span>
+                                    <span ng-show="sendFrom.logistics.$dirty && sendFrom.logistics.$valid" class="self-tips self-tips-yes"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group-self1">
+                                <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>收货人</label>
+
+                                <div class="self-input g-pos-r g-w-percent35">
+                                    <input type="text" name="consigneeName" placeholder="请输入收货人" required ng-model="equipment_ctrl.send.consigneeName" />
+                                    <span ng-show="sendFrom.consigneeName.$dirty && sendFrom.consigneeName.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">收货人不能为空</span>
+                                    <span ng-show="sendFrom.consigneeName.$dirty && sendFrom.consigneeName.$valid" class="self-tips self-tips-yes"></span>
+                                </div>
+                            </div>
+
+                            <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon3"></span>&nbsp;设备IMEI</div>
+
+                            <div class="form-group-self1" ng-init="equipment_ctrl.send.imei=false">
+                                <label class="self-label">
+                                    <input type="radio" ng-model="equipment_ctrl.send.imei" ng-value="false" ng-change="equipment_ctrl.clearIMEI()" name="imei">
+                                    &nbsp;手动输入
+                                </label>
+                                <label class="self-label">
+                                    <input type="radio" ng-model="equipment_ctrl.send.imei" ng-value="true" ng-change="equipment_ctrl.clearIMEI()" name="imei">
+                                    &nbsp;从进货库选择
+                                </label>
+                            </div>
+
+
+                            <div class="form-group-self1 g-gap-mb2">
+                                <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>IMEI码</label>
+
+                                <div ng-if="equipment_ctrl.send.imei===false" class="self-input g-f-r g-pos-r g-w-percent35">
+                                    <input placeholder="请输入IMEI码" type="text" ng-model="equipment_ctrl.send.deviceImeis" required name="deviceImeis" />
+                                    <span ng-show="sendFrom.deviceImeis.$dirty && sendFrom.deviceImeis.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">IMEI码不能为空</span>
+                                    <span ng-show="sendFrom.deviceImeis.$dirty && sendFrom.deviceImeis.$valid" class="self-tips self-tips-yes"></span>
+                                </div>
+                                <div ng-if="equipment_ctrl.send.imei===true" class="self-input g-f-r g-pos-r g-w-percent35">
+                                    <input required placeholder="请选择IMEI码"  readonly type="text" ng-model="equipment_ctrl.send.deviceImeis" name="deviceImeis" />
+                                    <span ng-show="sendFrom.deviceImeis.$dirty && sendFrom.deviceImeis.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">IMEI码不能为空</span>
+                                    <span ng-show="sendFrom.deviceImeis.$dirty && sendFrom.deviceImeis.$valid" class="self-tips self-tips-yes"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group-self1">
+                                <button type="submit" ng-disabled="!(sendFrom.deliveryQuantity.$dirty && sendFrom.deliveryQuantity.$valid && sendFrom.logistics.$dirty && sendFrom.logistics.$valid && sendFrom.consigneeName.$dirty && sendFrom.consigneeName.$valid && sendFrom.deviceImeis.$valid)"  class="btn btn-red g-br3 g-w-percent50">发货</button>
+                                <button type="button" class="btn btn-red g-br3 g-w-percent50 g-gap-mt2" id="admin_send_reset" ng-click="equipment_ctrl.formReset(sendFrom,'send')">取消</button>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--查看发货详情-->
+    <div class="modal fade custom-width" id="admin_senddetail_dialog">
+        <div class="modal-dialog g-w-percent40">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped table-hover admin-layout-table">
+
+                        <!--分组样式-->
+                        <colgroup>
+                            <col class="g-w-percent2">
+                            <col class="g-w-percent14">
+                            <col class="g-w-percent34">
+                        </colgroup>
+                        <!--头部-->
+                        <thead>
+                        <tr>
+                            <th class="g-t-c" colspan="3">发货详情</th>
+                        </tr>
+                        </thead>
+
+                        <!--表主体-->
+                        <tbody id="admin_senddetail_show" class="middle-align"></tbody>
+                    </table>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

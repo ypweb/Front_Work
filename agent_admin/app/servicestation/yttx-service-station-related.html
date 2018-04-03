@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+	<meta name="description" content="乾汇通运营管理平台--服务站管理--服务站列表" />
+	<meta name="keywords" content="乾汇通运营管理平台--服务站管理--服务站列表">
+  <meta name="author" content="yp" />
+	<title>乾汇通运营管理平台--服务站管理--服务站列表</title>
+  <link href="../../images/logo_icon.ico" rel="icon">
+	<link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../js/plugins/datatables/dataTables.bootstrap.css">
+	<link rel="stylesheet" href="../../css/admin.css">
+  <script src="../../js/common/jquery-1.11.1.js"></script>
+	<!--[if lt IE 9]>
+		<script src="../../js/common/h5support.js"></script>
+	<![endif]-->
+</head>
+<body class="page-body">
+
+    <div class="page-container">
+
+        <!--测边栏--菜单导航模块-->
+        <div id="main_menu_wrap" class="sidebar-menu toggle-others fixed">
+            <div class="sidebar-menu-inner">
+                <!--菜单头部按钮-->
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="#" class="logo-expanded">
+                            <img src="../../images/logo@2x.png" width="130" alt="" />
+                        </a>
+
+                        <a href="#" class="logo-collapsed">
+                            <img src="../../images/logo-collapsed@2x.png" width="40" alt="" />
+                        </a>
+                    </div>
+
+                    <!--小屏模式下按钮-->
+                    <div class="mobile-menu-toggle visible-xs">
+                        <a href="#" data-toggle="mobile-menu">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </div>
+                </header>
+                <!--菜单条-->
+                <ul id="main_menu" class="main-menu"></ul>
+            </div>
+        </div>
+
+        <!--主模块-->
+        <div id="main_content" class="main-content">
+
+            <!--顶部按钮区域-->
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- 顶部左侧部分 -->
+                <ul class="user-info-menu left-links list-inline list-unstyled">
+                    <!--切换菜单为全部模式或者缩略模式-->
+                    <li class="hidden-sm hidden-xs">
+                        <a href="#" data-toggle="sidebar">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- 顶部右侧部分 -->
+                <ul class="user-info-menu right-links list-inline list-unstyled">
+
+                    <li class="dropdown user-profile">
+                        <a href="#" data-toggle="dropdown">
+                            <img src="../../images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+                                <span id="admin_show_wrap"></span>
+                        </a>
+
+                        <ul class="dropdown-menu user-profile-menu list-unstyled">
+                            
+                            <li class="last">
+                                <a href="../account/login.html" id="logout_btn"><i class="fa-lock"></i>登出</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <!--主题描述-->
+            <div class="page-title">
+                <div class="title-env">
+                    <h1 class="title">服务站列表</h1>
+                    <p class="description">服务站列表</p>
+                </div>
+                <div class="breadcrumb-env">
+                    <ol class="breadcrumb bc-1">
+                        <li><a href=""><i class="fa-home"></i>服务站管理</a></li>
+                        <li class="active"><strong>服务站列表</strong></li>
+                    </ol>
+                </div>
+            </div>
+
+
+            <!--主内容-->
+            <div class="row row-main-wrap">
+                <div class="col-md-12">
+                    <div class="panel" id="data_wrap">
+
+                        <!--表格标题-->
+                        <div class="panel-heading">
+                            <h3 class="panel-title">服务站列表</h3>
+
+                            <div class="panel-options">
+                                <a href="#" data-toggle="panel">
+                                    <span class="collapse-icon">&ndash;</span>
+                                    <span class="expand-icon">+</span>
+                                </a>
+                                
+                            </div>
+                        </div>
+
+
+                        <!--表格主体-->
+                        <div class="panel-body">
+                            <div class="admin-search-wrap">
+                                <div class="admin-search-item g-d-hidei">
+                                    <label>服务站简称：</label>
+                                    <input type="text" id="search_shortName">
+                                </div>
+                                <div class="admin-search-item g-d-hidei">
+                                    <label>负责人姓名：</label>
+                                    <input type="text" id="search_name">
+                                </div>
+                                <div class="admin-search-item g-d-hidei">
+                                    <label>负责人手机号码：</label>
+                                    <input type="text" maxlength="13" id="search_phone">
+                                </div>
+                                <div class="admin-search-item g-d-hidei">
+                                    <label>库存：</label>
+                                    <input type="text" id="search_inventory">
+                                </div>
+                                <div class="admin-search-item g-d-hidei">
+                                    <label>返修：</label>
+                                    <input type="text" id="search_repairs">
+                                </div>
+                                <div class="admin-search-item g-d-hidei">
+                                    <label>所属代理：</label>
+                                    <input type="text" id="search_agentShortName">
+                                </div>
+                                <div class="admin-search-item g-d-hidei">
+                                    <label>上级代理：</label>
+                                    <input type="text" id="search_superShortName">
+                                </div>
+                                <div class="admin-search-item g-d-hidei">
+                                    <span id="admin_search_btn" class="btn btn-info btn-icon g-br2">
+                                        <i class="fa-search"></i>查询
+                                    </span>
+                                    <span id="admin_search_clear" class="btn btn-info btn-icon g-br2">
+                                        <i class="fa-spinner"></i>清空
+                                    </span>
+                                </div>
+                                <div class="admin-search-item">
+                                    <label>设备类型：</label>
+                                    <select id="search_type">
+                                        <option selected value="1">S67</option>
+                                        <option value="2">T6</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <table id="station_wrap" class="table table-bordered table-striped table-hover admin-table">
+                                <!--分组样式-->
+                                <colgroup>
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent7">
+                                    <col class="g-w-percent3">
+                                    <col class="g-w-percent3">
+                                    <col class="g-w-percent3">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent9">
+                                </colgroup>
+
+                                <!--表头-->
+                                <thead>
+                                <tr>
+                                    <th>服务站简称</th>
+                                    <th>负责人姓名</th>
+                                    <th>负责人手机号码</th>
+                                    <th>地址</th>
+                                    <th>销售</th>
+                                    <th>库存</th>
+                                    <th>返修</th>
+                                    <th>所属代理</th>
+                                    <th>上级代理</th>
+                                    <th class="no-sorting">操作</th>
+                                </tr>
+                                </thead>
+
+
+                                <!--表主体-->
+                                <tbody class="middle-align"></tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="panel collapsed g-d-hidei" id="send_wrap">
+
+                        <!--编辑表单标题-->
+                        <div class="panel-heading">
+                            <h3 class="panel-title" id="send_title">向服务站发货</h3>
+                            <div class="panel-options">
+                                <a href="#" data-toggle="panel">
+                                    <span class="collapse-icon">&ndash;</span>
+                                    <span class="expand-icon">+</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!--发货单-->
+                        <div class="panel-body">
+                            <form role="form" id="station_send_form" method="post" class="admin-form1 validate">
+                                <input type="text" class="g-d-hidei" value="" id="send_id" name="serviceStationId">
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>快递单号：</label>
+
+                                    <input type="text" class="form-control" name="trackingNumber" id="send_trackingnumber" data-validate="required" data-message-required="快递单号不能为空" placeholder="请输入快递单号" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>发货经手人：</label>
+
+                                    <input type="text" class="form-control" name="deliveryHandler" id="send_deliveryhandler" data-validate="required" data-message-required="发货经手人不能为空" placeholder="请输入发货经手人" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>发货时间：</label>
+
+                                    <input type="text" class="form-control" name="deliveryTime" id="send_deliverytime" readonly data-validate="required" data-message-required="发货时间不能为空" placeholder="请选择发货时间" />
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="IsCheckedDevice" id="send_ischeckeddevice" value="" />选中移动支付设备：
+                                        </label>
+                                    </div>
+                                    <div class="admin-sub-items1 admin-rpos-wrap admin-item-animate1 g-d-hidei"  id="send_devicewrap">
+                                        <ul>
+                                            <li class="clear-validate-tip">
+                                                <label class="g-f-l clear-validate-error">设备类型:<select class="form-control" name="type" >
+                                                        <option selected value="1">S67</option>
+                                                        <option value="2">T6</option>
+                                                    </select>
+                                                </label>
+                                                <label class="clear-validate-error">设备起始号:<input type="text" class="form-control" name="startNumber" placeholder="请输入设备起始号" /></label>
+
+                                                <label>设备结止号:<input type="text" class="form-control" name="endNumber" data-validate="required" data-message-required="设备结止号不能为空" placeholder="请输入设备结止号" /></label>
+                                                <label class="clear-validate-error">机器号（多个以逗号分开):<input type="text" class="form-control" name="listNumber" placeholder="请输入机器号（多个以逗号分开)" /></label>
+                                                <label class="clear-validate-error">数量:<input type="text" class="form-control" name="quantity"  placeholder="请输入数量" /></label>
+                                            </li>
+                                        </ul>
+                                        <div class="btn btn-info g-br2 pos-rb-btn" id="send_deviceadd_btn">+&nbsp;添加</div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="IsCheckedFittings" id="send_ischeckedfittings" value="" />选中配件：
+                                        </label>
+                                    </div>
+                                    <div class="admin-sub-items1 admin-rpos-wrap admin-item-animate1 g-d-hidei"  id="send_fittingwrap">
+                                        <ul>
+                                            <li class="clear-validate-tip">
+                                                <label>配件名称:<input type="text" class="form-control" name="name" data-validate="required" data-message-required="配件名称不能为空"  placeholder="请输入配件名称" /></label>
+                                                <label>规格:<input type="text" class="form-control" name="specifications" data-validate="required" data-message-required="规格不能为空"  placeholder="请输入规格" /></label>
+                                                <label class="clear-validate-error">数量:<input type="text" class="form-control" name="quantity" placeholder="请输入数量" /></label>
+                                                <label class="clear-validate-error">备注:<input type="text" class="form-control" name="Remark" placeholder="请输入备注" /></label>
+                                            </li>
+                                        </ul>
+                                        <div class="btn btn-info g-br2 pos-rb-btn" id="send_fittingadd_btn">+&nbsp;添加</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="IsCheckedRepair" id="send_ischeckedrepair" value="" />选中返修：
+                                        </label>
+                                    </div>
+                                    <div class="admin-sub-items1 admin-rpos-wrap admin-item-animate1 g-d-hidei" style="z-index:20;" id="send_repairwrap">
+                                        <ul>
+                                            <li class="clear-validate-tip">
+                                                <label class="g-f-l clear-validate-error">设备类型:<select class="form-control" name="type" >
+                                                        <option selected value="1">S67</option>
+                                                        <option value="2">T6</option>
+                                                    </select>
+                                                </label>
+                                                <label class="clear-validate-error">返修时间:<input type="text" class="form-control send_repairtime" name="repairTime" readonly placeholder="请输入返修时间" /> </label>
+                                                <label class="clear-validate-error">设备起始号:<input type="text" class="form-control" name="startNumber" placeholder="请输入设备起始号" /></label>
+                                                <label>设备结止号:<input type="text" class="form-control" name="endNumber" data-validate="required" data-message-required="设备结止号不能为空"  placeholder="请输入设备结止号" /></label>
+                                                <label class="clear-validate-error">机器号（多个以逗号分开):<input type="text" class="form-control" name="listNumber" placeholder="请输入机器号" /></label>
+                                                <label class="clear-validate-error">数量:<input type="text" class="form-control" name="quantity" placeholder="请输入数量" /></label>
+                                            </li>
+                                        </ul>
+                                        <div class="btn btn-info g-br2 pos-rb-btn" id="send_repairadd_btn">+&nbsp;添加</div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">发货</button>
+                                    <button id="send_cance_btn" type="reset" class="btn btn-white">取消</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="panel collapsed g-d-hidei" id="repair_wrap">
+
+                        <!--编辑表单标题-->
+                        <div class="panel-heading">
+                            <h3 class="panel-title" id="repair_title">返修单</h3>
+                            <div class="panel-options">
+                                <a href="#" data-toggle="panel">
+                                    <span class="collapse-icon">&ndash;</span>
+                                    <span class="expand-icon">+</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!--返修单-->
+                        <div class="panel-body">
+                            <form role="form" id="station_repair_form" method="post" class="admin-form1 validate">
+                                <input type="text" class="g-d-hidei" value="" id="repair_id" name="serviceStationId">
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>快递单号：</label>
+
+                                    <input type="text" class="form-control" name="trackingNumber" id="repair_trackingnumber" data-validate="required" data-message-required="快递单号不能为空" placeholder="请输入快递单号" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>发货经手人：</label>
+
+                                    <input type="text" class="form-control" name="deliveryHandler" id="repair_deliveryhandler" data-validate="required" data-message-required="发货经手人不能为空" placeholder="请输入发货经手人" />
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>发货时间：</label>
+
+                                    <input type="text" class="form-control" name="deliveryTime" readonly id="repair_deliverytime" data-validate="required" data-message-required="发货时间不能为空" placeholder="请选择发货时间" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>商品名称：</label>
+
+                                    <input type="text" class="form-control" name="name" id="repair_name" data-validate="required" data-message-required="商品名称不能为空" placeholder="请输入商品名称" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">机器起始号：</label>
+
+                                    <input type="text" class="form-control" name="startNumber" id="repair_startnumber" placeholder="请输入机器起始号" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>机器结束号：</label>
+
+                                    <input type="text" class="form-control" name="endNumber" id="repair_endnumber" data-validate="required" data-message-required="机器结束号不能为空" placeholder="请输入机器结束号" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>机器号：</label>
+
+                                    <input type="text" class="form-control" name="listNumber" id="repair_listnumber" data-validate="required" data-message-required="机器号不能为空" placeholder="请输入机器号" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>数量：</label>
+
+                                    <input type="text" class="form-control" name="quantity" id="repair_quantity" data-validate="required" data-message-required="数量不能为空" placeholder="请输入数量" />
+                                </div>
+
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">返修</button>
+                                    <button id="repair_cance_btn" type="reset" class="btn btn-white">取消</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <!--发货记录-->
+                <div class="col-md-12">
+                    <div class="panel collapsed" id="record_wrap">
+
+                        <!--表格标题-->
+                        <div class="panel-heading">
+                            <h3 class="panel-title">发货记录</h3>
+
+                            <div class="panel-options">
+                                <a href="#" data-toggle="panel">
+                                    <span class="collapse-icon">&ndash;</span>
+                                    <span class="expand-icon">+</span>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <!--表格主体-->
+                        <div class="panel-body">
+                            <table id="record_list" class="table table-bordered table-striped table-hover admin-table">
+                                <!--分组样式-->
+                                <colgroup>
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent6">
+                                    <col class="g-w-percent7">
+                                    <col class="g-w-percent8">
+                                    <col class="g-w-percent3">
+                                    <col class="g-w-percent3">
+                                    <col class="g-w-percent3">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent5">
+                                </colgroup>
+
+                                <!--表头-->
+                                <thead>
+                                <tr>
+                                    <th>服务站ID</th>
+                                    <th>服务站简称</th>
+                                    <th>负责人姓名</th>
+                                    <th>负责人手机号码</th>
+                                    <th>地址</th>
+                                    <th>销售</th>
+                                    <th>库存</th>
+                                    <th>返修</th>
+                                    <th>所属代理</th>
+                                    <th>上级代理</th>
+                                </tr>
+                                </thead>
+
+
+                                <!--表主体-->
+                                <tbody class="middle-align"></tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!--底部信息-->
+            <footer class="main-footer sticky footer-type-1">
+                <div class="footer-inner">
+                    <!-- 版权所有 -->
+                    <div class="footer-text">
+                        &copy; 2016
+                        <strong>银通天下</strong>
+                        <a href="#" target="_blank" title="">****</a>
+                    </div>
+
+                    <!--回到顶部-->
+                    <div class="go-up">
+                        <a href="#" rel="go-top">
+                            <i class="fa-angle-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+    </div>
+
+
+
+    <!--详情展现-->
+    <div class="modal fade custom-width" id="show_detail_wrap">
+        <div class="modal-dialog g-w-percent46">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 id="show_detail_title" class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped table-hover admin-table">
+                        <colgroup>
+                            <col class="g-w-percent10"/>
+                            <col class="g-w-percent40"/>
+                        </colgroup>
+                        <tbody id="show_detail_content"></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+	<!--加载遮罩层-->
+	<div id="page_loading_wrap" class="page-loading-overlay g-d-hidei">
+		<div class="loader-2"></div>
+	</div>
+
+
+
+	<!--提示信息-->
+  <div id="page_support_wrap" class="page-support-wrap g-d-hidei">
+      <div class="page-support-browser">
+          <h1 class="browser-theme">您的浏览器版本太低，请升级您的浏览器</h1>
+          <div class="browser-icon">
+              <a href="http://www.firefox.com.cn/" target="_blank">
+                  <p>火狐浏览器</p>
+                  <span>Firefox</span>
+                  <div class="browser-icon-firefox"></div>
+              </a>
+              <a href="http://www.googlechromer.cn/" target="_blank">
+                  <p>谷歌浏览器</p>
+                  <span>Chrome</span>
+                  <div class="browser-icon-chrome"></div>
+              </a>
+              <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+                  <p>IE浏览器</p>
+                  <span>Internet&nbsp;Explorer</span>
+                  <div class="browser-icon-ie"></div>
+              </a>
+              <a href="https://liulanqi.baidu.com/70/?sid=11100016" target="_blank">
+                  <p>百度浏览器</p>
+                  <span>Baidu</span>
+                  <div class="browser-icon-baidu"></div>
+              </a>
+              <a href="http://browser.qq.com/?adtag=SEM1" target="_blank">
+                  <p>QQ浏览器</p>
+                  <span>Tencent</span>
+                  <div class="browser-icon-qq"></div>
+              </a>
+          </div>
+      </div>
+      <div class="page-support-login">
+          <div></div>
+          <p>您还未登录<span id="goto_login"></span>秒后跳入登陆页面</p>
+      </div>
+  </div>
+
+
+
+
+
+
+
+    <script src="../../js/common/base.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/plugins/datatables/js/jquery.dataTables.js"></script>
+
+
+    <!--修饰分页，搜索等操作 -->
+    <script src="../../js/plugins/datatables/dataTables.bootstrap.js"></script>
+    <!--表单验证插件-->
+    <script src="../../js/plugins/jquery-validate/jquery.validate.js"></script>
+    <script src="../../js/plugins/datepicker/datepicker.js"></script>
+    <script src="../../js/servicestation/service_station_related.js"></script>
+</body>
+</html>

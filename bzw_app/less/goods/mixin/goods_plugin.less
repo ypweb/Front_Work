@@ -1,0 +1,45 @@
+///组件类
+///作者：易品
+
+//组件--广告
+.plugin-img-banner() {
+  .layout-base();
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+  background: @color-white;
+  font-size: 0;
+  img {
+    display: inline-block;
+    max-width: 100% !important;
+  }
+}
+
+//组件--标题,价格组件
+.plugin-text-title() {
+  .layout-base();
+  margin: 0;
+  padding-bottom: 20px;
+  font-size: 0;
+  background: @color-gray16;
+  > div {
+    background: @color-white;
+    padding: 10px 16px;
+    p {
+      .text-ww();
+      color: @color-gray3;
+      .user-select-base();
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+    }
+  }
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+///组件--app顶部菜单
+///作者：易品
+.app-header {
+  .layout-relative-base();
+  height: 56px;
+  width: 100%;
+  background: @color-red1;
+  .prev-btn,
+  .next-btn,
+  .message-btn,
+  .add-btn {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+    line-height: 56px;
+    display: inline-block;
+    cursor: pointer;
+    width: 40px;
+    height: 100%;
+    color: @color-white;
+  }
+  .prev-btn,
+  .next-btn {
+    font-family: 'ux_eight';
+    font-size: 2.4rem;
+  }
+  .prev-btn {
+    left: 0;
+    &:before {
+      content: '\e625';
+    }
+  }
+  .next-btn {
+    right: 0;
+    &:before {
+      content: '\e63f';
+    }
+  }
+  .message-btn {
+    right: 0;
+    font-size: 2.0rem;
+    &:before {
+      font-family: 'ux_five';
+      content: '\e625';
+    }
+  }
+  .add-btn {
+    right: 0;
+    font-size: 3.0rem;
+    &:before {
+      content: '+';
+    }
+  }
+  .message-btn-active {
+    &:after {
+      .layout-absoluter-base(6px, 30%);
+      width: 8px;
+      height: 8px;
+      background: @color-white;
+      .border-radius-base(50%);
+      content: '';
+    }
+  }
+  .theme {
+    width: 100%;
+    height: 100%;
+    line-height: 56px;
+    text-align: center;
+    font-size: 1.6rem;
+    color: @color-white;
+    padding: 0 50px;
+    .box-sizing-base();
+    .user-select-base();
+  }
+}

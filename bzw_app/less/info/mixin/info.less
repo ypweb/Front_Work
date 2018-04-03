@@ -1,0 +1,175 @@
+///信用卡账单,攻略,提额详情
+///作者：易品
+
+//全局设置
+html {
+  font-size: @font-size-base - 4;
+  .layout-base();
+}
+
+body {
+  background: @color-white;
+  font-size: 1.6rem;
+}
+
+.p-rule() {
+  font-size: 1.6rem;
+  line-height: 26px;
+  .text-ww();
+  text-align: left;
+  padding: 2px 0;
+  color: @color-gray3;
+}
+
+.h2-rule() {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: @color-gray3;
+  padding: 2px 0;
+  .text-ww();
+  text-align: left;
+}
+
+.a-rule() {
+  display: inline-block;
+  font-size: 1.4rem;
+  text-align: left;
+  text-decoration: underline;
+  padding: 0 10px;
+  color: @color-blue1;
+}
+
+.strong-rule() {
+  font-size: 1.6rem;
+  line-height: 26px;
+  .text-ww();
+  text-align: left;
+  padding: 2px 0;
+  color: @color-gray3;
+  font-weight: bold;
+}
+
+.agreement-wrap,
+.info-wrap {
+  .layout-base();
+  padding: 10px 33px;
+  > h1 {
+    font-size: 2rem;
+    line-height: 44px;
+    color: @color-gray3;
+    .text-ww();
+    font-weight: bold;
+    text-align: center;
+  }
+  > div {
+    .layout-base();
+    padding: 10px 0;
+    text-align: center;
+    > h2 {
+      .h2-rule();
+    }
+    > p {
+      .p-rule();
+      > a {
+        .a-rule();
+      }
+    }
+    > strong {
+      .strong-rule();
+    }
+    > div {
+      .layout-base();
+      padding: 5px 0;
+      p {
+        text-indent: 2em;
+        .p-rule();
+      }
+    }
+  }
+  table {
+    .layout-base();
+    margin: 10px 0;
+    border: 1px solid @color-gray6;
+    th {
+      border-left: 1px solid @color-gray9;
+    }
+    td {
+      border-top: 1px solid @color-gray9;
+      border-left: 1px solid @color-gray9;
+    }
+    th, td {
+      font-size: 1.4rem;
+      .text-ww();
+      color: @color-gray3;
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px 5px;
+    }
+    .no-bt {
+      border-top: none !important;
+    }
+    .no-br {
+      border-right: none !important;
+    }
+    .no-bb {
+      border-bottom: none !important;
+    }
+    .no-bl {
+      border-left: none !important;
+    }
+  }
+
+  .credit-rule-table {
+    border-collapse: separate;
+    .border-radius-base(5px);
+    th {
+      background: @color-yellow1;
+      &:nth-child(2n+1) td {
+        background: lighten(@color-yellow1, 10%);
+      }
+      &:nth-child(2n) td {
+        background: lighten(@color-yellow1, 8%);
+      }
+    }
+  }
+  .default-rule-table {
+    border-collapse: separate;
+    .border-radius-base(5px);
+    td:hover {
+      background: @color-gray16;
+    }
+    th {
+      background: @color-gray12;
+      &:nth-child(2n+1) td {
+        background: lighten(@color-gray12, 5%);
+      }
+      &:nth-child(2n) td {
+        background: lighten(@color-gray12, 3%);
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .agreement-wrap, .info-wrap {
+    padding: 8px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .agreement-wrap, .info-wrap {
+    padding: 6px 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .agreement-wrap, .info-wrap {
+    padding: 4px 12px;
+  }
+}
+
+@media (max-width: 280px) {
+  .agreement-wrap, .info-wrap {
+    padding: 4px 10px;
+  }
+}

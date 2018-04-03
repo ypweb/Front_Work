@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh" data-ng-app="app" ng-controller="appController as app_ctrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+	<meta name="description" content="{{app_ctrl.info.description}}" />
+	<meta name="keywords" content="{{app_ctrl.info.keywords}}">
+	<meta name="author" content="{{app_ctrl.info.author}}" />
+	<title>{{app_ctrl.info.name}}</title>
+	<link href="images/logo_icon.ico" rel="icon">
+	<link rel="stylesheet" href="css/base.css">
+	<!--[if lt IE 9]>
+	<script src="js/base/h5support.js"></script>
+	<![endif]-->
+</head>
+<body class="struct-body-wrap struct-layout-{{app_ctrl.viewmode.value}}">
+    <!--兼容-->
+    <div ng-if="app_ctrl.app_config.issupport">
+        <!--登录后--主区域-->
+        <div ng-if="app_ctrl.login.islogin">
+            <!--头部-->
+            <div class="struct-layout-header" data-ng-include="'view/common/header.html'"></div>
+
+            <!--主体-->
+            <div ng-cloak ui-view></div>
+
+            <!--底部-->
+            <div class="struct-layout-footer" data-ng-include="'view/common/footer.html'"></div>
+
+            <!--模态弹窗-->
+            <div class="modal fade custom-width" id="admin_modal_wrap">
+                <div class="modal-dialog {{app_ctrl.modal.config.width}}">
+                    <div class="modal-content" >
+                        <div data-view-modal-dialog data-message="app_ctrl.message" data-url="app_ctrl.modal.config.url" class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-red"  data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div ng-if="!app_ctrl.login.islogin" data-ng-include="'view/login.html'"></div>
+
+
+        <!--弹出层--加载动画(指令)-->
+        <view-loading-animation class="{{app_ctrl.app_config.isloading}}"></view-loading-animation>
+    </div>
+
+    <!--不兼容(指令)-->
+    <view-support-panel  ng-if="!app_ctrl.app_config.issupport" ></view-support-panel>
+
+<!--base-->
+<script src="js/base/jquery-1.11.1.js"></script>
+<script src="js/base/base.js"></script>
+<script src="js/base/mock-min.js"></script>
+
+<!--angular-->
+<script src="js/angular/angular/angular.min.js"></script>
+<script src="js/angular/angular/angular-animate.min.js"></script>
+<script src="js/angular/angular/angular-sanitize.min.js"></script>
+<script src="js/angular/angular/angular-route.min.js"></script>
+<script src="js/angular/angular/angular-ui-router.min.js"></script>
+<script src="js/angular/oclazyload/ocLazyLoad.js"></script>
+
+<!--app--应用程序初始化配置-->
+<script src="js/app/app.js"></script>
+<script src="js/app/config.js"></script>
+
+<!--路由跳转-->
+<script src="js/app/config.router.js"></script>
+
+<!--公共服务-->
+<script src="js/factory/util.js"></script>
+<script src="js/service/dialog.js"></script>
+<script src="js/factory/assist.js"></script>
+
+<!--指令集-->
+<script src="js/directive/header.js"></script>
+<script src="js/directive/widget.js"></script>
+<script src="js/directive/form.js"></script>
+<script src="js/directive/modal.js"></script>
+<script src="js/directive/side.js"></script>
+<script src="js/directive/index/index.js"></script>
+<script src="js/directive/power.js"></script>
+
+<!--主程序，控制器设置基本配置-->
+<script src="js/app/render/app-controller.js"></script>
+<script src="js/app/render/app-service.js"></script>
+
+
+<!--登录-->
+<script src="js/service/login.js"></script>
+
+<!--权限-->
+<script src="js/service/power/power.js"></script>
+
+<!--测试-->
+<script src="js/service/test.js"></script>
+
+</body>
+</html>

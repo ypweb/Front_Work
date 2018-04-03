@@ -1,0 +1,128 @@
+/*适配扩展*/
+
+/*默认屏幕*/
+.struct-layout-default {
+  background: @color-gray16;
+  padding-bottom:@layout-footer-height;
+  /*主体*/
+  .struct-layout-container {
+    width: @layout-container-width !important;
+    padding: @layout-containergap-top 0 @layout-containergap-bottom 0;
+    margin: 0 auto;
+    min-height: 600px;
+  }
+
+  /*头部*/
+  .struct-layout-header {
+    height: @layout-header-height + @layout-header-shadow;
+    min-width: @layout-container-width;
+    /*平铺背景色*/
+    .header-bg {
+      min-width: @layout-container-width;
+      .box-shadow-base(0 0 @layout-header-shadow - 2 @layout-header-shadow - 4 @color-gray8);
+    }
+    /*导航区域*/
+    .header-content {
+      margin: 0 auto;
+      width: @layout-container-width;
+    }
+    /*菜单条*/
+    .header-menu-item {
+      /*高亮*/
+      .menuactive {
+        border-bottom: 4px solid @color-white;
+        &:hover {
+          border-bottom: 4px solid @color-white;
+        }
+      }
+    }
+  }
+
+  /*主显示区*/
+  .struct-layout-main {
+    width: @layout-container-width - @layout-side-width;
+    min-height:@layout-content-minheight;
+  }
+  /*侧边栏*/
+  .struct-layout-side {
+    min-height: @layout-content-minheight;
+  }
+
+  /*底部*/
+  .struct-layout-footer{
+    min-width:@layout-container-width;
+    .footer-content-wrap{
+      width:@layout-container-width;
+      margin:0 auto;
+    }
+  }
+}
+
+/*宽屏*/
+.struct-layout-auto {
+  background: @color-gray16;
+  /*主体*/
+  .struct-layout-container {
+    padding: @layout-header-height 0 0 @layout-side-width;
+    width: 100%;
+    min-width: @layout-container-width !important;
+    min-height: 100vh;
+    background:@color-white;
+  }
+  /*头部*/
+  .struct-layout-header {
+    height: @layout-header-height + @layout-header-shadow;
+    min-width: @layout-container-width;
+    /*平铺背景色*/
+    .header-bg {
+      min-width: @layout-container-width;
+    }
+    /*导航区域*/
+    .header-content {
+      margin: 0;
+      width: 100%;
+      min-width: @layout-container-width;
+    }
+    /*菜单条*/
+    .header-menu-item {
+      /*高亮*/
+      .menuactive {
+        border-bottom: 4px solid darken(@color-red1, 10%);
+        &:hover {
+          border-bottom: 4px solid darken(@color-red1, 10%);
+        }
+      }
+    }
+  }
+
+  /*主显示区*/
+  .struct-layout-main {
+    width: 100%;
+    //margin-left: -@layout-side-width;
+    .calc-base(min-height,'100vh - 50px - 64px');
+    //padding-left: @layout-contentgap-left + @layout-side-width;
+  }
+  /*侧边栏*/
+  .struct-layout-side {
+    .layout-absolutel-base(0,@layout-footer-height,200);
+    min-height:100vh;
+    //.calc-base(min-height,'100vh - 50px - 64px');
+  }
+
+  /*底部*/
+  .struct-layout-footer{
+    min-width:@layout-container-width;
+    .footer-content-wrap{
+      width:100%;
+    }
+  }
+}
+
+/*小屏*/
+.struct-layout-mini {
+  /*主体*/
+  .struct-layout-container {
+    width: 100%;
+    max-width: @layout-container-miniwidth !important;
+  }
+}

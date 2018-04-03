@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+    <meta name="description" content="乾汇通运营管理平台--服务站管理--添加服务站" />
+    <meta name="keywords" content="乾汇通运营管理平台--服务站管理--添加服务站">
+    <meta name="author" content="yp" />
+    <link href="../../images/logo_icon.ico" rel="icon">
+    <title>乾汇通运营管理平台--服务站管理--添加服务站</title>
+    <link href="../../images/logo_icon.ico" rel="icon">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../js/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/common/jquery-1.11.1.js"></script>
+    <!--[if lt IE 9]>
+    <script src="../../js/common/h5support.js"></script>
+    <![endif]-->
+</head>
+<body class="page-body">
+
+<div class="page-container">
+
+    <!--测边栏--菜单导航模块-->
+    <div id="main_menu_wrap" class="sidebar-menu toggle-others fixed">
+        <div class="sidebar-menu-inner">
+            <!--菜单头部按钮-->
+            <header class="logo-env">
+                <!-- logo -->
+                <div class="logo">
+                        <a href="#" class="logo-expanded">
+                        <img src="../../images/logo@2x.png" width="130" alt="" />
+                    </a>
+
+                    <a href="#" class="logo-collapsed">
+                        <img src="../../images/logo-collapsed@2x.png" width="40" alt="" />
+                    </a>
+                </div>
+
+                <!--小屏模式下按钮-->
+                <div class="mobile-menu-toggle visible-xs">
+                    <a href="#" data-toggle="mobile-menu">
+                        <i class="fa-bars"></i>
+                    </a>
+                </div>
+            </header>
+            <!--菜单条-->
+            <ul id="main_menu" class="main-menu"></ul>
+        </div>
+    </div>
+
+    <!--主模块-->
+    <div id="main_content" class="main-content">
+
+        <!--顶部按钮区域-->
+        <nav class="navbar user-info-navbar" role="navigation">
+            <!-- 顶部左侧部分 -->
+            <ul class="user-info-menu left-links list-inline list-unstyled">
+                <!--切换菜单为全部模式或者缩略模式-->
+                <li class="hidden-sm hidden-xs">
+                    <a href="#" data-toggle="sidebar">
+                        <i class="fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- 顶部右侧部分 -->
+            <ul class="user-info-menu right-links list-inline list-unstyled">
+
+                <li class="dropdown user-profile">
+                    <a href="#" data-toggle="dropdown">
+                        <img src="../../images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+                        <span id="admin_show_wrap"></span>
+                    </a>
+
+                    <ul class="dropdown-menu user-profile-menu list-unstyled">
+
+                        <li class="last">
+                            <a href="../account/login.html" id="logout_btn"><i class="fa-lock"></i>登出</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!--主题描述-->
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">添加服务站</h1>
+                <p class="description">添加服务站</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href=""><i class="fa-home"></i>服务站管理</a></li>
+                    <li class="active"><strong>添加服务站</strong></li>
+                </ol>
+            </div>
+        </div>
+
+
+        <!--主内容-->
+        <div class="row row-main-wrap">
+            <div class="col-md-12">
+                <div class="panel" id="data_wrap">
+
+                    <!--表格标题-->
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加服务站</h3>
+
+                        <div class="panel-options">
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span>
+                            </a>
+                            
+                        </div>
+                    </div>
+
+
+                    <!--表格主体-->
+                    <div class="panel-body">
+                        <div class="admin-search-wrap g-d-hidei">
+                            <div class="admin-search-item">
+                                <label>服务站简称：</label>
+                                <input type="text" id="search_shortName">
+                            </div>
+                            <div class="admin-search-item">
+                                <label>负责人姓名：</label>
+                                <input type="text" id="search_name">
+                            </div>
+                            <div class="admin-search-item">
+                                <label>负责人手机号码：</label>
+                                <input type="text" maxlength="13" id="search_phone">
+                            </div>
+                            <div class="admin-search-item">
+                                <label>所属代理：</label>
+                                <input type="text" id="search_agentShortName">
+                            </div>
+                            <div class="admin-search-item">
+                                <label>上级代理：</label>
+                                <input type="text" id="search_superShortName">
+                            </div>
+                            <div class="admin-search-item">
+                                    <span id="admin_search_btn" class="btn btn-info btn-icon g-br2">
+                                        <i class="fa-search"></i>查询
+                                    </span>
+                                    <span id="admin_search_clear" class="btn btn-info btn-icon g-br2">
+                                        <i class="fa-spinner"></i>清空
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div>
+                                <span id="station_add_btn" class="btn btn-info btn-icon btn-xs g-br2 g-d-hidei">
+                                    <i class="fa-plus"></i>
+                                    <span>添加服务站</span>
+                                </span>
+                        </div>
+
+                        <table id="station_wrap" class="table table-bordered table-striped table-hover admin-table">
+                            <!--分组样式-->
+                            <colgroup>
+                                <col class="g-w-percent5">
+                                <col class="g-w-percent5">
+                                <col class="g-w-percent5">
+                                <col class="g-w-percent11">
+                                <col class="g-w-percent5">
+                                <col class="g-w-percent5">
+                                <col class="g-w-percent14">
+                            </colgroup>
+
+                            <!--表头-->
+                            <thead>
+                            <tr>
+                                <th>服务站简称</th>
+                                <th>负责人姓名</th>
+                                <th>负责人手机号码</th>
+                                <th>地址</th>
+                                <th>所属代理</th>
+                                <th>上级代理</th>
+                                <th class="no-sorting">操作</th>
+                            </tr>
+                            </thead>
+
+
+                            <!--表主体-->
+                            <tbody class="middle-align"></tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="panel collapsed g-d-hidei" id="edit_wrap">
+
+                    <!--编辑表单标题-->
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="edit_title">添加服务站</h3>
+                        <div class="panel-options">
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--添加-->
+                    <div class="panel-body">
+                        <form role="form" id="station_edit_form" method="post" class="admin-form1 validate">
+                            <input type="text" class="g-d-hidei" name="serviceStationId" id="station_servicestationid"  />
+                            <div class="form-group">
+                                <label class="control-label"><span class="form-require-item g-c-red1">*</span>服务站全称：</label>
+
+                                <input type="text" class="form-control" name="fullName" id="station_fullname" data-validate="required" data-message-required="服务站全称不能为空" placeholder="请输入服务站全称" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label"><span class="form-require-item g-c-red1">*</span>服务站简称：</label>
+
+                                <input type="text" class="form-control" name="shortName" id="station_shortname" data-validate="required" data-message-required="服务站简称不能为空" placeholder="请输入服务站简称" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label"><span class="form-require-item g-c-red1">*</span>服务站负责人：</label>
+
+                                <input type="text" class="form-control" name="name" id="station_name" data-validate="required" data-message-required="服务站负责人不能为空" placeholder="请输入服务站负责人" />
+                            </div>
+
+                            <div class="g-d-hidei" id="station_userwrap">
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>服务站（店长）登录账户：</label>
+
+                                    <input type="text" class="form-control" name="username" id="station_username" data-validate="required" data-message-required="服务站（店长）账户不能为空" placeholder="请输入服务站（店长）登录账户" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>服务站（店长）登录密码：</label>
+
+                                    <input type="password" class="form-control" name="password" id="station_password" data-validate="required,minlength[6]" data-message-required="服务站（店长）登录密码不能为空" data-message-minlength="服务站（店长）登录密码不能长度不少于6位" placeholder="请输入服务站（店长）登录密码" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"><span class="form-require-item g-c-red1">*</span>服务站（店长）登录昵称：</label>
+
+                                    <input type="text" class="form-control" name="nickname" id="station_nickname" data-validate="required" data-message-required="服务站（店长）登录昵称不能为空" placeholder="请输入服务站（店长）登录昵称" />
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label"><span class="form-require-item g-c-red1">*</span>地址：</label>
+                                <div class="selectwrap">
+                                    <div class="select-item g-w-percent12">
+                                        <p>请选择省份</p>
+                                        <ul id="station_province"></ul>
+                                    </div>
+                                    <div class="select-item g-w-number13">
+                                        <p>请选择城市</p>
+                                        <ul id="station_city"></ul>
+                                    </div>
+                                    <div class="select-item g-w-number13">
+                                        <p>请选择地区</p>
+                                        <ul id="station_area"></ul>
+                                    </div>
+                                </div>
+                                <input type="text"  class="select-input-def form-control" value="" data-validate="required" data-message-required="省份不能为空" name="province" id="station_province_value">
+                                <input type="text" class="select-input-def form-control" data-validate="required" data-message-required="城市不能为空" value="" name="city" id="station_city_value">
+                                <input type="text" class="select-input-def form-control" data-validate="required" data-message-required="地区不能为空" value="" name="country" id="station_area_value">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label"><span class="form-require-item g-c-red1">*</span>详细地址：</label>
+                                <input type="text" class="form-control" name="address"  placeholder="请输入详细地址" data-validate="required" data-message-required="详细地址不能为空" value="" id="station_address" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label"><span class="form-require-item g-c-red1">*</span>服务站手机号码：</label>
+
+                                <input type="text" class="form-control" name="phone" id="station_phone" data-validate="required,zh_phone" maxlength="13" data-message-required="服务站手机号码不能为空" data-message-zh_phone="服务站手机号码格式不正确" placeholder="请输入服务站手机号码" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">服务站电话号码：</label>
+
+                                <input type="text" class="form-control" name="tel" id="station_tel" placeholder="请输入服务站电话号码" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">备注：</label>
+
+                                <textarea class="form-control" name="Remark" id="station_remark"   placeholder="请输入备注"></textarea>
+                            </div>
+
+                            <div class="form-group" data-disabled="false"  id="station_bindagentwrap">
+                                <label class="control-label">默认绑定了(<span id="station_agentid" data-value="" data-name="" data-grade="" class="g-c-bs-info"></span>)</label>
+                                <div class="admin-sub-items1" id="agent_gradewrap">
+                                    <label id="agent_gradeAAA">
+                                        &nbsp;&nbsp;AAA级:&nbsp;<input  type="radio" value="3" name="parentGrade" />
+                                    </label>
+                                    <label id="agent_gradeAA">
+                                        &nbsp;&nbsp;AA级:&nbsp;<input  type="radio"  value="2" name="parentGrade" />
+                                    </label>
+                                    <label id="agent_gradeA">
+                                        &nbsp;&nbsp;A级:&nbsp;<input  type="radio"  value="1" name="parentGrade" />
+                                    </label>
+                                    <label id="agent_gradeSS">
+                                        &nbsp;&nbsp;店长:&nbsp;<input type="radio"  value="4" name="parentGrade" />
+                                    </label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<label class="btn btn-info btn-sm g-br2" id="agent_gradeclear">清除</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" data-disabled="false" id="station_becomeagentwrap">
+                                <div class="checkbox">
+                                    <label>
+                                        <input value="0" type="checkbox" id="station_becomeagent" name="becomeAgent" />同时成为代理商&nbsp;&nbsp;
+                                    </label>
+                                </div>
+                                <div class="admin-sub-items1 self-error-pos-wrap g-d-hidei" id="station_agentwrap">
+                                    <span class="form-require-item g-c-red1">*</span>代理商级别：
+                                    <label id="become_gradeA" >
+                                        &nbsp;&nbsp;A级:&nbsp;<input type="radio" data-validate="required" data-message-required="请选择代理商级别"  class="self-error-pos"  value="1" name="grade"/>
+                                    </label>
+                                    <label id="become_gradeAA" >
+                                        &nbsp;&nbsp;AA级:&nbsp;<input value="2" data-validate="required" data-message-required="请选择代理商级别"  class="self-error-pos" type="radio"  name="grade"/>
+                                    </label>
+                                    <label id="become_gradeAAA">
+                                        &nbsp;&nbsp;AAA级:&nbsp;<input value="3" data-validate="required" data-message-required="请选择代理商级别"  class="self-error-pos"  type="radio"  name="grade" />
+                                    </label>
+                                </div>
+                                <div class="control-label">以上内容请根据合同如实填写。</div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox" id="station_salescheck">
+                                    销售分润设置:&nbsp;&nbsp;
+                                    <label>
+                                        <span class="form-require-item g-c-red1">*</span>自定义：<input type="radio" name="isCustomSalesProfit" id="station_salesself" value="1" />
+                                    </label>
+                                    <label>
+                                        按系统定义：<input type="radio" name="isCustomSalesProfit" id="station_salesauto" value="0" checked />
+                                    </label>
+                                </div>
+                                <div class="admin-sub-items1 g-d-hidei" id="station_saleswrap">
+                                    <ul>
+                                        <li>
+                                            <label class="clear-validate-error">总销售利润:<input type="text" class="form-control"  name="profitSumForSales" id="station_profitsumforsales"  data-validate="required,number,dotmaxlength[7]" data-message-required="总销售利润不能为空" data-message-number="总销售利润必须是数值" data-message-dotmaxlength="总销售利润需小于8位数值" maxlength="10" placeholder="请输入数字"  />
+                                            </label>
+                                        </li>
+                                        <li id="station_salessetting" class="clear-validate-tip">
+                                            <label>一级分润:<input type="text" class="form-control" name="distributorP1ForSales" data-validate="required,number,dotmaxlength[7]" data-message-required="一级分润不能为空" data-message-number="一级分润必须是数值" data-message-dotmaxlength="一级分润需小于8位数值" maxlength="10" placeholder="请输入数字" />
+                                            </label>
+                                            <label>二级分润:<input type="text" class="form-control" data-validate="required,number,dotmaxlength[7]" data-message-required="二级分润不能为空" data-message-number="二级分润必须是数值" data-message-dotmaxlength="二级分润需小于8位数值" maxlength="10" placeholder="请输入数字" name="distributorP2ForSales" />
+                                            </label>
+                                            <label>三级分润:<input type="text" class="form-control" data-validate="required,number,dotmaxlength[7]" data-message-required="三级分润不能为空" data-message-number="三级分润必须是数值" data-message-dotmaxlength="三级分润需小于8位数值" maxlength="10" placeholder="请输入数字" name="distributorP3ForSales" />
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox" id="station_acqcheck">
+                                    收单分润设置:&nbsp;&nbsp;
+                                    <label>
+                                        <span class="form-require-item g-c-red1">*</span>自定义：<input type="radio" name="isCustomAcquiringProfit" id="station_acqself"  value="1" />
+                                    </label>
+                                    <label>
+                                        按系统定义：<input type="radio" name="isCustomAcquiringProfit" id="station_acqauto" checked  value="0" />
+                                    </label>
+                                </div>
+                                <div class="admin-sub-items1 g-d-hidei"  id="station_acqwrap">
+                                    <ul>
+                                        <li>
+                                            <label class="clear-validate-error">总销售利润:<input type="text" id="station_profitsumforacquiring"  class="form-control" name="profitSumForAcquiring"   data-validate="required,number,dotmaxlength[7]" data-message-required="总销售利润不能为空" data-message-number="总销售利润必须是数值" data-message-dotmaxlength="总销售利润需小于8位数值" maxlength="10" placeholder="请输入数字"  />
+                                            </label>
+                                        </li>
+                                        <li id="station_acqsetting" class="clear-validate-tip">
+                                            <label>一级分润:<input type="text" class="form-control" name="distributorP1ForAcquiring"  data-validate="required,number,dotmaxlength[7]" data-message-required="一级分润不能为空" data-message-number="一级分润必须是数值" data-message-dotmaxlength="一级分润需小于8位数值" maxlength="10" placeholder="请输入数字"  />
+                                            </label>
+                                            <label>二级分润:<input type="text" class="form-control"  data-validate="required,number,dotmaxlength[7]" data-message-required="二级分润不能为空" data-message-number="二级分润必须是数值" data-message-dotmaxlength="二级分润需小于8位数值" maxlength="10" placeholder="请输入数字"  name="distributorP2ForAcquiring" />
+                                            </label>
+                                            <label>三级分润:<input type="text" class="form-control"  data-validate="required,number,dotmaxlength[7]" data-message-required="三级分润不能为空" data-message-number="三级分润必须是数值" data-message-dotmaxlength="三级分润需小于8位数值" maxlength="10" placeholder="请输入数字"  name="distributorP3ForAcquiring" />
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">添加</button>
+                                <button id="edit_cance_btn" type="reset" class="btn btn-white">取消</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!--底部信息-->
+        <footer class="main-footer sticky footer-type-1">
+            <div class="footer-inner">
+                <!-- 版权所有 -->
+                <div class="footer-text">
+                    &copy; 2016
+                    <strong>银通天下</strong>
+                    <a href="#" target="_blank" title="">****</a>
+                </div>
+
+                <!--回到顶部-->
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa-angle-up"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+</div>
+
+
+
+
+<!--加载遮罩层-->
+<div id="page_loading_wrap" class="page-loading-overlay g-d-hidei">
+    <div class="loader-2"></div>
+</div>
+
+
+
+<!--提示信息-->
+<div id="page_support_wrap" class="page-support-wrap g-d-hidei">
+    <div class="page-support-browser">
+        <h1 class="browser-theme">您的浏览器版本太低，请升级您的浏览器</h1>
+        <div class="browser-icon">
+            <a href="http://www.firefox.com.cn/" target="_blank">
+                <p>火狐浏览器</p>
+                <span>Firefox</span>
+                <div class="browser-icon-firefox"></div>
+            </a>
+            <a href="http://www.googlechromer.cn/" target="_blank">
+                <p>谷歌浏览器</p>
+                <span>Chrome</span>
+                <div class="browser-icon-chrome"></div>
+            </a>
+            <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+                <p>IE浏览器</p>
+                <span>Internet&nbsp;Explorer</span>
+                <div class="browser-icon-ie"></div>
+            </a>
+            <a href="https://liulanqi.baidu.com/70/?sid=11100016" target="_blank">
+                <p>百度浏览器</p>
+                <span>Baidu</span>
+                <div class="browser-icon-baidu"></div>
+            </a>
+            <a href="http://browser.qq.com/?adtag=SEM1" target="_blank">
+                <p>QQ浏览器</p>
+                <span>Tencent</span>
+                <div class="browser-icon-qq"></div>
+            </a>
+        </div>
+    </div>
+    <div class="page-support-login">
+        <div></div>
+        <p>您还未登录<span id="goto_login"></span>秒后跳入登陆页面</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="../../js/common/base.js"></script>
+<script src="../../js/common/common.js"></script>
+<script src="../../js/plugins/datatables/js/jquery.dataTables.js"></script>
+
+
+<!--修饰分页，搜索等操作 -->
+<script src="../../js/plugins/datatables/dataTables.bootstrap.js"></script>
+<!--表单验证插件-->
+<script src="../../js/plugins/jquery-validate/jquery.validate.js"></script>
+<script src="../../js/widgets/city_select.js"></script>
+<script src="../../js/servicestation/service_station_add.js"></script>
+</body>
+</html>

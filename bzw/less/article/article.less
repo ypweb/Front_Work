@@ -1,0 +1,42 @@
+///文章详情
+///作者：易品
+//页面全局
+body {
+  width: 100%;
+  min-width: 1200px;
+  .box-sizing-base();
+  background:@color-gray16;
+  margin: 120px 0 0 0;
+}
+.content-article-wrap{
+  padding:20px 50px 10px 50px;
+  .art-wrap();
+}
+.content-article-detail{
+  padding:50px 0;
+  .art-show();
+  .art-iframe-show();
+}
+
+
+///max 1000px
+@media (max-width: 1199px){
+  /*文章主体*/
+  .content-article-wrap{
+    padding:20px 30px 10px 30px;
+  }
+}
+///max 800px
+@media (max-width: 800px){
+  /*文章主体*/
+  .content-article-wrap{
+    padding:10px 20px 10px 20px;
+  }
+}
+///max 640px
+@media (max-width: 640px){
+  /*文章主体*/
+  .content-article-wrap{
+    padding:10px;
+  }
+}

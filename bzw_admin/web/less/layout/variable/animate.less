@@ -1,0 +1,29 @@
+///*--动画类--*/
+.animation-keyframes-two(@name,@one,@two) {
+  @-moz-keyframes ~'@{name}'{0%{@one();} 100%{ @two(); }}
+	@-webkit-keyframes ~'@{name}'{0%{@one();} 100%{ @two(); }}
+	@-o-keyframes ~'@{name}'{0%{@one();} 100%{ @two(); }}
+	@-ms-keyframes ~'@{name}'{0%{@one();} 100%{ @two(); }}
+  @keyframes ~'@{name}'{0%{@one();} 100%{ @two(); }}
+}
+.animation-keyframes-three(@name,@one,@two,@three) {
+  @-moz-keyframes ~'@{name}'{0%{@one();} 50%{@two();} 100%{ @three(); }}
+	@-webkit-keyframes ~'@{name}'{0%{@one();} 50%{@two();} 100%{ @three(); }}
+	@-o-keyframes ~'@{name}'{0%{@one();} 50%{@two();} 100%{ @three(); }}
+	@-ms-keyframes ~'@{name}'{0%{@one();} 50%{@two();} 100%{ @three(); }}
+  @keyframes ~'@{name}'{0%{@one();} 50%{@two();} 100%{ @three(); }}
+}
+.animation-keyframes-four(@name,@one,@two,@three,@four) {
+  @-moz-keyframes ~'@{name}'{0%{@one();} 34%{@two();} 68%{@three();} 100%{ @four();}}
+	@-webkit-keyframes ~'@{name}'{0%{@one();} 34%{@two();} 68%{@three();} 100%{ @four();}}
+	@-o-keyframes ~'@{name}'{0%{@one();} 34%{@two();} 68%{@three();} 100%{ @four();}}
+	@-ms-keyframes ~'@{name}'{0%{@one();} 34%{@two();} 68%{@three();} 100%{ @four();}}
+  @keyframes ~'@{name}'{0%{@one();} 34%{@two();} 68%{@three();} 100%{ @four();}}
+}
+.animation-keyframes-five(@name,@one,@two,@three,@four,@five) {
+  @-moz-keyframes ~'@{name}'{0%{@one();} 25%{@two();} 50%{@three();} 75%{@four();} 100%{ @five();}}
+	@-webkit-keyframes ~'@{name}'{0%{@one();} 25%{@two();} 50%{@three();} 75%{@four();} 100%{ @five();}}
+	@-o-keyframes ~'@{name}'{0%{@one();} 25%{@two();} 50%{@three();} 75%{@four();} 100%{ @five();}}
+	@-ms-keyframes ~'@{name}'{0%{@one();} 25%{@two();} 50%{@three();} 75%{@four();} 100%{ @five();}}
+  @keyframes ~'@{name}'{0%{@one();} 25%{@two();} 50%{@three();} 75%{@four();} 100%{ @five();}}
+}

@@ -1,0 +1,658 @@
+/*--适配不同分辨率--*/
+///*--屏幕--*/
+
+///min 641px
+@media (min-width: 641px) {
+
+  body {
+    padding: 24px 0 0 0;
+  }
+
+
+  //下载按钮
+  .btnb-gap-wrap{
+    padding-bottom: 50px;
+  }
+  .share-download-wrap{
+    height:50px;
+    .share-download-btn {
+      font-size: @font-size-base + 4;
+      line-height: 50px;
+    }
+  }
+
+
+  //商品头部
+  .app-header {
+    margin-top: -24px;
+  }
+
+  //分享详情
+  .share-show-wrap {
+    padding: 0 28px;
+    > h1 {
+      font-size: 2.4rem;
+      line-height: 3.4rem;
+    }
+    > h2 {
+      font-size: 2.2rem;
+      line-height: 3.2rem;
+      padding: 16px 0;
+    }
+    .share-show {
+      * {
+        font-size: 1.8rem !important;
+        line-height: 2.8rem;
+      }
+      > p,
+      p {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+        > a,
+        a {
+          font-size: 1.8rem;
+          line-height: 2.8rem;
+        }
+      }
+      > a {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+      }
+    }
+  }
+
+  //相关阅读
+  .share-links-wrap {
+    padding: 0 28px;
+    div {
+      padding: 10px 28px 0 28px;
+    }
+    h3 {
+      height: 60px;
+      font-size: 1.8rem;
+      line-height: 60px;
+    }
+    a {
+      font-size: 1.8rem;
+      line-height: 80px;
+      height: 80px;
+      &:before {
+        top: 39px;
+      }
+    }
+  }
+
+  //参与详情点赞列表
+  .share-good-wrap {
+    padding: 0 28px;
+  }
+
+  //参与
+  .share-topic-wrap {
+    > h3 {
+      height: 60px;
+      line-height: 60px;
+      padding: 0 28px;
+      font-size: 2rem;
+    }
+    dl {
+      padding: 0 28px;
+    }
+    dd {
+      > a {
+        > h4,
+        > span {
+          font-size: 1.8rem;
+          line-height: 30px;
+          height: 30px;
+        }
+        > div {
+          font-size: 1.8rem;
+          line-height: 2.8rem;
+          > p,
+          p {
+            font-size: 1.8rem;
+            line-height: 2.8rem;
+            > a,
+            a {
+              font-size: 1.8rem;
+            }
+          }
+          > a {
+            font-size: 1.8rem;
+            line-height: 2.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  //评论
+  .share-comment-wrap {
+    > h3 {
+      height: 60px;
+      line-height: 60px;
+      padding: 0 28px;
+      font-size: 2rem;
+    }
+    dl {
+      padding: 0 0 10px 28px;
+      dd {
+        padding: 20px 28px 10px 0;
+        h4,
+        p {
+          font-size: 1.8rem;
+          line-height: 45px;
+          height: 45px;
+        }
+        div {
+          width: 80px;
+          height: 80px;
+        }
+        i {
+          right: 28px;
+          top: 40px;
+        }
+        span {
+          font-size: 1.8rem;
+          line-height: 2.8rem;
+        }
+      }
+
+    }
+  }
+
+  /*标题，价格*/
+  .share-plugin-titlewrap {
+    > div {
+      padding: 12px 28px;
+      p {
+        font-size: 2.0rem;
+        line-height: 3.0rem;
+      }
+    }
+  }
+
+}
+
+///max 640px
+@media (max-width: 640px) {
+  body {
+    padding: 16px 0 0 0;
+  }
+
+  //商品头部
+  .app-header {
+    margin-top: -16px;
+  }
+
+
+  //下载按钮
+  .btnb-gap-wrap{
+    padding-bottom: 45px;
+  }
+  .share-download-wrap{
+    height:45px;
+    .share-download-btn {
+      font-size: @font-size-base + 2;
+      line-height: 45px;
+    }
+  }
+
+  //分享详情
+  .share-show-wrap {
+    padding: 0 24px;
+    > h1 {
+      font-size: 2.2rem;
+      line-height: 3.2rem;
+    }
+    > h2 {
+      font-size: 2.0rem;
+      line-height: 3.0rem;
+      padding: 12px 0;
+    }
+    .share-show {
+      * {
+        font-size: 1.6rem !important;
+        line-height: 2.6rem;
+      }
+      > p,
+      p {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+        > a,
+        a {
+          font-size: 1.6rem;
+        }
+      }
+      > a {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+      }
+    }
+  }
+
+  //相关阅读
+  .share-links-wrap {
+    padding: 0 24px;
+    div {
+      padding: 10px 24px 0 24px;
+    }
+    h3 {
+      height: 40px;
+      font-size: 1.6rem;
+      line-height: 40px;
+    }
+    a {
+      font-size: 1.6rem;
+      line-height: 60px;
+      height: 60px;
+      &:before {
+        top: 29px;
+      }
+    }
+  }
+
+  //参与详情点赞列表
+  .share-good-wrap {
+    padding: 0 24px;
+    h1 {
+      font-size: 2.4rem;
+    }
+  }
+
+  //参与
+  .share-topic-wrap {
+    > h3 {
+      height: 60px;
+      line-height: 60px;
+      padding: 0 24px;
+      font-size: 1.8rem;
+    }
+    dl {
+      padding: 0 24px;
+    }
+    dd {
+      > a {
+        > h4,
+        > span {
+          font-size: 1.6rem;
+          line-height: 30px;
+          height: 30px;
+        }
+        > div {
+          font-size: 1.6rem;
+          line-height: 2.6rem;
+          > p,
+          p {
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+            > a,
+            a {
+              font-size: 1.6rem;
+            }
+          }
+          > a {
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+          }
+        }
+      }
+    }
+  }
+
+  //评论
+  .share-comment-wrap {
+    > h3 {
+      height: 60px;
+      line-height: 60px;
+      padding: 0 24px;
+      font-size: 1.8rem;
+    }
+    dl {
+      padding: 0 0 10px 24px;
+      dd {
+        padding: 20px 24px 10px 0;
+        h4,
+        p {
+          font-size: 1.6rem;
+          line-height: 30px;
+          height: 30px;
+        }
+        div {
+          width: 60px;
+          height: 60px;
+        }
+        i {
+          right: 24px;
+          top: 28px;
+        }
+        span {
+          font-size: 1.6rem;
+          line-height: 2.6rem;
+        }
+      }
+
+    }
+  }
+
+  /*标题，价格*/
+  .share-plugin-titlewrap {
+    > div {
+      padding: 10px 24px;
+      p {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+      }
+    }
+
+  }
+
+}
+
+///max 480px
+@media (max-width: 480px) {
+  body {
+    padding: 10px 0 0 0;
+  }
+
+  //商品头部
+  .app-header {
+    margin-top: -10px;
+  }
+
+  //文章详情
+  .share-show-wrap {
+    padding: 0 16px;
+    > h2 {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      padding: 10px 0;
+    }
+  }
+
+  //相关阅读
+  .share-links-wrap {
+    padding: 0 16px;
+    div {
+      padding: 10px 16px 0 16px;
+    }
+    h3 {
+      height: 30px;
+      font-size: 1.4rem;
+      line-height: 30px;
+    }
+    a {
+      height: 40px;
+      font-size: 1.4rem;
+      line-height: 40px;
+      &:before {
+        top: 19px;
+      }
+    }
+  }
+
+  //参与详情点赞列表
+  .share-good-wrap {
+    padding: 0 16px;
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  //参与
+  .share-topic-wrap {
+    > h3 {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 16px;
+      font-size: 1.6rem;
+    }
+    dl {
+      padding: 0 16px;
+    }
+    dd {
+      > a {
+        > h4,
+        > span {
+          font-size: 1.4rem;
+          line-height: 20px;
+          height: 20px;
+        }
+        > div {
+          font-size: 1.4rem;
+          line-height: 2.4rem;
+          > p,
+          p {
+            font-size: 1.4rem;
+            line-height: 2.4rem;
+            > a,
+            a {
+              font-size: 1.4rem;
+            }
+          }
+          > a {
+            font-size: 1.4rem;
+            line-height: 2.4rem;
+          }
+        }
+      }
+    }
+  }
+
+  //评论
+  .share-comment-wrap {
+    > h3 {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 16px;
+      font-size: 1.6rem;
+    }
+    dl {
+      padding: 0 0 10px 16px;
+      dd {
+        padding: 20px 16px 10px 0;
+        h4,
+        p {
+          font-size: 1.4rem;
+          line-height: 20px;
+          height: 20px;
+        }
+        div {
+          width: 40px;
+          height: 40px;
+        }
+        i {
+          right: 16px;
+          top: 22px;
+        }
+        span {
+          font-size: 1.4rem;
+          line-height: 2.4rem;
+        }
+      }
+
+    }
+  }
+
+  /*标题，价格*/
+  .share-plugin-titlewrap {
+    > div {
+      padding: 8px 16px;
+      p {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+      }
+    }
+  }
+
+}
+
+///max 320px
+@media (max-width: 320px) {
+  body {
+    padding: 8px 0 0 0;
+  }
+
+  //商品头部
+  .app-header {
+    margin-top: -8px;
+  }
+
+
+  //下载按钮
+  .btnb-gap-wrap{
+    padding-bottom: 30px;
+  }
+  .share-download-wrap{
+    height:35px;
+    .share-download-btn {
+      font-size: @font-size-base;
+      line-height: 35px;
+    }
+  }
+
+  //文章详情
+  .share-show-wrap {
+    padding: 0 10px;
+    > h1 {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+    }
+    > h2 {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      padding: 6px 0;
+    }
+    > span {
+      font-size: 1.2rem;
+    }
+    .share-show {
+      * {
+        font-size: 1.2rem !important;
+        line-height: 2.2rem;
+      }
+      > p,
+      p {
+        font-size: 1.2rem;
+        line-height: 2.2rem;
+        > a,
+        a {
+          font-size: 1.2rem;
+        }
+      }
+      > a {
+        font-size: 1.2rem;
+        line-height: 2.2rem;
+      }
+    }
+  }
+
+  //相关阅读
+  .share-links-wrap {
+    padding: 0 10px;
+    div {
+      padding: 10px 10px 0 10px;
+    }
+    h3 {
+      height: 20px;
+      font-size: 1.2rem;
+      line-height: 20px;
+    }
+    a {
+      font-size: 1.2rem;
+    }
+  }
+
+  //参与详情点赞列表
+  .share-good-wrap {
+    padding: 0 10px;
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+
+  //参与
+  .share-topic-wrap {
+    > h3 {
+      padding: 0 10px;
+      font-size: 1.6rem;
+    }
+    dl {
+      padding: 0 10px;
+    }
+    dd {
+      > a {
+        > h4,
+        > span {
+          font-size: 1.2rem;
+          line-height: 20px;
+          height: 20px;
+        }
+        > div {
+          font-size: 1.2rem;
+          line-height: 2.2rem;
+          > p,
+          p {
+            font-size: 1.2rem;
+            line-height: 2.2rem;
+            > a,
+            a {
+              font-size: 1.2rem;
+            }
+          }
+          > a {
+            font-size: 1.2rem;
+            line-height: 2.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  //评论
+  .share-comment-wrap {
+    > h3 {
+      padding: 0 10px;
+      font-size: 1.6rem;
+    }
+    dl {
+      padding: 0 0 10px 10px;
+      dd {
+        padding: 20px 10px 10px 0;
+        h4,
+        p {
+          font-size: 1.2rem;
+          line-height: 20px;
+          height: 20px;
+        }
+        div {
+          width: 30px;
+          height: 30px;
+        }
+        i {
+          right: 16px;
+        }
+        span {
+          font-size: 1.2rem;
+          line-height: 2.2rem;
+        }
+      }
+    }
+  }
+
+  /*标题，价格*/
+  .share-plugin-titlewrap {
+    > div {
+      padding: 6px 10px;
+      p {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+      }
+    }
+  }
+
+}
+
+
+

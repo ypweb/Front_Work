@@ -1,0 +1,31 @@
+	<div class="struct-layout-container">
+		<!--主体-->
+		<div class="struct-layout-main" >
+			<!--欢迎广告-->
+			<view-welcome-banner></view-welcome-banner>
+
+			<!--快捷方式-->
+			<view-quick-link data-action="vm.getQuickItem()"></view-quick-link>
+
+
+			<!--查询区域-->
+			<div class="admin-action-item">
+				<!--查询-->
+				<div class="action-item-btn action-item-export g-w-percent8 g-gap-mr2">
+					<span ng-click="vm.toggleModal({display:'show',url:'view/modal/index.html',width:'g-w-percent48'})" class="btn btn-export g-br3 g-w-percent50 g-c-blue3">显示弹窗index</span>
+				</div>
+				<div class="action-item-btn action-item-export g-w-percent8">
+					<span ng-click="vm.toggleModal({display:'show',url:'view/modal/test.html',width:'g-w-percent30'})" class="btn btn-export g-br3 g-w-percent50 g-c-blue3">显示弹窗test</span>
+				</div>
+			</div>
+		</div>
+
+		<!--侧边栏-->
+		<div class="struct-layout-side">
+			<!--logo组件--(指令)-->
+			<view-side-logo></view-side-logo>
+
+			<!--信息组件-->
+			<ul data-view-side-info class="sub-info-wrap" data-menuitem="vm.menuitem"></ul>
+		</div>
+	</div>

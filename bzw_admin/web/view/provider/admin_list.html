@@ -1,0 +1,35 @@
+<h1 class="admin-layout-theme3 g-clear-pt">管理员管理--列表</h1>
+<!--表格-->
+<table id="admin_list_table1" class="table table-bordered table-striped table-hover admin-layout-table">
+
+    <!--分组样式-->
+    <colgroup id="admin_list_colgroup1">
+        <col class="g-w-percent10"/>
+        <col class="g-w-percent5"/>
+        <col class="g-w-percent10"/>
+        <col class="g-w-percent10"/>
+        <col class="g-w-percent5"/>
+        <col class="g-w-percent5"/>
+        <col class="g-w-percent5"/>
+    </colgroup>
+    <!--头部-->
+    <thead>
+    <tr>
+        <th>昵称</th>
+        <th>真实名称</th>
+        <th>邮箱</th>
+        <th>手机</th>
+        <th>登录时间</th>
+        <th>登录次数</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+
+    <!--表主体-->
+    <tbody id="admin_list_body1" class="middle-align"></tbody>
+</table>
+
+<!--分页-->
+<div class="admin-page-wrap">
+    <div class="easyui-pagination g-w-percent50" id="admin_list_page1" data-options="links:5,layout:['manual','first','prev','links','next','last'],displayMsg:'显示{from}&nbsp;到&nbsp;{to}&nbsp;共&nbsp;{total}条记录'"></div>
+</div>

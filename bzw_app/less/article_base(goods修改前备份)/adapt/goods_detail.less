@@ -1,0 +1,86 @@
+/*--适配不同分辨率--*/
+///*--屏幕--*/
+///min 641px
+@media (min-width: 641px){
+	/*body{
+		padding:24px;
+	}*/
+	.goods-detail-wrap{
+		>h1{
+			font-size:2.4rem;
+			line-height:3.4rem;
+		}
+	}
+	.goods-detail-show{
+		*{
+			font-size:1.8rem !important;
+			line-height:2.8rem;
+		}
+		>p,
+		p{
+			font-size:1.8rem;
+			line-height:2.8rem;
+			>a,
+			a{
+				font-size:1.8rem;
+				line-height:2.8rem;
+			}
+		}
+		>a{
+			font-size:1.8rem;
+			line-height:2.8rem;
+		}
+	}
+	
+}
+
+///max 640px
+@media (max-width: 640px){
+	/*body{
+		padding:24px;
+	}*/
+	//文章详情
+	.goods-detail-wrap{
+		>h1{
+			font-size:2.2rem;
+			line-height:3.2rem;
+		}
+	}
+	.goods-detail-show{
+		*{
+			font-size:1.6rem !important;
+			line-height:2.6rem;
+		}
+		>p,
+		p{
+			font-size:1.6rem;
+			line-height:2.6rem;
+			>a,
+			a{
+				font-size:1.6rem;
+			}
+		}
+		>a{
+			font-size:1.6rem;
+			line-height:2.6rem;
+		}
+	}
+}
+
+@media (max-width:480px){
+	/*body{
+		padding:18px;
+	}*/
+}
+
+@media (max-width:320px){
+	/*body{
+		padding:12px;
+	}*/
+}
+
+@media (max-width:280px){
+	/*body{
+		padding:10px;
+	}*/
+}

@@ -1,0 +1,31 @@
+	<!--头部-->
+	<div class="header-bg"></div>
+	<div class="header-content">
+		<div class="header-logo"></div>
+		<div class="header-menu-wrap">
+			<!--横向显示菜单面板-->
+			<ul class="header-menu-item header-menu-show" data-view-header-menu data-header="app_ctrl.menu.headeritem"></ul>
+
+			<!--超过横向部分纵向显示菜单面板-->
+			<ul class="header-menu-item header-menu-dropdown menu-drop g-w-number8" data-view-header-menu data-header="app_ctrl.menu.headersubitem" ng-class="{'g-d-hide':!app_ctrl.menu.isshow,'g-d-hidei':!app_ctrl.menu.active}"></ul>
+
+			<!--信息面板-->
+			<ul class="header-menu-item header-menu-dropdown message-drop g-w-number12" ng-class="{'g-d-hide':!app_ctrl.message.isshow,'g-d-hidei':!app_ctrl.message.active}">
+				<li>
+					<!--个人信息-->
+					<ul class="header-menu-item header-menu-dropdown" data-view-header-message data-message="app_ctrl.message.login"></ul>
+
+					<!--模式切换-->
+					<ul class="header-menu-item header-menu-dropdown admin-item-group admin-item-group2" data-list="app_ctrl.viewmode.list" data-vmvalue="app_ctrl.viewmode.value" data-action="app_ctrl.changeVM()" data-view-header-viewmode></ul>
+				</li>
+			</ul>
+
+			<!--菜单下拉按钮-->
+			<view-header-dropbtn class="header-menu-dropbtn" ng-class="{'menu-dropbtn-active':app_ctrl.menu.active,'g-d-hidei':!app_ctrl.menu.isshow}" data-active="app_ctrl.menu.active"></view-header-dropbtn>
+
+			<!--信息下拉按钮-->
+			<view-header-dropbtn class="header-message-dropbtn" ng-class="{'menu-dropbtn-active':app_ctrl.message.active,'g-d-hidei':!app_ctrl.message.isshow}" data-active="app_ctrl.message.active"></view-header-dropbtn>
+		</div>
+
+		<view-header-logout data-time="app_ctrl.app_config.loginouttime" data-action="app_ctrl.loginOut()"></view-header-logout>
+	</div>

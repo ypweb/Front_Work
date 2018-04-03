@@ -1,0 +1,200 @@
+/*架构*/
+/*机构列表*/
+.admin-list-tsitem{
+  .layout-base();
+  &:empty{
+    min-height:120px;
+    line-height: 120px;
+    text-align: center;
+    border-left:1px solid @color-gray14;
+    border-bottom:1px solid @color-gray14;
+    border-right:1px solid @color-gray14;
+    &:after,
+    &::after{
+      content:'暂无数据';
+      display:inline-block;
+      width:100%;
+      height:100%;
+      font-size:@font-size-base;
+      color:@color-gray6;
+    }
+  }
+  li{
+    .layout-base();
+    .layout-relative-base();
+    height:40px;
+    padding:0 0 0 50px;
+    line-height:40px;
+    .text-of();
+    text-overflow: ellipsis;
+    color:@color-gray6;
+    background:@color-white;
+    border-bottom:1px solid @color-gray14;
+    span{
+      .layout-absoluter-base(5px,5px);
+      height:0;
+      width:0;
+      display:none;
+      cursor: pointer;
+      overflow: hidden;
+      border:1px solid @color-white;
+      .border-radius-base(3px);
+      background:@color-white;
+      &:after,
+      &::after{
+        display:block;
+        text-align:center;
+        line-height:28px;
+        font-size:@font-size-base + 8;
+      }
+      &:hover{
+        .transition(all ease-in .1s .02s);
+        color:@color-red1 !important;
+      }
+    }
+    ul{
+      .layout-float-base();
+      display:none;
+      >li{
+        &:hover{
+          background:@color-gray17;
+        }
+        &:first-child{
+          border-top:1px solid @color-gray14;
+        }
+        &:last-child{
+          border-bottom:none !important;
+        }
+      }
+    }
+    &:hover{
+      span{
+        border:1px solid @color-gray13;
+      }
+    }
+  }
+  .ts-reload{
+    span{
+      height:30px;
+      width:30px;
+      display:inline-block;
+      border:1px solid @color-gray13;
+      &:after,
+      &::after{
+        font-size:@font-size-base + 4;
+        color:@color-gray9;
+        content:'\e63d';
+        font-family:'ux_eight';
+      }
+    }
+  }
+  .ts-child{
+    span{
+      height:30px;
+      width:30px;
+      display:inline-block;
+      &:after,
+      &::after{
+        content:'\e63f';
+        font-family:'ux_eight';
+      }
+    }
+  }
+  .ts-active{
+    height:auto !important;
+    span{
+      border:1px solid @color-gray13;
+      &:after,
+      &::after{
+        content:'\e651';
+        font-family:'ux_eight';
+      }
+    }
+    ul{
+      display:inline-block !important;
+    }
+  }
+
+  .ts-posup,
+  .ts-posdown{
+    cursor:pointer;
+    >ul{
+      cursor: default;
+      li{
+        cursor: default;
+      }
+    }
+    &:before,
+    &::before{
+      .layout-absolutel-base(10px,5px);
+      .layout-base(30px);
+      color:@color-red1;
+      font-size:@font-size-base + 2;
+      display:inline-block;
+      line-height: 30px;
+      text-align: center;
+      height:30px;
+    }
+    span{
+      width:0 !important;
+      height:0 !important;
+      display:none !important;
+      &:after,
+      &::after{
+        content:'' !important;
+        font-family:'' !important;
+      }
+    }
+  }
+
+  .ts-posup{
+    &:before,
+    &::before{
+      content:'\e63f';
+      font-family:'ux_six';
+    }
+  }
+  .ts-posdown{
+    &:before,
+    &::before{
+      content:'\e63e';
+      font-family:'ux_six';
+    }
+  }
+}
+
+/*机构店铺容器*/
+.struct-grid-btnitem-wrap{
+  .layout-base();
+  text-align: center;
+  padding:20px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
