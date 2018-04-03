@@ -1,0 +1,94 @@
+///组件--轮播
+///作者：易品
+
+
+///*--轮播--*/
+.slide-wrap{
+	.layout-absoluter-base(75px,67px);
+	width:214px;
+	height:387px;
+}
+
+
+//轮播图片及按钮
+.slide-toggle{
+	.layout-relative-base(0,0,5);
+	float:left;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	.slideimg{
+		.layout-absolutel-base(0,0,80);
+		width:auto;
+		height:100%;
+		li{
+			width:auto;
+			height:100%;
+			float:left;
+			a{
+				height:100%;
+				width:100%;
+				display:block;
+				float:left;
+				overflow:hidden;
+				.no-outline-base;
+				img{
+					width:100%;
+					height:100%;
+				}
+			}
+		}
+	}
+	.slideimg-btn{
+		.layout-absolutelb-base(0,0,100);
+		.user-select-base;
+		width:100%;
+		height:40px;
+		overflow:hidden;
+		text-align:center;
+		li{
+			width:24px;
+			height:30px;
+			display:inline-block;
+			vertical-align:middle;
+			div{
+				width:16px;
+				height:16px;
+				.border-radius-base(50%);
+				margin:7px auto 0 auto;			
+				cursor:pointer;
+				background:@color-yellow1;
+			}
+			&.slidebtn-active{
+				div{
+					background:@color-red3;
+				}
+			}
+		}
+	}
+	.slide-tips{
+		.layout-absolutel-base(0,387px,80);
+		width:100%;
+		height:40px;
+		.opacity-base(60);
+		p{
+			float:left;
+			width:100%;
+			height:40px;
+			line-height:40px;
+			text-indent:50px;
+			font-size:@font-size-base + 4;
+			font-weight:bold;
+			white-space:nowrap;
+			overflow:hidden;
+			text-overflow:ellipsis;
+			background:@color-base;
+			display:block;
+			color:@color-white;
+			&:hover{
+				.text-shadow-base(0 0 3px @color-white);
+				.transition-base(all ease-in 0.3s 0.05s);
+			}
+		}
+	}
+}

@@ -1,0 +1,162 @@
+///max 1100px
+@media (max-width: 1199px){
+	//body适配
+	body{
+		background:@color-white;
+	}
+
+	//分屏适配
+	.screen-item{
+		>div{
+			width:100%;
+		}
+	}
+
+
+	//第一屏适配
+	.part-slide{
+		width:350px;
+		background-size:350px auto;
+		left:50%;
+		margin:0 0 0 -220px;
+		height:400px;
+		bottom:-10px;
+	}
+	.index-codewrap{
+		width:350px;
+		top:30px;
+		background-size:300px auto;
+		right:50%;
+		margin:0 -180px 0 0;
+	}
+
+
+
+	//第三屏适配
+	.scene-itemwrap{
+		li{
+			width:50%;
+		}
+		.scene-item3{
+			display:none;
+		}
+	}
+
+
+
+	//第四屏
+	.screen-app{
+		.app-wrap{
+			li{
+				.layout-base(49.5%);
+			}
+		}
+	}
+
+}
+
+
+///max 800px
+@media (max-width: 800px){
+
+	//第二屏适配
+	.product-list{
+		background-size:180px auto;
+		.pl-itemwrap{
+			div{
+				width:100px;
+				height:100px;
+				background-size:auto 100px !important;
+			}
+		}
+		.pl-item1{
+			background:url(../images/screen_icon.png) no-repeat 0 0;
+		}
+		.pl-item2{
+			background:url(../images/screen_icon.png) no-repeat -100px 0;
+		}
+		.pl-item3{
+			background:url(../images/screen_icon.png) no-repeat -200px 0;
+		}
+		.pl-item4{
+			background:url(../images/screen_icon.png) no-repeat -300px 0;
+		}
+	}
+
+
+	//第三屏适配
+	.scene-itemwrap{
+		li{
+			width:100%;
+		}
+		.scene-item2,.scene-item3{
+			display:none;
+		}
+	}
+
+
+}
+
+///max 640px
+@media (max-width: 640px){
+	//第四屏
+	.screen-app{
+		height:650px;
+		.app-wrap{
+			li{
+				.layout-base(49.5%);
+				img{
+					width:200px;
+				}
+			}
+		}
+	}
+}
+
+///max 480px
+@media (max-width: 480px){
+
+	//第二屏适配
+	.product-list{
+		background:none;
+		margin:180px 0 0 0;
+		li{
+			padding:0 10px;
+		}
+		.pl-itemwrap{
+			div{
+				width:80px;
+				height:80px;
+				background-size:auto 80px !important;
+			}
+		}
+		.pl-item1{
+			background:url(../images/screen_icon.png) no-repeat 0 0;
+		}
+		.pl-item2{
+			background:url(../images/screen_icon.png) no-repeat -80px 0;
+		}
+		.pl-item3{
+			background:url(../images/screen_icon.png) no-repeat -160px 0;
+		}
+		.pl-item4{
+			background:url(../images/screen_icon.png) no-repeat -240px 0;
+		}
+	}
+
+
+	//第四屏
+	.screen-app{
+		height:600px;
+		.app-wrap{
+			padding:100px 0 50px 0;
+			li{
+				.layout-base(49.5%);
+				img{
+					width:150px;
+				}
+			}
+		}
+	}
+
+}

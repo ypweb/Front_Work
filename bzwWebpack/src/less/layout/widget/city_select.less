@@ -1,0 +1,151 @@
+
+
+
+/*级联地址*/
+.selectwrap{
+	.layout-base;
+	&:after,
+	&::after{
+		content:'';
+		clear:both;
+		height:1px;
+		width:100%;
+		display:block;
+	}
+	.select-item{
+		@item-height:34px;
+		.layout-relative-base;
+		float: left;
+		margin:0 10px 0 0;
+		.box-sizing-base;
+		background:@color-white;
+		height:@item-height;
+		.transition-base(border-color .15s ease-in-out 0 e(',') box-shadow .15s ease-in-out 0);
+		>p{
+			.layout-relative-base;
+			.layout-float-base;
+			.user-select-base;
+			border:1px solid darken(@color-gray14,4%);
+			padding:0 20px 0 0;
+			*width:90%;
+			*padding:0 10px 0 0;
+			height:@item-height;
+			text-align:left;
+			text-indent:12px;
+			line-height:@item-height;
+			white-space:nowrap;
+			overflow:hidden;
+			font-family:@fontfamliy-base;
+			text-overflow:ellipsis;
+			color:@color-gray9;
+			font-size:@font-size-base;
+			&:after{
+				.layout-absoluter-base(10px);
+				height:@item-height;
+				width:20px;
+				text-align: center;
+				content:'\e651';
+				font-family:'ux_eight';
+			}
+		}
+		ul{
+			.layout-absolutel-base(0,@item-height);
+			.layout-base;
+			display:none;
+			border-bottom:1px solid darken(@color-gray14,4%);
+			max-height:150px;
+			overflow-y:auto;
+			overflow-x:hidden;
+			li{
+				.layout-float-base;
+				background:@color-white;
+				height:30px;
+				*width:98%;
+				text-align:center;
+				line-height:30px;
+				overflow:hidden;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				font-size:@font-size-small;
+				border-left:1px solid darken(@color-gray14,4%);
+				border-right:1px solid darken(@color-gray14,4%);
+				color:@color-gray9;
+				cursor:pointer;
+				&.city_active{
+					background:@color-gray16;
+				}
+				&:hover{
+					background:@color-gray16;
+				}
+			}
+		}
+		&:hover{
+			p{
+				&:after{
+					content:'\e61a';
+				}
+			}
+			ul{
+				display:block;
+			}
+		}
+	}
+}
+/*隐藏样式*/
+.select-input-hide{
+	float:left;
+	display:none !important;
+}
+/*默认的样式*/
+.select-input-def{
+	float:left;
+	width:0 !important;
+	.opacity-base(0);
+	margin:0 !important;
+	padding:0 !important;
+	line-height:0 !important;
+	font-size:0 !important;
+	border:0 none !important;
+}
+
+/*提示信息*/
+.validate-has-error{
+	.selectwrap{
+		.select-item{
+			>p{
+				border:1px solid #cc3f44;
+				color:#cc3f44;
+			}
+		}
+	}
+}
+
+
+//适配
+@media screen and (max-width: @screen-lg){
+
+
+
+}
+@media screen and (max-width: @screen-md){
+
+
+}
+@media screen and (max-width: @screen-sm){
+
+
+}
+@media screen and (max-width: @screen-xs){
+
+
+}
+
+
+
+/*
+
+//gird 侧边栏form
+
+
+
+*/

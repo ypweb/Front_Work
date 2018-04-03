@@ -1,0 +1,46 @@
+/*banner广告*/
+.banner-wrap {
+  .layout-relative-base();
+  background-color: @color-gray16;
+  .layout-base();
+  min-height: 300px;
+  max-height: 500px;
+  overflow: hidden;
+  > img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 300px;
+    max-height: 500px;
+  }
+  .banner-theme {
+    .layout-absolutelb-base(50%, -50px);
+    margin: 0 0 0 -500px;
+    width:1000px;
+    height: 50%;
+    overflow: hidden;
+    h1 {
+      display: inline-block;
+      height: 100%;
+      color: @color-white;
+      .text-of();
+      text-align: left;
+      font-size: @font-size-base + 16;
+      line-height: @font-size-base + 16;
+      padding: 0 0 0 20px;
+    }
+  }
+}
+
+
+///max 1000px
+@media screen and (max-width:999px){
+  /*banner广告*/
+  .banner-wrap{
+    .banner-theme{
+      .layout-absolutelb-base(50%,-50px);
+      margin:0 0 0 -320px;
+      width:640px;
+    }
+  }
+}

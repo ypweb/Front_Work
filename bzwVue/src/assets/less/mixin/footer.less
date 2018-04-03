@@ -1,0 +1,42 @@
+//底部信息
+.screen-footer {
+  .layout-base();
+  margin: 0 auto;
+  padding: 0;
+  background: @color-gray2;
+  min-height: 40px;
+  > div {
+    p {
+      font-size: @font-size-base - 2;
+      line-height: 40px;
+      display: inline-block;
+      color: @color-gray8;
+      .text-ww();
+      &:first-child {
+        width: 64%;
+        text-align: left;
+      }
+      &:first-child + p {
+        width: 34%;
+        text-align: right;
+      }
+    }
+  }
+}
+
+///max 1100px
+@media (max-width: 1199px) {
+  //底部信息适配
+  .screen-footer {
+    min-height: 40px;
+    padding: 10px 0;
+    > div {
+      p {
+        width: 100% !important;
+        line-height: 20px;
+        display: block;
+        text-align: left !important;
+      }
+    }
+  }
+}

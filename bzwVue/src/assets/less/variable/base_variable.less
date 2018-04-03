@@ -1,0 +1,244 @@
+
+
+///*--字体图标--*/
+@ux-font-one-url:'../fonts/uxone/';
+@ux-font-two-url:'../fonts/uxtwo/';
+@ux-font-three-url:'../fonts/uxthree/';
+@ux-font-four-url:'../fonts/uxfour/';
+@ux-font-five-url:'../fonts/uxfive/';
+@ux-font-six-url:'../fonts/uxsix/';
+@ux-font-seven-url:'../fonts/uxseven/';
+@ux-font-eight-url:'../fonts/uxeight/';
+@ux-font-nine-url:'../fonts/uxnine/';
+@ux-font-name:iconfont;
+
+
+
+
+///*--字体--*/
+@fontfamliy-base:'微软雅黑','雅黑','Microsoft YaHei','YaHei','\5FAE\8F6F\96C5\9ED1','宋体','\5B8B\4F53',sans-serif;
+///*字体大小*/
+@font-size-base:14px;
+@font-size-small:@font-size-base - 2;
+@font-size-default:@font-size-base + 2;
+@font-size-large:@font-size-base + 4;
+@font-size-bigger:@font-size-base + 10;
+
+
+///*--颜色--*/
+@color-type:color;
+
+///*基本色：黑*/
+@color-base:rgba(0,0,0,1.00);
+
+///*基本色：白*/
+@color-white:rgba(255,255,255,1.00);
+
+///*全局色:错误*/
+@color-err:rgba(225,0,0,1.00);
+
+///*全局色:成功*/
+@color-succ:rgba(0,200,35,1.00);
+
+///*全局色:警告*/
+@color-warn:rgba(229,96,0,1.00);
+
+///*全局色:信息提示*/
+@color-info:rgba(0,172,230,1.00);
+
+///*全局色:加重*/
+@color-dark:rgba(36,43,51,1.00);
+
+///*全局色:减淡*/
+@color-ligh:rgba(184,194,204,1.00);
+
+///*全局色:边框*/
+@color-border:rgba(102,102,102,1.00);//#666
+
+///*全局色:获取焦点*/
+@color-focus:rgba(0,140,250,1.00);
+
+///*全局色:常规颜色*/
+@color-default:rgba(51,51,51,1.00);//#333
+
+
+
+///*红色*/
+///*btn:私约按钮*/
+@color-red1:rgba(244,104,104,1.00);
+///*text:价格红色*/
+@color-red2:rgba(195,9,17,1.00);
+///*btn:价格红色*/
+@color-red3:rgba(251,157,143,1.00);
+
+///*绿色*/
+///*btn:关注按钮*/
+@color-green1:rgba(16,178,88,1.00);
+
+///*蓝色*/
+///*btn:举报按钮*/
+@color-blue1:rgba(84,132,222,1.00);
+
+///*黄色*/
+///*header:头部背景*/
+@color-yellow1:rgba(250,191,21,1.00);
+
+///*橘色*/
+@color-orange1:rgba(234,84,4,1.00);
+
+///*灰色*/
+@color-gray1:rgba(17,17,17,1.00);//#111
+@color-gray2:rgba(34,34,34,1.00);//#222
+@color-gray3:rgba(51,51,51,1.00);//#333
+@color-gray4:rgba(68,68,68,1.00);//#444
+@color-gray5:rgba(85,85,85,1.00);//#555
+@color-gray6:rgba(102,102,102,1.00);//#666
+@color-gray7:rgba(119,119,119,1.00);//#777
+@color-gray8:rgba(136,136,136,1.00);//#888
+@color-gray9:rgba(153,153,153,1.00);//#999
+@color-gray10:rgba(170,170,170,1.00);//#aaa
+@color-gray11:rgba(187,187,187,1.00);//#bbb
+@color-gray12:rgba(204,204,204,1.00);//#ccc
+@color-gray13:rgba(221,221,221,1.00);//#ddd
+@color-gray14:rgba(238,238,238,1.00);//#eee
+@color-gray15:rgba(247,247,247,1.00);//#f7f7f7
+@color-gray16:rgba(236,236,236,1.00);//#ececec
+
+
+
+
+
+///*--基础类--*/
+
+///*盒模型*/
+.box-sizing-base(@boxsizing:border-box){-ms-box-sizing:@boxsizing;-o-box-sizing:@boxsizing;-moz-box-sizing:@boxsizing;-webkit-box-sizing:@boxsizing;box-sizing:@boxsizing;}
+
+///*圆角*/
+.border-radius-base(@radius:none){-moz-border-radius:@radius;-ms-border-radius:@radius;-o-border-radius:@radius;-webkit-border-radius:@radius;border-radius:@radius;}
+
+///*容器阴影*/
+.box-shadow-base(@str){
+-moz-box-shadow:@str;-ms-box-shadow:@str;-o-box-shadow:@str;-webkit-box-shadow:@str;box-shadow:@str;}
+
+///*文字阴影*/
+.text-shadow-base(@str){
+-moz-text-shadow:@str;-ms-text-shadow:@str;-o-text-shadow:@str;-webkit-text-shadow:@str;text-shadow:@str;}
+
+///*过渡*/
+.transition-base(@str){-moz-transition:@str;-ms-transition:@str;-o-transition:@str;-webkit-transition:@str;transition:@str;}
+
+///*变换中心*/
+.transform-origin-base(@origin){-moz-transform-origin:@origin;-ms-transform-origin:@origin;-o-transform-origin:@origin;-webkit-transform-origin:@origin;transform-origin:@origin;}
+
+///*变换*/
+.transform-base(@str){-moz-transform:@str;-ms-transform:@str;-o-transform:@str;-webkit-transform:@str;transform:@str;}
+
+///*动画定义*/
+.animation-base(@str){-moz-animation:@str;-ms-animation:@str;-webkit-animation:@str;-o-animation:@str;animation:@str;}
+
+///*横向渐变*/
+.linear-gradienth-base(@startColor: #555, @endColor: #333){
+	background-color: @endColor;
+    background-image: -moz-linear-gradient(left, @startColor, @endColor);
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, from(@startColor), to(@endColor));
+    background-image: -webkit-linear-gradient(left, @startColor, @endColor);
+    background-image: -o-linear-gradient(left, @startColor, @endColor);
+    background-image: linear-gradient(to right, @startColor, @endColor);
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@startColor),argb(@endColor)));
+}
+
+///*纵项渐变*/
+.linear-gradientv-base(@startColor: #555, @endColor: #333){
+	  background-color: mix(@startColor, @endColor, 60%);
+    background-image: -moz-linear-gradient(top, @startColor, @endColor);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor));
+    background-image: -webkit-linear-gradient(top, @startColor, @endColor);
+    background-image: -o-linear-gradient(top, @startColor, @endColor);
+    background-image: linear-gradient(to bottom, @startColor, @endColor);
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor)));
+}
+
+///*文字颜色*/
+.color-t-base(@color){@{color-type}:@color;}
+
+///*背景颜色*/
+.color-bg-base(@color){background-@{color-type}:@color;}
+
+///*轮廓*/
+.no-outline-base(@outline:none){-moz-outline:@outline;-ms-outline:@outline;-o-outline:@outline;-webkit-outline:@outline;outline:@outline;}
+
+///*透明*/
+.opacity-base(@str:100){opacity: @str / 100;filter:~"alpha(opacity=@{str})";}
+
+///*图像灰度*/
+.filter-grayscale-base(@str:100){-webkit-filter:grayscale(~'@{str}%');-moz-filter:grayscale(~'@{str}%');-o-filter:grayscale(~'@{str}%');-ms-filter:grayscale(~'@{str}%');filter:grayscale(~'@{str}%');filter:gray;}
+
+
+///*透视*/
+.perspective-base(@str:50px){-webkit-perspective:@str;-ms-perspective:@str;-moz-perspective:@str;-o-perspective:@str;perspective:@str;
+}
+
+///*透视坐标*/
+.perspective-origin-base(@strx:center,@stry:center){-webkit-perspective-origin:@strx @stry;-moz-perspective-origin:@strx @stry;-ms-perspective-origin:@strx @stry;-o-perspective-origin:@strx @stry;perspective-origin:@strx @stry;
+}
+
+
+///*屏幕模式下的文字缩放(none或者100%为关闭)*/
+.text-size-adjust-base(@str:100%){-moz-text-size-adjust:@str;-o-text-size-adjust:@str;-webkit-text-size-adjust:@str;-ms-text-size-adjust:@str;text-size-adjust:@str;}
+
+///*动态及时尺寸*/
+.calc-base(@obj,@str){@{obj}:-webkit-calc(~'@{str}');@{obj}:-moz-calc(~'@{str}');@{obj}:calc(~'@{str}');}
+
+
+
+
+///*--布局--*/
+
+///*基本布局*/
+.layout-base(@w:100%,@box:border-box){width:@w;.box-sizing-base(@box);}
+
+///*左上屏幕定位*/
+.layout-fixedl-base(@left:0,@top:0,@z-index:100){position:fixed;left:@left;top:@top;z-index:@z-index;}
+
+///*右上屏幕定位*/
+.layout-fixedr-base(@right:0,@top:0,@z-index:100){position:fixed;right:@right;top:@top;z-index:@z-index;}
+
+///*左下屏幕定位*/
+.layout-fixedlb-base(@left:0,@bottom:0,@z-index:100){position:fixed;left:@left;bottom:@bottom;z-index:@z-index;}
+
+///*右下屏幕定位*/
+.layout-fixedrb-base(@right:0,@bottom:0,@z-index:100){position:fixed;right:@right;bottom:@bottom;z-index:@z-index;}
+
+///*相对定位*/
+.layout-relative-base(@left:0,@top:0,@z-index:1){position:relative;left:@left;top:@top;z-index:@z-index;}
+
+///*左上绝对定位*/
+.layout-absolutel-base(@left:0,@top:0,@z-index:5){position:absolute;left:@left;top:@top;z-index:@z-index;}
+
+///*右上绝对定位*/
+.layout-absoluter-base(@right:0,@top:0,@z-index:5){position:absolute;right:@right;top:@top;z-index:@z-index;}
+
+///*左下绝对定位*/
+.layout-absolutelb-base(@left:0,@bottom:0,@z-index:5){position:absolute;left:@left;bottom:@bottom;z-index:@z-index;}
+
+///*右下绝对定位*/
+.layout-absoluterb-base(@right:0,@bottom:0,@z-index:5){position:absolute;right:@right;bottom:@bottom;z-index:@z-index;}
+
+///*浮动*/
+.layout-float-base(@w:100%,@box:border-box,@dir:left){.layout-base(@w,@box);float:@dir;}
+
+
+
+
+///*--文本--*/
+
+///*不换行*/
+.text-of(@o:hidden,@w:nowrap){overflow:@o;white-space:@w;}
+
+///*文字强制换行*/
+.text-ww(@w1:break-all,@w2:break-word){word-break:@w1;word-wrap:@w2;}
+
+///*禁止选中*/
+.user-select-base(@str:none){-moz-user-select:@str;-o-user-select:@str;-webkit-user-select:@str;-ms-user-select:@str;-khtml-user-select:@str;user-select:@str;}

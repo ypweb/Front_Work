@@ -1,0 +1,135 @@
+//头部导航区域
+.header-wrap {
+  .layout-fixedl-base();
+  .layout-base();
+  height: 120px;
+  background: rgba(244, 244, 244, 1);
+}
+
+.heaer-wrapactive {
+  position: fixed !important;
+}
+
+.header-content {
+  .layout-base(1200px);
+  padding: 40px 0 10px 0;
+  margin: 0 auto;
+  height: 100%;
+  .header-logo {
+    float: left;
+    width: 256px;
+    height: 70px;
+    background: url(../images/pc_logo.png) no-repeat 0 0;
+    background-size: 256px 70px;
+  }
+  .header-btn {
+    .layout-fixedr-base();
+    width: 0;
+    height: 0;
+    display: none;
+    cursor: pointer;
+    &:after {
+      .layout-absoluter-base();
+      content: '\e61f';
+      font-family: 'ux_two';
+      text-align: center;
+      font-size: @font-size-base + 8;
+      color: @color-gray3;
+    }
+  }
+  .header-btnactive {
+    &:after {
+      content: '\e634';
+    }
+  }
+  .header-menu {
+    width: 800px;
+    float: right;
+    text-align: right;
+    height: 70px;
+    font-size: 0;
+    white-space: nowrap;
+    li {
+      height: 100%;
+      .box-sizing-base();
+      display: inline-block;
+      margin: 0 10px;
+      border-bottom: 3px solid transparent;
+      a {
+        display: inline-block;
+        height: 70px;
+        line-height: 100px;
+        text-align: center !important;
+        padding: 0 10px;
+        font-size: @font-size-base + 2;
+        color: @color-gray3;
+        .no-outline-base();
+      }
+    }
+    .menu-active {
+      border-bottom: 3px solid @color-red2;
+      a {
+        color: @color-red2;
+      }
+    }
+  }
+}
+
+///max 1100px
+@media (max-width: 1199px) {
+  //头部适配
+  .header-wrap {
+    height: 50px;
+    background: rgba(244, 244, 244, 1);
+  }
+
+  .header-content {
+    .layout-relative-base;
+    width: 100%;
+    padding: 0;
+    .header-logo {
+      margin: 10px 0 0 10px;
+      width: 109px;
+      height: 30px;
+      background-size: 100%;
+    }
+    .header-btn {
+      width: 100px;
+      height: 50px;
+      display: block;
+      &:after {
+        width: 40px;
+        height: 50px;
+        line-height: 50px;
+      }
+    }
+    .header-menu {
+      .layout-fixedr-base(0, 50px);
+      .layout-base(100px);
+      height: 220px;
+      background: rgba(255, 255, 255, 1);
+      display: none;
+      li {
+        .layout-float-base;
+        height: 40px;
+        margin: 0;
+        border-bottom: 1px solid @color-gray14;
+        a {
+          .layout-base;
+          display: block;
+          height: 100%;
+          line-height: 40px;
+          text-align: right;
+          font-size: @font-size-base;
+          color: @color-gray3;
+        }
+      }
+      .menu-active {
+        border-bottom: 3px solid @color-red2;
+        a {
+          color: @color-red2;
+        }
+      }
+    }
+  }
+}
