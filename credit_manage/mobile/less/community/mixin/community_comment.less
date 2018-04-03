@@ -1,0 +1,495 @@
+///文章公共类
+///作者：易品
+
+
+.c-html(){
+	font-size:@font-size-base - 4;
+}
+
+.c-body(){
+	font-size:1.6rem;
+}
+
+//详情容器
+.c-wrap(){
+	.layout-base;
+	>h1{
+		font-size:2.0rem;
+		line-height:3.0rem;
+		color:@color-gray6;
+		.text-ww;
+		font-weight:bold;
+	}
+	>span{
+		display:inline-block;
+		font-size:1.2rem;
+		color:@color-gray12;
+		padding:5px 10px 5px 0;
+		&+span{
+			&:before{
+				content:'浏览:';
+			}
+		}
+		&+span+span{
+			&:before{
+				content:'回复:';
+			}
+		}
+	}
+}
+
+//详情解析
+.c-detail(){
+	*{
+		background:none !important;
+		font-size:1.4rem !important;
+		line-height:2.4rem;
+		text-align:left;
+		color:@color-gray6;
+		.text-ww;
+		max-width:100% !important;
+		text-indent:0;
+	}
+	>table,
+	>div,
+	>section,
+	>p,
+	>ul,
+	>dl,
+	>dd,
+	>dt,
+	>li,
+	>form,
+	>h1,
+	>h2,
+	>h3,
+	>h4,
+	>h5,
+	>h6{
+		width:100% !important;
+		.box-sizing-base !important;
+		margin-left:0 !important;
+		margin-right:0 !important;
+		*{
+			height:auto !important;
+		}
+	}
+	img{
+		max-width:100% !important;
+		margin:10px 0;
+		text-indent:0 !important;
+	}
+	a{
+		.box-sizing-base;
+		display:inline-block;
+		text-decoration:underline;
+		text-align:left;
+		color:@color-blue1;
+		cursor:pointer;
+	}
+	>p,
+	p{
+			font-size:1.4rem;
+			line-height:2.4rem;
+			.text-ww;
+			text-align:left;
+			padding:5px 0;
+			color:@color-gray6;
+			>a,
+			a{
+				font-size:1.4rem;
+				padding:0 10px;
+				width:auto;
+			}
+			img{
+				max-width:100% !important;
+				margin:10px 0;
+			}
+		}
+	>a{
+			width:100%;
+			font-size:1.4rem;
+			line-height:2.4rem;
+			padding:5px 0;
+			img{
+				max-width:100%;
+				margin:10px 0;
+			}
+	}
+}
+
+
+//详情显示区
+.c-show(){
+	.layout-base;
+	margin:10px 0 0 0;
+	text-align:center;
+	.c-detail;
+}
+
+
+//相关阅读
+.c-links(){
+	.layout-base;
+	margin:40px 0 20px 0;
+	padding:0 16px;
+	font-size:0;
+	div{
+		.layout-base;
+		border:1px solid @color-gray12;
+		background:@color-white;
+		padding:10px 16px 0 16px;
+	}
+	h3,a{
+		.layout-base;
+		.text-of;
+		text-overflow:ellipsis;
+	}
+	h3{
+		height:30px;
+		font-size:1.4rem;
+		color:@color-gray9;
+		line-height:30px;
+	}
+	a{ 
+		.layout-relative-base;
+		height:40px;
+		border-bottom:1px solid @color-gray14;
+		font-size:1.4rem;
+		color:@color-gray3;
+		display:inline-block;
+		line-height:40px;
+		padding:0 0 0 16px;
+		&:before{
+			.layout-absolutel-base(7px,19px);
+			content:'.';
+			display:block;
+			overflow:hidden;
+			vertical-align:middle;
+			width:3px;
+			height:3px;
+			.border-radius-base(1px);
+			background:@color-gray3;
+		}
+		&:last-of-type{
+			border-bottom:none;
+		}
+		&:hover{
+			color:@color-yellow1;
+		}
+	}
+}
+
+
+
+
+//点赞列表
+.c-good(){
+	.layout-base;
+	padding:0 16px;
+	h1{
+		.layout-relative-base;
+		.layout-base;
+		height:96px;
+		padding:0 10px 0 112px;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		font-size:2.4rem;
+		line-height:96px;
+		color:@color-gray3;
+		background:@color-gray16;
+		img{
+			.layout-absolutel-base;
+			width:96px;
+			height:96px;
+			display:block;
+			overflow:hidden;
+		}
+	}
+	a{
+		.layout-relative-base;
+		.layout-base;
+		height:156px;
+		padding:48px 64px;
+		cursor:pointer;
+		display:block;
+		&:before,
+		&:after{
+			position:absolute;
+			top:0;
+			z-index:50;
+			display:inline-block;
+			width:60px;
+			height:100%;
+			vertical-align:middle;
+			text-align:center;
+			line-height:156px;
+		}
+		&:before{
+			left:0;
+			content:'\e626';
+			font-family:'ux_eight';
+			font-size:2.5rem;
+			color:@color-gray9;
+		}
+		&:after{
+			right:0;
+			content:'\e63f';
+			font-family:'ux_eight';
+			font-size:3rem;
+			color:@color-gray6;
+		}
+		div{
+			text-align:center;
+			overflow:hidden;
+			width:100%;
+			height:100%;
+			font-size:0;
+			img{
+				width:60px;
+				height:60px;
+				overflow:hidden;
+				display:inline-block;
+				margin:0 8px;
+				.border-radius-base(50%);
+				&:first-child{
+					margin-left:0;
+				}
+				&:last-child{
+					margin-right:0;
+				}
+			}
+		}
+	}
+}
+
+
+//参与
+.c-topic{
+	.layout-base;
+	margin:20px 0;
+	>h3{
+		background:@color-gray16;
+		height:40px;
+		line-height:40px;
+		padding:0 16px;
+		font-size:1.6rem;
+	}
+	dl{
+		.layout-base;
+		padding:0 16px;
+	}
+	dd{
+			.layout-base;
+			margin:2px 0 0 0;
+			padding:20px 0 10px 0;
+			border-bottom:1px solid @color-gray12;
+			.box-shadow-base(0 1px 0 @color-white);
+			>a{
+				display:block;
+				.layout-base;
+				.layout-relative-base;
+				height:100%;
+				>h4,
+				>span{
+					.layout-base;
+					font-size:1.4rem;
+					line-height:20px;
+					height:20px;
+				}
+				>p{
+					.layout-base;
+					height:auto;
+					padding:10px 0;
+					img{
+						.box-sizing-base;
+						max-width:33.33333%;
+						text-align:center;
+						display:inline-block;
+						vertical-align:top;
+						&:nth-child(1){
+							padding:0 2px 0 0;
+						}
+						&:nth-child(2){
+							padding:0 2px;
+						}
+						&:nth-child(3){
+							padding:0 0 0 2px;
+						}
+					}
+				}
+				>h4{
+					color:@color-blue1;
+					padding:0 50% 0 0;
+					margin:0 0 10px 0;
+					.text-of;
+					text-overflow:ellipsis;
+					text-align:left;
+				}
+				>span{
+					color:@color-gray9;
+					text-align:right;	
+					display:inline-block;
+				}
+				>i,
+				>em{
+					display:inline-block;
+					height:16px;
+					color:@color-gray9;
+					font-size:1.2rem;
+					line-height:16px;
+					vertical-align:middle;
+				}
+				>i{
+					.layout-absoluter-base;
+					&:before{
+						content:'\e729';
+						font-family:'ux_one';
+						padding:0 3px 0 0;
+					}
+				}
+				>em{
+					.layout-absoluter-base(50px);
+					&:before{
+						content:'\e61a';
+						font-family:'ux_six';
+						padding:0 3px 0 0;
+					}
+				}
+				>div{
+					.layout-base;
+					font-size:1.4rem;
+					line-height:2.4rem;
+					.text-ww;
+					color:@color-gray6;
+					>p,
+					p{
+							font-size:1.4rem;
+							line-height:2.4rem;
+							.text-ww;
+							text-align:left;
+							padding:5px 0;
+							color:@color-gray3;
+							>a,
+							a{
+								display:inline-block;
+								font-size:1.4rem;
+								text-align:left;
+								text-decoration:underline;
+								padding:0 10px;
+								color:darken(@color-yellow1,5%);
+							}
+							img{
+								max-width:100% !important;
+								margin:10px 0;
+							}
+					}
+					>a{
+							display:inline-block;
+							width:100%;
+							font-size:1.4rem;
+							line-height:2.4rem;
+							padding:5px 0;
+							text-align:center;
+							text-decoration:underline;
+							img{
+								max-width:100%;
+								margin:10px 0;
+							}
+					}
+				}
+			}
+		}
+}
+
+
+//评论
+.c-comment(){
+	.layout-base;
+	margin:20px 0;
+	>h3{
+		background:@color-gray16;
+		height:40px;
+		line-height:40px;
+		padding:0 16px;
+		font-size:1.6rem;
+	}
+	dl{
+		.layout-base;
+		background:@color-gray15;
+		padding:0 0 0 16px;
+		dd{
+			.layout-base;
+			.layout-relative-base;
+			margin:2px 0 0 0;
+			padding:20px 0 10px 50px;
+			border-bottom:1px solid @color-gray12;
+			.box-shadow-base(0 1px 0 @color-white);
+			h4,
+			p{
+				.layout-base;
+				font-size:1.4rem;
+				line-height:20px;
+				text-align:left;
+				height:20px;
+			}
+			div{
+				.layout-absolutel-base(0,20px);
+				width:40px;
+				height:40px;
+				overflow:hidden;
+				.border-radius-base(50%);
+				img{
+					display:block;
+					float:left;
+					width:100%;
+					height:100%;
+				}
+			}
+			h4{
+				color:@color-gray3;
+				padding:0 40% 0 0;
+				.text-of;
+				text-overflow:ellipsis;
+			}
+			p{
+				color:@color-gray9;		
+			}
+			i{
+				.layout-absoluter-base(16px,20px);
+				display:inline-block;
+				height:16px;
+				color:@color-gray9;
+				font-size:1.2rem;
+				line-height:16px;
+				vertical-align:middle;
+				&:before{
+					content:'\e729';
+					font-family:'ux_one';
+					padding:0 3px 0 0;
+				}
+			}
+			span{
+				.layout-base;
+				font-size:1.4rem;
+				line-height:2.4rem;
+				.text-ww;
+				color:@color-gray6;
+				em{
+					color:@color-blue1;
+					padding:0 5px 0 2px;
+				}
+			}
+		}
+		
+	}
+}
+
+
+
+
+
+
+
+

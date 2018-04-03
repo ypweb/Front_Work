@@ -1,0 +1,195 @@
+///640px--767px
+@media (max-width: 767px) {
+  //body适配
+  /*---重置模块---*/
+  @body-max-width: 767px;
+  @body-min-width: 640px;
+  /*主体*/
+  body {
+    max-width: @body-max-width;
+    min-width: @body-min-width;
+  }
+
+  /*默认外部容器*/
+  .layout-default-wrap {
+    min-width: @body-min-width;
+  }
+
+  /*默认内部容器*/
+  .content-default-wrap {
+    min-width: @body-min-width;
+  }
+
+  /*---头部模块---*/
+  .header-content-wrap {
+    @header-logo-width: 80px;
+    /*图标*/
+    /*菜单容器*/
+    .header-menu {
+      .layout-float-base(@body-min-width - @header-logo-width - 2, border-box, right);
+    }
+    .header-nav li a,
+    .header-center a,
+    .header-account a {
+      padding: 20px 10px;
+    }
+  }
+
+  /*---底部模块---*/
+  /*---首页模块---*/
+  /*轮播图*/
+  .layout-slide-wrap {
+    height: 500px;
+  }
+
+  /*牌照*/
+  /*下载*/
+  .layout-download-wrap {
+    @download-height: 494px;
+    @download-img: 294px;
+
+    min-height: @download-height;
+    max-height: @download-height + 100;
+    background-size: 600px auto;
+    .download-wrap {
+      min-height: @download-height;
+      padding: 40px 0 @download-img + 30 0;
+    }
+  }
+
+  /*优势,优点*/
+  .layout-advantage-wrap {
+    .advantage-wrap {
+      > li {
+        h3 {
+          font-size: @font-size-base + 8;
+          line-height: @font-size-base + 12;
+        }
+        p {
+          -ms-text-overflow: ellipsis;
+          text-overflow: ellipsis;
+          .text-of();
+        }
+      }
+    }
+  }
+
+  /*公告*/
+  .layout-notice-wrap {
+    min-height: 290px;
+    .notice-wrap {
+      padding: 30px 0 40px 0;
+    }
+    /*标题*/
+    .notice-title {
+      height: 32px;
+      font-size: @font-size-base + 8;
+      line-height: @font-size-base + 18;
+    }
+    /*列表*/
+    .notice-list {
+      padding: 20px 0 0 50px;
+    }
+  }
+
+  /*---关于模块---*/
+  /*广告1-4*/
+  .layout-banner-wrap{
+    .banner-wrap {
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .layout-banner-wrap {
+    .banner-wrap{
+      height: 250px;
+      background: transparent url('../images/about1_mini.jpg') no-repeat center center;
+      background-size: 100% auto;
+    }
+  }
+
+  .layout-banner-wrap + .layout-banner-wrap2 {
+    .banner-wrap{
+      height: 230px;
+      background: transparent url('../images/about2_mini.jpg') no-repeat center center;
+      background-size: 100% auto;
+    }
+  }
+
+  .layout-banner-wrap + .layout-banner-wrap2 + .layout-banner-wrap {
+    .banner-wrap{
+      height: 230px;
+      background: transparent url('../images/about3_mini.jpg') no-repeat center center;
+      background-size: 100% auto;
+    }
+  }
+
+  .layout-banner-wrap + .layout-banner-wrap2 + .layout-banner-wrap + .layout-banner-wrap {
+    .banner-wrap{
+      height: 340px;
+      background: transparent url('../images/about4_mini.jpg') no-repeat center top;
+      background-size: 100% auto;
+    }
+  }
+
+  /*广告4*/
+  .banner-wrap4 {
+    width: @body-min-width;
+    .account-btn {
+      bottom:-320px;
+    }
+  }
+
+  /*关于我们*/
+  /*---下载模块---*/
+  /*下载广告*/
+  .layout-dlbanner-wrap {
+    @download-height: 450px;
+    @download-img: 301px;
+
+    min-height: @download-height;
+    max-height: @download-height + 100;
+    .dlbanner-wrap {
+      min-height: @download-height;
+      padding: 40px 0 @download-img 0;
+      background-size: 600px auto;
+    }
+  }
+
+  /*下载*/
+  .layout-download1-wrap {
+    @dl-height: 260px;
+
+    height: @dl-height;
+    .download1-wrap {
+      @gap-top: 50px;
+      @gap-bottom: 40px;
+      padding: @gap-top 0 @gap-bottom 0;
+      .dl-btn-wrap {
+        width: 140px;
+        .border-radius-base(3px);
+      }
+    }
+  }
+
+  /*下载描述*/
+  /*---帮助模块---*/
+  /*搜索*/
+  /*搜索结果列表*/
+  /*---列表模块---*/
+  /*列表*/
+  /*分页*/
+  .layout-page-wrap {
+    padding: 0 0 40px 0;
+    .page-wrap {
+      .goto-pagination-wrap {
+        display: none;
+      }
+    }
+  }
+
+  /*---详情模块---*/
+  /*查看详情*/
+}

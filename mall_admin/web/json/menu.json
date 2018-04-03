@@ -1,0 +1,1103 @@
+{
+  "code": "0",
+  "message": "查询成功",
+  "result": {
+    "menu": [
+      {
+        "modClass": "bzw-admin-setting",
+        "modCode": "bzw-admin-setting",
+        "modId": 200,
+        "modItem": [
+          {
+            "modClass": "bzw-admin-role",
+            "modCode": "bzw-admin-role",
+            "modId": 200,
+            "modLink": "bzw-admin-role",
+            "modName": "角色"
+          },
+          {
+            "modClass": "bzw-admin-permission",
+            "modCode": "bzw-admin-permission",
+            "modId": 200,
+            "modLink": "bzw-admin-permission",
+            "modName": "权限"
+          }
+        ],
+        "modLink": "yttx-admin-setting",
+        "modName": "系统设置",
+        "permitItem": [
+          {
+            "funcCode": "bzw-role-add",
+            "funcName": "角色添加",
+            "isPermit": 1,
+            "modId": 200,
+            "prid": 9611
+          },
+          {
+            "funcCode": "bzw-role-update",
+            "funcName": "角色修改",
+            "isPermit": 1,
+            "modId": 200,
+            "prid": 9612
+          },
+          {
+            "funcCode": "bzw-role-delete",
+            "funcName": "角色删除",
+            "isPermit": 1,
+            "modId": 200,
+            "prid": 9613
+          },
+          {
+            "funcCode": "bzw-member-add",
+            "funcName": "成员添加",
+            "isPermit": 1,
+            "modId": 200,
+            "prid": 9614
+          },
+          {
+            "funcCode": "bzw-member-update",
+            "funcName": "成员修改",
+            "isPermit": 1,
+            "modId": 200,
+            "prid": 9615
+          },
+          {
+            "funcCode": "bzw-member-delete",
+            "funcName": "成员删除",
+            "isPermit": 1,
+            "modId": 200,
+            "prid": 9616
+          },
+          {
+            "funcCode": "bzw-other-set",
+            "funcName": "其它设置",
+            "isPermit": 1,
+            "modId": 200,
+            "prid": 9617
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-user-manager",
+        "modCode": "bzw-user-manager",
+        "modId": 210,
+        "modItem": [
+          {
+            "modClass": "bzw-user-list",
+            "modCode": "bzw-user-list",
+            "modId": 210,
+            "modLink": "bzw-user-list",
+            "modName": "用户列表"
+          },
+          {
+            "modClass": "bzw-user-add",
+            "modCode": "bzw-user-add",
+            "modId": 210,
+            "modLink": "bzw-user-add",
+            "modName": "添加用户"
+          },
+          {
+            "modClass": "bzw-user-notice",
+            "modCode": "bzw-user-notice",
+            "modId": 210,
+            "modLink": "bzw-user-notice",
+            "modName": "用户通知"
+          }
+        ],
+        "modLink": "bzw-user-manager",
+        "modName": "用户管理",
+        "permitItem": [
+          {
+            "funcCode": "bzw-user-manager",
+            "funcName": "用户管理",
+            "isPermit": 1,
+            "modId": 210,
+            "prid": 9618
+          },
+          {
+            "funcCode": "bzw-user-add",
+            "funcName": "新增用户",
+            "isPermit": 1,
+            "modId": 210,
+            "prid": 9619
+          },
+          {
+            "funcCode": "bzw-user-edit",
+            "funcName": "新增编辑",
+            "isPermit": 1,
+            "modId": 210,
+            "prid": 9620
+          },
+          {
+            "funcCode": "bzw-user-flow",
+            "funcName": "流水记录",
+            "isPermit": 1,
+            "modId": 210,
+            "prid": 9621
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-announcement",
+        "modCode": "bzw-announcement",
+        "modId": 220,
+        "modItem": [
+          {
+            "modClass": "bzw-announcement_list",
+            "modCode": "bzw-announcement-list",
+            "modId": 220,
+            "modLink": "bzw-announcement-list",
+            "modName": "公告列表"
+          },
+          {
+            "modClass": "bzw-announcement-add",
+            "modCode": "bzw-announcement-add",
+            "modId": 220,
+            "modLink": "bzw-announcement-add",
+            "modName": "新增公告"
+          }
+        ],
+        "modLink": "bzw-announcement",
+        "modName": "公告管理",
+        "permitItem": [
+          {
+            "funcCode": "bzw-announcement",
+            "funcName": "公告管理",
+            "isPermit": 1,
+            "modId": 220,
+            "prid": 9622
+          },
+          {
+            "funcCode": "bzw-announcement-add",
+            "funcName": "新增公告",
+            "isPermit": 1,
+            "modId": 220,
+            "prid": 9623
+          },
+          {
+            "funcCode": "bzw-announcement-edit",
+            "funcName": "公告编辑",
+            "isPermit": 1,
+            "modId": 220,
+            "prid": 9624
+          },
+          {
+            "funcCode": "bzw-announcement-delete",
+            "funcName": "公告删除",
+            "isPermit": 1,
+            "modId": 220,
+            "prid": 9625
+          },
+          {
+            "funcCode": "bzw-announcement-view",
+            "funcName": "公告查看",
+            "isPermit": 1,
+            "modId": 220,
+            "prid": 9626
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-provider",
+        "modCode": "bzw-provider",
+        "modId": 230,
+        "modItem": [
+          {
+            "modClass": "bzw-provider-list",
+            "modCode": "bzw-provider-list",
+            "modId": 230,
+            "modLink": "bzw-provider-list",
+            "modName": "供应商列表"
+          },
+          {
+            "modClass": "bzw-provider-audit",
+            "modCode": "bzw-provider-audit",
+            "modId": 230,
+            "modLink": "bzw-provider-audit",
+            "modName": "待审核供应商"
+          }
+        ],
+        "modLink": "bzw-provider",
+        "modName": "供应商管理",
+        "permitItem": [
+          {
+            "funcCode": "bzw-provider",
+            "funcName": "供应商管理",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9627
+          },
+          {
+            "funcCode": "bzw-provider-goodsadd",
+            "funcName": "商品列表",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9628
+          },
+          {
+            "funcCode": "bzw-provider-goodsupdown",
+            "funcName": "上架，下架",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9629
+          },
+          {
+            "funcCode": "bzw-provider-goodsforbid",
+            "funcName": "商品禁售",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9630
+          },
+          {
+            "funcCode": "bzw-provider-goodsquery",
+            "funcName": "商品查询",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9631
+          },
+          {
+            "funcCode": "bzw-provider-goodsview",
+            "funcName": "商品查看",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9632
+          },
+          {
+            "funcCode": "bzw-provider-edit",
+            "funcName": "供应商编辑",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9633
+          },
+          {
+            "funcCode": "bzw-provider-forbid",
+            "funcName": "供应商禁用",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9634
+          },
+          {
+            "funcCode": "bzw-provider-query",
+            "funcName": "供应商查询",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9635
+          },
+          {
+            "funcCode": "bzw-provider-audit",
+            "funcName": "供应商审核",
+            "isPermit": 1,
+            "modId": 230,
+            "prid": 9636
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-transaction",
+        "modCode": "bzw-transaction",
+        "modId": 240,
+        "modItem": [
+          {
+            "modClass": "bzw-order-manager",
+            "modCode": "bzw-order-manager",
+            "modId": 240,
+            "modLink": "bzw-order-manager",
+            "modName": "订单管理"
+          },
+          {
+            "modClass": "bzw-comment-buyer",
+            "modCode": "bzw-buyser-comment",
+            "modId": 240,
+            "modLink": "bzw-comment-buyer",
+            "modName": "买家评论"
+          },
+          {
+            "modClass": "bzw-comment-saler",
+            "modCode": "bzw-saler-comment",
+            "modId": 240,
+            "modLink": "bzw-comment-saler",
+            "modName": "卖家评论"
+          }
+        ],
+        "modLink": "bzw-transaction",
+        "modName": "交易管理",
+        "permitItem": [
+          {
+            "funcCode": "bzw-order-details",
+            "funcName": "查看订单详情",
+            "isPermit": 1,
+            "modId": 240,
+            "prid": 9637
+          },
+          {
+            "funcCode": "bzw-order-query",
+            "funcName": "查看订单查询",
+            "isPermit": 1,
+            "modId": 240,
+            "prid": 9638
+          },
+          {
+            "funcCode": "bzw-buyer-commentquery",
+            "funcName": "买家评论查询",
+            "isPermit": 1,
+            "modId": 240,
+            "prid": 9639
+          },
+          {
+            "funcCode": "bzw-buyer-commentedit",
+            "funcName": "买家评论修改",
+            "isPermit": 1,
+            "modId": 240,
+            "prid": 9640
+          },
+          {
+            "funcCode": "bzw-buyer-commentdelete",
+            "funcName": "买家评论删除",
+            "isPermit": 1,
+            "modId": 240,
+            "prid": 9641
+          },
+          {
+            "funcCode": "bzw-saler-commentquery",
+            "funcName": "卖家评论查询",
+            "isPermit": 1,
+            "modId": 240,
+            "prid": 9642
+          },
+          {
+            "funcCode": "bzw-saler-commentedit",
+            "funcName": "卖家评论修改",
+            "isPermit": 1,
+            "modId": 240,
+            "prid": 9643
+          },
+          {
+            "funcCode": "bzw-saler-commentdelete",
+            "funcName": "卖家评论删除",
+            "isPermit": 1,
+            "modId": 240,
+            "prid": 9644
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-goods-manager",
+        "modCode": "bzw-goods-manager",
+        "modId": 250,
+        "modItem": [
+          {
+            "modClass": "bzw-goods-audit",
+            "modCode": "bzw-goods-audit",
+            "modId": 250,
+            "modLink": "bzw-goods-audit",
+            "modName": "待审核商品"
+          },
+          {
+            "modClass": "bzw-goods-forbid",
+            "modCode": "bzw-goods-forbid",
+            "modId": 250,
+            "modLink": "bzw-goods-forbid",
+            "modName": "禁售商品"
+          }
+        ],
+        "modLink": "bzw-goods-manager",
+        "modName": "商品管理",
+        "permitItem": [
+          {
+            "funcCode": "bzw-audit-goodsdetails",
+            "funcName": "待审核商品详情",
+            "isPermit": 1,
+            "modId": 250,
+            "prid": 9645
+          },
+          {
+            "funcCode": "bzw-audit-goods",
+            "funcName": "商品审核",
+            "isPermit": 1,
+            "modId": 250,
+            "prid": 9646
+          },
+          {
+            "funcCode": "bzw-forbid-goodslist",
+            "funcName": "禁售商品列表",
+            "isPermit": 1,
+            "modId": 250,
+            "prid": 9647
+          },
+          {
+            "funcCode": "bzw-forbid-goodsview",
+            "funcName": "禁售商品查看",
+            "isPermit": 1,
+            "modId": 250,
+            "prid": 9648
+          },
+          {
+            "funcCode": "bzw-forbid-goodsdelete",
+            "funcName": "禁售商品删除",
+            "isPermit": 1,
+            "modId": 250,
+            "prid": 9649
+          },
+          {
+            "funcCode": "bzw-forbid-goods",
+            "funcName": "禁售商品",
+            "isPermit": 1,
+            "modId": 250,
+            "prid": 9650
+          },
+          {
+            "funcCode": "bzw-goods-updown",
+            "funcName": "商品上架下架",
+            "isPermit": 1,
+            "modId": 250,
+            "prid": 9651
+          },
+          {
+            "funcCode": "bzw-goods-details",
+            "funcName": "商品详情",
+            "isPermit": 1,
+            "modId": 250,
+            "prid": 9652
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-attribute",
+        "modCode": "bzw-attribute",
+        "modId": 260,
+        "modItem": [
+          {
+            "modClass": "bzw-attribute-addval",
+            "modCode": "bzw-attribute-addval",
+            "modId": 260,
+            "modLink": "bzw-attribute-addval",
+            "modName": "商品属性值"
+          },
+          {
+            "modClass": "bzw-attribute-add",
+            "modCode": "bzw-attribute-add",
+            "modId": 260,
+            "modLink": "bzw-attribute-add",
+            "modName": "商品属性"
+          }
+        ],
+        "modLink": "bzw-attribute",
+        "modName": "商品属性",
+        "permitItem": [
+          {
+            "funcCode": "bzw-goods-attributedelete",
+            "funcName": "商品属性删除",
+            "isPermit": 1,
+            "modId": 260,
+            "prid": 9653
+          },
+          {
+            "funcCode": "bzw-attribute-edit",
+            "funcName": "商品属性编辑",
+            "isPermit": 1,
+            "modId": 260,
+            "prid": 9654
+          },
+          {
+            "funcCode": "bzw-attribute-addval",
+            "funcName": "新增商品属性值",
+            "isPermit": 1,
+            "modId": 260,
+            "prid": 9655
+          },
+          {
+            "funcCode": "bzw-attribute-add",
+            "funcName": "新增商品属性",
+            "isPermit": 1,
+            "modId": 260,
+            "prid": 9656
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-goodstype-manager",
+        "modCode": "bzw-goodstype-manager",
+        "modId": 270,
+        "modItem": [
+          {
+            "modClass": "bzw-goodstype-list",
+            "modCode": "bzw-goodstype-list",
+            "modId": 270,
+            "modLink": "bzw-goodstype-list",
+            "modName": "商品分类列表"
+          },
+          {
+            "modClass": "bzw-goodstype-add",
+            "modCode": "bzw-goodstype-add",
+            "modId": 270,
+            "modLink": "bzw-goodstype-add",
+            "modName": "分类新增"
+          }
+        ],
+        "modLink": "bzw-goodstype-manager",
+        "modName": "商品分类管理",
+        "permitItem": [
+          {
+            "funcCode": "bzw-goodstype-edit",
+            "funcName": "商品分类编辑",
+            "isPermit": 1,
+            "modId": 270,
+            "prid": 9657
+          },
+          {
+            "funcCode": "bzw-goodstype-delete",
+            "funcName": "商品分类删除",
+            "isPermit": 1,
+            "modId": 270,
+            "prid": 9658
+          },
+          {
+            "funcCode": "bzw-goodstype-allocationAttr",
+            "funcName": "商品分类分配属性",
+            "isPermit": 1,
+            "modId": 270,
+            "prid": 9659
+          },
+          {
+            "funcCode": "bzw-goodstype-addlower",
+            "funcName": "商品分类新增下级",
+            "isPermit": 1,
+            "modId": 270,
+            "prid": 9660
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-userstats",
+        "modCode": "bzw-userstats",
+        "modId": 280,
+        "modItem": [
+          {
+            "modClass": "bzw-userstats-daily",
+            "modCode": "bzw-userstats-daily",
+            "modId": 280,
+            "modLink": "bzw-userstats-daily",
+            "modName": "每天统计"
+          },
+          {
+            "modClass": "bzw-userstats-week",
+            "modCode": "bzw-userstats-week",
+            "modId": 280,
+            "modLink": "bzw-userstats-week",
+            "modName": "每周统计"
+          },
+          {
+            "modClass": "bzw-userstats-month",
+            "modCode": "bzw-userstats-month",
+            "modId": 280,
+            "modLink": "bzw-userstats-month",
+            "modName": "每月统计"
+          }
+        ],
+        "modLink": "bzw-userstats",
+        "modName": "用户统计",
+        "permitItem": [
+          {
+            "funcCode": "bzw-userstats-query",
+            "funcName": "用户查询",
+            "isPermit": 1,
+            "modId": 280,
+            "prid": 9661
+          },
+          {
+            "funcCode": "bzw-userstats-chart",
+            "funcName": "用户图表",
+            "isPermit": 1,
+            "modId": 280,
+            "prid": 9662
+          },
+          {
+            "funcCode": "bzw-userstats-list",
+            "funcName": "用户列表",
+            "isPermit": 1,
+            "modId": 280,
+            "prid": 9663
+          },
+          {
+            "funcCode": "bzw-userstats-export",
+            "funcName": "导出用户",
+            "isPermit": 1,
+            "modId": 280,
+            "prid": 9664
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-providerstats",
+        "modCode": "bzw-providerstats",
+        "modId": 290,
+        "modItem": [
+          {
+            "modClass": "bzw-providerstats-list",
+            "modCode": "bzw-providerstats-list",
+            "modId": 290,
+            "modLink": "bzw-providerstats-list",
+            "modName": "供应商统计列表"
+          }
+        ],
+        "modLink": "bzw-providerstats",
+        "modName": "供应商统计",
+        "permitItem": [
+          {
+            "funcCode": "bzw-providerstats-query",
+            "funcName": "供应商查询",
+            "isPermit": 1,
+            "modId": 290,
+            "prid": 9665
+          },
+          {
+            "funcCode": "bzw-providerstats-chart",
+            "funcName": "供应商图表",
+            "isPermit": 1,
+            "modId": 290,
+            "prid": 9666
+          },
+          {
+            "funcCode": "bzw-providerstats-list",
+            "funcName": "供应商列表",
+            "isPermit": 1,
+            "modId": 290,
+            "prid": 9667
+          },
+          {
+            "funcCode": "bzw-providerstats-export",
+            "funcName": "导出供应商",
+            "isPermit": 1,
+            "modId": 290,
+            "prid": 9668
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-goodsstats",
+        "modCode": "bzw-goodsstats",
+        "modId": 300,
+        "modItem": [
+          {
+            "modClass": "bzw-goodsstats-list",
+            "modCode": "bzw-goodsstats-list",
+            "modId": 300,
+            "modLink": "bzw-goodsstats-list",
+            "modName": "商品统计列表"
+          }
+        ],
+        "modLink": "bzw-goodsstats",
+        "modName": "商品统计",
+        "permitItem": [
+          {
+            "funcCode": "bzw-goodsstats-query",
+            "funcName": "商品查询",
+            "isPermit": 1,
+            "modId": 300,
+            "prid": 9669
+          },
+          {
+            "funcCode": "bzw-goodsstats-chart",
+            "funcName": "商品图表",
+            "isPermit": 1,
+            "modId": 300,
+            "prid": 9670
+          },
+          {
+            "funcCode": "bzw-goodsstats-list",
+            "funcName": "商品列表",
+            "isPermit": 1,
+            "modId": 300,
+            "prid": 9671
+          },
+          {
+            "funcCode": "bzw-goodsstats-export",
+            "funcName": "导出商品",
+            "isPermit": 1,
+            "modId": 300,
+            "prid": 9672
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-orderstats",
+        "modCode": "bzw-orderstats",
+        "modId": 310,
+        "modItem": [
+          {
+            "modClass": "bzw-orderstats-list",
+            "modCode": "bzw-orderstats-list",
+            "modId": 310,
+            "modLink": "bzw-orderstats-list",
+            "modName": "订单统计列表"
+          }
+        ],
+        "modLink": "bzw-orderstats",
+        "modName": "订单统计",
+        "permitItem": [
+          {
+            "funcCode": "bzw-orderstats-query",
+            "funcName": "订单查询",
+            "isPermit": 1,
+            "modId": 310,
+            "prid": 9673
+          },
+          {
+            "funcCode": "bzw-orderstats-chart",
+            "funcName": "订单图表",
+            "isPermit": 1,
+            "modId": 310,
+            "prid": 9674
+          },
+          {
+            "funcCode": "bzw-orderstats-list",
+            "funcName": "订单列表",
+            "isPermit": 1,
+            "modId": 310,
+            "prid": 9675
+          },
+          {
+            "funcCode": "bzw-orderstats-export",
+            "funcName": "导出订单",
+            "isPermit": 1,
+            "modId": 310,
+            "prid": 9676
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-platform-data",
+        "modCode": "bzw-platform-data",
+        "modId": 320,
+        "modItem": [
+          {
+            "modClass": "bzw-imei-list",
+            "modCode": "bzw-imei-list",
+            "modId": 320,
+            "modLink": "bzw-imei-list",
+            "modName": "IMEI码管理"
+          },
+          {
+            "modClass": "bzw-imei-add",
+            "modCode": "bzw-imei-add",
+            "modId": 320,
+            "modLink": "bzw-imei-add",
+            "modName": "新增IMEI码"
+          },
+          {
+            "modClass": "bzw-complaints-suggestions",
+            "modCode": "bzw-complaints-suggestions",
+            "modId": 320,
+            "modLink": "bzw-complaints-suggestions",
+            "modName": "投诉与建议"
+          }
+        ],
+        "modLink": "bzw-platform-data",
+        "modName": "平台内容数据",
+        "permitItem": [
+          {
+            "funcCode": "bzw-imei-add",
+            "funcName": "添加IMEI码",
+            "isPermit": 1,
+            "modId": 320,
+            "prid": 9677
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-advert-manager",
+        "modCode": "bzw-advert-manager",
+        "modId": 330,
+        "modItem": [
+          {
+            "modClass": "bzw-advert-list",
+            "modCode": "bzw-advert-list",
+            "modId": 330,
+            "modLink": "bzw-advert-list",
+            "modName": "广告列表"
+          },
+          {
+            "modClass": "bzw-advert-add",
+            "modCode": "bzw-advert-add",
+            "modId": 330,
+            "modLink": "bzw-advert-add",
+            "modName": "新增广告"
+          }
+        ],
+        "modLink": "bzw-advert-manager",
+        "modName": "广告管理",
+        "permitItem": [
+          {
+            "funcCode": "bzw-advert-list",
+            "funcName": "广告管理",
+            "isPermit": 1,
+            "modId": 330,
+            "prid": 10598
+          },
+          {
+            "funcCode": "bzw-advert-add",
+            "funcName": "新增广告",
+            "isPermit": 1,
+            "modId": 330,
+            "prid": 10599
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-activity-settings",
+        "modCode": "bzw-activity-settings",
+        "modId": 340,
+        "modItem": [
+          {
+            "modClass": "bzw-activity-list",
+            "modCode": "bzw-activity-list",
+            "modId": 340,
+            "modLink": "bzw-activity-list",
+            "modName": "活动列表"
+          },
+          {
+            "modClass": "bzw-module-set",
+            "modCode": "bzw-module-set",
+            "modId": 340,
+            "modLink": "bzw-module-set",
+            "modName": "设置模块集合"
+          },
+          {
+            "modClass": "bzw-activity-add",
+            "modCode": "bzw-activity-add",
+            "modId": 340,
+            "modLink": "bzw-activity-add",
+            "modName": "添加活动"
+          }
+        ],
+        "modLink": "bzw-activity-settings",
+        "modName": "活动设置",
+        "permitItem": [
+          {
+            "funcCode": "bzw-activity-list",
+            "funcName": "活动列表",
+            "isPermit": 1,
+            "modId": 340,
+            "prid": 10600
+          },
+          {
+            "funcCode": "bzw-module-set",
+            "funcName": "设置模块集合",
+            "isPermit": 1,
+            "modId": 340,
+            "prid": 10601
+          },
+          {
+            "funcCode": "bzw-activity-add",
+            "funcName": "添加活动",
+            "isPermit": 1,
+            "modId": 340,
+            "prid": 10602
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-finance",
+        "modCode": "bzw-finance",
+        "modId": 344,
+        "modItem": [
+          {
+            "modClass": "bzw-finance-cardmanage",
+            "modCode": "bzw-finance-cardmanage",
+            "modId": 344,
+            "modLink": "bzw-finance-cardmanage",
+            "modName": "银行卡管理"
+          },
+          {
+            "modClass": "bzw-finance-cashmanage",
+            "modCode": "bzw-finance-cashmanage",
+            "modId": 344,
+            "modLink": "bzw-finance-cashmanage",
+            "modName": "提现管理"
+          },
+          {
+            "modClass": "bzw-finance-recordmanage",
+            "modCode": "bzw-finance-recordmanage",
+            "modId": 344,
+            "modLink": "bzw-finance-recordmanage",
+            "modName": "交易流水管理"
+          }
+        ],
+        "modLink": "bzw-finance",
+        "modName": "财务管理",
+        "permitItem": [
+          {
+            "funcCode": "bzw-finance-cardmanage-audit",
+            "funcName": "银行卡审核",
+            "isPermit": 1,
+            "modId": 344,
+            "prid": 14748
+          },
+          {
+            "funcCode": "bzw-finance-cashmanage-deal",
+            "funcName": "提现处理",
+            "isPermit": 1,
+            "modId": 344,
+            "prid": 14749
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-userC",
+        "modCode": "bzw-userC",
+        "modId": 348,
+        "modItem": [
+          {
+            "modClass": "bzw-userC-list",
+            "modCode": "bzw-userC-list",
+            "modId": 348,
+            "modLink": "bzw-userC-list",
+            "modName": "会员列表"
+          }
+        ],
+        "modLink": "bzw-userC",
+        "modName": "会员管理(C端)",
+        "permitItem": [
+          {
+            "funcCode": "bzw-userC-list",
+            "funcName": "会员列表",
+            "isPermit": 1,
+            "modId": 348,
+            "prid": 14982
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-profitC",
+        "modCode": "bzw-profitC",
+        "modId": 350,
+        "modItem": [
+          {
+            "modClass": "bzw-profitC-list",
+            "modCode": "bzw-profitC-list",
+            "modId": 350,
+            "modLink": "bzw-profitC-list",
+            "modName": "分润列表"
+          },
+          {
+            "modClass": "bzw-profitC-setting",
+            "modCode": "bzw-profitC-setting",
+            "modId": 350,
+            "modLink": "bzw-profitC-setting",
+            "modName": "分润设置"
+          }
+        ],
+        "modLink": "bzw-profitC",
+        "modName": "分润管理(C端)",
+        "permitItem": [
+          {
+            "funcCode": "bzw-profitC-list",
+            "funcName": "分润列表",
+            "isPermit": 1,
+            "modId": 350,
+            "prid": 14987
+          },
+          {
+            "funcCode": "bzw-profitC-setting",
+            "funcName": "分润设置",
+            "isPermit": 1,
+            "modId": 350,
+            "prid": 14992
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-orderC",
+        "modCode": "bzw-orderC",
+        "modId": 353,
+        "modItem": [
+          {
+            "modClass": "bzw-orderC-list",
+            "modCode": "bzw-orderC-list",
+            "modId": 353,
+            "modLink": "bzw-orderC-list",
+            "modName": "订单列表"
+          }
+        ],
+        "modLink": "bzw-orderC",
+        "modName": "订单管理(C端)",
+        "permitItem": [
+          {
+            "funcCode": "bzw-orderC-list",
+            "funcName": "订单列表",
+            "isPermit": 1,
+            "modId": 353,
+            "prid": 14997
+          }
+        ]
+      },
+      {
+        "modClass": "bzw-financeC",
+        "modCode": "bzw-financeC",
+        "modId": 355,
+        "modItem": [
+          {
+            "modClass": "bzw-financeC-cardmanage",
+            "modCode": "bzw-financeC-cardmanage",
+            "modId": 355,
+            "modLink": "bzw-financeC-cardmanage",
+            "modName": "银行卡管理"
+          },
+          {
+            "modClass": "bzw-financeC-cashmanage",
+            "modCode": "bzw-financeC-cashmanage",
+            "modId": 355,
+            "modLink": "bzw-financeC-cashmanage",
+            "modName": "提现管理"
+          },
+          {
+            "modClass": "bzw-financeC-recordmanage",
+            "modCode": "bzw-financeC-recordmanage",
+            "modId": 355,
+            "modLink": "bzw-financeC-recordmanage",
+            "modName": "交易流水管理"
+          }
+        ],
+        "modLink": "bzw-financeC",
+        "modName": "财务管理(C端)",
+        "permitItem": [
+          {
+            "funcCode": "bzw-financeC-cardmanage",
+            "funcName": "查询银行卡列表",
+            "isPermit": 1,
+            "modId": 355,
+            "prid": 15002
+          },
+          {
+            "funcCode": "bzw-financeC-cardmanage-audit",
+            "funcName": "银行卡审核",
+            "isPermit": 1,
+            "modId": 355,
+            "prid": 15007
+          },
+          {
+            "funcCode": "bzw-financeC-cashmanage",
+            "funcName": "查询提现列表",
+            "isPermit": 1,
+            "modId": 355,
+            "prid": 15016
+          },
+          {
+            "funcCode": "bzw-financeC-cashmanage-deal",
+            "funcName": "提现处理",
+            "isPermit": 1,
+            "modId": 355,
+            "prid": 15021
+          },
+          {
+            "funcCode": "bzw-financeC-recordmanage",
+            "funcName": "交易流水管理",
+            "isPermit": 1,
+            "modId": 355,
+            "prid": 15024
+          }
+        ]
+      }
+    ]
+  }
+}

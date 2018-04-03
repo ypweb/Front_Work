@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Xenon Boostrap Admin Panel" />
+	<meta name="author" content="" />
+	
+	<title>Xenon - Data Tables</title>
+
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/admin.css">
+
+	<script src="../../js/jquery-1.11.1.min.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../../js/common/h5support.js"></script>
+	<![endif]-->
+	
+	
+</head>
+<body class="page-body">
+
+	
+	<div class="page-container">
+		
+		<div id="main_content" class="main-content">
+
+			
+
+			
+			
+			<!-- Removing search and results count filter -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Removing search and results count filter</h3>
+					
+					<div class="panel-options">
+						<a href="#" data-toggle="panel">
+							<span class="collapse-icon">&ndash;</span>
+							<span class="expand-icon">+</span>
+						</a>
+						<a href="#" data-toggle="remove">
+							&times;
+						</a>
+					</div>
+				</div>
+				<div class="panel-body">
+					
+					<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						$("#example-2").dataTable({
+							dom: "t" + "<'row'<'col-xs-6'i><'col-xs-6'p>>",
+							aoColumns: [
+								{bSortable: false},
+								null,
+								null,
+								null,
+								null
+							],
+						});
+						
+						// Replace checkboxes when they appear
+						var $state = $("#example-2 thead input[type='checkbox']");
+						
+						$("#example-2").on('draw.dt', function()
+						{
+							cbr_replace();
+							
+							$state.trigger('change');
+						});
+						
+						// Script to select all checkboxes
+						$state.on('change', function(ev)
+						{
+							var $chcks = $("#example-2 tbody input[type='checkbox']");
+							
+							if($state.is(':checked'))
+							{
+								$chcks.prop('checked', true).trigger('change');
+							}
+							else
+							{
+								$chcks.prop('checked', false).trigger('change');
+							}
+						});
+					});
+					</script>
+					
+					<table class="table table-bordered table-striped" id="example-2">
+						<thead>
+							<tr>
+								<th class="no-sorting">
+									<input type="checkbox" class="cbr">
+								</th>
+								<th>Student Name</th>
+								<th>Average Grade</th>
+								<th>Curriculum / Occupation</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						
+						<tbody class="middle-align">
+						
+							<tr>
+								<td>
+									<input type="checkbox" class="cbr">
+								</td>
+								<td>Randy S. Smith</td>
+								<td>8.7</td>
+								<td>Social and human service</td>
+								<td>
+									<a href="#" class="btn btn-secondary btn-sm btn-icon icon-left">
+										Edit
+									</a>
+									
+									<a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
+										Delete
+									</a>
+									
+									<a href="#" class="btn btn-info btn-sm btn-icon icon-left">
+										Profile
+									</a>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<input type="checkbox" class="cbr">
+								</td>
+								<td>Ellen C. Jones</td>
+								<td>7.2</td>
+								<td>Education and development manager</td>
+								<td>
+									<a href="#" class="btn btn-secondary btn-sm btn-icon icon-left">
+										Edit
+									</a>
+									
+									<a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
+										Delete
+									</a>
+									
+									<a href="#" class="btn btn-info btn-sm btn-icon icon-left">
+										Profile
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<input type="checkbox" class="cbr">
+								</td>
+								<td>Ellen C. Jones</td>
+								<td>7.2</td>
+								<td>Education and development manager</td>
+								<td>
+									<a href="#" class="btn btn-secondary btn-sm btn-icon icon-left">
+										Edit
+									</a>
+									
+									<a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
+										Delete
+									</a>
+									
+									<a href="#" class="btn btn-info btn-sm btn-icon icon-left">
+										Profile
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
+			
+			
+			<!-- Table exporting -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Table exporting</h3>
+					
+					<div class="panel-options">
+						<a href="#" data-toggle="panel">
+							<span class="collapse-icon">&ndash;</span>
+							<span class="expand-icon">+</span>
+						</a>
+						<a href="#" data-toggle="remove">
+							&times;
+						</a>
+					</div>
+				</div>
+				<div class="panel-body">
+					
+					<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						$("#example-4").dataTable({
+							dom: "<'row'<'col-sm-5'l><'col-sm-7'Tf>r>"+
+								 "t"+
+								 "<'row'<'col-xs-6'i><'col-xs-6'p>>",
+							tableTools: {
+								sSwfPath: "../../js/datatables/tabletools/copy_csv_xls_pdf.swf"
+							}
+						});
+					});
+					</script>
+					
+					<table class="table table-bordered table-striped" id="example-4">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Position</th>
+								<th>Office</th>
+								<th>Age</th>
+								<th>Start date</th>
+								<th>Salary</th>
+							</tr>
+						</thead>
+					 
+						<tfoot>
+							<tr>
+								<th>Name</th>
+								<th>Position</th>
+								<th>Office</th>
+								<th>Age</th>
+								<th>Start date</th>
+								<th>Salary</th>
+							</tr>
+						</tfoot>
+					 
+						<tbody>
+							<tr>
+								<td>Tiger Nixon</td>
+								<td>System Architect</td>
+								<td>Edinburgh</td>
+								<td>61</td>
+								<td>2011/04/25</td>
+								<td>$320,800</td>
+							</tr>
+							<tr>
+								<td>Jonas Alexander</td>
+								<td>Developer</td>
+								<td>San Francisco</td>
+								<td>30</td>
+								<td>2010/07/14</td>
+								<td>$86,500</td>
+							</tr>
+
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	
+	
+
+
+
+	<!-- Bottom Scripts -->
+	<script src="../../js/common/base.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/datatables/js/jquery.dataTables.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="../../js/plugins/datatables/dataTables.bootstrap.js"></script>
+	<script src="../../js/plugins/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+	<script src="../../js/plugins/datatables/tabletools/dataTables.tableTools.js"></script>
+
+
+</body>
+</html>

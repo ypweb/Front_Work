@@ -1,0 +1,175 @@
+/*下载广告*/
+.layout-dlbanner-wrap {
+  @download-height: 670px;
+  @download-img: 485px;
+
+  min-height: @download-height;
+  max-height: @download-height + 100;
+  background: @color-white;
+
+  .download-bg {
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+  .download-bgc {
+    width: 100%;
+    left: 0;
+    z-index: 2;
+    background: transparent url('../images/download_bg.jpg') no-repeat center top;
+  }
+  .download-bgl,
+  .download-bgr {
+    width: 50%;
+    z-index: 1;
+  }
+  .download-bgl {
+    left: 0;
+    background: transparent url('../images/download_bgl.jpg') repeat-x left top;
+  }
+  .download-bgr {
+    right: 0;
+    background: transparent url('../images/download_bgr.jpg') repeat-x left top;
+  }
+
+  .dlbanner-wrap {
+    .layout-relative-base(0, 0, 50);
+    min-height: @download-height;
+    padding: 80px 0 @download-img 0;
+    background: transparent url('../images/download_banner.png') no-repeat center bottom;
+    .download-theme{
+      text-align: center;
+      .user-select-base();
+      color: @color-white;
+      width: 100%;
+      height: 40px;
+      font-size: @font-size-base + 16;
+      line-height: 40px;
+      .text-of();
+      margin: 0 0 40px 0;
+    }
+  }
+}
+
+/*下载*/
+.layout-download1-wrap {
+  @dl-height: 350px;
+
+  height: @dl-height;
+  background: @color-white;
+  .download1-wrap {
+    @gap-top: 100px;
+    @gap-bottom: 80px;
+
+    height: 100%;
+    padding: @gap-top 0 @gap-bottom 0;
+    font-size: 0;
+    li {
+      .layout-base(25%);
+      height: 100%;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .dl-btnicon{
+      height:100px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .dl-btnicon-ios,
+    .dl-btnicon-android,
+    .dl-btnicon-pczq {
+      border-right:1px solid @color-gray14;
+    }
+    .dl-btnicon-ios{
+      background:url('../images/dl_ios.png') no-repeat center center;
+    }
+    .dl-btnicon-android{
+      background:url('../images/dl_android.png') no-repeat center center;
+    }
+    .dl-btnicon-pczq {
+      background:url('../images/dl_zq.png') no-repeat center center;
+    }
+    .dl-btnicon-pcqh{
+      background:url('../images/dl_qh.png') no-repeat center center;
+    }
+
+    .dl-btn-wrap{
+      .layout-base(167px);
+      .layout-relative-base();
+      height:40px;
+      display: inline-block;
+      margin:20px 0 0 0;
+      line-height:40px;
+      text-align: center;
+      .border-radius-base(5px);
+      .user-select-base();
+      background:@color-white;
+      color:@color-gray3;
+      font-size:@font-size-base;
+      border:1px solid @color-gray9;
+      overflow: hidden;
+      &:before,
+      &:after{
+        .transform-origin(center center);
+        position: absolute;
+        top:-100px;
+        content:'';
+        width:50%;
+        height:200px;
+        background:@color-white;
+        display:inline-block;
+        .opacity-base(80);
+      }
+      &:before{
+        .transform-base(rotate(30deg));
+        left:-60%;
+      }
+      &:after{
+        .transform-base(rotate(-30deg));
+        right:-60%;
+      }
+      &:hover{
+        .transition-base(all .05s ease-in .02s);
+        background: darken(@color-orange1, 3%);
+        border:1px solid darken(@color-orange1, 8%);
+        color:@color-white;
+        &:before{
+          .transition-base(left .6s ease-in .05s e(',') opacity .6s ease-in .05s);
+          left:120%;
+          .opacity-base(0);
+        }
+        &:after{
+          .transition-base(right .3s ease-in .7s e(',') opacity .3s ease-in .7s);
+          right:120%;
+          .opacity-base(20);
+        }
+      }
+      &:active{
+        background: darken(@color-orange1, 6%);
+        border:1px solid darken(@color-orange1, 12%);
+        color:@color-white;
+      }
+    }
+  }
+}
+
+/*下载描述*/
+.layout-dlremark-wrap{
+  padding:80px 0;
+  min-height:200px;
+  p {
+    padding:2px 0;
+    font-size: @font-size-base;
+    color: @color-gray6;
+    line-height: @font-size-base + 10;
+    &::-moz-selection {
+      color: @color-orange1;
+      background: @color-gray13;
+    }
+    &::selection {
+      color: @color-orange1;
+      background: @color-gray13;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+/*列表*/
+.layout-list-wrap {
+  padding: 80px 0;
+  .list-wrap {
+    @list-height: 80px;
+
+    li {
+      .layout-base();
+      height: @list-height;
+      border-bottom: 1px solid @color-gray14;
+      a {
+        .layout-base();
+        .layout-relative-base();
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        .text-of();
+        display: inline-block;
+        height: 100%;
+        line-height: @list-height;
+        padding: 0 @list-height/2 0 @list-height * 1.5;
+        color: @color-gray5;
+        font-size: @font-size-base + 2;
+        &:after {
+          .layout-absoluter-base();
+          width: @list-height/2;
+          height: 100%;
+          display: inline-block;
+          text-align: center;
+          content: '\e6ec';
+          font-family: 'ux_four';
+          color: @color-gray13;
+          font-size: @font-size-base + 14;
+        }
+        &:hover {
+          .transition-base(color .2s ease-in .02s);
+          color: @color-orange1;
+          &:after {
+            .transition-base(color .2s ease-in .02s);
+            color: @color-orange1;
+          }
+        }
+        span {
+          .layout-absolutel-base();
+          width: @list-height * 2;
+          height: 100%;
+          color: @color-gray9;
+        }
+      }
+    }
+  }
+}
+
+/*分页*/
+.layout-page-wrap{
+  padding:0 0 80px 0;
+}

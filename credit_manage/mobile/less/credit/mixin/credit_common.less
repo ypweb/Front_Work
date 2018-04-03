@@ -1,0 +1,107 @@
+///信用卡列表公共部分
+///作者：易品
+
+
+//tab切换
+.c-detailtab(){
+	.layout-base;
+	padding:20px;
+	font-size:0;
+	a{
+		.layout-base(33.33333%);
+		display:inline-block;
+		padding:8px 0;
+		font-size:2rem;
+		overflow:hidden;
+		border:1px solid @color-red1;
+		text-align:center;
+		background:@color-white;
+		color:@color-red1;
+		&:nth-child(n+2){
+			border-left:0;
+		}
+		&:first-child{
+			.border-radius-base(3px 0 0 3px);
+		}
+		&:last-child{
+			.border-radius-base(0 3px 3px 0);
+		}
+	}
+	.tabactive{
+		color:@color-white;
+		background:@color-red1;
+	}
+}
+
+//攻略列表
+.c-detailguide{
+	@item:80px;
+	a{
+		.layout-base;
+		height:80px;
+		display:inline-block;
+		padding:10px 20px;
+		div{
+			.box-sizing-base;
+			height:100%;
+			&:first-child{
+				.calc-base(width,'100% - @{item}');
+				padding:0 10px 0 0;
+				float:left;
+			}
+			&:last-child{
+				width:@item;
+				overflow:hidden;
+				float:right;
+				img{
+					width:100%;
+					height:100%;
+				}
+			}
+			p{
+				width:100%;
+				height:40px;
+				line-height:20px;
+				font-size:1.8rem;
+				overflow:hidden;
+				color:@color-gray6;	
+			}
+			span{
+				font-size:1.4rem;
+				height:20px;
+				padding:0 5px 0 0;
+				color:@color-gray9;
+			}
+		}
+		border-bottom:1px solid @color-gray14;
+		&:first-child{
+			>div:first-child{
+				&:after{
+					font-size:1.4rem;
+					content:'置顶';
+					color:@color-red1;
+					border:1px solid @color-red1;
+					padding:2px 3px;
+					.border-radius-base(3px);
+				}
+			}
+		}
+	}
+}
+
+//详情列表
+.c-ddetail-list(){
+	.layout-base;
+	background:@color-white;
+	min-height:300px;
+	li{
+		.layout-base;
+		height:80px;
+		display:block;
+		padding:20px;
+		border-bottom:1px solid @color-gray14;
+		&:hover{
+			background:lighten(@color-gray16,2%);
+		}
+	}
+}

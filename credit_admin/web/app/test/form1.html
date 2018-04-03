@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Xenon Boostrap Admin Panel" />
+	<meta name="author" content="" />
+	
+	<title>Xenon - Form Validation</title>
+
+	<link rel="stylesheet" href="../../css/base.css">
+
+	<script src="../../js/common/jquery-1.11.1.js"></script>
+	<!--[if lt IE 9]>
+	<script src="../../js/common/h5support.js"></script>
+	<![endif]-->
+	
+	
+</head>
+<body class="page-body">
+	<div class="page-container">
+
+		
+		<div id="main_content" class="main-content">
+
+			<div class="panel panel-default">
+			
+				<div class="panel-heading">
+					<div class="panel-title">
+						Input validation
+					</div>
+					
+					<small class="text-small pull-right" style="padding-top:5px;">
+						<code>data-validate="rule1,rule2,...,ruleN"</code>
+					</small>
+				</div>
+				
+				<div class="panel-body">
+				
+					<form role="form" id="form1" method="post" class="validate">
+						
+						<div class="form-group">
+							<label class="control-label">1</label>
+							
+							<input type="text" class="form-control" name="name" data-validate="required" data-message-required="This is custom message for required field." placeholder="Required Field" />
+						</div>
+						
+
+						
+						<div class="form-group">
+							<label class="control-label">2</label>
+							
+							<input type="text" class="form-control" name="number" data-validate="number" placeholder="Numeric Field" />
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">3</label>
+							
+							<input type="text" class="form-control" name="url" data-validate="required,url" placeholder="URL" />
+						</div>
+
+						
+						<div class="form-group">
+							<button type="submit" class="btn btn-success">Validate</button>
+							<button type="reset" class="btn btn-white">Reset</button>
+						</div>
+					
+					</form>
+				
+				</div>
+			
+			</div>
+
+		</div>
+		
+
+		
+		
+	</div>
+	
+	
+	
+
+
+
+	<!-- Bottom Scripts -->
+	<script src="../../js/common/base.js"></script>
+	<script src="../../js/plugins/jquery-validate/jquery.validate.js"></script>
+	<script src="../../js/common/common.js"></script>
+
+
+
+
+
+</body>
+</html>

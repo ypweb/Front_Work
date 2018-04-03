@@ -1,0 +1,188 @@
+///768px - 999px;
+@media (max-width: 999px) {
+  /*---重置模块---*/
+  @body-max-width: 999px;
+  @body-min-width: 768px;
+  /*主体*/
+  body {
+    max-width: @body-max-width;
+    min-width: @body-min-width;
+    width: 100%;
+  }
+
+  /*默认外部容器*/
+  .layout-default-wrap {
+    min-width: @body-min-width;
+  }
+
+  /*默认内部容器*/
+  .content-default-wrap {
+    width: @body-min-width;
+  }
+
+  .theme-item {
+    height: 150px;
+    background-size: auto 100% !important;
+  }
+
+  /*头部*/
+  .layout-header-wrap {
+    .header-nav {
+      @item-gap: 20px;
+      > li {
+        width: 110px;
+      }
+      a {
+        height: 100%;
+        line-height: (@layout-header-height - (@item-gap * 2));
+        font-size: @font-size-base + 4;
+        font-weight: normal;
+      }
+      span {
+        display: none;
+        height: 0;
+        width: 0;
+        line-height: 0;
+      }
+    }
+  }
+
+  /*首页*/
+  .index-content-wrap {
+    .index-theme {
+      background-size: 96% auto;
+    }
+    .index-device {
+      width: 100%;
+      background-position: center bottom;
+      background-size: 80% auto;
+    }
+    .index-download {
+      top: 208px;
+      bottom: auto;
+      width: 100%;
+      height: 260px;
+      padding: 0;
+      text-align: center;
+      > div {
+        width: 40%;
+        height: 100%;
+        display: inline-block;
+      }
+      .index-download-android {
+        background-size: 150px auto;
+        span {
+          bottom: 20px;
+        }
+      }
+      .index-download-ios {
+        background-size: 150px auto;
+        span {
+          bottom: 20px;
+        }
+      }
+    }
+  }
+
+  /*关于我们*/
+  .about-content-wrap {
+    .about-remark {
+      margin: 20px 0;
+    }
+    .about-list {
+      li {
+        padding: 0 20px;
+      }
+    }
+  }
+
+  /*产品介绍*/
+  .introduction-content-wrap {
+    @circle-width: 500px;
+    /*圆圈*/
+    .introduction-links {
+      left: -@circle-width * .5;
+    }
+    .introduction-list {
+      > li {
+        width: @circle-width * .6;
+      }
+    }
+    /*电脑*/
+    .introduction-computer {
+      left: 50px;
+      height: 200px;
+    }
+  }
+
+  /*产品描述*/
+  .description-content-wrap {
+    @gallery-height: 428px;
+    @gallery-gap: 20px;
+    @side-item-width: 456px;
+    @main-item-width: 642px;
+    @side-item1-height: 171px;
+    @side-item2-height: 248px;
+
+    width: 100%;
+    /*照片墙*/
+    .description-gallery {
+      height: @gallery-height * 2;
+      text-align: center;
+    }
+    .description-side,
+    .description-main {
+      float: none;
+      display: inline-block;
+    }
+    .description-side {
+      height: @gallery-height;
+      width: @side-item-width;
+      .description-item1 {
+        width: @side-item-width;
+        float: left;
+      }
+      .description-item2 {
+        width: @side-item-width;
+        margin-top: @gallery-gap;
+        float: right;
+      }
+    }
+    .description-main {
+      height: @gallery-height;
+    }
+  }
+
+  /*联系我们*/
+  .contact-content-wrap {
+    .contact-show {
+      /*地图*/
+      .contact-map {
+        margin-left: 5px;
+        width: 48%;
+      }
+      /*联系列表*/
+      .contact-list {
+        li {
+          margin: 20px 0 0 0;
+          font-size: @font-size-base + 4;
+        }
+        .contact-icon{
+          padding-top:5px;
+          line-height: 30px;
+          background-size:40px auto;
+          padding-left:50px;
+        }
+        /*二维码*/
+        .contact-download {
+          @contact-width:140px;
+          height: @contact-width;
+          > div {
+            width: @contact-width;
+          }
+        }
+      }
+    }
+  }
+
+}

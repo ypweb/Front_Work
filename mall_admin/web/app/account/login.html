@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+	<meta name="description" content="布住网后台管理系统--登陆" />
+	<meta name="keywords" content="布住网后台管理系统--登陆">
+  <meta name="author" content="yp" />
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="pragma" content="no-cache">
+	<title>布住网后台管理系统--登陆</title>
+  <link href="../../images/logo_icon.ico" rel="icon">
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/admin.css">
+  	<script src="../../js/common/jquery-1.11.1.js"></script>
+	<!--[if lt IE 9]>
+		<script src="../../js/common/h5support.js"></script>
+	<![endif]-->
+	
+	
+</head>
+<body class="page-body login-body">
+	<div class="login-logo-wrap"></div>
+	<div class="login-layout">
+		<div class="login-sideimage-wrap">
+			<div class="login-sideimage-outer">
+				<div class="login-sideimage-inner">
+					<img alt="" src="../../images/login_icon.png" >
+				</div>
+			</div>
+		</div>
+		<div class="login-main-wrap  login-page login-light">
+			<div class="login-main-show">
+				<!-- 错误提示组件-->
+				<div id="error_wrap" class="errors-container"></div>
+
+
+				<!--不同接口切换-->
+				<ul class="login-menutab-wrap" id="login_menutab_wrap">
+					<li data-type="provider">供应商</li>
+					<li data-type="operator">运营商</li>
+					<li data-type="operator">分仓</li>
+					<li class="menutab-active" data-type="mall">总后台</li>
+				</ul>
+
+
+				<!--供应商登陆面板-->
+				<div class="g-d-hidei" id="login_panel_show1">
+					<form method="post" role="form" id="login_provider" class="login-form login-form-wrap fade-in-effect">
+						<div class="login-header">
+							<p>布住网供应商管理系统</p>
+						</div>
+
+
+						<div class="form-group admin-label-item">
+							<div class="label-item-icon label-item-usernameicon"></div>
+							<label class="control-label" for="username_provider">用户名</label>
+							<input type="text" class="form-control" name="username_provider" id="username_provider" maxlength="13" autocomplete="off" />
+						</div>
+
+						<div class="form-group admin-label-item">
+							<div class="label-item-icon label-item-pwdicon"></div>
+							<label class="control-label" for="passwd_provider">密&nbsp;码</label>
+							<input type="password" autocomplete="off"  class="form-control" name="passwd_provider" id="passwd_provider" />
+						</div>
+
+
+						<div class="form-group admin-label-item">
+							<div class="label-item-icon label-item-validcodeicon"></div>
+							<div class="vc-txt-wrap g-w-percent24">
+								<label class="control-label" for="validcode_provider">验证码</label>
+								<input type="text" class="form-control" name="validcode_provider" id="validcode_provider" autocomplete="off" />
+							</div>
+							<div class="vc-img-wrap g-w-percent24" id="validcode_btn_provider">
+								<img alt="验证码" src="../../images/body_bg.png">
+							</div>
+							<div class="clearfix"></div>
+						</div>
+
+						<div class="form-group">
+							<button type="submit" class="btn g-b-bs-danger g-c-white btn-block text-center">立即登陆</button>
+						</div>
+						<div class="login-footer">
+							<a id="findpwd_provider" href="#">忘记密码?</a>
+						</div>
+					</form>
+					<div class="login-qrcode">
+						<div>
+							<img src="../../images/qr_code.jpg">
+						</div>
+					</div>
+				</div>
+
+				<!--运营商，分仓登陆面板-->
+				<div class="g-d-hidei" id="login_panel_show2">
+					<form method="post" role="form" id="login_operator" class="login-form login-form-wrap fade-in-effect">
+						<div class="login-header">
+							<a href="#" class="logo login-icon">
+								<img src="../../images/logo-red-bg@2x.png" alt="" width="80" />
+								<span>登&nbsp;陆</span>
+							</a>
+							<p>布住网运营管理平台</p>
+						</div>
+
+
+						<div class="form-group admin-label-item">
+							<div class="label-item-icon label-item-usernameicon"></div>
+							<label class="control-label" for="username_operator">用户名</label>
+							<input type="text" class="form-control" name="username_operator" id="username_operator" autocomplete="off" />
+						</div>
+
+						<div class="form-group admin-label-item">
+							<div class="label-item-icon label-item-pwdicon"></div>
+							<label class="control-label" for="passwd_operator">密&nbsp;码</label>
+							<input type="password" autocomplete="off"  class="form-control" name="passwd_operator" id="passwd_operator" />
+						</div>
+
+						<div class="form-group">
+							<button type="submit" class="btn g-b-bs-danger g-c-white btn-block text-center">立即登陆</button>
+						</div>
+
+						<div class="login-footer">
+							<a id="findpwd_operator" href="#">忘记密码?</a>
+						</div>
+
+					</form>
+				</div>
+
+				<!--总后台登陆面板-->
+				<div id="login_panel_show3">
+					<form method="post" role="form" id="login_mall" class="login-form login-form-wrap fade-in-effect">
+						<div class="login-header">
+							<p>布住网后台管理系统</p>
+						</div>
+						<div class="form-group admin-label-item">
+							<div class="label-item-icon label-item-usernameicon"></div>
+							<label class="control-label" for="username_mall">用户名</label>
+							<input type="text" class="form-control" name="username_mall" id="username_mall" autocomplete="off" />
+						</div>
+
+						<div class="form-group admin-label-item">
+							<div class="label-item-icon label-item-pwdicon"></div>
+							<label class="control-label" for="passwd_mall">密&nbsp;码</label>
+							<input type="password" autocomplete="off"  class="form-control" name="passwd" id="passwd_mall" />
+						</div>
+
+
+						<div class="form-group admin-label-item">
+							<div class="label-item-icon label-item-validcodeicon"></div>
+							<div class="vc-txt-wrap g-w-percent24">
+								<label class="control-label" for="validcode_mall">验证码</label>
+								<input type="text" class="form-control" name="validcode_mall" id="validcode_mall" autocomplete="off" />
+							</div>
+							<div class="vc-img-wrap g-w-percent24" id="validcode_btn_mall">
+								<img alt="验证码" src="../../images/body_bg.png">
+							</div>
+							<div class="clearfix"></div>
+						</div>
+
+						<div class="form-group">
+							<button type="submit" class="btn g-b-bs-danger g-c-white btn-block text-center">立即登陆</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--加载遮罩层-->
+	<div id="page_loading_wrap" class="page-loading-overlay g-d-hidei">
+		<div class="loader-2"></div>
+	</div>
+
+
+	<!--提示信息-->
+	<div id="page_support_wrap" class="page-support-wrap g-d-hidei">
+		<div class="page-support-browser">
+			<h1 class="browser-theme">您的浏览器版本太低，请升级您的浏览器</h1>
+			<div class="browser-icon">
+				<a href="http://www.firefox.com.cn/" target="_blank">
+					<p>火狐浏览器</p>
+					<span>Firefox</span>
+					<div class="browser-icon-firefox"></div>
+				</a>
+				<a href="http://www.googlechromer.cn/" target="_blank">
+					<p>谷歌浏览器</p>
+					<span>Chrome</span>
+					<div class="browser-icon-chrome"></div>
+				</a>
+				<a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+					<p>IE浏览器</p>
+					<span>Internet&nbsp;Explorer</span>
+					<div class="browser-icon-ie"></div>
+				</a>
+				<a href="https://liulanqi.baidu.com/70/?sid=11100016" target="_blank">
+					<p>百度浏览器</p>
+					<span>Baidu</span>
+					<div class="browser-icon-baidu"></div>
+				</a>
+				<a href="http://browser.qq.com/?adtag=SEM1" target="_blank">
+					<p>QQ浏览器</p>
+					<span>Tencent</span>
+					<div class="browser-icon-qq"></div>
+				</a>
+			</div>
+		</div>
+		<div class="page-support-login">
+			<div></div>
+			<p>您还未登录<span id="goto_login"></span>秒后跳入登陆页面</p>
+		</div>
+	</div>
+
+
+
+	<!-- Bottom Scripts -->
+	<script src="../../js/common/base.js"></script>
+	<script src="../../js/common/mock.js"></script>
+	<script src="../../js/widgets/test_widget.js"></script>
+  <script src="../../js/plugins/jquery-validate/jquery.validate.js"></script>
+	<script src="../../js/common/common.js"></script>
+  <script src="../../js/account/login.js"></script>
+  
+
+
+</body>
+</html>

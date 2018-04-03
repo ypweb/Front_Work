@@ -1,0 +1,139 @@
+///1000px - 1199px;
+@media (max-width: 1199px) {
+  /*---重置模块---*/
+  @body-max-width: 1199px;
+  @body-min-width: 1000px;
+  /*主体*/
+  body {
+    max-width: @body-max-width;
+    min-width: @body-min-width;
+  }
+
+  /*默认外部容器*/
+  .layout-default-wrap {
+    min-width: @body-min-width;
+  }
+
+  /*默认内部容器*/
+  .content-default-wrap {
+    width: @body-min-width;
+  }
+
+  .theme-item {
+    height: 200px;
+    background-size: auto 100% !important;
+  }
+
+  /*头部*/
+  .layout-header-wrap {
+    /*logo*/
+    .header-logo {
+      width: 80px;
+      overflow: hidden;
+      background-size: auto auto;
+      background-position: 20px center;
+    }
+    .header-nav {
+      > li {
+        width: 140px;
+      }
+    }
+  }
+
+  /*首页*/
+  .index-content-wrap {
+    .index-download {
+      padding: 0 0 30px 0;
+      height: 500px;
+      .index-download-android {
+        background-size: 150px auto;
+        span {
+          bottom: 10px;
+        }
+      }
+      .index-download-ios {
+        background-size: 150px auto;
+        span {
+          bottom: 10px;
+        }
+      }
+    }
+  }
+
+  /*产品介绍*/
+  .introduction-content-wrap {
+    @circle-width: 500px;
+    /*圆圈*/
+    .introduction-links {
+      left: -@circle-width * .4;
+    }
+    .introduction-list {
+      > li {
+        width: @circle-width * .8;
+      }
+    }
+    /*电脑*/
+    .introduction-computer {
+      left: -100px;
+      height: 300px;
+    }
+  }
+
+  /*产品描述*/
+  .description-content-wrap {
+    @gallery-height: 428px;
+    @gallery-gap: 20px;
+    @side-item-width: 456px;
+    @main-item-width: 642px;
+    @side-item1-height: 171px;
+    @side-item2-height: 248px;
+
+    width: 100%;
+    /*照片墙*/
+    .description-gallery {
+      height: @gallery-height + @side-item2-height + @gallery-gap;
+      text-align: center;
+    }
+    .description-side,
+    .description-main {
+      float: none;
+      display: inline-block;
+    }
+    .description-side {
+      height: @gallery-height - @side-item1-height;
+      width: @side-item-width * 2  + @gallery-gap;
+      .description-item1 {
+        width: @side-item-width;
+        float: left;
+      }
+      .description-item2 {
+        width: @side-item-width;
+        margin-top: 0;
+        float: right;
+      }
+    }
+    .description-main {
+      height: @gallery-height;
+      margin-top: @gallery-gap;
+    }
+  }
+
+
+  /*联系我们*/
+  .contact-content-wrap {
+    .contact-show {
+      /*联系列表*/
+      .contact-list {
+        /*二维码*/
+        .contact-download {
+          @contact-width:160px;
+          height: @contact-width;
+          > div {
+            width: @contact-width;
+          }
+        }
+      }
+    }
+  }
+
+}

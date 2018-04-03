@@ -1,0 +1,106 @@
+/*关于广告1-4*/
+.layout-banner-wrap {
+  .banner-wrap {
+    .layout-base();
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+  }
+}
+
+/*广告背景2*/
+.layout-banner-wrap2 {
+  background: url('../images/about2_bg.jpg') repeat-x left top;
+}
+
+/*广告4*/
+.banner-wrap4 {
+  display: block;
+  width: @body-min-width;
+  margin: 0 auto;
+  height: 0;
+  .account-btn {
+    @btn-height: 50px;
+    @btn-width: 268px;
+
+    .layout-absolutelb-base(50%, 100px, 10);
+    margin: 0 0 0 -@btn-width/2;
+    display: inline-block;
+    .no-outline-base();
+    .layout-base(@btn-width);
+    height: @btn-height;
+    .border-radius-base(5px);
+    border: 1px solid @color-white;
+    background: @color-orange1;
+    cursor: pointer;
+    color: @color-white;
+    text-align: center;
+    line-height: @btn-height;
+    font-size: @font-size-base + 10;
+    overflow: hidden;
+    &:hover {
+      background: darken(@color-orange1, 5%);
+    }
+    &:active {
+      background: darken(@color-orange1, 12%);
+    }
+  }
+}
+
+/*关于我们*/
+.layout-aboutus-wrap{
+  padding:90px 0;
+  background: lighten(@color-gray14, 2%);
+  .aboutus-wrap {
+    > li {
+      p {
+         padding:2px 0;
+         font-size: @font-size-base;
+         color: @color-gray6;
+         line-height: @font-size-base + 10;
+         text-indent:2em;
+        &::-moz-selection {
+          color: @color-orange1;
+          background: @color-gray13;
+        }
+        &::selection {
+          color: @color-orange1;
+          background: @color-gray13;
+        }
+      }
+    }
+    .aboutus-info{
+      padding:0 0 60px 0;
+      p{
+        .text-ww();
+      }
+    }
+    .aboutus-contact{
+      border-top:1px dashed darken(@color-gray13,4.4%);
+      padding:60px 0 0 0;
+    }
+    .about_icon{
+      background-image: url(../images/about_icon.png);
+      width: 20px;
+      height: 20px;
+      display:inline-block;
+      overflow: hidden;
+      vertical-align: middle;
+      margin:0 15px 0 0;
+    }
+    .about_icon1 {
+      background-position: 0 0
+    }
+    .about_icon2 {
+      background-position: -20px 0
+    }
+    .about_icon3 {
+      background-position: 0 -20px
+    }
+    .about_icon4 {
+      background-position: -20px -20px
+    }
+  }
+}

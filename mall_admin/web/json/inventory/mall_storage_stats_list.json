@@ -1,0 +1,46 @@
+{
+  "code": 0,
+  "message":"成功",
+  "result":{
+    "list":[{
+      "id":0,
+      "number": "572457fghf",
+      "unit":"634634634",
+      "type":"补货",
+      "provider":"张三",
+      "time": "2016-09-08",
+      "store":"大湘仓",
+      "state":0,
+      "operator":"天长和地久",
+      "remark":"城里的月光",
+      "physicalInventory":60,
+      "availableInventory":50
+    },{
+      "id":1,
+      "number": "GAS0654",
+      "unit":"57wurtyjsy",
+      "type":"增加库存",
+      "provider":"李四",
+      "time": "2016-09-15",
+      "store":"大鄂仓",
+      "operator":"细水长流",
+      "state":1,
+      "remark":"把梦照亮",
+      "physicalInventory":30,
+      "availableInventory":20
+    },{
+      "id":2,
+      "number": "kjg0907",
+      "unit":"536ghk",
+      "type":"追加订单",
+      "provider":"王五",
+      "time": "2016-10-25",
+      "store":"大粤仓",
+      "operator":"有时候有时候",
+      "state":0,
+      "remark":"能不能多点快乐片段",
+      "physicalInventory":130,
+      "availableInventory":100
+    }]
+  }
+}

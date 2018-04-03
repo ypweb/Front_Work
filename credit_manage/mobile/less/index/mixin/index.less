@@ -1,0 +1,99 @@
+///首页
+///作者：易品
+
+//全局设置
+html{
+	font-size:@font-size-base - 4;
+	.layout-base;
+}
+body{
+	background:@color-white;
+	font-size:1.6rem;
+}
+
+//布局
+.app-layout{
+	.app-layout;
+}
+
+
+//启动页
+.index-start-wrap{
+	.layout-fixedl-base(0,0,500);
+	width:100%;
+	width:100vw;
+	height:100%;
+	height:100vh;
+	display:none;
+	background:@color-white url(../images/start.png) center center no-repeat;
+	background-size:300px auto;
+}
+
+//引导页
+.index-slide-wrap{
+	.layout-fixedl-base(0,0,500);
+	width:100%;
+	width:100vw;
+	height:100%;
+	height:100vh;
+	display:none;
+	background:@color-white;
+	.slide-skip-btn{
+		.layout-absoluter-base(30px,20px,10);
+		.user-select-base;
+		padding:5px 10px;
+		.border-radius-base(3px);
+		background:@color-base;
+		color:@color-white;
+		font-size:1.2rem;
+		&:after{
+			content:"秒，跳过";
+		}
+	}
+	.slide-wrap{
+		width:100%;
+		height:100%;
+	}
+	.slideimg{
+		li{
+			background-position:center center;
+			background-color:@color-white;
+			background-repeat:no-repeat;
+		}
+	}
+	.slideimg-btn{
+		text-align:center;
+		padding:0;
+	}
+}
+
+
+//主显示区
+.list-wrap{
+	.layout-base;
+	.c-detailguide;
+}
+
+
+@media (orientation:landscape){
+	//轮播适配
+	.index-slide-wrap{
+		.slideimg{
+			li{
+				background-size:auto 90% !important;
+			}
+		}
+	}
+
+}
+
+@media (orientation:portrait){
+	//轮播适配
+	.index-slide-wrap{
+		.slideimg{
+			li{
+				background-size:90% auto !important;
+			}
+		}
+	}
+}

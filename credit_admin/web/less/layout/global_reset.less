@@ -1,0 +1,97 @@
+///*顶部按钮一像素下移*/
+.user-info-menu{
+	li a{
+		top:0 !important;
+	}
+}
+
+///*菜单图标*/
+[class^="menu-ux-"]:before,[class*=" menu-ux-"]:before{
+	font-family:'ux_six';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right:-6px;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left:14px;
+}
+@media screen and (min-width: @screen-sm){
+		[class^="menu-ux-"]:before,[class*=" menu-ux-"]:before{
+			margin-right:0;
+			margin-left:0;
+		}
+}
+.menu-ux-home{
+	&:before{
+		content:'\e64a';
+	}
+}
+.menu-ux-agent{
+	&:before{
+		content:'\e65c';
+	}
+}
+.menu-ux-article{
+	&:before{
+		content:'\e638';
+	}
+}
+.menu-ux-shop{
+	&:before{
+		content:'\e629';
+	}
+}
+.menu-ux-serve{
+	&:before{
+		content:'\e68a';
+	}
+}
+.menu-ux-credit{
+	&:before{
+		content:'\e679';
+	}
+}
+.menu-ux-finance{
+	&:before{
+		content:'\e678';
+	}
+}
+.menu-ux-payment{
+	&:before{
+		content:'\e627';
+	}
+}
+.menu-ux-user{
+	&:before{
+		content:'\e65a';
+	}
+}
+.menu-ux-ad{
+	&:before{
+		content:'\e63a';
+	}
+}
+.menu-ux-admin{
+	&:before{
+		content:'\e634';
+	}
+}
+.menu-ux-logistics{
+	&:before{
+		content:'\e625';
+	}
+}
+
+//主显示区设置
+.row-main-wrap{
+	@heightgap:275px;
+	min-height:300px;
+	.calc-base(min-height,'100% - @{heightgap}');
+	.calc-base(min-height,'100vh - @{heightgap}');
+}

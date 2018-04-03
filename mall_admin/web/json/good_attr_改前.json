@@ -1,0 +1,101 @@
+{
+  "code": "0",
+  "message": "查询成功",
+  "result": {
+    "bannerList": [
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111435897.jpg"
+      },
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111436651.jpg"
+      },
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111440900.jpg"
+      },
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111442657.jpg"
+      },
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111443324.jpg"
+      }
+    ],
+    "tagsAttrsList": [
+      {
+        "goodsId": 792,
+        "goodsTypeId": 858,
+        "id": 135,
+        "list": [
+          {
+            "goodsTagId": 135,
+            "id": 557,
+            "name": "红色",
+            "sort": 0
+          },
+          {
+            "goodsTagId": 135,
+            "id": 558,
+            "name": "黑色",
+            "sort": 0
+          },
+          {
+            "goodsTagId": 135,
+            "id": 559,
+            "name": "白色",
+            "sort": 0
+          }
+        ],
+        "name": "颜色",
+        "sort": 0
+      },
+      {
+        "goodsId": 792,
+        "goodsTypeId": 858,
+        "id": 136,
+        "list": [
+          {
+            "goodsTagId": 136,
+            "id": 560,
+            "name": "小码",
+            "sort": 0
+          },
+          {
+            "goodsTagId": 136,
+            "id": 561,
+            "name": "中码",
+            "sort": 0
+          },
+          {
+            "goodsTagId": 136,
+            "id": 562,
+            "name": "大码",
+            "sort": 0
+          }
+        ],
+        "name": "规格",
+        "sort": 0
+      }
+    ],
+    "sort": 0,
+    "attrInventoryPrices": [
+      "0#255.00#255.00#1#557#560#255.00#4759",
+      "0#255.00#255.00#0#557#560#255.00#4760",
+      "0#255.00#255.00#0#557#560#255.00#4761",
+      "0#255.00#255.00#0#558#561#255.00#4762",
+      "0#255.00#255.00#0#558#561#255.00#4763",
+      "0#255.00#255.00#0#558#561#255.00#4764",
+      "0#255.00#255.00#0#559#562#255.00#4765",
+      "0#255.00#255.00#0#559#562#255.00#4766",
+      "0#255.00#255.00#0#559#562#255.00#4767"
+    ],
+    "status": 1,
+    "id": 792,
+    "thumbnail": {
+      "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111435897.jpg"
+    },
+    "source": "【重要数据，禁止删除】商户版H5商城店铺自营虚拟供应商",
+    "details": "<img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111444445.jpg' /><br/><img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111444779.jpg' /><br/><img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111445668.jpg' /><br/><img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111446894.jpg' /><br/><img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901111448170.jpg' /><br/>",
+    "name": "咯7顿",
+    "goodsTypeId": 858,
+    "isRecommended": false
+  }
+}

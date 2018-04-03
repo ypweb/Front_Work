@@ -1,0 +1,114 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-gongshang-bank {
+  background-image: url(../images/bank.png);
+  background-position: -160px 0px;
+  width: 160px;
+  height: 160px;
+}
+.icon-guangda-bank {
+  background-image: url(../images/bank.png);
+  background-position: -320px -320px;
+  width: 160px;
+  height: 160px;
+}
+.icon-guangfa-bank {
+  background-image: url(../images/bank.png);
+  background-position: 0px -160px;
+  width: 160px;
+  height: 160px;
+}
+.icon-guangzhou-nongcun-xinyong-bank {
+  background-image: url(../images/bank.png);
+  background-position: -320px 0px;
+  width: 160px;
+  height: 160px;
+}
+.icon-guangzhou_shangye-bank {
+  background-image: url(../images/bank.png);
+  background-position: -160px -160px;
+  width: 160px;
+  height: 160px;
+}
+.icon-huaxia-bank {
+  background-image: url(../images/bank.png);
+  background-position: -320px -160px;
+  width: 160px;
+  height: 160px;
+}
+.icon-jianshe-bank {
+  background-image: url(../images/bank.png);
+  background-position: 0px -320px;
+  width: 160px;
+  height: 160px;
+}
+.icon-jiaotong-bank {
+  background-image: url(../images/bank.png);
+  background-position: -160px -320px;
+  width: 160px;
+  height: 160px;
+}
+.icon-minsheng-bank {
+  background-image: url(../images/bank.png);
+  background-position: 0px 0px;
+  width: 160px;
+  height: 160px;
+}
+.icon-nongye-bank {
+  background-image: url(../images/bank.png);
+  background-position: -480px 0px;
+  width: 160px;
+  height: 160px;
+}
+.icon-pufa-bank {
+  background-image: url(../images/bank.png);
+  background-position: -480px -160px;
+  width: 160px;
+  height: 160px;
+}
+.icon-shenfa-bank {
+  background-image: url(../images/bank.png);
+  background-position: -480px -320px;
+  width: 160px;
+  height: 160px;
+}
+.icon-xingye-bank {
+  background-image: url(../images/bank.png);
+  background-position: 0px -480px;
+  width: 160px;
+  height: 160px;
+}
+.icon-zhaoshang-bank {
+  background-image: url(../images/bank.png);
+  background-position: -160px -480px;
+  width: 160px;
+  height: 160px;
+}
+.icon-zhongguo-bank {
+  background-image: url(../images/bank.png);
+  background-position: -320px -480px;
+  width: 160px;
+  height: 160px;
+}
+.icon-zhongguoyouzheng-bank {
+  background-image: url(../images/bank.png);
+  background-position: -480px -480px;
+  width: 160px;
+  height: 160px;
+}

@@ -1,0 +1,9 @@
+/*主显示区*/
+.struct-layout-main{
+  height:100%;
+  min-height:@layout-content-minheight;
+  padding-left:@layout-contentgap-left;
+  padding-right:@layout-contentgap-left;
+  background:@color-white;
+  .layout-float-base(@layout-container-width - @layout-side-width,border-box,right);
+}

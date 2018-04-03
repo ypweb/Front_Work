@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+    <meta name="keywords" content="中医、中药、康养、旅游、健康、医疗、文化、娱乐、运动、康养、消费"/>
+    <meta name="description"
+          content="华世健康集团有限公司--生物制药、智慧医疗、养生养老、国际医院、健康服务,聚焦中医药大健康产业,以“中医、中药、康养、旅游”为核心产业,为社会提供“健康、医疗、文化、娱乐、运动、康养、消费”城市价值生态"/>
+    <meta name="author" content="yp"/>
+    <title>华世健康集团有限公司--中医、中药、康养、旅游</title>
+    <link href="images/logo_icon.ico" rel="icon">
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body class="hs-body-wrap hs-body-pos hs-body-bg">
+    <!--切换背景-->
+    <div class="hs-toggle-bg">
+        <canvas class="hs-toggle-canvas" id="hs_toggle_canvas"></canvas>
+    </div>
+
+    <!--头部导航区域-->
+    <div class="hs-header-wrap">
+        <div class="header-bg">
+            <div class="header-main"></div>
+            <div class="header-logo"></div>
+        </div>
+    </div>
+
+
+    <!--圆形导航区域-->
+    <div class="hs-circle-wrap">
+        <div class="circle-bg-wrap">
+            <!--圈背景-->
+            <div class="circle-bg circle-path"></div>
+            <!--圈流星-->
+            <div class="circle-bg circle-shooting circle-shooting-animate"></div>
+            <!--圈按钮容器-->
+            <div class="circle-action">
+                <ul class="circle-btn" id="circle_btn">
+                    <li class="btn-item1">
+                    	<div class="btn-show">
+                    		<div class="btn-action btn-icon"></div>
+                    		<div class="btn-action btn-decorate"></div>
+                    		<div class="btn-action btn-background"></div>
+                    	</div>
+                    </li>
+                    <li class="btn-item2">
+                        <div class="btn-show">
+                            <div class="btn-action btn-icon"></div>
+                            <div class="btn-action btn-decorate"></div>
+                            <div class="btn-action btn-background"></div>
+                        </div>
+                    </li>
+                    <li class="btn-item3">
+                        <div class="btn-show">
+                            <div class="btn-action btn-icon"></div>
+                            <div class="btn-action btn-decorate"></div>
+                            <div class="btn-action btn-background"></div>
+                        </div>
+                    </li>
+                    <li class="btn-item4">
+                        <div class="btn-show">
+                            <div class="btn-action btn-icon"></div>
+                            <div class="btn-action btn-decorate"></div>
+                            <div class="btn-action btn-background"></div>
+                        </div>
+                    </li>
+                    <li class="btn-item5">
+                        <div class="btn-show">
+                            <div class="btn-action btn-icon"></div>
+                            <div class="btn-action btn-decorate"></div>
+                            <div class="btn-action btn-background"></div>
+                        </div>
+                    </li>
+                    <li class="btn-item6">
+                        <div class="btn-show">
+                            <div class="btn-action btn-icon"></div>
+                            <div class="btn-action btn-decorate"></div>
+                            <div class="btn-action btn-background"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--操作展现--首页-->
+            <div class="action-panel action-index" id="action_index">
+                <ul class="action-show index-show">
+                    <li class="index-item-bg"></li>
+                    <li class="index-item-cloud"></li>
+                    <li class="index-item-heart"></li>
+                    <li class="index-item-chart"></li>
+                    <li class="index-item-btn"></li>
+                </ul>
+            </div>
+            <!--操作展现--医馆-->
+            <div class="action-panel action-hospital g-d-hidei" id="action_hospital">
+                <ul class="action-show hospital-show">
+                    <li class="hospital-item-front">
+                        <div class="hospital-btn">前台</div>
+                        <p>预约</p>
+                        <p>咨询</p>
+                        <p>登记</p>
+                        <a href="#" target="_blank" class="hospital-link">进入</a>
+                    </li>
+                    <li class="hospital-item-guide">
+                        <div class="hospital-btn">医导</div>
+                        <p>查询</p>
+                        <p>指引</p>
+                        <a href="#" target="_blank" class="hospital-link">进入</a>
+                    </li>
+                    <li class="hospital-item-department">
+                        <div class="hospital-btn">科室</div>
+                        <p>诊断</p>
+                        <a href="#" target="_blank" class="hospital-link">进入</a>
+                    </li>
+                    <li class="hospital-item-check">
+                        <div class="hospital-btn">检查</div>
+                        <p>检查</p>
+                        <p>领取结果</p>
+                        <a href="#" target="_blank" class="hospital-link">进入</a>
+                    </li>
+                    <li class="hospital-item-pay">
+                        <div class="hospital-btn">缴费</div>
+                        <p>缴费</p>
+                        <a href="#" target="_blank" class="hospital-link">进入</a>
+                    </li>
+                    <li class="hospital-item-drug">
+                        <div class="hospital-btn">药房</div>
+                        <p>取药</p>
+                        <a href="#" target="_blank" class="hospital-link">进入</a>
+                    </li>
+                </ul>
+            </div>
+            <!--操作展现--养老-->
+            <div class="action-panel action-live g-d-hidei" id="action_live">
+                <ul class="action-show live-show">
+                    <li class="live-item-front">
+                        <p>咨询</p>
+                        <p>预定</p>
+                        <div class="live-theme">前台</div>
+                        <div class="live-icon"></div>
+                    </li>
+                    <li class="live-item-service">
+                        <p>办理入住</p>
+                        <p>分配床位</p>
+                        <p>分配设备</p>
+                        <div class="live-theme">服务</div>
+                        <div class="live-icon"></div>
+                    </li>
+                    <li class="live-item-pay">
+                        <p>缴费</p>
+                        <div class="live-theme">财务</div>
+                        <div class="live-icon"></div>
+                    </li>
+                    <li class="live-item-nurse">
+                        <p>呼叫服务</p>
+                        <div class="live-theme">护理</div>
+                        <div class="live-icon"></div>
+                    </li>
+                    <li class="live-item-food">
+                        <p>营养师</p>
+                        <p>菜谱</p>
+                        <div class="live-theme">餐饮</div>
+                        <div class="live-icon"></div>
+                    </li>
+                </ul>
+            </div>
+            <!--操作展现--旅游-->
+            <div class="action-panel action-tour g-d-hidei" id="action_tour">
+                <ul class="action-show tour-show">
+                    <li class="tour-item-line">
+                        <div></div>
+                        <p>旅游线路</p>
+                    </li>
+                    <li class="tour-item-subscribe">
+                        <div></div>
+                        <p>预约线路</p>
+                    </li>
+                    <li class="tour-item-pay">
+                        <div></div>
+                        <p>财务</p>
+                    </li>
+                    <li class="tour-item-car">
+                        <div></div>
+                        <p>车辆管理</p>
+                    </li>
+                </ul>
+            </div>
+            <!--操作展现--药业-->
+            <div class="action-panel action-drug g-d-hidei" id="action_drug">
+                <ul class="action-show drug-show">
+                    <li class="drug-item-admin">设备管理</li>
+                    <li class="drug-item-control">设备控制</li>
+                    <li class="drug-item-data">数据统计</li>
+                </ul>
+            </div>
+            <!--操作展现--中医院-->
+            <div class="action-panel action-tcm g-d-hidei" id="action_tcm">
+                <ul class="action-show tcm-show">
+                    <li class="tcm-item-front">
+                        <div>前台</div>
+                        <p>预约</p>
+                        <p>咨询</p>
+                        <p>登记</p>
+                    </li>
+                    <li class="tcm-item-guid">
+                        <div>医导</div>
+                        <p>查询</p>
+                        <p>指引</p>
+                    </li>
+                    <li class="tcm-item-department">
+                        <div>科室</div>
+                        <p>诊断</p>
+                    </li>
+                    <li class="tcm-item-check">
+                        <div>检查</div>
+                        <p>检查</p>
+                        <p>领取结果</p>
+                    </li>
+                    <li class="tcm-item-pay">
+                        <div>缴费</div>
+                        <p>缴费</p>
+                    </li>
+                    <li class="tcm-item-drug">
+                        <div>药房</div>
+                        <p>取药</p>
+                    </li>
+                </ul>
+            </div>
+            <!--操作展现--终端-->
+            <div class="action-panel action-terminal g-d-hidei" id="action_terminal">
+                <ul class="action-show terminal-show">
+                    <li class="terminal-item-purchase">
+                        <div>终端采购</div>
+                    </li>
+                    <li class="terminal-item-setting">
+                        <div>终端设置</div>
+                    </li>
+                    <li class="terminal-item-admin">
+                        <div>终端管理</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<!--jquery-->
+<script src="js/lib/jquery-1.11.1.js"></script>
+<!--animate-->
+<script src="js/lib/anime.min.js"></script>
+<!--[if gt IE 10]>
+
+<![endif]-->
+<script src="js/index.js"></script>
+<script src="js/index_canvas.js"></script>
+</body>
+</html>

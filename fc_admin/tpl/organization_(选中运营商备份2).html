@@ -1,0 +1,298 @@
+<div ng-controller="OrganizationController as organization_ctrl">
+    <div class="struct-layout-container struct-layout-default">
+        <div class="struct-layout-main">
+            <!--主内容-->
+            <h1 class="admin-layout-theme3  g-clear-pt">
+                组织机构：<span>{{organization_ctrl.record.organizationName!==''?organization_ctrl.record.organizationName:organization_ctrl.record.currentName1}}</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-default g-c-blue3" ng-disabled="organization_ctrl.record.layer1===0 || organization_ctrl.record.layer1 > 1" ng-show="::organization_ctrl.powerlist.organization_edit" ng-click="organization_ctrl.actionStruct({display:'show',area:'struct',type:'edit'})"><i class="btn-action admin-btn-action7"></i>&nbsp;编辑</button><span class="g-c-gray8 g-fs2" ng-show="organization_ctrl.record.layer1 > 1">&nbsp;&nbsp;只能操作直接下级，不是直接下级需要用被操作下级的父级机构登录</span>
+                <button type="button" class="btn btn-default g-c-blue3" ng-disabled="organization_ctrl.record.layer1 !==0 || organization_ctrl.record.organizationId===''" ng-show="::organization_ctrl.powerlist.organization_add" ng-click="organization_ctrl.actionStruct({display:'show',area:'struct',type:'add'})"><i class="btn-action admin-btn-action1"></i>&nbsp;添加子机构</button>
+            </h1>
+
+            <div>
+
+                <!--绑定加盟商-->
+                <div class="struct-side-widget g-f-l g-w-percent8 g-gap-mr2">
+                    <div class="admin-layout-theme4 admin-theme-close g-t-c g-b-gray17 g-pos-r">绑定加盟商(运营商)</div>
+                    <div class="row">
+                        <div class="col-sm-12 g-gap-mb4">
+                            <!--搜索组件-->
+                            <div class="sub-search-wrap g-w-percent49 ui-sub-search" data-active="organization_ctrl.record.searchactive2" data-value="organization_ctrl.record.searchname2"  data-action="organization_ctrl.searchAction2()" data-clear="organization_ctrl.searchClear2()" ></div>
+                            <!--左侧操作区域-->
+                            <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon2"></span>&nbsp;加盟商(运营商)信息</div>
+                            <!--子菜单组件-->
+                            <ul class="sub-menu-wrap g-gap-pb4">
+                                <li>
+                                    <a class="sub-menu-title sub-menu-titleactive"  data-parentid="" data-id="" data-layer="0"  data-list="false" data-label="" ng-click="organization_ctrl.rootMenuList($event,'yy')"><label class="sub-menu-checkbox" data-id="">全选:</label>{{organization_ctrl.record.currentName2}}</a>
+                                    <ul class="g-d-showi ui-sub-menu"  ng-init="organization_ctrl.initMenuList('yy')" ng-click="organization_ctrl.toggleMenuList($event,'yy')" id="admin_yystruct_menu" ></ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5 g-t-r">
+                            <span ng-click="organization_ctrl.getSelectStruct()" class="btn btn-red g-br3 g-w-percent40">确定</span>
+                        </div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-5 g-t-l">
+                            <span ng-click="organization_ctrl.clearSelectStruct()" class="btn btn-red g-br3 g-w-percent40">取消</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--权限-->
+                <div class="g-f-l g-w-percent26" ng-show="organization_ctrl.struct.isDesignatedPermit===1 && organization_ctrl.struct.isSettingLogin===1">
+                    <div class="admin-layout-theme4 admin-theme-close g-t-c g-b-gray17 g-pos-r">选择权限</div>
+                    <table class="table table-bordered table-striped table-hover admin-layout-table">
+                        <colgroup id="struct_power_colgroup"></colgroup>
+                        <thead id="struct_power_thead"></thead>
+                        <tbody id="struct_power_tbody"></tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-5 g-t-r">
+                            <span ng-click="organization_ctrl.getSelectPower()" class="btn btn-red g-br3 g-w-percent15">确定</span>
+                        </div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-5 g-t-l">
+                            <span ng-click="organization_ctrl.clearSelectPower()" class="btn btn-red g-br3 g-w-percent15">取消</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--表单-->
+                <div class="g-f-r g-w-percent14">
+                    <div class="admin-layout-theme4 admin-theme-close g-t-c g-b-gray17 g-pos-r">机构设置{{organization_ctrl.struct.id===''?'(新增)':'(编辑)'}}
+                        <span class="mini-icon admin-mini-icon1" ng-click="organization_ctrl.toggleModal({display:'hide',area:'struct'})"></span>
+                    </div>
+
+                    <form ng-submit="organization_ctrl.formSubmit('struct')" name="structFrom" role="form" novalidate method="post" class="admin-layout-form">
+                        <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon2"></span>&nbsp;基本信息</div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>运营商全称</label>
+
+                            <div class="self-input g-pos-r g-w-percent35">
+                                <input type="text" name="fullName" placeholder="请输入运营商全称" required ng-model="organization_ctrl.struct.fullName" class="ui-filter-html-illegal"  />
+                                <span  ng-show="structFrom.fullName.$dirty && structFrom.fullName.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">运营商全称不能为空</span>
+                                <span ng-show="structFrom.fullName.$dirty && structFrom.fullName.$valid" class="self-tips self-tips-yes"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r">运营商简称</label>
+
+                            <div class="self-input g-w-percent35">
+                                <input type="text" name="shortName" ng-model="organization_ctrl.struct.shortName"  />
+                            </div>
+                        </div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>负责人</label>
+
+                            <div class="self-input g-pos-r g-w-percent35">
+                                <input type="text" name="linkman" placeholder="请输入负责人" required  ng-model="organization_ctrl.struct.linkman"  />
+                                <span ng-show="structFrom.linkman.$dirty && structFrom.linkman.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">负责人不能为空</span>
+                                <span ng-show="structFrom.linkman.$dirty && structFrom.linkman.$valid" class="self-tips self-tips-yes"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>手机号码</label>
+
+                            <div class="self-input g-pos-r g-w-percent35">
+                                <input type="text" name="cellphone" required  placeholder="请输入手机号码" maxlength="13"  ng-model="organization_ctrl.struct.cellphone" class="ui-mobile-phone"  />
+                                <span ng-show="structFrom.cellphone.$dirty && structFrom.cellphone.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">手机号码不能为空</span>
+                                <span ng-show="structFrom.cellphone.$dirty && structFrom.cellphone.$invalid && !structFrom.cellphone.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">手机号码格式不合法</span>
+                                <span ng-show="structFrom.cellphone.$dirty && structFrom.cellphone.$valid" class="self-tips self-tips-yes"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r">电话号码</label>
+
+                            <div class="self-input g-pos-r g-w-percent35">
+                                <input type="text" name="telephone" maxlength="13" placeholder=""  ng-model="organization_ctrl.struct.telephone"   class="ui-tele-phone4" />
+                                <span ng-show="structFrom.telephone.$dirty && structFrom.telephone.$invalid" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">电话号码格式不合法</span>
+                                <span ng-show="structFrom.telephone.$dirty && structFrom.telephone.$valid" class="self-tips self-tips-yes"></span>
+                            </div>
+                        </div>
+
+                        <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon2"></span>&nbsp;地址信息</div>
+
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>省</label>
+                            <div class="self-input g-pos-r g-w-percent35">
+                                <select name="province" required ng-model="organization_ctrl.struct.province" ng-change="organization_ctrl.changeAddress('struct','address','city')">
+                                    <option ng-repeat="item in organization_ctrl.address.province" value="{{item.value}}" >{{item.key}}</option>
+                                </select>
+
+                                <span ng-show="structFrom.province.$dirty && structFrom.province.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">省份不能为空</span>
+                                <span ng-show="structFrom.province.$dirty && structFrom.province.$valid" class="self-tips self-tips-yes g-gap-mr3"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>市</label>
+                            <div class="self-input g-pos-r g-w-percent35">
+                                <select ng-change="organization_ctrl.changeAddress('struct','address','country')" name="city" required ng-model="organization_ctrl.struct.city">
+                                    <option ng-repeat="item in organization_ctrl.address.city" value="{{item.value}}" >{{item.key}}</option>
+                                </select>
+                                <span ng-show="structFrom.city.$dirty && structFrom.city.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">市区不能为空</span>
+                                <span ng-show="structFrom.city.$dirty && structFrom.city.$valid" class="self-tips self-tips-yes g-gap-mr3"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>县</label>
+                            <div class="self-input g-pos-r g-w-percent35">
+                                <select name="country"  required ng-model="organization_ctrl.struct.country">
+                                    <option ng-repeat="item in organization_ctrl.address.country" value="{{item.value}}" >{{item.key}}</option>
+                                </select>
+                                <span ng-show="structFrom.country.$dirty && structFrom.country.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">县区不能为空</span>
+                                <span ng-show="structFrom.country.$dirty && structFrom.country.$valid" class="self-tips self-tips-yes g-gap-mr3"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>联系地址</label>
+                            <div class="self-input g-pos-r g-w-percent35">
+                                <input type="text" name="address" required  placeholder="请输入联系地址" ng-model="organization_ctrl.struct.address" />
+                                <span ng-show="structFrom.address.$dirty && structFrom.address.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">联系地址不能为空</span>
+                                <span ng-show="structFrom.address.$dirty && structFrom.address.$valid" class="self-tips self-tips-yes"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-v-t g-t-r">备注</label>
+
+                            <div class="self-input g-w-percent35">
+                                <textarea ng-model="organization_ctrl.struct.remark" name="remark"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon3"></span>&nbsp;是否已审核</div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label">
+                                <input type="radio" ng-model="organization_ctrl.struct.isAudited" ng-value="0" name="isAudited">
+                                &nbsp;默认
+                            </label>
+                            <label class="self-label">
+                                <input type="radio" ng-model="organization_ctrl.struct.isAudited" ng-value="1"  name="isAudited">
+                                &nbsp;已审核
+                            </label>
+                        </div>
+
+
+                        <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon3"></span>&nbsp;状态</div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label">
+                                <input type="radio" ng-model="organization_ctrl.struct.status" ng-value="0" name="status">
+                                &nbsp;正常
+                            </label>
+                            <label class="self-label">
+                                <input type="radio" ng-model="organization_ctrl.struct.status" ng-value="1"  name="status">
+                                &nbsp;停用
+                            </label>
+                        </div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent15 g-t-r">选择绑定加盟店</label>
+
+                            <div class="self-input g-pos-r g-w-percent35" ng-if="organization_ctrl.struct.id!==''">
+                                <input type="text" ng-model="organization_ctrl.struct.bindingShopIds" name="bindingShopIds" class="g-w-percent38" readonly />
+                                <button type="button" ng-click="organization_ctrl.bindStruct()"  class="btn btn-red g-br3 g-f-r g-w-percent10">绑定</button>
+                            </div>
+                            <div class="self-input g-pos-r g-w-percent35" ng-if="organization_ctrl.struct.id===''">
+                                <input type="text" ng-model="organization_ctrl.struct.bindingShopIds" name="bindingShopIds" readonly />
+                            </div>
+                        </div>
+
+
+                        <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon4"></span>&nbsp;登陆信息</div>
+
+                        <div class="form-group-self1">
+                            <label class="self-label g-w-percent50"><input type="checkbox"  ng-model="organization_ctrl.struct.isSettingLogin" ng-change="organization_ctrl.clearLoginInfo()" ng-checked="organization_ctrl.struct.isSettingLogin" ng-true-value="1" ng-false-value="0" name="isSettingLogin">&nbsp;设置登录名与密码</label>
+                        </div>
+
+
+                        <div ng-show="organization_ctrl.struct.isSettingLogin===1" ng-if="organization_ctrl.struct.isSettingLogin===1">
+
+                            <div class="form-group-self1">
+                                <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>登陆用户名</label>
+
+                                <div class="self-input g-pos-r g-w-percent35">
+                                    <input type="text" required ng-model="organization_ctrl.struct.username"  name="username"  placeholder="请输入登陆用户名" />
+                                    <span ng-show="structFrom.username.$dirty&&structFrom.username.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">登陆用户名不能为空</span>
+                                    <span ng-show="structFrom.username.$dirty&&structFrom.username.$valid" class="self-tips self-tips-yes"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group-self1">
+                                <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>登陆密码</label>
+
+                                <div class="self-input g-pos-r g-w-percent35">
+                                    <input type="password" required ng-minlength="6" minlength="6" ng-model="organization_ctrl.struct.password"  name="password" placeholder="请输入登陆密码"   />
+                                    <span ng-show="structFrom.password.$dirty && structFrom.password.$invalid && !structFrom.password.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">登陆密码不能少于6位</span>
+                                    <span ng-show="structFrom.password.$dirty&&structFrom.password.$valid" class="self-tips self-tips-yes"></span>
+                                </div>
+                            </div>
+
+                            <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon4"></span>&nbsp;权限设定</div>
+                            <div class="form-group-self1">
+                                <label class="self-label">
+                                    <input type="radio" ng-model="organization_ctrl.struct.isDesignatedPermit" ng-value="0" ng-change="organization_ctrl.toggleSelectPower()" name="isDesignatedPermit">
+                                    &nbsp;全部权限
+                                </label>
+                                <label class="self-label">
+                                    <input type="radio" ng-model="organization_ctrl.struct.isDesignatedPermit" ng-value="1" ng-change="organization_ctrl.toggleSelectPower()"  name="isDesignatedPermit">
+                                    &nbsp;指定权限
+                                </label>
+                            </div>
+
+                            <div class="form-group-self1" ng-if="organization_ctrl.struct.isDesignatedPermit===1">
+                                <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>选择权限</label>
+
+                                <div class="self-input g-pos-r g-w-percent35">
+                                    <input type="text" ng-model="organization_ctrl.struct.checkedFunctionIds" required  name="checkedFunctionIds" readonly />
+                                    <span ng-show="structFrom.checkedFunctionIds.$dirty && structFrom.checkedFunctionIds.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">指定权限不能为空</span>
+                                    <span ng-show="structFrom.checkedFunctionIds.$dirty && structFrom.checkedFunctionIds.$valid" class="self-tips self-tips-yes"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group-self1">
+                            <button type="submit" ng-show="organization_ctrl.struct.id===''" ng-disabled="!(organization_ctrl.struct.id==='' && structFrom.fullName.$dirty && structFrom.fullName.$valid && structFrom.linkman.$dirty && structFrom.linkman.$valid && structFrom.cellphone.$dirty && structFrom.cellphone.$valid && (organization_ctrl.struct.telephone==='' || (structFrom.telephone.$dirty && structFrom.telephone.$valid)) && (organization_ctrl.struct.province!=='' && organization_ctrl.struct.city!=='' && organization_ctrl.struct.country!=='') && structFrom.address.$dirty && structFrom.address.$valid && ((organization_ctrl.struct.isSettingLogin===1 && structFrom.username.$dirty && structFrom.username.$valid && structFrom.password.$dirty && structFrom.password.$valid && ((organization_ctrl.struct.isDesignatedPermit===1 && structFrom.checkedFunctionIds.$valid) || organization_ctrl.struct.isDesignatedPermit===0)) || organization_ctrl.struct.isSettingLogin===0))"  class="btn btn-red g-br3 g-w-percent50">添加</button>
+
+                            <button type="submit" ng-show="organization_ctrl.struct.id!==''" ng-disabled="!(organization_ctrl.struct.id!=='' && structFrom.fullName.$valid && structFrom.linkman.$valid && structFrom.cellphone.$valid && (organization_ctrl.struct.telephone==='' || (organization_ctrl.struct.telephone!=='' && structFrom.telephone.$valid)) && (organization_ctrl.struct.province!=='' && organization_ctrl.struct.city!=='' && organization_ctrl.struct.country!=='') && structFrom.address.$valid && ((organization_ctrl.struct.isSettingLogin===1 && structFrom.username.$valid && structFrom.password.$valid && ((organization_ctrl.struct.isDesignatedPermit===1 && structFrom.checkedFunctionIds.$valid) || organization_ctrl.struct.isDesignatedPermit===0)) || organization_ctrl.struct.isSettingLogin===0))"  class="btn btn-red g-br3 g-w-percent50">编辑</button>
+                            <button type="button" class="btn btn-red g-br3 g-w-percent50 g-gap-mt2" id="admin_struct_reset" ng-click="organization_ctrl.formReset(structFrom,'struct')">重置</button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="struct-layout-side">
+            <!--搜索组件-->
+            <div class="sub-search-wrap ui-sub-search" data-active="organization_ctrl.record.searchactive1" data-value="organization_ctrl.record.searchname1"  data-action="organization_ctrl.searchAction1()" data-clear="organization_ctrl.searchClear1()" ></div>
+
+            <!--选项卡组件（切换机构和角色）-->
+            <ul class="sub-tab-wrap sub-item-group2 sub-itembr-group2 ui-sub-tab-href" data-tabitem="organization_ctrl.tabitem"></ul>
+
+            <!--子菜单组件-->
+            <ul class="sub-menu-wrap">
+                <li>
+                    <a class="sub-menu-title sub-menu-titleactive" data-parentid="" data-id="organization_ctrl.record.currentId1" data-layer="0" data-list="false" data-label="organization_ctrl.record.currentName1"  ng-click="organization_ctrl.rootMenuList($event,'fc')">{{organization_ctrl.record.currentName1}}</a>
+                    <ul class="g-d-showi ui-sub-menu" ng-init="organization_ctrl.initMenuList('fc')" ng-click="organization_ctrl.toggleMenuList($event,'fc')" id="admin_struct_submenu" ></ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+

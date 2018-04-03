@@ -1,0 +1,55 @@
+/*操作条*/
+.core-cc-actitem{
+  .layout-base();
+  padding: 5px 10px;
+  margin: 5px 0;
+  min-height: 40px;
+  background: @color-white;
+  /*默认输入类*/
+  .actitem-def{
+    .box-sizing-base();
+    border:1px solid @color-gray12;
+    background:@color-white;
+    .transition-base(border-color .2s ease-in-out .02s);
+    color:@color-gray8;
+    height:30px;
+    padding:5px 10px;
+    line-height: 20px;
+    &:focus{
+      border-color:@color-info;
+    }
+  }
+  /*单选类*/
+  .core-cc-form-check{
+    padding:0;
+    margin:0;
+  }
+  /*按钮*/
+  /*操作子项*/
+  .actitem-sub{
+    .box-sizing-base();
+    display: inline-block;
+    padding:5px 5px;
+    margin:0 5px;
+    min-height: 30px;
+    line-height: 30px;
+    white-space: nowrap;
+    color:@color-gray6;
+    .user-select-base();
+    font-size: @font-size-base;
+    font-weight: normal;
+    >select{
+      padding-top:0;
+      padding-bottom: 0;
+    }
+    >label{
+      margin:0 8px 0 2px;
+      cursor: pointer;
+      font-weight: normal;
+    }
+    &:hover{
+      color:@color-gray3;
+    }
+  }
+}
+

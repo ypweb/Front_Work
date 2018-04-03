@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+	<meta name="description" content="银通天下信用卡后台管理系统" />
+	<meta name="keywords" content="银通天下信用卡后台管理系统">
+  <meta name="author" content="yp" />
+	<title>银通天下信用卡后台管理系统</title>
+	<link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" type="text/css" href="../js/plugins/daterangepicker/daterangepicker-bs3.css">
+	<link rel="stylesheet" href="../css/admin.css">
+  <script src="../js/common/jquery-1.11.1.js"></script>
+	<!--[if lt IE 9]>
+		<script src="../js/common/h5support.js"></script>
+	<![endif]-->
+</head>
+<body class="page-body">
+
+ 
+	<div class="page-container">
+  
+  	<!--测边栏--菜单导航模块-->
+		<div id="main_menu_wrap" class="sidebar-menu toggle-others fixed">
+			<div class="sidebar-menu-inner">
+      	<!--菜单头部按钮-->
+				<header class="logo-env">
+					<!-- logo -->
+					<div class="logo">
+						<a href="dashboard-1.html" class="logo-expanded">
+							<img src="../images/logo@2x.png" width="130" alt="" />
+						</a>
+						
+						<a href="dashboard-1.html" class="logo-collapsed">
+							<img src="../images/logo-collapsed@2x.png" width="40" alt="" />
+						</a>
+					</div>
+					
+					<!--小屏模式下按钮-->
+					<div class="mobile-menu-toggle visible-xs">
+						<a href="#" data-toggle="mobile-menu">
+							<i class="fa-bars"></i>
+						</a>
+					</div>		
+				</header>
+				<!--菜单条-->
+        <ul id="main_menu" class="main-menu"></ul>
+			</div>
+		</div>
+		
+    <!--主模块-->
+		<div id="main_content" class="main-content">
+					
+			<!--顶部按钮区域-->
+			<nav class="navbar user-info-navbar" role="navigation">
+      	<!-- 顶部左侧部分 -->
+				<ul class="user-info-menu left-links list-inline list-unstyled">
+        	<!--切换菜单为全部模式或者缩略模式-->
+					<li class="hidden-sm hidden-xs">
+						<a href="#" data-toggle="sidebar">
+							<i class="fa-bars"></i>
+						</a>
+					</li>
+				</ul>
+				<!-- 顶部右侧部分 -->
+				<ul class="user-info-menu right-links list-inline list-unstyled">
+
+					<li class="dropdown user-profile">
+						<a href="#" data-toggle="dropdown">
+							<img src="../images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+							<span id="admin_show_wrap"></span>
+						</a>
+						
+						<ul class="dropdown-menu user-profile-menu list-unstyled">
+							<li>
+								<a href="#">
+									<i class="">其他选项扩展1...</i>
+								</a>
+							</li>
+              <li>
+								<a href="#">
+									<i class="">其他选项扩展2...</i>
+								</a>
+							</li>
+							<li class="last">
+								<a href="account/login.html" id="logout_btn"><i class="fa-lock"></i>登出</a>
+							</li>
+						</ul>
+					</li>
+					
+				</ul>
+			</nav>
+      
+      <!--主题描述-->
+      <div class="page-title">
+				<div class="title-env">
+					<h1 class="title">我的主题</h1>
+					<p class="description">我的描述</p>
+				</div>
+				<div class="breadcrumb-env">
+								<ol class="breadcrumb bc-1">
+									<li><a href="index.html"><i class="fa-home"></i>首页</a></li>
+                  <li class="active"><strong>我的主题</strong></li>
+								</ol>
+				</div>
+			</div>
+      
+      
+      <!--主内容-->
+			<div class="row row-main-wrap">
+				<div class="col-md-12">
+        		<div class="panel">
+              <div class="panel-heading">新增入网用户统计
+                <div class="chart-search-wrap">
+                  <input id="chart_search_time" placeholder="请选择日期" readonly class="form-control daterange" type="text" >
+                  <button id="chart_search_btn" class="btn btn-success">查询</button>
+                </div>
+							</div>
+              <div class="panel-body">
+                <div id="chart_wrap" class="credit-chart-wrap"></div>
+              </div>
+            </div>
+       	</div>
+        
+        
+        <div class="col-md-12">
+        		<div class="row">
+            		<div class="col-md-4">
+                  <div class="pie-panel-wrap">
+                  		<div class="g-b-bs-success">3646</div>
+                      <span>总计入网用户</span>
+                  </div>
+                </div>
+                
+                <div class="col-md-4">
+                  <div class="pie-panel-wrap">
+                  		<div class="g-b-bs-info">835</div>
+                      <span>今日入网用户</span>
+                  </div>
+                </div>
+                
+                <div class="col-md-4">
+                  <div class="pie-panel-wrap">
+                  		<div class="g-b-bs-warning">82</div>
+                      <span>今日上线用户</span>
+                  </div>
+                </div>
+            </div>
+       	</div>
+      </div>
+			
+			
+      
+
+			<!--底部信息-->
+			<footer class="main-footer sticky footer-type-1">
+				<div class="footer-inner">
+					<!-- 版权所有 -->
+					<div class="footer-text">
+						&copy; 2016
+						<strong>银通天下</strong> 
+						 <a href="#" target="_blank" title="">****</a>
+					</div>
+					
+					<!--回到顶部-->
+					<div class="go-up">
+						<a href="#" rel="go-top">
+							<i class="fa-angle-up"></i>
+						</a>
+					</div>
+				</div>
+			</footer>
+      
+      
+		</div>
+	</div>
+	
+	<!--加载遮罩层-->
+	<div id="page_loading_wrap" class="page-loading-overlay g-d-hidei">
+		<div class="loader-2"></div>
+	</div>
+
+
+
+	<!--提示信息-->
+  <div id="page_support_wrap" class="page-support-wrap g-d-hidei">
+      <div class="page-support-browser">
+          <h1 class="browser-theme">您的浏览器版本太低，请升级您的浏览器</h1>
+          <div class="browser-icon">
+              <a href="http://www.firefox.com.cn/" target="_blank">
+                  <p>火狐浏览器</p>
+                  <span>Firefox</span>
+                  <div class="browser-icon-firefox"></div>
+              </a>
+              <a href="http://www.googlechromer.cn/" target="_blank">
+                  <p>谷歌浏览器</p>
+                  <span>Chrome</span>
+                  <div class="browser-icon-chrome"></div>
+              </a>
+              <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+                  <p>IE浏览器</p>
+                  <span>Internet&nbsp;Explorer</span>
+                  <div class="browser-icon-ie"></div>
+              </a>
+              <a href="https://liulanqi.baidu.com/70/?sid=11100016" target="_blank">
+                  <p>百度浏览器</p>
+                  <span>Baidu</span>
+                  <div class="browser-icon-baidu"></div>
+              </a>
+              <a href="http://browser.qq.com/?adtag=SEM1" target="_blank">
+                  <p>QQ浏览器</p>
+                  <span>Tencent</span>
+                  <div class="browser-icon-qq"></div>
+              </a>
+          </div>
+      </div>
+      <div class="page-support-login">
+          <div></div>
+          <p>您还未登录<span id="goto_login"></span>秒后跳入登陆页面</p>
+      </div>
+  </div>
+
+
+
+
+	<script src="../js/common/base.js"></script>
+  <script src="../js/plugins/moment/moment.js"></script>
+	<script src="../js/common/common.js"></script>
+    <script src="../js/plugins/daterangepicker/daterangepicker.js"></script>
+  <script src="../js/plugins/highcharts/highcharts.js"></script>
+  <script src="../js/index/index.js"></script>
+</body>
+</html>

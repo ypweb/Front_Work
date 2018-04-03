@@ -1,0 +1,195 @@
+{
+  "code": 0,
+  "message":"成功",
+  "result":{
+    "list":[{
+      "id":1,
+      "labelname": "一级分类1",
+      "sort":"1",
+      "isshow":"1",
+      "parentId":"",
+      "url":"../../images/unlogin.png",
+      "sublist":[{
+        "id":1001,
+        "labelname": "二级分类1",
+        "sort":"2",
+        "isshow":"1",
+        "url":"../../images/unlogin.png",
+        "parentId":"1"
+      },{
+          "id":1002,
+          "labelname": "二级分类2",
+          "sort":"3",
+          "isshow":"1",
+          "parentId":"1",
+          "url":"../../images/unlogin.png",
+          "sublist":[{
+            "id":1001001,
+            "labelname": "三级分类1",
+            "sort":"4",
+            "isshow":"1",
+            "parentId":"1001",
+            "url":"../../images/unlogin.png"
+          },{
+            "id":1001002,
+            "labelname": "三级分类2",
+            "sort":"5",
+            "isshow":"0",
+            "url":"../../images/unlogin.png",
+            "parentId":"1001",
+            "sublist":[{
+              "id":1001002001,
+              "labelname": "四级分类1",
+              "sort":"6",
+              "isshow":"1",
+              "url":"../../images/unlogin.png",
+              "parentId":"1001002"
+            },{
+                "id":1001002002,
+                "labelname": "四级分类2",
+                "sort":"7",
+                "isshow":"1",
+                "url":"../../images/unlogin.png",
+                "parentId":"1001002"
+            }]
+          },{
+            "id":1001003,
+            "labelname": "三级分类3",
+            "sort":"8",
+            "isshow":"0",
+            "url":"../../images/unlogin.png",
+            "parentId":"1001"
+          },{
+            "id":1001004,
+            "labelname": "三级分类4",
+            "sort":"9",
+            "isshow":"1",
+            "url":"../../images/unlogin.png",
+            "parentId":"1001"
+          }]
+      },{
+        "id":1003,
+        "labelname": "二级分类3",
+        "sort":"10",
+        "isshow":"0",
+        "url":"../../images/unlogin.png",
+        "parentId":"1"
+      },{
+        "id":1004,
+        "labelname": "二级分类4",
+        "sort":"11",
+        "isshow":"1",
+        "url":"../../images/unlogin.png",
+        "parentId":"1"
+      },{
+        "id":1005,
+        "labelname": "二级分类5",
+        "sort":"12",
+        "isshow":"0",
+        "url":"../../images/unlogin.png",
+        "parentId":"1"
+      }]
+    },{
+      "id":2,
+      "labelname": "一级分类2",
+      "sort":"13",
+      "isshow":"1",
+      "url":"../../images/unlogin.png",
+      "parentId":""
+    },{
+      "id":3,
+      "labelname": "一级分类3",
+      "sort":"14",
+      "isshow":"1",
+      "url":"../../images/unlogin.png",
+      "parentId":"",
+      "sublist":[{
+        "id":3001,
+        "labelname": "二级分类1",
+        "sort":"15",
+        "isshow":"1",
+        "url":"../../images/unlogin.png",
+        "parentId":"3"
+      },{
+        "id":3002,
+        "labelname": "二级分类2",
+        "sort":"16",
+        "isshow":"1",
+        "url":"../../images/unlogin.png",
+        "parentId":"3"
+      },{
+        "id":3003,
+        "labelname": "二级分类3",
+        "sort":"17",
+        "isshow":"1",
+        "url":"../../images/unlogin.png",
+        "parentId":"3"
+      }]
+    },{
+      "id":4,
+      "labelname": "一级分类4",
+      "sort":"18",
+      "isshow":"0",
+      "url":"../../images/unlogin.png",
+      "parentId":""
+    },{
+      "id":5,
+      "labelname": "一级分类5",
+      "sort":"19",
+      "isshow":"1",
+      "url":"../../images/unlogin.png",
+      "parentId":"",
+      "sublist":[{
+        "id":5001,
+        "labelname": "二级分类1",
+        "sort":"20",
+        "isshow":"1",
+        "url":"../../images/unlogin.png",
+        "parentId":"5",
+        "sublist":[{
+          "id":5001001,
+          "labelname": "三级分类1",
+          "sort":"21",
+          "isshow":"1",
+          "url":"../../images/unlogin.png",
+          "parentId":"5001"
+        },{
+          "id":5001002,
+          "labelname": "三级分类2",
+          "sort":"22",
+          "isshow":"1",
+          "url":"../../images/unlogin.png",
+          "parentId":"5001"
+        },{
+          "id":5001003,
+          "labelname": "三级分类1",
+          "sort":"23",
+          "isshow":"1",
+          "url":"../../images/unlogin.png",
+          "parentId":"5001"
+        }]
+      },{
+        "id":5002,
+        "labelname": "二级分类2",
+        "sort":"24",
+        "isshow":"1",
+        "url":"../../images/unlogin.png",
+        "parentId":"5"
+      },{
+        "id":5003,
+        "labelname": "二级分类3",
+        "sort":"25",
+        "isshow":"0",
+        "url":"../../images/unlogin.png",
+        "parentId":"5"
+      },{
+        "id":5004,
+        "labelname": "二级分类4",
+        "sort":"26",
+        "isshow":"1",
+        "url":"../../images/unlogin.png",
+        "parentId":"5"
+      }]
+    }]
+  }
+}

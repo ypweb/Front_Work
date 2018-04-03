@@ -1,0 +1,101 @@
+{
+  "code": "0",
+  "message": "查询成功",
+  "result": {
+    "bannerList": [
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235952560.jpg"
+      },
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235953786.jpg"
+      },
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235954120.jpg"
+      },
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235955004.jpg"
+      },
+      {
+        "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235956023.jpg"
+      }
+    ],
+    "tagsAttrsList": [
+      {
+        "goodsId": 281,
+        "goodsTypeId": 943,
+        "id": 187,
+        "list": [
+          {
+            "goodsTagId": 187,
+            "id": 592,
+            "name": "黑白",
+            "sort": 0
+          },
+          {
+            "goodsTagId": 187,
+            "id": 593,
+            "name": "蓝白",
+            "sort": 0
+          },
+          {
+            "goodsTagId": 187,
+            "id": 594,
+            "name": "红白",
+            "sort": 0
+          }
+        ],
+        "name": "颜色",
+        "sort": 0
+      },
+      {
+        "goodsId": 281,
+        "goodsTypeId": 943,
+        "id": 188,
+        "list": [
+          {
+            "goodsTagId": 188,
+            "id": 595,
+            "name": "38",
+            "sort": 0
+          },
+          {
+            "goodsTagId": 188,
+            "id": 596,
+            "name": "37",
+            "sort": 0
+          },
+          {
+            "goodsTagId": 188,
+            "id": 597,
+            "name": "36",
+            "sort": 0
+          }
+        ],
+        "name": "规格",
+        "sort": 0
+      }
+    ],
+    "sort": 0,
+    "attrInventoryPrices": [
+      "0#255.00#255.00#1#595,592#255.00#895",
+      "0#255.00#255.00#0#595,592#255.00#896",
+      "0#255.00#255.00#0#595,592#255.00#897",
+      "0#255.00#255.00#0#596,593#255.00#898",
+      "0#255.00#255.00#0#596,593#255.00#899",
+      "0#255.00#255.00#0#596,593#255.00#900",
+      "0#255.00#255.00#0#597,594#255.00#901",
+      "0#255.00#255.00#0#597,594#255.00#902",
+      "0#255.00#255.00#0#597,594#255.00#903"
+    ],
+    "status": 1,
+    "id": 281,
+    "thumbnail": {
+      "imageUrl": "http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235952560.jpg"
+    },
+    "source": "商户版H5商城店铺自营虚拟供应商",
+    "details": "<img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235956709.jpg' /><br/><img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235957480.jpg' /><br/><img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235958668.jpg' /><br/><img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170831235959437.jpg' /><br/><img src='http://7xv6zz.com2.z0.glb.qiniucdn.com/20170901000000288.jpg' /><br/>",
+    "name": "哈哈哈哈",
+    "goodsTypeId": 943,
+    "isRecommended": false
+  }
+}
