@@ -48,6 +48,9 @@ module.exports = {
             })
         }]
     },
+    postcss:{
+        
+    },
     /*插件*/
     plugins: [
         new ExtractTextPlugin('base.css')/*分离css文件*/,
