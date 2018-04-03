@@ -1,0 +1,10 @@
+<ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+  <li nz-menu-item routerLink="/index" routerLinkActive="active">首页</li>
+  <li nz-submenu>
+    <span title><i class="anticon anticon-tag-o"></i><span class="nav-text">组件示例</span></span>
+    <ul>
+      <li nz-menu-item routerLink="/demo-self" routerLinkActive="active">自定义组件</li>
+      <li nz-menu-item routerLink="/demo-zorro"  nz-menu-item>ng-zorro组件</li>
+    </ul>
+  </li>
+</ul>

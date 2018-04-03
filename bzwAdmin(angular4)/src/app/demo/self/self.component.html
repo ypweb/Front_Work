@@ -1,0 +1,13 @@
+<div class="cl-mainbox-wrap">
+  <div class="cl-panel">
+    <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+      <nz-tab *ngFor="let tab of tabitem">
+        <ng-template #nzTabHeading>
+          <div routerLink="{{tab.href}}">{{tab.name}}</div>
+        </ng-template>
+      </nz-tab>
+    </nz-tabset>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+

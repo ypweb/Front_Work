@@ -1,0 +1,30 @@
+{
+  "code": "0",
+  "message": "查询成功",
+  "result": {
+    "menu": [
+      {
+        "modClass": "",
+        "modId": 1,
+        "modName": "组件示例",
+        "modShow":true,
+        "permitItem": [
+          {
+            "funcCode": "",
+            "funcName": "批量删除",
+            "isPermit": 1,
+            "modId": 1,
+            "prid": 1
+          },
+          {
+            "funcCode": "",
+            "funcName": "调整运营商",
+            "isPermit": 1,
+            "modId": 1,
+            "prid": 2
+          }
+        ]
+      }
+    ]
+  }
+}

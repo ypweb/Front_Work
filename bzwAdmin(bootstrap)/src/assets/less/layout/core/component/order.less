@@ -1,0 +1,63 @@
+/*订单*/
+.core-cc-order{
+  .layout-base();
+  background: @color-white;
+  border: 1px solid @color-gray14;
+  .text-ww();
+  li {
+    .layout-base();
+    display: inline-block;
+    min-height: 24px;
+    color: @color-gray9;
+    line-height: 24px;
+  }
+}
+/*订单-文本*/
+.core-cc-order-txt{
+  padding: 5px 30px 15px 10px;
+  &:not(:empty) {
+    .layout-relative-base();
+    &:after,
+    &::after {
+      @noempty: 20px;
+      .layout-absoluterb-base();
+      width: @noempty;
+      height: @noempty;
+      display: block;
+      line-height: @noempty;
+      text-align: center;
+      overflow: hidden;
+      background: @color-gray16;
+      color: @color-gray10;
+      font-size: @font-size-base - 2;
+      content: attr(data-id);
+    }
+  }
+  &:hover {
+    .transition-base(border .3s ease-in .02s);
+    border: 1px dashed @color-red1;
+  }
+  li {
+    div {
+      display: inline-block;
+      padding: 0 0 0 5px;
+    }
+  }
+}
+/*订单-图片*/
+.core-cc-order-img{
+  padding: 5px 10px;
+  li {
+    .order-img {
+      .layout-base(120px);
+      height: 80px;
+      padding: 2px;
+      display: inline-block;
+      overflow: hidden;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
+}

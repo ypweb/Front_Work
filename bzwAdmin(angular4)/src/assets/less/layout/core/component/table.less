@@ -1,0 +1,40 @@
+/*表格常用样式*/
+.cc-table {
+  width: 100%;
+  tr {
+    width: 100%;
+  }
+  th,
+  td {
+    font-size: @font-size-base - 2;
+    color: @color-gray6;
+    .text-ww();
+  }
+  th {
+    .user-select-base(none);
+  }
+  thead th {
+    background-color: @color-gray17 !important;
+  }
+  /*操作按钮*/
+  .cc-act-btn {
+    padding: 2px 4px;
+    font-size: @font-size-base - 2;
+    &:before {
+      padding: 0 3px 0 2px;
+      font-size: @font-size-base;
+    }
+  }
+  /*高亮设置*/
+  .cc-item-lighten {
+    td, th {
+      background: lighten(@color-blue3, 36%) !important;
+    }
+  }
+  .cc-item-lightenbatch {
+    td, th {
+      background: lighten(@color-blue3, 38%) !important;
+    }
+  }
+}
+

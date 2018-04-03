@@ -1,0 +1,36 @@
+/*布局基本变量*/
+/*头部*/
+@layout-header-width:100vw;
+@layout-header-height:64px;
+@layout-header-shadow:6px;
+@layout-header-gap:18px;
+@header-logo-gap:5px;
+
+/*主内容*/
+@layout-containergap-top:@layout-header-height + @layout-header-shadow + @layout-header-gap;
+@layout-container-width:1080px;
+@layout-container-miniwidth:640px;
+@layout-container-height:100vh;
+@layout-containergap-bottom:32px;
+@layout-container-minheight:800px;
+
+/*侧边栏*/
+@layout-side-width:262px;
+@layout-sidegap-left:23px;
+
+/*主内容*/
+@layout-contentgap-left:32px;
+@layout-content-width:@layout-container-width - @layout-side-width - (@layout-contentgap-left * 2);
+@layout-content-minheight:@layout-container-minheight - (@layout-containergap-top + @layout-containergap-bottom);
+
+/*底部*/
+@layout-footer-height:50px;
+
+
+/*首页*/
+@index-icon-wrap-width:160px;
+@index-icon-wrap-height:120px;
+@index-icon-wrap-gap:32px;
+@index-icon-width:48px;
+
+

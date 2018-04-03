@@ -1,0 +1,23 @@
+/*图片删除按钮*/
+.core-slide-img-delete-func(@itemwidth:20px,@itemheight:20px){
+  .layout-absoluter-base(-@itemwidth, -@itemheight);
+  line-height: @itemheight;
+  text-align: center;
+  cursor: pointer;
+  .user-select-base();
+  width: @itemwidth;
+  height: @itemheight;
+  background: rgba(0, 0, 0, .5);
+  color: @color-gray14;
+  &:hover {
+    background: rgba(0, 0, 0, .8);
+  }
+  &:before,
+  &::before {
+    width: 100%;
+    height: 100%;
+    content: '\e602';
+    font-family: 'ux_six';
+    font-size: @font-size-base + 2;
+  }
+}

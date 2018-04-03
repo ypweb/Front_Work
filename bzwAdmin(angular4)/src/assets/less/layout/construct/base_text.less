@@ -1,0 +1,41 @@
+/*--兼容版本版本--*/
+
+///*--文本--*/
+
+///*不换行*/
+.text-of(@o:hidden,@w:nowrap) {
+  overflow: @o;
+  white-space: @w;
+}
+
+
+///*省略*/
+.text-dot() {
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+
+///*应用省略号*/
+.text-ofdot(){
+  .text-of();
+  .text-dot();
+}
+
+
+///*文字强制换行*/
+.text-ww(@w1:break-all,@w2:break-word) {
+  word-break: @w1;
+  word-wrap: @w2;
+}
+
+///*禁止选中*/
+.user-select-base(@str:none) {
+  -moz-user-select: @str;
+  -o-user-select: @str;
+  -webkit-user-select: @str;
+  -ms-user-select: @str;
+  -khtml-user-select: @str;
+  user-select: @str;
+}
+

@@ -1,0 +1,101 @@
+<ng-container *ngIf="layout.support">
+  <!--兼容区域-->
+  <ng-container *ngIf="user.islogin">
+    <!--已登录视图-->
+    <nz-layout class="cl-container">
+      <!--侧边栏-->
+      <nz-sider class="cl-sidebox" nzBreakpoint="sm" nzCollapsible [(nzCollapsed)]="layout.isCollapsed" [nzTrigger]="null">
+        <div class="logo ce-side-logo"></div>
+        <admin-side-menu></admin-side-menu>
+      </nz-sider>
+
+      <!--主显示区-->
+      <nz-layout>
+        <!--头部区域-->
+        <nz-header class="g-gap-pl4">
+          <i class="anticon trigger ce-header-toggleside" [class.anticon-menu-fold]="!layout.isCollapsed" [class.anticon-menu-unfold]="layout.isCollapsed" (click)="layout.isCollapsed=!layout.isCollapsed"></i>
+          <div nz-row>
+            <div nz-col [nzSpan]="2"></div>
+            <div nz-col [nzSpan]="10"></div>
+            <div nz-col [nzSpan]="4"></div>
+            <div nz-col [nzSpan]="4"></div>
+            <div nz-col [nzSpan]="4">
+              <div class="ce-header-info-panel ce-header-message">
+                <nz-dropdown [nzTrigger]="'click'" [nzPlacement]="'bottomRight'">
+                  <button nzType="primary" nz-button nz-dropdown class="ce-header-info-btn ant-dropdown-link"><i class="anticon anticon-down"></i></button>
+                  <ul class="ce-header-info-list" nz-menu>
+                    <li *ngFor="let bgtheme of layout.contentBgList" (click)="toggleBgTheme(bgtheme)" nz-menu-item [class.ant-dropdown-menu-item-selected]="layout.contentBgTheme===bgtheme.value">背景主题:{{bgtheme.name}}</li>
+                  </ul>
+                </nz-dropdown>
+              </div>
+              <div class="ce-header-info-panel ce-header-info">
+                <nz-dropdown [nzTrigger]="'click'" [nzPlacement]="'bottomRight'">
+                  <button nzType="primary" nz-button nz-dropdown class="ce-header-info-btn ant-dropdown-link"><i class="anticon anticon-down"></i></button>
+                  <ul class="ce-header-info-list" nz-menu>
+                    <ng-container  *ngFor="let info of user.info;last as action">
+                      <li *ngIf="action" nz-menu-item>
+                        <button nz-button [nzSize]="'small'" [nzType]="default">
+                          <i class="anticon anticon-logout}}"></i><span>{{info.value}}</span>
+                        </button>
+                      </li>
+                      <li *ngIf="!action" nz-menu-item>{{info.name}}:{{info.value}}</li>
+                    </ng-container>
+                  </ul>
+                </nz-dropdown>
+              </div>
+            </div>
+          </div>
+        </nz-header>
+        <!--内容区-->
+        <nz-content class="cl-mainbox cl-mainbox-bg-{{layout.contentBgTheme}}">
+          <router-outlet></router-outlet>
+        </nz-content>
+        <!--底部区域-->
+        <nz-footer class="cl-footer">&copy;2018</nz-footer>
+      </nz-layout>
+    </nz-layout>
+  </ng-container>
+
+  <ng-container *ngIf="!user.islogin">
+    <!--未登录视图-->
+    <admin-login-form></admin-login-form>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="!layout.support">
+  <!--不兼容区域-->
+  <div class="cl-support-container">
+    <div class="cl-support-inner">
+      <div class="cl-support-browser">
+        <h1 class="browser-theme">您的浏览器版本太低，请升级您的浏览器</h1>
+        <div class="browser-icon">
+          <a href="http://www.firefox.com.cn/" target="_blank">
+            <p>火狐浏览器</p>
+            <span>Firefox</span>
+            <div class="browser-icon-firefox"></div>
+          </a>
+          <a href="http://www.googlechromer.cn/" target="_blank">
+            <p>谷歌浏览器</p>
+            <span>Chrome</span>
+            <div class="browser-icon-chrome"></div>
+          </a>
+          <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+            <p>IE浏览器</p>
+            <span>Internet&nbsp;Explorer</span>
+            <div class="browser-icon-ie"></div>
+          </a>
+          <a href="https://liulanqi.baidu.com/70/?sid=11100016" target="_blank">
+            <p>百度浏览器</p>
+            <span>Baidu</span>
+            <div class="browser-icon-baidu"></div>
+          </a>
+          <a href="http://browser.qq.com/?adtag=SEM1" target="_blank">
+            <p>QQ浏览器</p>
+            <span>Tencent</span>
+            <div class="browser-icon-qq"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
