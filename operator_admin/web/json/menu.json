@@ -1,0 +1,135 @@
+{
+  "code": "0",
+  "message": "查询成功",
+  "result": {
+    "menu": [
+      {
+        "modCode": "mall-store-manage",
+        "modId": 88,
+        "modItem": [
+          {
+            "modLink": "mall-store-provider",
+            "modName": "供应商管理"
+          },
+          {
+            "modLink": "mall-store-logistics",
+            "modName": "常用物流公司"
+          },
+          {
+            "modLink": "mall-store-add",
+            "modName": "添加分仓"
+          },
+          {
+            "modLink": "mall-store-purchase",
+            "modName": "采购统计"
+          },
+          {
+            "modLink": "mall-store-receive",
+            "modName": "收货"
+          },
+          {
+            "modLink": "mall-store-order",
+            "modName": "订单统计"
+          },
+          {
+            "modLink": "mall-store-stock",
+            "modName": "库存状况"
+          },
+          {
+            "modLink": "mall-store-outstock",
+            "modName": "出库单"
+          },
+          {
+            "modLink": "mall-store-instock",
+            "modName": "入库单"
+          },
+          {
+            "modLink": "mall-store-checkstock",
+            "modName": "盘点单"
+          }
+        ],
+        "modLink": "mall-store-manage",
+        "modName": "分仓管理",
+        "permitItem": [
+          {
+            "funcCode": "mall-store-add",
+            "funcName": "添加分仓",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8801
+          },
+          {
+            "funcCode": "mall-store-receive",
+            "funcName": "收货",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8802
+          },
+          {
+            "funcCode": "mall-store-detail",
+            "funcName": "查看详情",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8803
+          },
+          {
+            "funcCode": "mall-store-send",
+            "funcName": "发货",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8804
+          },
+          {
+            "funcCode": "mall-store-instock",
+            "funcName": "新增入库",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8805
+          },
+          {
+            "funcCode": "mall-store-outstock",
+            "funcName": "新增出库",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8806
+          },
+          {
+            "funcCode": "mall-store-checkstock",
+            "funcName": "盘点库存",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8807
+          },
+          {
+            "funcCode": "mall-store-update",
+            "funcName": "修改分仓",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8808
+          },
+          {
+            "funcCode": "mall-store-delete",
+            "funcName": "删除分仓",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8809
+          },
+          {
+            "funcCode": "mall-store-logistics",
+            "funcName": "管理物流",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8810
+          },
+          {
+            "funcCode": "mall-store-provider",
+            "funcName": "管理供应商",
+            "isPermit": 1,
+            "modId": 88,
+            "prid": 8811
+          }
+        ]
+      }
+    ]
+  }
+}

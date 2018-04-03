@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+    <meta name="description" content="布住网供应商管理系统--店铺设置--账户信息" />
+    <meta name="keywords" content="布住网供应商管理系统--店铺设置--账户信息">
+    <meta name="author" content="yp" />
+    <title>布住网供应商管理系统--店铺设置--账户信息</title>
+    <link href="../../images/logo_icon.ico" rel="icon">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/common/jquery-1.11.1.js"></script>
+    <!--[if lt IE 9]>
+    <script src="../../js/common/h5support.js"></script>
+    <![endif]-->
+</head>
+<body class="page-body">
+
+<div class="page-container">
+
+    <!--测边栏--菜单导航模块-->
+    <div id="main_menu_wrap" class="sidebar-menu toggle-others fixed">
+        <div class="sidebar-menu-inner">
+            <!--菜单头部按钮-->
+            <header class="logo-env">
+                <!-- logo -->
+                <div class="logo">
+                    <a href="#" class="logo-expanded">
+                        <img src="../../images/logo@2x.png" width="130" alt="" />
+                    </a>
+
+                    <a href="#" class="logo-collapsed">
+                        <img src="../../images/logo-collapsed@2x.png" width="40" alt="" />
+                    </a>
+                </div>
+
+                <!--小屏模式下按钮-->
+                <div class="mobile-menu-toggle visible-xs">
+                    <a href="#" data-toggle="mobile-menu">
+                        <i class="fa-bars"></i>
+                    </a>
+                </div>
+            </header>
+            <!--菜单条-->
+            <ul id="main_menu" class="main-menu"></ul>
+        </div>
+    </div>
+
+    <!--主模块-->
+    <div id="main_content" class="main-content">
+
+        <!--顶部按钮区域-->
+        <nav class="navbar user-info-navbar" role="navigation">
+            <!-- 顶部左侧部分 -->
+            <ul class="user-info-menu left-links list-inline list-unstyled">
+                <!--切换菜单为全部模式或者缩略模式-->
+                <li class="hidden-sm hidden-xs">
+                    <a href="#" data-toggle="sidebar">
+                        <i class="fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- 顶部右侧部分 -->
+            <ul class="user-info-menu right-links list-inline list-unstyled">
+
+                <li class="dropdown user-profile">
+                    <a href="#" data-toggle="dropdown">
+                        <img src="../../images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+                        <span id="admin_show_wrap"></span>
+                    </a>
+
+                    <ul class="dropdown-menu user-profile-menu list-unstyled">
+
+                        <li class="last">
+                            <a href="../../index.html" id="logout_btn"><i class="fa-lock"></i>登出</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!--主题描述-->
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">账户信息</h1>
+                <p class="description">账户信息</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href=""><i class="fa-home"></i>店铺设置</a></li>
+                    <li class="active"><strong>账户信息</strong></li>
+                </ol>
+            </div>
+        </div>
+
+
+        <!--主内容-->
+        <div class="row row-main-wrap">
+            <div class="col-md-12">
+                <div class="panel">
+
+                    <!--编辑表单标题-->
+                    <div class="panel-heading">
+                        <h3 class="panel-title">账户信息</h3>
+                        <div class="panel-options">
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--添加-->
+                    <div class="panel-body">
+                            <div class="form-group">
+                                <label class="control-label">昵称：</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control no-right-border" name="nickName" id="admin_nickName" placeholder="请输入昵称" />
+                                    <span class="input-group-btn">
+                                        <button type="button"  id="admin_nickName_btn" class="btn btn-success">更改</button>
+                                  </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">手机号码：</label>
+                                <div class="form-control" id="admin_phone"></div>
+                            </div>
+                            <form role="form" method="post" id="admin_address_form" class="admin-form1 validate">
+                                <div class="form-group">
+                                    <label class="control-label">收货地址：</label>
+                                    <div class="admin-sub-items2 admin-rpos-wrap admin-item-animate1">
+                                        <ul id="admin_address_list"></ul>
+                                        <div id="admin_address_wrap" class="g-d-hidei">
+                                            <div class="form-group">
+                                                <br />
+                                                <br />
+                                                <label class="control-label">收货地址：</label>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <select  class="form-control" id="admin_province"></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <select  class="form-control" id="admin_city"></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <select  class="form-control" id="admin_country"></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="text" class="form-control self-error-tips" name="address" data-validate="required" data-message-required="收货人详细地址不能为空"  id="admin_address" placeholder="请输入收货人详细地址" />
+                                                    </div>
+                                                </div>
+                                                <span class="validate-has-error"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">收货人姓名：</label>
+                                                <input type="text" class="form-control"  name="consigneeName"  data-validate="required" data-message-required="收货人姓名不能为空" placeholder="请输入收货人姓名"   id="admin_consigneeName">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">收货人联系电话：</label>
+                                                <input data-validate="required,zh_phone"  maxlength="13" type="text" data-message-required="收货人联系电话不能为空"  data-message-zh_phone="收货人联系电话格式不正确" placeholder="请输入收货人联系电话"  class="form-control" name="consigneePhone" id="admin_consigneePhone">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">是否默认地址：<input type="checkbox" name="isDefault" id="admin_isDefault"></label>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn g-br2 btn-info">确定</button>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="btn btn-info g-br2 pos-rb-btn" id="admin_addresstoggle">+&nbsp;添加</div>
+                                    </div>
+
+                                </div>
+                            </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <!--底部信息-->
+        <footer class="main-footer sticky footer-type-1">
+            <div class="footer-inner">
+                <!-- 版权所有 -->
+                <div class="footer-text">
+                    &copy; 2016
+                    <strong>银通天下</strong>
+                    <a href="#" target="_blank" title="">****</a>
+                </div>
+
+                <!--回到顶部-->
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa-angle-up"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+</div>
+
+
+<!--加载遮罩层-->
+<div id="page_loading_wrap" class="page-loading-overlay g-d-hidei">
+    <div class="loader-2"></div>
+</div>
+
+
+<!--提示信息-->
+<div id="page_support_wrap" class="page-support-wrap g-d-hidei">
+    <div class="page-support-browser">
+        <h1 class="browser-theme">您的浏览器版本太低，请升级您的浏览器</h1>
+        <div class="browser-icon">
+            <a href="http://www.firefox.com.cn/" target="_blank">
+                <p>火狐浏览器</p>
+                <span>Firefox</span>
+                <div class="browser-icon-firefox"></div>
+            </a>
+            <a href="http://www.googlechromer.cn/" target="_blank">
+                <p>谷歌浏览器</p>
+                <span>Chrome</span>
+                <div class="browser-icon-chrome"></div>
+            </a>
+            <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+                <p>IE浏览器</p>
+                <span>Internet&nbsp;Explorer</span>
+                <div class="browser-icon-ie"></div>
+            </a>
+            <a href="https://liulanqi.baidu.com/70/?sid=11100016" target="_blank">
+                <p>百度浏览器</p>
+                <span>Baidu</span>
+                <div class="browser-icon-baidu"></div>
+            </a>
+            <a href="http://browser.qq.com/?adtag=SEM1" target="_blank">
+                <p>QQ浏览器</p>
+                <span>Tencent</span>
+                <div class="browser-icon-qq"></div>
+            </a>
+        </div>
+    </div>
+    <div class="page-support-login">
+        <div></div>
+        <p>您还未登录<span id="goto_login"></span>秒后跳入登陆页面</p>
+    </div>
+</div>
+
+
+<script src="../../js/common/base.js"></script>
+<script src="../../js/common/common.js"></script>
+<!--表单验证插件-->
+<script src="../../js/plugins/jquery-validate/jquery.validate.js"></script>
+<script src="../../js/setting/setting_account.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<div class="admin-layout-theme4 g-gap-pl8 g-t-l g-b-gray17">完善信息</div>
+
+<form ng-submit="setting_ctrl.formSubmit('struct')" name="structFrom" role="form" ng-init="setting_ctrl.queryStructInfo()" novalidate method="post" class="admin-layout-form">
+
+    <div class="admin-layout-theme3 g-fs10"><span class="theme-icon admin-theme-icon3"></span>&nbsp;基本信息</div>
+
+    <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon4"></span>&nbsp;不可更改信息</div>
+
+    <div class="form-group-self3">
+        <label class="self-label g-w-percent10 g-t-l">运营商全称</label>
+
+        <div class="self-input  g-pos-r g-w-percent26">
+            <input type="text" class="text-show" name="organizationName" readonly placeholder="" ng-model="setting_ctrl.record.organizationName" />
+        </div>
+    </div>
+
+    <div class="g-w-percent50 g-h-number2"></div>
+
+    <div class="form-group-self3">
+        <label class="self-label g-w-percent10 g-t-l"><span class="self-require g-c-red1">*</span>负责人</label>
+
+        <div class="self-input g-pos-r g-w-percent26">
+            <input type="text" name="linkman" placeholder="请输入负责人" required ng-model="setting_ctrl.struct.linkman" />
+            <span  ng-show="structFrom.linkman.$dirty && structFrom.linkman.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">负责人不能为空</span>
+            <span ng-show="structFrom.linkman.$dirty && structFrom.linkman.$valid" class="self-tips self-tips-yes"></span>
+        </div>
+    </div>
+
+    <div class="form-group-self3">
+        <label class="self-label g-w-percent10 g-t-l"><span class="self-require g-c-red1">*</span>手机号码</label>
+
+        <div class="self-input g-pos-r g-w-percent26">
+            <input type="text" name="cellphone" required  placeholder="请输入手机号码" maxlength="13"  ng-model="setting_ctrl.struct.cellphone" class="ui-mobile-phone"  />
+            <span ng-show="structFrom.cellphone.$dirty && structFrom.cellphone.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">手机号码不能为空</span>
+            <span ng-show="structFrom.cellphone.$dirty && structFrom.cellphone.$invalid && !structFrom.cellphone.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">手机号码格式不合法</span>
+            <span ng-show="structFrom.cellphone.$dirty && structFrom.cellphone.$valid" class="self-tips self-tips-yes"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group-self3">
+        <label class="self-label g-w-percent10 g-t-l"><span class="self-require g-c-red1">*</span>联系地址</label>
+        <div class="self-input g-pos-r g-w-percent26">
+            <input type="text" name="address" required  placeholder="请输入联系地址" ng-model="setting_ctrl.struct.address" />
+            <span ng-show="structFrom.address.$dirty && structFrom.address.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">联系地址不能为空</span>
+            <span ng-show="structFrom.address.$dirty && structFrom.address.$valid" class="self-tips self-tips-yes"></span>
+        </div>
+    </div>
+
+
+    <div class="admin-layout-theme3 g-fs10"><span class="theme-icon admin-theme-icon4"></span>&nbsp;完善信息</div>
+
+    <div class="form-group-self3">
+        <label class="self-label g-w-percent10 g-t-l">收款人姓名</label>
+
+        <div class="self-input g-w-percent26">
+            <input type="text" name="payeeName" ng-model="setting_ctrl.struct.payeeName"  />
+        </div>
+    </div>
+
+    <div class="form-group-self3">
+        <label class="self-label g-w-percent10 g-t-l">开户银行</label>
+
+        <div class="self-input g-w-percent26">
+            <input type="text" name="depositBank" ng-model="setting_ctrl.struct.depositBank"  />
+        </div>
+    </div>
+
+    <div class="form-group-self3">
+        <label class="self-label g-w-percent10 g-t-l">收款帐号</label>
+
+        <div class="self-input g-pos-r g-w-percent26">
+            <input maxlength="23" type="text" name="payeeAccount" class="ui-bank-card" ng-model="setting_ctrl.struct.payeeAccount" />
+            <span ng-show="structFrom.payeeAccount.$dirty && structFrom.payeeAccount.$invalid" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">收款帐号格式不合法</span>
+            <span ng-show="structFrom.payeeAccount.$dirty && structFrom.payeeAccount.$valid" class="self-tips self-tips-yes"></span>
+        </div>
+    </div>
+
+    <div class="form-group-self3 g-gap-mb6">
+        <label class="self-label g-w-percent10 g-v-t g-t-l">备注</label>
+
+        <div class="self-input g-w-percent26">
+            <textarea ng-model="setting_ctrl.struct.remark" name="remark"></textarea>
+        </div>
+    </div>
+
+
+    <div class="form-group-self3 g-w-percent36">
+        <button type="submit" ng-disabled="!(setting_ctrl.record.organizationId!=='' && setting_ctrl.record.organizationName!=='' && setting_ctrl.struct.id!=='' && structFrom.linkman.$valid && structFrom.cellphone.$valid && structFrom.address.$valid && (setting_ctrl.struct.payeeAccount==='' || (setting_ctrl.struct.payeeAccount!=='' && structFrom.payeeAccount.$valid)))" class="btn btn-red g-br4 g-f-l g-gap-pt2 g-gap-pb2 g-gap-pl8 g-gap-pr8 g-fs6">确&nbsp;定</button>
+        <button type="button" class="btn btn-red g-br4 g-f-l g-gap-pt2 g-gap-pb2 g-gap-pl8 g-gap-pr8 g-gap-ml2 g-fs6 g-d-hidei" ng-click="setting_ctrl.formReset(structFrom,'struct')">重&nbsp;置</button>
+    </div>
+</form>

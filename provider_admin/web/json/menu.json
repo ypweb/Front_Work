@@ -1,0 +1,85 @@
+{
+  "code": "0",
+  "message": "查询成功",
+  "result": {
+    "menu": [
+      {
+        "modCode": "yttx-setting",
+        "modId": 1,
+        "modLink": "yttx-setting",
+        "modName": "店铺设置",
+        "modItem": [
+          {
+            "modCode": "yttx-setting-base",
+            "modLink": "yttx-setting-base",
+            "modName": "基本设置"
+          },
+          {
+            "modCode": "yttx-setting-account",
+            "modLink": "yttx-setting-account",
+            "modName": "账户信息"
+          },
+          {
+            "modCode": "yttx-setting-pwd",
+            "modLink": "yttx-setting-pwd",
+            "modName": "密码修改"
+          },
+          {
+            "modCode": "yttx-setting-certification",
+            "modLink": "yttx-setting-certification",
+            "modName": "企业认证"
+          }
+        ]
+      },
+      {
+        "modCode": "yttx-goods",
+        "modId": 2,
+        "modLink": "yttx-goods",
+        "modName": "商品管理",
+        "modItem": [
+          {
+            "modCode": "yttx-goods-manage",
+            "modLink": "yttx-goods-manage",
+            "modName": "商品管理"
+          },
+          {
+            "modCode": "yttx-goods-add",
+            "modLink": "yttx-goods-add",
+            "modName": "商品新增"
+          }
+        ]
+      },
+      {
+        "modCode": "yttx-order",
+        "modId": 3,
+        "modLink": "yttx-order",
+        "modName": "订单管理",
+        "modItem": [
+          {
+            "modCode": "yttx-order-manage",
+            "modLink": "yttx-order-manage",
+            "modName": "订单管理"
+          },
+          {
+            "modCode": "yttx-order-comment",
+            "modLink": "yttx-order-comment",
+            "modName": "评论管理"
+          }
+        ]
+      },
+      {
+        "modCode": "yttx-capital",
+        "modId": 4,
+        "modLink": "yttx-capital",
+        "modName": "资金管理",
+        "modItem": [
+          {
+            "modCode": "yttx-capital-manage",
+            "modLink": "yttx-capital-manage",
+            "modName": "资金记录"
+          }
+        ]
+      }
+    ]
+  }
+}

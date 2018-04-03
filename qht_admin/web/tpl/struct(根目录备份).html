@@ -1,0 +1,361 @@
+<div ng-controller="StructController as struct_ctrl">
+    <div class="struct-layout-container struct-layout-default">
+        <div class="struct-layout-main">
+            <!--主内容-->
+            <h1 class="admin-layout-theme3">
+                <span>{{struct_ctrl.edit.rootorgname}}</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="btn btn-default g-c-blue3" ng-click="struct_ctrl.toggleEdit()"><i class="btn-action admin-btn-action7"></i>&nbsp;编辑</span>
+            </h1>
+
+            <!--下属机构-->
+            <h2 class="admin-layout-theme3"><span class="theme-icon admin-theme-icon1"></span>&nbsp;&nbsp;下属机构</h2>
+
+            <!--添加菜单条-->
+            <div class="admin-action-item">
+                <span ng-click="struct_ctrl.addSubStruct()" ng-show="struct_ctrl.setting.add_substruct_state"><i class="btn-action admin-btn-action1"></i>添加子机构</span>
+                <span ng-show="struct_ctrl.setting.adjust_pos_state"><i class="btn-action admin-btn-action2"></i>调整位置</span>
+            </div>
+
+            <!--机构列表-->
+            <ul class="admin-list-tsitem" id="admin_struct_list" ng-click="struct_ctrl.toggleStructList($event)"></ul>
+
+            <!--template-->
+            <!--<li class="ts-reload ts-child ts-active">
+                    新疆省代<span></span>
+                    <ul>
+                        <li>2278298747247</li>
+                    </ul>
+                </li>-->
+
+
+
+            <!--机构用户-->
+            <h2 class="admin-layout-theme3"><span class="theme-icon admin-theme-icon2"></span>&nbsp;&nbsp;机构用户</h2>
+
+            <div class="admin-action-item">
+                <div class="action-item-btn g-f-l g-w-percent40">
+                    <span><i class="btn-action admin-btn-action1"></i>添加用户</span>
+                    <span><i class="btn-action admin-btn-action4"></i>批量导入/导出</span>
+                    <span><i class="btn-action admin-btn-action5"></i>调整运营商</span>
+                    <span><i class="btn-action admin-btn-action3"></i>调整排序</span>
+                    <span><i class="btn-action admin-btn-action6"></i>批量删除</span>
+                </div>
+                <div class="action-item-input g-f-r g-w-percent10">
+                    <label class="action-indent-b2">过滤:<input class="form-control input-sm" placeholder="" type="search"></label>
+                </div>
+            </div>
+
+            <!--表格-->
+            <table id="admin_list_wrap" class="table table-bordered table-striped table-hover admin-layout-table">
+                <!--分组样式-->
+                <colgroup>
+                    <col class="g-w-percent10">
+                    <col class="g-w-percent10">
+                    <col class="g-w-percent10">
+                    <col class="g-w-percent10">
+                    <col class="g-w-percent10">
+                </colgroup>
+
+                <!--表头-->
+                <thead>
+                <tr>
+                    <th>商品编号</th>
+                    <th>商品名称</th>
+                    <th>店铺名称</th>
+                    <th>分类</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+
+                <!--表主体-->
+                <tbody id="admin_batchlist_wrap" class="middle-align">
+                <tr>
+                    <td>aksdg</td>
+                    <td>0467996</td>
+                    <td>937msghfjsk</td>
+                    <td>3599679</td>
+                    <td><span class="btn-operate">查看</span><span class="btn-operate">订单</span><span class="btn-operate">修改</span></td>
+                </tr>
+                <tr>
+                    <td>aksdg</td>
+                    <td>0467996</td>
+                    <td>937msghfjsk</td>
+                    <td>3599679</td>
+                    <td><span class="btn-operate">查看</span><span class="btn-operate">订单</span><span class="btn-operate">修改</span></td>
+                </tr>
+                <tr>
+                    <td>aksdg</td>
+                    <td>0467996</td>
+                    <td>937msghfjsk</td>
+                    <td>3599679</td>
+                    <td><span class="btn-operate">查看</span><span class="btn-operate">订单</span><span class="btn-operate">修改</span></td>
+                </tr>
+                <tr>
+                    <td>aksdg</td>
+                    <td>0467996</td>
+                    <td>937msghfjsk</td>
+                    <td>3599679</td>
+                    <td><span class="btn-operate">查看</span><span class="btn-operate">订单</span><span class="btn-operate">修改</span></td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <!--分页-->
+            <div class="admin-page-wrap">
+                <div class="easyui-pagination g-w-percent50" id="admin_page_wrap" data-options="links:5,layout:['manual','first','prev','links','next','last'],displayMsg:'显示{from}&nbsp;到&nbsp;{to}&nbsp;共&nbsp;{total}条记录'"></div>
+            </div>
+        </div>
+
+        <div class="struct-layout-side">
+            <!--搜索组件-->
+            <div class="sub-search-wrap ui-sub-search"></div>
+
+            <!--选项卡组件-->
+            <ul class="sub-tab-wrap sub-item-group2 sub-itembr-group2 ui-sub-tab"></ul>
+
+            <!--子菜单组件-->
+            <ul class="sub-menu-wrap" ng-click="struct_ctrl.toggleSubMenu($event)">
+                <li>
+                    <a data-isrequest="false" class="sub-menu-root sub-menu-title">{{struct_ctrl.edit.rootorgname}}</a>
+                    <ul class="ui-sub-menu g-d-showi" id="admin_struct_submenu"></ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!--弹出层--提示操作界面-->
+    <div>
+        <!--机构设置-->
+        <div class="modal fade custom-width" id="struct_layout_dialog">
+            <div class="modal-dialog g-w-percent46">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="g-f-l g-w-percent34" ng-show="struct_ctrl.edit.powerstate" id="admin_struct_power">
+                            <div class="admin-layout-theme4 admin-theme-close g-t-c g-b-gray17 g-pos-r">选择权限
+                                <span class="mini-icon admin-mini-icon1"></span>
+                            </div>
+                            <table class="table table-bordered table-striped table-hover admin-layout-table">
+                                <colgroup>
+                                    <col class="g-w-percent10"/>
+                                    <col class="g-w-percent10"/>
+                                    <col class="g-w-percent10"/>
+                                    <col class="g-w-percent10"/>
+                                    <col class="g-w-percent10"/>
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th><label><input type="checkbox" name="qx1" />权限1</label></th>
+                                    <th><label><input type="checkbox" name="qx2" />权限2</label></th>
+                                    <th><label><input type="checkbox" name="qx3" />权限3</label></th>
+                                    <th><label><input type="checkbox" name="qx4" />权限4</label></th>
+                                    <th><label><input type="checkbox" name="qx5" />权限5</label></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><label><input type="checkbox" name="qx1" />权限设置1</label></td>
+                                    <td><label><input type="checkbox" name="qx2" />权限设置2</label></td>
+                                    <td><label><input type="checkbox" name="qx3" />权限设置3</label></td>
+                                    <td><label><input type="checkbox" name="qx4" />权限设置4</label></td>
+                                    <td><label><input type="checkbox" name="qx5" />权限设置5</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" name="qx1" />权限设置1</label></td>
+                                    <td><label><input type="checkbox" name="qx2" />权限设置2</label></td>
+                                    <td><label><input type="checkbox" name="qx3" />权限设置3</label></td>
+                                    <td><label><input type="checkbox" name="qx4" />权限设置4</label></td>
+                                    <td><label><input type="checkbox" name="qx5" />权限设置5</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" name="qx1" />权限设置1</label></td>
+                                    <td><label><input type="checkbox" name="qx2" />权限设置2</label></td>
+                                    <td><label><input type="checkbox" name="qx3" />权限设置3</label></td>
+                                    <td><label><input type="checkbox" name="qx4" />权限设置4</label></td>
+                                    <td><label><input type="checkbox" name="qx5" />权限设置5</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" name="qx1" />权限设置1</label></td>
+                                    <td><label><input type="checkbox" name="qx2" />权限设置2</label></td>
+                                    <td><label><input type="checkbox" name="qx3" />权限设置3</label></td>
+                                    <td><label><input type="checkbox" name="qx4" />权限设置4</label></td>
+                                    <td><label><input type="checkbox" name="qx5" />权限设置5</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" name="qx1" />权限设置1</label></td>
+                                    <td><label><input type="checkbox" name="qx2" />权限设置2</label></td>
+                                    <td><label><input type="checkbox" name="qx3" />权限设置3</label></td>
+                                    <td><label><input type="checkbox" name="qx4" />权限设置4</label></td>
+                                    <td><label><input type="checkbox" name="qx5" />权限设置5</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" name="qx1" />权限设置1</label></td>
+                                    <td><label><input type="checkbox" name="qx2" />权限设置2</label></td>
+                                    <td><label><input type="checkbox" name="qx3" />权限设置3</label></td>
+                                    <td><label><input type="checkbox" name="qx4" />权限设置4</label></td>
+                                    <td><label><input type="checkbox" name="qx5" />权限设置5</label></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-sm-5 g-t-r">
+                                    <span class="btn btn-red g-br3 g-w-percent15">确定</span>
+                                </div>
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-5 g-t-l">
+                                    <span class="btn btn-red g-br3 g-w-percent15">取消</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="g-f-r g-w-percent14">
+                            <div class="admin-layout-theme4 admin-theme-close g-t-c g-b-gray17 g-pos-r">机构设置
+                                <span class="mini-icon admin-mini-icon1"></span>
+                            </div>
+
+                            <form role="form" novalidate method="post" id="admin_audit_form" class="admin-layout-form">
+                                <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon2"></span>&nbsp;基本信息</div>
+
+
+
+                                <div class="form-group-self1">
+                                    <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>机构名称</label>
+
+                                    <div class="self-input g-w-percent35">
+                                        <input type="text" name="jgmc" placeholder="请输入机构名称" data-validate="required" data-message-required="机构名称不能为空"  id="admin_jgmc" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group-self1">
+                                    <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>上级机构</label>
+
+                                    <div class="self-input g-w-percent35">
+                                        <input type="text" name="sjjg" placeholder="请输入上级机构" data-validate="required" data-message-required="上级机构不能为空"  id="admin_sjjg" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group-self1">
+                                    <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>负责人</label>
+
+                                    <div class="self-input g-w-percent35">
+                                        <input type="text" name="fzr" placeholder="请输入负责人" data-validate="required" data-message-required="负责人不能为空"  id="admin_frz" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group-self1">
+                                    <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>负责人手机</label>
+
+                                    <div class="self-input g-w-percent35">
+                                        <input type="text" name="fzrsj" placeholder="请输入负责人手机" data-validate="required" data-message-required="负责人手机不能为空"  id="admin_frzsj" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group-self1">
+                                    <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>联系地址</label>
+                                    <div class="self-input g-w-percent35">
+                                        <select class="g-w-percent15 g-gap-mr1" name="sheng" data-validate="required" data-message-required="联系地址省不能为空"  id="admin_sheng"></select>
+                                        <select class="g-w-percent15 g-gap-mr1" name="shi" data-validate="required" data-message-required="联系地址市不能为空"  id="admin_shi"></select>
+                                        <select class="g-w-percent15" name="xian" data-validate="required" data-message-required="联系地址县不能为空"  id="admin_xian"></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group-self1">
+                                    <label class="self-label g-w-percent15 g-v-t g-t-r">备注</label>
+
+                                    <div class="self-input g-w-percent35">
+                                        <textarea name="fzrsj" id="admin_bz"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon3"></span>&nbsp;登陆信息</div>
+
+                                <div class="form-group-self1">
+                                    <label class="self-label g-w-percent50"><input type="checkbox" id="admin_szmm" name="szmm">&nbsp;设置登录名与密码</label>
+                                </div>
+
+                                <div class="form-group-self1">
+                                    <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>登陆用户名</label>
+
+                                    <div class="self-input g-w-percent35">
+                                        <input type="text" name="yhm" placeholder="请输入登陆用户名" data-validate="required" data-message-required="登陆用户名不能为空"  id="admin_yhm" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group-self1">
+                                    <label class="self-label g-w-percent15 g-t-r"><span class="self-require g-c-red1">*</span>登陆密码</label>
+
+                                    <div class="self-input g-w-percent35">
+                                        <input type="password" name="mm" placeholder="请输入登陆密码" data-validate="required" data-message-required="登陆密码不能为空"  id="admin_mm" />
+                                    </div>
+                                </div>
+
+                                <div class="admin-layout-theme4"><span class="mini-icon admin-mini-icon4"></span>&nbsp;权限设定</div>
+
+                                <div class="form-group-self1">
+                                    <label class="self-label"><input type="checkbox" id="admin_qbqx" name="qx">&nbsp;全部权限</label>
+                                    <label class="self-label"><input type="checkbox" id="admin_zdqx" name="qx">&nbsp;指定权限</label>
+                                </div>
+
+                                <div class="form-group-self1 g-t-r">
+                                    <div class="self-input g-w-percent45">
+                                        <input type="text" name="yxqx" id="admin_yxqx" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group-self1">
+                                    <button type="submit" class="btn btn-red g-br3 g-w-percent50">保存</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

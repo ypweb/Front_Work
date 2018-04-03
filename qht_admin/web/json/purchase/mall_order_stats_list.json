@@ -1,0 +1,63 @@
+{
+  "code": 0,
+  "message":"成功",
+  "result":{
+    "list":[{
+      "id":1,
+      "orderNumber": "572457fghf",
+      "orderTime": "2016-09-08",
+      "customerName":"大湘仓",
+      "orderState":6,
+      "totalQuantity":60
+    },{
+      "id":2,
+      "orderNumber": "GAS0654",
+      "orderTime": "2016-09-15",
+      "customerName":"大鄂仓",
+      "orderState":1,
+      "totalQuantity":30
+    },{
+      "id":3,
+      "orderNumber": "kjg0907",
+      "orderTime": "2016-10-25",
+      "customerName":"大粤仓",
+      "orderState":6,
+      "totalQuantity":130
+    },{
+      "id":4,
+      "orderNumber": "734600",
+      "orderTime": "2016-11-18",
+      "customerName":"大川仓",
+      "orderState":0,
+      "totalQuantity":380
+    },{
+      "id":5,
+      "orderNumber": "UU-374",
+      "orderTime": "2016-08-28",
+      "customerName":"大桂仓",
+      "orderState":9,
+      "totalQuantity":900
+    },{
+      "id":6,
+      "orderNumber": "OWE-3593",
+      "orderTime": "2016-05-13",
+      "customerName":"大赣仓",
+      "orderState":20,
+      "totalQuantity":1270
+    },{
+      "id":7,
+      "orderNumber": "OWE-3593",
+      "orderTime": "2016-03-31",
+      "customerName":"大黔仓",
+      "orderState":21,
+      "totalQuantity":150
+    },{
+      "id":8,
+      "orderNumber": "76HD03LF",
+      "orderTime": "2016-04-28",
+      "customerName":"大鲁仓",
+      "orderState":6,
+      "totalQuantity":3700
+    }]
+  }
+}

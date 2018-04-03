@@ -1,0 +1,398 @@
+{
+  "code": "0",
+  "message": "查询成功",
+  "result": {
+    "menu": [
+      {
+        "modClass": "yttx-admin",
+        "modCode": "yttx-admin",
+        "modId": 36,
+        "modItem": [
+          {
+            "modClass": "yttx-admin-role",
+            "modCode": "yttx-admin-role",
+            "modId": 36,
+            "modLink": "yttx-admin-role",
+            "modName": "角色"
+          },
+          {
+            "modClass": "yttx-admin-members",
+            "modCode": "yttx-admin-members",
+            "modId": 36,
+            "modLink": "yttx-admin-members",
+            "modName": "成员设置"
+          },
+          {
+            "modClass": "yttx-admin-permissions",
+            "modCode": "yttx-admin-permissions",
+            "modId": 36,
+            "modLink": "yttx-admin-permissions",
+            "modName": "权限设置"
+          },
+          {
+            "modClass": "yttx-admin-others",
+            "modCode": "yttx-admin-others",
+            "modId": 36,
+            "modLink": "yttx-admin-others",
+            "modName": "其它设置"
+          }
+        ],
+        "modLink": "yttx-admin",
+        "modName": "系统管理",
+        "permitItem": [
+          {
+            "funcCode": "admin-agent-set",
+            "funcName": "代理级别设置",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 538
+          },
+          {
+            "funcCode": "admin-other-set",
+            "funcName": "其它设置",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 537
+          },
+          {
+            "funcCode": "admin-member-delete",
+            "funcName": "成员删除",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 536
+          },
+          {
+            "funcCode": "admin-member-update",
+            "funcName": "成员修改",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 535
+          },
+          {
+            "funcCode": "admin-member-add",
+            "funcName": "成员增加",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 534
+          },
+          {
+            "funcCode": "admin-permission-management",
+            "funcName": "权限管理",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 533
+          },
+          {
+            "funcCode": "admin-setting",
+            "funcName": "系统设置",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 532
+          },
+          {
+            "funcCode": "admin-role-delete",
+            "funcName": "角色删除",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 531
+          },
+          {
+            "funcCode": "admin-role-update",
+            "funcName": "角色修改",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 530
+          },
+          {
+            "funcCode": "admin-role-add",
+            "funcName": "角色增加",
+            "isPermit": 1,
+            "modId": 36,
+            "prid": 529
+          }
+        ]
+      },
+      {
+        "modClass": "yttx-service-station",
+        "modCode": "yttx-service-station",
+        "modId": 41,
+        "modItem": [
+          {
+            "modClass": "yttx-service-station-add",
+            "modCode": "yttx-service-station-add",
+            "modId": 41,
+            "modLink": "yttx-service-station-add",
+            "modName": "添加服务站"
+          },
+          {
+            "modClass": "yttx-service-station-invoice",
+            "modCode": "yttx-service-station-invoice",
+            "modId": 41,
+            "modLink": "yttx-service-station-invoice",
+            "modName": "发货"
+          }
+        ],
+        "modLink": "yttx-service-station",
+        "modName": "服务站管理",
+        "permitItem": [
+          {
+            "funcCode": "service-station-invoice",
+            "funcName": "发货",
+            "isPermit": 1,
+            "modId": 41,
+            "prid": 543
+          },
+          {
+            "funcCode": "service-station-delete",
+            "funcName": "删除",
+            "isPermit": 1,
+            "modId": 41,
+            "prid": 542
+          },
+          {
+            "funcCode": "service-station-update",
+            "funcName": "修改",
+            "isPermit": 1,
+            "modId": 41,
+            "prid": 541
+          },
+          {
+            "funcCode": "service-station-view",
+            "funcName": "查看",
+            "isPermit": 1,
+            "modId": 41,
+            "prid": 540
+          },
+          {
+            "funcCode": "service-station-add",
+            "funcName": "添加",
+            "isPermit": 1,
+            "modId": 41,
+            "prid": 539
+          }
+        ]
+      },
+      {
+        "modClass": "yttx-agent",
+        "modCode": "yttx-agent",
+        "modId": 47,
+        "modItem": [
+          {
+            "modClass": "yttx-agent-add",
+            "modCode": "yttx-agent-add",
+            "modId": 47,
+            "modLink": "yttx-agent-add",
+            "modName": "添加代理商"
+          }
+        ],
+        "modLink": "yttx-agent",
+        "modName": "代理商管理",
+        "permitItem": [
+          {
+            "funcCode": "agent-add",
+            "funcName": "添加",
+            "isPermit": 1,
+            "modId": 47,
+            "prid": 544
+          },
+          {
+            "funcCode": "agent-binding-service",
+            "funcName": "绑定服务站",
+            "isPermit": 1,
+            "modId": 47,
+            "prid": 545
+          },
+          {
+            "funcCode": "agent-view",
+            "funcName": "查看",
+            "isPermit": 1,
+            "modId": 47,
+            "prid": 546
+          },
+          {
+            "funcCode": "agent-update",
+            "funcName": "修改",
+            "isPermit": 1,
+            "modId": 47,
+            "prid": 547
+          },
+          {
+            "funcCode": "agent-delete",
+            "funcName": "删除",
+            "isPermit": 1,
+            "modId": 47,
+            "prid": 548
+          }
+        ]
+      },
+      {
+        "modClass": "yttx-sales",
+        "modCode": "yttx-sales",
+        "modId": 52,
+        "modItem": [
+          {
+            "modClass": "yttx-sales-subscribers",
+            "modCode": "yttx-sales-subscribers",
+            "modId": 52,
+            "modLink": "yttx-sales-subscribers",
+            "modName": "用户管理"
+          }
+        ],
+        "modLink": "yttx-sales",
+        "modName": "销售管理",
+        "permitItem": [
+          {
+            "funcCode": "sales-subscriber-acquiring",
+            "funcName": "收单查看",
+            "isPermit": 1,
+            "modId": 52,
+            "prid": 553
+          },
+          {
+            "funcCode": "sales-subscriber-delete",
+            "funcName": "删除",
+            "isPermit": 1,
+            "modId": 52,
+            "prid": 552
+          },
+          {
+            "funcCode": "sales-subscriber-update",
+            "funcName": "修改",
+            "isPermit": 1,
+            "modId": 52,
+            "prid": 551
+          },
+          {
+            "funcCode": "sales-subscriber-view",
+            "funcName": "查看",
+            "isPermit": 1,
+            "modId": 52,
+            "prid": 550
+          },
+          {
+            "funcCode": "sales-subscriber-add",
+            "funcName": "添加",
+            "isPermit": 1,
+            "modId": 52,
+            "prid": 549
+          }
+        ]
+      },
+      {
+        "modClass": "yttx-logistics",
+        "modCode": "yttx-logistics",
+        "modId": 54,
+        "modItem": [
+          {
+            "modClass": "yttx-logistics-takedelivery",
+            "modCode": "yttx-logistics-takedelivery",
+            "modId": 54,
+            "modLink": "yttx-logistics-takedelivery",
+            "modName": "收货"
+          }
+        ],
+        "modLink": "yttx-logistics",
+        "modName": "物流管理",
+        "permitItem": [
+          {
+            "funcCode": "logistics-take-delivery",
+            "funcName": "收货",
+            "isPermit": 1,
+            "modId": 54,
+            "prid": 554
+          },
+          {
+            "funcCode": "logistics-view",
+            "funcName": "查看",
+            "isPermit": 1,
+            "modId": 54,
+            "prid": 555
+          },
+          {
+            "funcCode": "logistics-take-exception",
+            "funcName": "收货异常管理",
+            "isPermit": 1,
+            "modId": 54,
+            "prid": 556
+          },
+          {
+            "funcCode": "logistics-repair",
+            "funcName": "返修管理",
+            "isPermit": 1,
+            "modId": 54,
+            "prid": 557
+          }
+        ]
+      },
+      {
+        "modClass": "yttx-finance",
+        "modCode": "yttx-finance",
+        "modId": 56,
+        "modItem": [
+          {
+            "modClass": "yttx-finance-sales",
+            "modCode": "yttx-finance-sales",
+            "modId": 56,
+            "modLink": "yttx-finance-sales",
+            "modName": "销售分润"
+          },
+          {
+            "modClass": "yttx-finance-swingcard",
+            "modCode": "yttx-finance-swingcard",
+            "modId": 56,
+            "modLink": "yttx-finance-swingcard",
+            "modName": "刷卡分润"
+          }
+        ],
+        "modLink": "yttx-finance",
+        "modName": "财务管理",
+        "permitItem": [
+          {
+            "funcCode": "finance-sales-profit-view",
+            "funcName": "销售分润查看",
+            "isPermit": 1,
+            "modId": 56,
+            "prid": 558
+          },
+          {
+            "funcCode": "finance-swing-profit-view",
+            "funcName": "刷卡分润查看",
+            "isPermit": 1,
+            "modId": 56,
+            "prid": 559
+          }
+        ]
+      },
+      {
+        "modClass": "yttx-distributor",
+        "modCode": "yttx-distributor",
+        "modId": 59,
+        "modLink": "yttx-distributor",
+        "modName": "三级分销管理",
+        "permitItem": [
+          {
+            "funcCode": "distributor-lower-view",
+            "funcName": "分销查看",
+            "isPermit": 1,
+            "modId": 59,
+            "prid": 560
+          },
+          {
+            "funcCode": "distributor-acquiring-view",
+            "funcName": "收单查看",
+            "isPermit": 1,
+            "modId": 59,
+            "prid": 561
+          },
+          {
+            "funcCode": "distributor-lower-stats",
+            "funcName": "分销统计",
+            "isPermit": 1,
+            "modId": 59,
+            "prid": 562
+          }
+        ]
+      }
+    ]
+  }
+}

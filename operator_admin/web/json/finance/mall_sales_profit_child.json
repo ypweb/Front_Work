@@ -1,0 +1,59 @@
+{
+  "code":0,
+  "message": "成功",
+  "result": {
+    "list": [
+      {
+        "id": "1",
+        "m1SalesLevel1": "34.32",
+        "m1SalesLevel2": "36.52",
+        "m1SalesLevel3": "27.72",
+        "m1ProfitsLevel1": "465.34",
+        "m1ProfitsLevel2": "146.72",
+        "m1ProfitsLevel3": "725.64",
+        "area":"湖南"
+      },
+      {
+        "id": "2",
+        "m1ProfitsLevel1": "162.26",
+        "m1ProfitsLevel2": "2676.27",
+        "m1ProfitsLevel3": "9367.64",
+        "m1SalesLevel1": "134.86",
+        "m1SalesLevel3": "456.47",
+        "area":"湖北"
+      },
+      {
+        "id": "3",
+        "m1ProfitsLevel1": "2596.29",
+        "m1SalesLevel1": "353.43",
+        "m1SalesLevel2": "6724.67",
+        "m1SalesLevel3": "2166.77",
+        "area":"江西"
+      },
+      {
+        "id": "4",
+        "m1ProfitsLevel1": "25776.47",
+        "m1ProfitsLevel2": "37836.67",
+        "m1ProfitsLevel3": "3605.34",
+        "m1SalesLevel1": "62565.54",
+        "area":"广东"
+      },
+      {
+        "id": "5",
+        "m1SalesLevel2": "93844.38",
+        "m1SalesLevel3": "27825.34",
+        "m1ProfitsLevel1": "5699.25",
+        "m1ProfitsLevel2": "2565.68",
+        "area":"广东"
+      },
+      {
+        "id": "6",
+        "m1ProfitsLevel2": "8936.54",
+        "m1ProfitsLevel3": "4627.46",
+        "m1SalesLevel1": "2576.65",
+        "m1SalesLevel3": "9456.76",
+        "area":"安徽"
+      }
+    ]
+  }
+}

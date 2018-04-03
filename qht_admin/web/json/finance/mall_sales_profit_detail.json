@@ -1,0 +1,56 @@
+{
+  "code":0,
+  "message": "成功",
+  "result": {
+    "list": [
+      {
+        "id": "1",
+        "customerName": "张三",
+        "orderNumber": "kd-343461546",
+        "orderTime": "2016-10-10 15:53:45",
+        "profit": "24.23",
+        "totalMoney": "825.72"
+      },
+      {
+        "id": "2",
+        "customerName": "李四",
+        "orderNumber": "2572567gf256",
+        "orderTime": "2016-11-11 12:23:25",
+        "profit": "13.26",
+        "totalMoney": "362.34"
+      },
+      {
+        "id": "3",
+        "customerName": "王五",
+        "orderNumber": "26858-ff612546",
+        "orderTime": "2016-05-25 09:45:24",
+        "profit": "14",
+        "totalMoney": "452.76"
+      },
+      {
+        "id": "4",
+        "customerName": "赵六",
+        "orderNumber": "89337-5257452645wr36gf",
+        "orderTime": "2016-03-23 08:09:06",
+        "profit": "47",
+        "totalMoney": "8368.26"
+      },
+      {
+        "id": "5",
+        "customerName": "马七",
+        "orderNumber": "904826ksg4562klds",
+        "orderTime": "2016-01-27 14:25:25",
+        "profit": "34",
+        "totalMoney": "6283.35"
+      },
+      {
+        "id": "6",
+        "customerName": "白杨亦萧潇",
+        "orderNumber": "kjqk456lndmfg456246",
+        "orderTime": "2016-11-27 16:54:46",
+        "profit": "25",
+        "totalMoney": "2523.25"
+      }
+    ]
+  }
+}

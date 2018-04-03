@@ -1,0 +1,36 @@
+{
+  "code": 0,
+  "message":"成功",
+  "result":{
+    "id":0,
+    "number": "572457fghf",
+    "time": "2016-09-08",
+    "store":"大湘仓",
+    "operator":"天长和地久",
+    "provider":"张三",
+    "type":"补货",
+    "remark":"城里的月光",
+    "state":0,
+    "list":[{
+      "goodscode": "gjkjkjkery46dksag",
+      "goodstype":"电脑",
+      "goodsnumber": "200",
+      "goodsname":"主机箱"
+    },{
+      "goodscode": "45745747",
+      "goodstype":"白酒",
+      "goodsnumber": "50",
+      "goodsname":"二锅头"
+    },{
+      "goodscode": "2457fjsfj",
+      "goodstype":"平板",
+      "goodsnumber": "500",
+      "goodsname":"pad"
+    },{
+      "goodscode": "ghkdgutyu6346",
+      "goodstype":"数码",
+      "goodsnumber": "5560",
+      "goodsname":"索尼高清相机"
+    }]
+  }
+}

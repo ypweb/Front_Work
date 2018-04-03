@@ -1,0 +1,47 @@
+<div class="admin-layout-theme4 g-gap-pl8  g-gap-mb6 g-t-l g-b-gray17">修改密码</div>
+
+<form ng-submit="setting_ctrl.formSubmit('pwd')" name="pwdFrom" role="form" novalidate method="post" class="admin-layout-form">
+
+    <div class="form-group-self3">
+        <label class="self-label g-w-percent10 g-t-l"><span class="self-require g-c-red1">*</span>原密码</label>
+
+        <div class="self-input g-pos-r g-w-percent26">
+            <input type="password" name="password" id="admin_password" placeholder="请输入原密码"  required ng-minlength="6" data-equaldom="admin_newPassword" class="ui-compare-unequal" minlength="6" ng-model="setting_ctrl.pwd.password" />
+            <span ng-show="pwdFrom.password.$dirty && pwdFrom.password.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">原密码不能为空</span>
+            <span ng-show="pwdFrom.password.$dirty && pwdFrom.password.$error.minlength" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">原密码不能少于6位</span>
+            <span ng-show="pwdFrom.password.$dirty && pwdFrom.password.$error.unequalerror" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">原密码不能与新密码相同</span>
+            <span ng-show="pwdFrom.password.$dirty && pwdFrom.password.$valid" class="self-tips self-tips-yes"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group-self3">
+        <label class="self-label g-w-percent10 g-t-l"><span class="self-require g-c-red1">*</span>新密码</label>
+
+        <div class="self-input g-pos-r g-w-percent26">
+            <input type="password" name="newPassword" id="admin_newPassword" placeholder="请输入新密码"  required ng-minlength="6" minlength="6" data-equaldom="admin_password" class="ui-compare-unequal"  ng-model="setting_ctrl.pwd.newPassword" />
+            <span ng-show="pwdFrom.newPassword.$dirty && pwdFrom.newPassword.$error.required" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">新密码不能为空</span>
+            <span ng-show="pwdFrom.newPassword.$dirty && pwdFrom.newPassword.$error.minlength" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">新密码不能少于6位</span>
+            <span ng-show="pwdFrom.newPassword.$dirty && pwdFrom.newPassword.$error.unequalerror" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">新密码不能与原密码相同</span>
+            <span ng-show="pwdFrom.newPassword.$dirty && pwdFrom.newPassword.$valid" class="self-tips self-tips-yes"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group-self3 g-gap-mb6">
+        <label class="self-label g-w-percent10 g-t-l"><span class="self-require g-c-red1">*</span>确认密码</label>
+
+        <div class="self-input g-pos-r g-w-percent26">
+            <input type="password" name="confirm_newPassword" placeholder="请输入确认密码"  required ng-minlength="6" minlength="6" ng-model="setting_ctrl.pwd.confirm_newPassword" data-equaldom="admin_newPassword" class="ui-compare-equal" />
+            <span ng-show="pwdFrom.confirm_newPassword.$dirty && pwdFrom.confirm_newPassword.$error.required && !pwdFrom.confirm_newPassword.$error.minlength" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">确认密码不能为空</span>
+            <span ng-show="pwdFrom.confirm_newPassword.$dirty && !pwdFrom.confirm_newPassword.$error.required && pwdFrom.confirm_newPassword.$error.minlength" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">确认密码不能少于6位</span>
+            <span ng-show="pwdFrom.confirm_newPassword.$dirty && !pwdFrom.confirm_newPassword.$error.required && !pwdFrom.confirm_newPassword.$error.minlength  && pwdFrom.confirm_newPassword.$error.equalerror" class="self-tips self-tips-no g-c-red1 g-fs4 g-w-percent50">确认密码需与新密码一致</span>
+            <span ng-show="pwdFrom.confirm_newPassword.$dirty && pwdFrom.confirm_newPassword.$valid" class="self-tips self-tips-yes"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group-self3 g-w-percent36">
+        <button type="submit" ng-disabled="!(setting_ctrl.record.organizationId!=='' && setting_ctrl.record.adminId!=='' && pwdFrom.password.$valid && pwdFrom.newPassword.$valid && pwdFrom.confirm_newPassword.$valid)" class="btn btn-red g-br4 g-f-l g-gap-pt2 g-gap-pb2 g-gap-pl8 g-gap-pr8 g-fs6">确&nbsp;定</button>
+    </div>
+</form>

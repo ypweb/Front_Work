@@ -1,0 +1,168 @@
+/*列表*/
+
+/*列表容器1*/
+.list-wrap1() {
+	.layout-base;
+	li {
+		.layout-relative-base;
+		.layout-float-base;
+		.user-select-base;
+		width: 50%;
+		height: 140px;
+		padding: 10px 10px 10px 100px;
+		&:after {
+			content: '';
+			clear: both;
+			height: 0;
+			width: 50%;
+			display: block;
+		}
+		>a {
+			.layout-base;
+			display:inline-block;
+			height:100%;
+		}
+	}
+	div {
+		.layout-absolutel-base(0, 10px);
+		display: block;
+		height: 100px;
+		width: 100px;
+		overflow: hidden;
+		img {
+			width: 80px;
+			height: 80px;
+			padding: 10px;
+		}
+	}
+	h4,
+	p {
+		.layout-float-base;
+	}
+	h4 {
+		height: 30px;
+		line-height: 30px;
+		white-space: nowrap;
+		overflow: hidden;
+		.text-of;
+		color: @color-gray3;
+		font-size: @font-size-base;
+	}
+	p {
+		.text-ww;
+		line-height: 20px;
+		height: 70px;
+		overflow: hidden;
+		font-size: @font-size-base - 2;
+		color: @color-gray6;
+		a {
+			display: inline-block;
+			padding: 0 0 0 10px;
+			&:hover {
+				color: @color-red1;
+			}
+		}
+	}
+}
+
+
+/*列表容器2*/
+.list-wrap2(){
+	.box-sizing-base;
+	>dt,>li{
+		.box-sizing-base;
+		.user-select-base;
+		padding:0 120px 0 100px;
+		line-height:38px;
+		cursor: pointer;
+		border-bottom:1px dashed @color-gray9;
+		font-size:@font-size-base;
+		color:@color-gray6;
+		&:hover{
+			span{
+				color:@color-red1;
+			}
+		}
+		>a{
+			.layout-base;
+			float:left;
+			display:inline-block;
+			height:100%;
+		}
+		span{
+			text-align: center;
+			color:@color-gray5;
+			float: left;
+			margin:0 0 0 -95px;
+			width:90px;
+		}
+		em{
+			text-align: right;
+			color:@color-gray9;
+			float: right;
+			margin:0 -110px 0 0;
+			width:100px;
+		}
+	}
+	>dt,>dt span,>dt em,
+	>li,>li span,>li em{
+		.box-sizing-base;
+		height:40px;
+		display:inline-block;
+		white-space:nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	>dt,>li{
+		p{
+			.layout-base;
+			height:40px;
+			display:inline-block;
+			white-space:nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			line-height:38px;
+			font-size:@font-size-base;
+			color:@color-gray6;
+		}
+	}
+	>dd{
+		.layout-base;
+		padding:20px 10px;
+		p{
+			.layout-base;
+			.text-ww;
+			text-indent: 2em;
+			font-size:@font-size-base;
+			line-height:24px;
+			padding:5px 0;
+			color:@color-gray6;
+			&::-moz-selection{background:@color-gray16;color:@color-red1;}
+			&::selection{background:@color-gray16;color:@color-red1;}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

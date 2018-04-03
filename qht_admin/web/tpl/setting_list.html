@@ -1,0 +1,96 @@
+
+<!--主题描述-->
+<div class="page-title">
+    <div class="title-env">
+        <h1 class="title">用户管理</h1>
+        <p class="description">用户列表</p>
+    </div>
+    <div class="breadcrumb-env">
+        <ol class="breadcrumb bc-1">
+            <li><a href=""><i class="fa-home"></i>用户管理</a></li>
+            <li class="active"><strong>用户列表</strong></li>
+        </ol>
+    </div>
+</div>
+
+<!--主内容-->
+<div class="row row-main-wrap">
+    <div class="col-md-12">
+        <div class="panel">
+
+            <!--表格标题-->
+            <div class="panel-heading">
+                <h3 class="panel-title">用户列表</h3>
+
+                <div class="panel-options">
+                    <a href="#" data-toggle="panel">
+                        <span class="collapse-icon">&ndash;</span>
+                        <span class="expand-icon">+</span>
+                    </a>
+                </div>
+            </div>
+
+
+            <!--表格主体-->
+            <div class="panel-body">
+                <div class="admin-search-wrap">
+                    <div class="admin-search-item">
+                        <label>用户名：</label>
+                        <input type="text" id="search_nickName" />
+                    </div>
+                    <div class="admin-search-item">
+                        <label>电话号码：</label>
+                        <input type="text" maxlength="13" id="search_phone" />
+                    </div>
+                    <div class="admin-search-item">
+                                    <span id="admin_search_btn" class="btn btn-info btn-icon g-br2">
+                                        <i class="fa-search"></i>查询
+                                    </span>
+                                    <span id="admin_search_clear" class="btn btn-info btn-icon g-br2">
+                                        <i class="fa-spinner"></i>清空
+                                    </span>
+                    </div>
+                </div>
+
+
+
+                <table id="admin_list_wrap" class="table table-bordered table-striped table-hover admin-table">
+                    <!--分组样式-->
+                    <colgroup>
+                        <col class="g-w-percent9">
+                        <col class="g-w-percent5">
+                        <col class="g-w-percent7">
+                        <col class="g-w-percent7">
+                        <col class="g-w-percent5">
+                        <col class="g-w-percent4">
+                        <col class="g-w-percent4">
+                        <col class="g-w-percent9">
+                    </colgroup>
+
+                    <!--表头-->
+                    <thead>
+                    <tr>
+                        <th>用户名(昵称)</th>
+                        <th>手机号</th>
+                        <th>创建时间</th>
+                        <th>最后登录时间</th>
+                        <th>登录次数</th>
+                        <th>用户属性</th>
+                        <th>是否可用</th>
+                        <th class="no-sorting">操作</th>
+                    </tr>
+                    </thead>
+
+
+                    <!--表主体-->
+                    <tbody class="middle-align"></tbody>
+                </table>
+                <div class="admin-page-wrap">
+                    <div class="easyui-pagination g-w-percent50" id="admin_page_wrap" data-options="links:5,layout:['manual','first','prev','links','next','last'],displayMsg:'显示{from}&nbsp;到&nbsp;{to}&nbsp;共&nbsp;{total}条记录'"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+{
+  "code": 0,
+  "message":"成功",
+  "result":{
+    "agent1":{
+        "m1Sales": "1销售分润--销售1",
+        "m1Profits": "销售分润--分润1",
+        "m2Sales": "2销售分润--销售1",
+        "m2Profits": "销售分润--分润1",
+        "m3Sales": "3销售分润--销售1",
+        "m3Profits": "销售分润--分润1"
+    },
+    "agent2":{
+      "m1Sales": "1销售分润--销售2",
+      "m1Profits": "销售分润--分润2",
+      "m2Sales": "2销售分润--销售2",
+      "m2Profits": "销售分润--分润2",
+      "m3Sales": "3销售分润--销售2",
+      "m3Profits": "销售分润--分润2"
+    },
+    "agent3":{
+      "m1Sales": "1销售分润--销售3",
+      "m1Profits": "销售分润--分润3",
+      "m2Sales": "2销售分润--销售3",
+      "m2Profits": "销售分润--分润3",
+      "m3Sales": "3销售分润--销售3",
+      "m3Profits": "销售分润--分润3"
+    },
+    "total":{
+      "m1Sales": "1销售分润--销售t",
+      "m1Profits": "销售分润--分润t",
+      "m2Sales": "2销售分润--销售t",
+      "m2Profits": "销售分润--分润t",
+      "m3Sales": "3销售分润--销售t",
+      "m3Profits": "销售分润--分润t"
+    },
+    "list":[{
+      "id":"1",
+      "shortName":"服务站1",
+      "agentShortName":"所属代理1",
+      "agentGrade":"所属关系1",
+      "superShortName":"上级代理1",
+      "m1Sales": "1销售分润--销售1",
+      "m1Profits": "销售分润--分润1",
+      "m2Sales": "2销售分润--销售1",
+      "m2Profits": "销售分润--分润1",
+      "m3Sales": "3销售分润--销售1",
+      "m3Profits": "销售分润--分润1"
+    },{
+        "id":"2",
+        "shortName":"服务站2",
+        "agentShortName":"所属代理2",
+        "agentGrade":"所属关系2",
+        "superShortName":"上级代理2",
+        "m1Sales": "1销售分润--销售2",
+        "m1Profits": "销售分润--分润2",
+        "m2Sales": "2销售分润--销售2",
+        "m2Profits": "销售分润--分润2",
+        "m3Sales": "3销售分润--销售2",
+        "m3Profits": "销售分润--分润2"
+      },{
+      "id":"3",
+      "shortName":"服务站3",
+      "agentShortName":"所属代理3",
+      "agentGrade":"所属关系3",
+      "superShortName":"上级代理3",
+      "m1Sales": "1销售分润--销售3",
+      "m1Profits": "销售分润--分润3",
+      "m2Sales": "2销售分润--销售3",
+      "m2Profits": "销售分润--分润3",
+      "m3Sales": "3销售分润--销售3",
+      "m3Profits": "销售分润--分润3"
+    },{
+      "id":"4",
+      "shortName":"服务站4",
+      "agentShortName":"所属代理4",
+      "agentGrade":"所属关系4",
+      "superShortName":"上级代理4",
+      "m1Sales": "1销售分润--销售4",
+      "m1Profits": "销售分润--分润4",
+      "m2Sales": "2销售分润--销售4",
+      "m2Profits": "销售分润--分润4",
+      "m3Sales": "3销售分润--销售4",
+      "m3Profits": "销售分润--分润4"
+    },{
+      "id":"5",
+      "shortName":"服务站5",
+      "agentShortName":"所属代理5",
+      "agentGrade":"所属关系5",
+      "superShortName":"上级代理5",
+      "m1Sales": "1销售分润--销售5",
+      "m1Profits": "销售分润--分润5",
+      "m2Sales": "2销售分润--销售5",
+      "m2Profits": "销售分润--分润5",
+      "m3Sales": "3销售分润--销售5",
+      "m3Profits": "销售分润--分润5"
+    },{
+      "id":"6",
+      "shortName":"服务站5",
+      "agentShortName":"所属代理5",
+      "agentGrade":"所属关系5",
+      "superShortName":"上级代理5",
+      "m1Sales": "1销售分润--销售5",
+      "m1Profits": "销售分润--分润5",
+      "m2Sales": "2销售分润--销售5",
+      "m2Profits": "销售分润--分润5",
+      "m3Sales": "3销售分润--销售5",
+      "m3Profits": "销售分润--分润5"
+    },{
+      "id":"7",
+      "shortName":"服务站5",
+      "agentShortName":"所属代理5",
+      "agentGrade":"所属关系5",
+      "superShortName":"上级代理5",
+      "m1Sales": "1销售分润--销售5",
+      "m1Profits": "销售分润--分润5",
+      "m2Sales": "2销售分润--销售5",
+      "m2Profits": "销售分润--分润5",
+      "m3Sales": "3销售分润--销售5",
+      "m3Profits": "销售分润--分润5"
+    },{
+      "id":"8",
+      "shortName":"服务站5",
+      "agentShortName":"所属代理5",
+      "agentGrade":"所属关系5",
+      "superShortName":"上级代理5",
+      "m1Sales": "1销售分润--销售5",
+      "m1Profits": "销售分润--分润5",
+      "m2Sales": "2销售分润--销售5",
+      "m2Profits": "销售分润--分润5",
+      "m3Sales": "3销售分润--销售5",
+      "m3Profits": "销售分润--分润5"
+    }]
+  }
+}

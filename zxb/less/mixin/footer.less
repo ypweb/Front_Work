@@ -1,0 +1,53 @@
+
+/*底部*/
+.footer-wrap{
+	background-color:@footer-bg;
+	.layout-base;
+	min-height:40px;
+}
+.footer-content-wrap{
+	width:@global-screen-width;
+	margin:0 auto;
+	min-height:40px;
+	color:@color-gray10;
+	font-size:@font-size-base - 2;
+	p{
+		width:49%;
+		height:40px;
+		line-height:40px;
+		display: inline-block;
+	}
+	.footer-list-wrap{
+		.layout-base;
+		padding:10px 0;
+		text-align:left;
+		a{
+			display: inline-block;
+			padding:3px 5px 0 0;
+			margin:3px 0 0 5px;
+			font-size:@font-size-base - 2;
+			color:@color-gray12;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+///max 1000px
+@media screen and (max-width:999px){
+	//变量适配
+	@global-screen-width:640px;
+	@global-screen-height:850px;
+
+	/*底部*/
+	.footer-content-wrap{
+		width:@global-screen-width;
+		p{
+			height:auto;
+			line-height:24px;
+			width:100% !important;
+			text-align:center !important;
+		}
+	}
+}

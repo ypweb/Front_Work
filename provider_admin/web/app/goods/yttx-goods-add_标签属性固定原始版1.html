@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+    <meta name="description" content="布住网供应商管理系统--商品管理--商品添加" />
+    <meta name="keywords" content="布住网供应商管理系统--商品管理--商品添加">
+    <meta name="author" content="yp" />
+    <title>布住网供应商管理系统--商品管理--商品添加</title>
+    <link href="../../images/logo_icon.ico" rel="icon">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../js/plugins/kindeditor/themes/default/default.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <script src="../../js/common/jquery-1.11.1.js"></script>
+    <!--[if lt IE 9]>
+    <script src="../../js/common/h5support.js"></script>
+    <![endif]-->
+</head>
+<body class="page-body">
+
+<div class="page-container">
+
+    <!--测边栏--菜单导航模块-->
+    <div id="main_menu_wrap" class="sidebar-menu toggle-others fixed">
+        <div class="sidebar-menu-inner">
+            <!--菜单头部按钮-->
+            <header class="logo-env">
+                <!-- logo -->
+                <div class="logo">
+                    <a href="#" class="logo-expanded">
+                        <img src="../../images/logo@2x.png" width="130" alt="" />
+                    </a>
+
+                    <a href="#" class="logo-collapsed">
+                        <img src="../../images/logo-collapsed@2x.png" width="40" alt="" />
+                    </a>
+                </div>
+
+                <!--小屏模式下按钮-->
+                <div class="mobile-menu-toggle visible-xs">
+                    <a href="#" data-toggle="mobile-menu">
+                        <i class="fa-bars"></i>
+                    </a>
+                </div>
+            </header>
+            <!--菜单条-->
+            <ul id="main_menu" class="main-menu"></ul>
+        </div>
+    </div>
+
+    <!--主模块-->
+    <div id="main_content" class="main-content">
+
+        <!--顶部按钮区域-->
+        <nav class="navbar user-info-navbar" role="navigation">
+            <!-- 顶部左侧部分 -->
+            <ul class="user-info-menu left-links list-inline list-unstyled">
+                <!--切换菜单为全部模式或者缩略模式-->
+                <li class="hidden-sm hidden-xs">
+                    <a href="#" data-toggle="sidebar">
+                        <i class="fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- 顶部右侧部分 -->
+            <ul class="user-info-menu right-links list-inline list-unstyled">
+
+                <li class="dropdown user-profile">
+                    <a href="#" data-toggle="dropdown">
+                        <img src="../../images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+                        <span id="admin_show_wrap"></span>
+                    </a>
+
+                    <ul class="dropdown-menu user-profile-menu list-unstyled">
+
+                        <li class="last">
+                            <a href="../index.html" id="logout_btn"><i class="fa-lock"></i>退出</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!--主题描述-->
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">商品添加</h1>
+                <p class="description">商品添加</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href=""><i class="fa-home"></i>商品管理</a></li>
+                    <li class="active"><strong>商品添加</strong></li>
+                </ol>
+            </div>
+        </div>
+
+
+        <!--主内容-->
+        <div class="row row-main-wrap">
+            <div class="col-md-12">
+                <div class="panel">
+
+                    <!--编辑表单标题-->
+                    <div class="panel-heading">
+                        <h3 class="panel-title">商品添加</h3>
+                        <div class="panel-options">
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--添加-->
+                    <div class="panel-body">
+                        <form role="form"  method="post" id="admin_goodsadd_form" class="admin-form1 validate">
+                            <div class="form-group">
+                                <label class="control-label">商品分类：</label>
+                                <div class="input-group">
+                                    <select name="goodsTypeId1" id="admin_goodsTypeId_Level1" class="form-control g-w-percent16"></select>
+                                    <select name="goodsTypeId2" id="admin_goodsTypeId_Level2" class="form-control g-w-percent16"></select>
+                                    <select name="goodsTypeId3" id="admin_goodsTypeId_Level3" class="form-control g-w-percent16"></select>
+                                    <span class="input-group-btn">
+                                        <button type="button" title="添加分类"  id="admin_goodsTypeId_btn" class="btn btn-white">+</button>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">商品基本信息：</label>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="admin-slide-wrap g-f-r">
+                                            <div class="admin-slide-show">
+                                                <div class="admin-slide-image" id="admin_slide_image"></div>
+                                                <div class="admin-slide-btn  admin-slide-btnl" id="admin_slide_btnl"></div>
+                                                <div class="admin-slide-btn  admin-slide-btnr" id="admin_slide_btnr"></div>
+                                            </div>
+                                            <ul class="admin-slide-tool"  id="admin_slide_tool"></ul>
+                                            <div class="admin-slide-upload" >
+                                                <div  id="admin_slide_view" data-value="" class="btn btn-white g-br2 g-w-percent24 admin-rpos-wrap">浏览商品组图</div>
+                                                <div  id="admin_slide_upload" class="btn btn-white g-br2 g-w-percent24 admin-rpos-wrap">上传商品组图</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label class="control-label">商品编号：</label>
+                                            <input type="text" class="form-control" name="code" placeholder="请输入商品编号" data-validate="required" data-message-required="商品编号不能为空"  id="admin_code" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">商品名称：</label>
+                                            <input type="text" class="form-control" placeholder="请输入商品名称" data-validate="required" data-message-required="商品名称不能为空"  name="name" id="admin_name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">商品状态：</label>
+                                            <select class="form-control" name="admin_status" id="admin_status">
+                                                <option value="0" selected>仓库</option>
+                                                <option value="1" >上架</option>
+                                                <option value="2" >下架</option>
+                                            </select>
+                                        </div>
+                                        <div id="admin_pricewrap">
+                                            <div class="form-group">
+                                                <label class="control-label">批发价：</label>
+                                                <input type="text" data-value="" maxlength="12" data-validate="required" data-message-required="批发价不能为空"  class="form-control" name="wholesale_price" id="admin_wholesale_price" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">建议零售价：</label>
+                                                <input type="text" data-value=""  maxlength="12" data-validate="required" data-message-required="建议零售价不能为空"  class="form-control" name="retail_price" id="admin_retail_price" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">库存：</label>
+                                                <input type="text" data-value="" maxlength="9" data-validate="required" data-message-required="库存不能为空"   class="form-control" name="inventory" id="admin_inventory" />
+                                            </div>
+                                        </div>
+                                        <div id="admin_attrwrap">
+                                            <div class="form-group">
+                                                <label class="control-label">颜色：<span class="g-c-red1" id="admin_color_tips"></span></label>
+                                                <div class="input-group" id="admin_color">
+                                                    <input type="text" class="form-control g-w-number4" data-value=""  name="color1" />
+                                                    <input type="text" class="form-control g-w-number4" data-value=""  name="color2" />
+                                                    <input type="text" class="form-control g-w-number4" data-value=""  name="color3" />
+                                                    <span class="input-group-btn pull-left admin-rpos-wrap" style="z-index:20;">
+                                                        <button type="button"  id="admin_color_btn" class="btn btn-white" title="增加颜色条件"><i class="fa-angle-double-left"></i></button>
+                                                        <button type="button"  id="admin_color_extendbtn" class="btn btn-white" title="添加颜色">+</button>
+                                                        <button type="button" title="查看颜色类型"  id="admin_color_listbtn" class="btn btn-white"><i class="fa-list"></i></button>
+                                                        <ul class="admin-list-widget color-list-widget g-d-hidei" id="admin_color_list"></ul>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">规格/尺寸：<span class="g-c-red1" id="admin_rule_tips"></span></label>
+                                                <div class="input-group" id="admin_rule">
+                                                    <input type="text" class="form-control g-w-number4" data-value="" name="rule1" />
+                                                    <input type="text" class="form-control g-w-number4" data-value=""  name="rule2" />
+                                                    <input type="text" class="form-control g-w-number4" data-value=""  name="rule3" />
+                                                    <span class="input-group-btn pull-left admin-rpos-wrap" style="z-index:10;">
+                                                        <button type="button"  id="admin_rule_btn" class="btn btn-white" title="增加规格/尺寸条件"><i class="fa-angle-double-left"></i></button>
+                                                        <button type="button"  id="admin_rule_extendbtn" class="btn btn-white" title="添加规格/尺寸">+</button>
+                                                        <button type="button" title="查看添加规格/尺寸类型"  id="admin_rule_listbtn" class="btn btn-white"><i class="fa-list"></i></button>
+                                                        <ul class="admin-list-widget rule-list-widget g-d-hidei" id="admin_rule_list"></ul>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label">批发价：<span class="g-c-red1" id="admin_wholesale_tips"></span></label>
+                                <table class="table table-bordered table-striped table-hover admin-table">
+                                    <!--分组样式-->
+                                    <colgroup>
+                                        <col class="g-w-percent8">
+                                        <col class="g-w-percent8">
+                                        <col class="g-w-percent8">
+                                        <col class="g-w-percent8">
+                                        <col class="g-w-percent8">
+                                        <col class="g-w-percent8">
+                                    </colgroup>
+
+                                    <!--表头-->
+                                    <thead>
+                                    <tr>
+                                        <th>颜色</th>
+                                        <th>规格</th>
+                                        <th>库存</th>
+                                        <th>批发价</th>
+                                        <th>建议零售价</th>
+                                        <th>是否默认</th>
+                                    </tr>
+                                    </thead>
+
+                                    <!--表主体-->
+                                    <tbody class="middle-align g-d-hidei" id="admin_wholesale_price_list"></tbody>
+                                </table>
+                                <div>
+                                    <label class="checkbox-inline">
+                                        <input name="isRecommended" id="admin_isRecommended" type="checkbox">是否被推荐
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group admin-rpos-wrap">
+                                <div class="editor-image-wrap">
+                                    <div id="editor_image_toggle" class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-image" title="添加图片"></div>
+                                    <div class="editor-image-list g-d-hidei" id="editor_image_list">
+                                        <div class="btn btn-info g-br2 editor-image-btn" ><input type="file" id="editor_image_view" data-value="" />浏览图片</div>
+                                        <div class="btn btn-info g-br2 editor-image-btn" id="editor_image_btn">上传图片</div>
+                                        <div class="btn btn-info g-br2 editor-image-btn" id="editor_image_select">选中图片</div>
+                                        <ul class="editor-image-show" id="editor_image_show"></ul>
+                                    </div>
+
+                                </div>
+                                <label class="control-label">商品描述：</label>
+                                <textarea class="form-control form-admin-editor" readonly name="details" id="admin_details"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">添加</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <!--底部信息-->
+        <footer class="main-footer sticky footer-type-1">
+            <div class="footer-inner">
+                <!-- 版权所有 -->
+                <div class="footer-text">
+                    &copy; 2016
+                    <strong>银通天下</strong>
+                    <a href="#" target="_blank" title="">****</a>
+                </div>
+
+                <!--回到顶部-->
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa-angle-up"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+</div>
+
+
+<!--添加分类-->
+<div class="modal fade custom-width" id="show_addtype_wrap">
+    <div class="modal-dialog g-w-percent46">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">添加商品分类</h4>
+            </div>
+            <div class="modal-body">
+                <div class="blockquote admin-blockquote">
+                    <form role="form"  method="post" id="admin_addtype_form" class="admin-form1 validate" >
+                    <div class="form-group">
+                        <label class="control-label">上级商品分类：</label>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <select name="parentId" id="admin_goodsTypeId_addone" class="form-control"></select>
+                            </div>
+                            <div class="col-md-5">
+                                <select name="parentId2" id="admin_goodsTypeId_addtwo" class="form-control"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">分类编码：<span class="g-c-red1" id="admin_addcode_tips"></span></label>
+                        <div class="row self-error-pos-wrap">
+                            <div class="col-md-10">
+                                <input placeholder="请输入分类编码" data-validate="required" data-message-required="分类编码不能为空"  type="text" class="form-control self-error-pos" name="gtCode"   id="admin_gtCode" />
+                            </div>
+                            <div class="col-md-2">
+<span class="input-group-btn admin-rpos-wrap" style="z-index:20;">
+                             <button type="button"  id="admin_addcode_btn" class="btn btn-info">已存在的编码</button>
+                             <ul class="admin-list-widget addcode-list-widget g-d-hidei" id="admin_addcode_list"></ul>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">分类名称：</label>
+                        <input placeholder="请输入分类名称" data-validate="required" data-message-required="分类名称不能为空"  type="text" class="form-control" name="name"   id="admin_typename" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">排序号(值越大越靠前)：</label>
+                        <input placeholder="请输入排序号" data-validate="required,number" data-message-required="排序号不能为空" data-message-number="排序号只能为数字"  type="text" class="form-control" name="sort"   id="admin_sort" />
+                    </div>
+
+
+                    <div class="form-group admin-rpos-wrap">
+                        <div class="img-url-wrap" id="image_url_wrap">
+                            <div class="toggle-edit-btn" id="toggle_edit_btn"></div>
+                            <div class="btn btn-info g-br2 img-url-item img-url-select" data-value="" id="image_url_file">选择图片</div>
+                            <div id="image_url_upload" class="btn btn-info g-br2 img-url-item img-url-upload">上传图片</div>
+                        </div>
+
+                        <label class="control-label">缩略图：</label>
+
+                        <input type="text" class="form-control" name="image" id="admin_image" readonly  placeholder="请选择缩略图"  />
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">添加</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--添加颜色-->
+<div class="modal fade custom-width" id="show_addcolor_wrap">
+    <div class="modal-dialog g-w-percent46">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">添加商品颜色属性</h4>
+            </div>
+            <div class="modal-body">
+                <div class="blockquote admin-blockquote">
+                    <form role="form"  method="post" id="admin_addcolor_form" class="admin-form1 validate">
+                        <div class="form-group">
+                            <label class="control-label">颜色名称：<span class="g-c-red1" id="admin_addcolor_tips"></span></label>
+                            <div class="row self-error-pos-wrap">
+                                <div class="col-md-10">
+                                    <input placeholder="请输入颜色名称" data-validate="required" data-message-required="颜色名称不能为空"  type="text" class="form-control self-error-pos" name="newAttrs"   id="admin_newcolor" />
+                                </div>
+                                <div class="col-md-2">
+<span class="input-group-btn admin-rpos-wrap" style="z-index:20;">
+                             <button type="button"  id="admin_addcolor_btn" class="btn btn-info">已存在的颜色名称</button>
+                             <ul class="admin-list-widget addcode-list-widget g-d-hidei" id="admin_addcolor_list"></ul>
+                            </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">添加</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--添加规则-->
+<div class="modal fade custom-width" id="show_addrule_wrap">
+    <div class="modal-dialog g-w-percent46">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">添加商品规格/尺寸属性</h4>
+            </div>
+            <div class="modal-body">
+                <div class="blockquote admin-blockquote">
+                    <form role="form"  method="post" id="admin_addrule_form" class="admin-form1 validate">
+                        <div class="form-group">
+                            <label class="control-label">规格/尺寸：<span class="g-c-red1" id="admin_addrule_tips"></span></label>
+                            <div class="row self-error-pos-wrap">
+                                <div class="col-md-10">
+                                    <input placeholder="请输入规格/尺寸" data-validate="required" data-message-required="规格/尺寸不能为空"  type="text" class="form-control self-error-pos" name="newAttrs"   id="admin_newrule" />
+                                </div>
+                                <div class="col-md-2">
+<span class="input-group-btn admin-rpos-wrap" style="z-index:20;">
+                             <button type="button"  id="admin_addrule_btn" class="btn btn-info">已存在的规格/尺寸</button>
+                             <ul class="admin-list-widget addcode-list-widget g-d-hidei" id="admin_addrule_list"></ul>
+                            </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">添加</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--加载遮罩层-->
+<div id="page_loading_wrap" class="page-loading-overlay g-d-hidei">
+    <div class="loader-2"></div>
+</div>
+
+
+<!--提示信息-->
+<div id="page_support_wrap" class="page-support-wrap g-d-hidei">
+    <div class="page-support-browser">
+        <h1 class="browser-theme">您的浏览器版本太低，请升级您的浏览器</h1>
+        <div class="browser-icon">
+            <a href="http://www.firefox.com.cn/" target="_blank">
+                <p>火狐浏览器</p>
+                <span>Firefox</span>
+                <div class="browser-icon-firefox"></div>
+            </a>
+            <a href="http://www.googlechromer.cn/" target="_blank">
+                <p>谷歌浏览器</p>
+                <span>Chrome</span>
+                <div class="browser-icon-chrome"></div>
+            </a>
+            <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+                <p>IE浏览器</p>
+                <span>Internet&nbsp;Explorer</span>
+                <div class="browser-icon-ie"></div>
+            </a>
+            <a href="https://liulanqi.baidu.com/70/?sid=11100016" target="_blank">
+                <p>百度浏览器</p>
+                <span>Baidu</span>
+                <div class="browser-icon-baidu"></div>
+            </a>
+            <a href="http://browser.qq.com/?adtag=SEM1" target="_blank">
+                <p>QQ浏览器</p>
+                <span>Tencent</span>
+                <div class="browser-icon-qq"></div>
+            </a>
+        </div>
+    </div>
+    <div class="page-support-login">
+        <div></div>
+        <p>您还未登录<span id="goto_login"></span>秒后跳入登陆页面</p>
+    </div>
+</div>
+
+
+<script src="../../js/common/base.js"></script>
+<script src="../../js/common/common.js"></script>
+<script src="../../js/plugins/kindeditor/kindeditor-all-min.js"></script>
+<!--表单验证插件-->
+<script src="../../js/plugins/jquery-validate/jquery.validate.js"></script>
+<script src="../../js/plugins/plupload/plupload.full.min.js"></script>
+<script src="../../js/plugins/plupload/i18n/zh_CN.js"></script>
+<script src="../../js/plugins/qn/qiniu.min.js"></script>
+<script src="../../js/goods/goods_slide.js"></script>
+<script src="../../js/goods/goods_add.js"></script>
+</body>
+</html>

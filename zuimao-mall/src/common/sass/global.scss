@@ -1,0 +1,35 @@
+$primarycolor: #C62F2F;
+$link_active: #ccafaf;
+$border_1px: rgba(7, 17, 27, 0.1);
+$list_active: #d5d5d5;
+$rgba_active: rgba(0,0,0,0.1);
+$icon_color: #999;
+$maskBackground: rgba(0,0,0,0.5);
+$sideBackground: rgba(0,0,0,0.5);
+
+@mixin font-dpr($font_size){
+  font-size: $font_size;
+  [data-dpr="2"] & {
+    font-size: $font_size * 2;
+  }
+  [data-dpr="3"] & {
+    font-size: $font_size * 3;
+  }
+}
+
+
+@mixin ver_center{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display:         flex;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}

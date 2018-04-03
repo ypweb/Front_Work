@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+	<meta name="description" content="布住网供应商管理系统" />
+	<meta name="keywords" content="布住网供应商管理系统">
+  <meta name="author" content="yp" />
+	<title>布住网供应商管理系统</title>
+  <link href="../images/logo_icon.ico" rel="icon">
+	<link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" type="text/css" href="../js/plugins/daterangepicker/daterangepicker-bs3.css">
+	<link rel="stylesheet" href="../css/admin.css">
+  <script src="../js/common/jquery-1.11.1.js"></script>
+	<!--[if lt IE 9]>
+		<script src="../js/common/h5support.js"></script>
+	<![endif]-->
+</head>
+<body class="page-body login-body">
+	<div class="login-logo-wrap"></div>
+	<div class="login-layout">
+		<div class="login-slide-wrap">
+			<div class="slide-wrap">
+				<div class="slide-toggle" id="slideimg_show">
+					<!--轮播图片展示-->
+					<ul id="slide_img" class="slideimg">
+						<li><a title="" href="#"><img alt="" src="../images/1.jpg" ></a></li>
+						<li><a title="" href="#"><img alt="" src="../images/2.jpg" ></a></li>
+						<li><a title="" href="#"><img alt="" src="../images/3.jpg" ></a></li>
+						<li><a title="" href="#"><img alt="" src="../images/4.jpg" ></a></li>
+					</ul>
+
+					<!--轮播按钮-->
+					<ul class="slideimg-btn" id="slideimg_btn">
+						<li class="slidebtn-active"><div></div></li>
+						<li><div></div></li>
+						<li><div></div></li>
+						<li><div></div></li>
+					</ul>
+					<div class="slide-tips" id="slide_tips"><p></p></div>
+				</div>
+			</div>
+		</div>
+		<div class="login-main-wrap  login-page login-light">
+			<!-- 错误提示组件-->
+			<div id="error_wrap" class="errors-container"></div>
+
+			<!-- 效果 -->
+			<form method="post" role="form" id="login" class="login-form login-form-wrap fade-in-effect">
+				<div class="login-header">
+					<a href="#" class="logo login-icon">
+						<img src="../images/logo-red-bg@2x.png" alt="" width="80" />
+						<span>登&nbsp;陆</span>
+					</a>
+					<p>布住网供应商管理系统</p>
+				</div>
+
+
+				<div class="form-group">
+					<label class="control-label" for="username">用户名</label>
+					<input type="text" class="form-control" name="username" id="username" maxlength="13" autocomplete="off" />
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="passwd">密&nbsp;码</label>
+					<input type="password" autocomplete="off"  class="form-control" name="passwd" id="passwd" />
+				</div>
+
+
+				<div class="form-group">
+					<div class="vc-txt-wrap g-w-percent24">
+						<label class="control-label" for="validcode">验证码</label>
+						<input type="text" class="form-control" name="validcode" id="validcode" autocomplete="off" />
+					</div>
+					<div class="vc-img-wrap g-w-percent24" id="validcode_btn">
+						<img alt="验证码" src="../images/body_bg.png">
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary  btn-block text-left">
+						<i class="fa-lock"></i>登&nbsp;陆
+					</button>
+				</div>
+
+				<div class="login-footer">
+					<a href="account/findpwd.html">忘记密码?</a>
+				</div>
+
+			</form>
+
+			<div class="login-qrcode">
+				<div>
+					<img src="../images/qr_code.png">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--加载遮罩层-->
+	<div id="page_loading_wrap" class="page-loading-overlay g-d-hidei">
+		<div class="loader-2"></div>
+	</div>
+
+
+	<!--提示信息-->
+	<div id="page_support_wrap" class="page-support-wrap g-d-hidei">
+		<div class="page-support-browser">
+			<h1 class="browser-theme">您的浏览器版本太低，请升级您的浏览器</h1>
+			<div class="browser-icon">
+				<a href="http://www.firefox.com.cn/" target="_blank">
+					<p>火狐浏览器</p>
+					<span>Firefox</span>
+					<div class="browser-icon-firefox"></div>
+				</a>
+				<a href="http://www.googlechromer.cn/" target="_blank">
+					<p>谷歌浏览器</p>
+					<span>Chrome</span>
+					<div class="browser-icon-chrome"></div>
+				</a>
+				<a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+					<p>IE浏览器</p>
+					<span>Internet&nbsp;Explorer</span>
+					<div class="browser-icon-ie"></div>
+				</a>
+				<a href="https://liulanqi.baidu.com/70/?sid=11100016" target="_blank">
+					<p>百度浏览器</p>
+					<span>Baidu</span>
+					<div class="browser-icon-baidu"></div>
+				</a>
+				<a href="http://browser.qq.com/?adtag=SEM1" target="_blank">
+					<p>QQ浏览器</p>
+					<span>Tencent</span>
+					<div class="browser-icon-qq"></div>
+				</a>
+			</div>
+		</div>
+		<div class="page-support-login">
+			<div></div>
+			<p>您还未登录<span id="goto_login"></span>秒后跳入登陆页面</p>
+		</div>
+	</div>
+
+
+
+<!-- Bottom Scripts -->
+<script src="../js/common/base.js"></script>
+<script src="../js/widgets/slide.js"></script>
+<script src="../js/plugins/jquery-validate/jquery.validate.js"></script>
+<script src="../js/common/common.js"></script>
+<script src="../js/index/index.js"></script>
+</body>
+</html>
+
+

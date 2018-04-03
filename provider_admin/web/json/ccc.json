@@ -1,0 +1,207 @@
+/*[
+  {
+    "id":4,
+    "list":[
+      {
+        "goodsTagId":4,
+        "id":8,
+        "name":"白色"
+      },{
+        "goodsTagId":4,
+        "id":9,
+        "name":"黑色"
+      },{
+        "goodsTagId":4,
+        "id":10,
+        "name":"红色"
+      },{
+        "goodsTagId":4,
+        "id":59,
+        "name":"蓝色"
+      },{
+        "goodsTagId":4,
+        "id":60,
+        "name":"黄色"
+      },{
+        "goodsTagId":4,
+        "id":64,
+        "name":"黑色"
+      },{
+        "goodsTagId":4,
+        "id":69,
+        "name":"紫色"
+      },{
+        "goodsTagId":4,
+        "id":70,
+        "name":"肉粉"
+      },{
+        "goodsTagId":4,
+        "id":73,
+        "name":"土豪金"
+      },{
+        "goodsTagId":4,
+        "id":74,
+        "name":"银色"
+      },{
+        "goodsTagId":4,
+        "id":75,
+        "name":"深灰色"
+      }
+    ],
+    "name":"颜色 （公共属性） "
+  },{
+  "id":5,
+  "list":[
+    {
+      "goodsTagId":5,
+      "id":11,
+      "name":"1.5米"
+    },{
+      "goodsTagId":5,
+      "id":12,
+      "name":"2.0米"
+    },{
+      "goodsTagId":5,
+      "id":13,
+      "name":"2.5米"
+    },{
+      "goodsTagId":5,
+      "id":71,
+      "name":"13.3\""
+    },{
+      "goodsTagId":5,
+      "id":72,
+      "name":"14\""
+    },{
+      "goodsTagId":5,
+      "id":76,
+      "name":"9.7\""
+    },{
+      "goodsTagId":5,
+      "id":77,
+      "name":"10.1"
+    },{
+      "goodsTagId":5,
+      "id":78,
+      "name":"10.30"
+    }
+  ],
+  "name":"规格 （公共属性） "
+}
+]*/
+
+
+
+
+
+
+
+[
+  {
+    "id": 4,
+    "list": [
+      {
+        "goodsTagId": 4,
+        "id": 8,
+        "name": "白色"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 9,
+        "name": "黑色"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 10,
+        "name": "红色"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 59,
+        "name": "蓝色"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 60,
+        "name": "黄色"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 64,
+        "name": "黑色"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 69,
+        "name": "紫色"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 70,
+        "name": "肉粉"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 73,
+        "name": "土豪金"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 74,
+        "name": "银色"
+      },
+      {
+        "goodsTagId": 4,
+        "id": 75,
+        "name": "深灰色"
+      }
+    ],
+    "name": "颜色 （公共属性） "
+  },
+  {
+    "id": 5,
+    "list": [
+      {
+        "goodsTagId": 5,
+        "id": 11,
+        "name": "1.5米"
+      },
+      {
+        "goodsTagId": 5,
+        "id": 12,
+        "name": "2.0米"
+      },
+      {
+        "goodsTagId": 5,
+        "id": 13,
+        "name": "2.5米"
+      },
+      {
+        "goodsTagId": 5,
+        "id": 71,
+        "name": "13.3\""
+      },
+      {
+        "goodsTagId": 5,
+        "id": 72,
+        "name": "14\""
+      },
+      {
+        "goodsTagId": 5,
+        "id": 76,
+        "name": "9.7\""
+      },
+      {
+        "goodsTagId": 5,
+        "id": 77,
+        "name": "10.1"
+      },
+      {
+        "goodsTagId": 5,
+        "id": 78,
+        "name": "10.30"
+      }
+    ],
+    "name": "规格 （公共属性） "
+  }
+]

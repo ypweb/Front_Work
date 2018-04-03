@@ -1,0 +1,111 @@
+{
+  "code":0,
+  "message": "成功",
+  "result": {
+    "list": [
+      {
+        "id": "1",
+        "fullName": "湖南代理"
+      },{
+        "id": "2",
+        "fullName": "湖北代理"
+      },{
+        "id": "3",
+        "fullName": "江西代理"
+      },{
+        "id": "4",
+        "fullName": "贵州代理"
+      },{
+        "id": "5",
+        "fullName": "广西代理"
+      },{
+        "id": "6",
+        "fullName": "河南代理"
+      },{
+        "id": "7",
+        "fullName": "内蒙古代理"
+      },{
+        "id": "8",
+        "fullName": "黑龙江代理"
+      },{
+        "id": "9",
+        "fullName": "吉林代理"
+      },{
+        "id": "10",
+        "fullName": "辽林代理"
+      },{
+        "id": "11",
+        "fullName": "河北代理"
+      },{
+        "id": "12",
+        "fullName": "山东代理"
+      },{
+        "id": "13",
+        "fullName": "江苏代理"
+      },{
+        "id": "14",
+        "fullName": "浙江代理"
+      },{
+        "id": "15",
+        "fullName": "福建代理"
+      },{
+        "id": "16",
+        "fullName": "广东代理"
+      },{
+        "id": "17",
+        "fullName": "山西代理"
+      },{
+        "id": "18",
+        "fullName": "陕西代理"
+      },{
+        "id": "19",
+        "fullName": "甘肃代理"
+      },{
+        "id": "20",
+        "fullName": "青海代理"
+      },{
+        "id": "21",
+        "fullName": "新疆代理"
+      },{
+        "id": "22",
+        "fullName": "西藏代理"
+      },{
+        "id": "23",
+        "fullName": "四川代理"
+      },{
+        "id": "24",
+        "fullName": "云南代理"
+      },{
+        "id": "25",
+        "fullName": "安徽代理"
+      },{
+        "id": "26",
+        "fullName": "台湾代理"
+      },{
+        "id": "27",
+        "fullName": "海南代理"
+      },{
+        "id": "28",
+        "fullName": "重庆代理"
+      },{
+        "id": "29",
+        "fullName": "宁夏代理"
+      },{
+        "id": "30",
+        "fullName": "北京代理"
+      },{
+        "id": "31",
+        "fullName": "天津代理"
+      },{
+        "id": "32",
+        "fullName": "上海代理"
+      },{
+        "id": "33",
+        "fullName": "香港代理"
+      },{
+        "id": "34",
+        "fullName": "澳门代理"
+      }
+    ]
+  }
+}

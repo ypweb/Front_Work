@@ -1,0 +1,51 @@
+<div class="admin-layout-theme4 g-gap-pl8 g-t-l g-b-gray17">子管理</div>
+
+<h1 class="admin-layout-theme3">
+    <span>{{setting_ctrl.record.organizationName}}</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-default g-c-blue3" ng-disabled="setting_ctrl.record.organizationId===''" ng-show="::setting_ctrl.powerlist.child_add" ng-click="setting_ctrl.actionManage({display:'show',area:'manage',type:'add'})"><i class="btn-action admin-btn-action7"></i>&nbsp;添加子管理</button>
+</h1>
+
+<!--查询管理-->
+<div class="admin-action-item">
+
+
+
+    <div class="action-item-input g-w-percent15">
+        <label class="action-indent-b4">每页显示:
+            <select class="form-control g-clear-pt g-clear-pb" ng-change="setting_ctrl.changeDTTL()" ng-model="setting_ctrl.record.pageSize" ng-options="item.value as item.name for item in setting_ctrl.pageSizeItem"></select>
+        </label>
+    </div>
+
+    <!--过滤-->
+    <div class="action-item-input g-f-r g-w-percent15">
+        <label class="action-indent-b2">过滤:<input class="form-control input-sm" placeholder="" ng-model="setting_ctrl.manage.filter" ng-keyup="setting_ctrl.filterDataTable()"  type="search"></label>
+    </div>
+</div>
+
+
+<!--表格-->
+<div ng-init="setting_ctrl.getColumnData('init')">
+    <table id="admin_list_wrap" class="table table-bordered table-striped table-hover admin-layout-table">
+        <!--分组样式-->
+        <colgroup>
+            <col class="g-w-percent15">
+            <col class="g-w-percent10">
+            <col class="g-w-percent10">
+            <col class="g-w-percent15">
+        </colgroup>
+
+        <!--表头-->
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>是否指定运营商</th>
+            <th>是否指定权限</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <!--表主体-->
+        <tbody id="admin_batchlist_wrap" class="middle-align"></tbody>
+    </table>
+</div>

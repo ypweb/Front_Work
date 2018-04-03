@@ -1,0 +1,180 @@
+/*头部*/
+.header-wrap{
+	.layout-fixedl-base;
+	width:100%;
+	min-width:@global-screen-width;
+	height:160px;
+	.header-info{
+		width:100%;
+		height:30px;
+		background:@header-bg;
+		div{
+			width:@global-screen-width;
+			margin:0 auto;
+			height: 100%;
+			text-align: right;
+			span{
+				padding:0 20px 0 0;
+				display:inline-block;
+				height:100%;
+				line-height:30px;
+				font-size:@font-size-base;
+				color:@color-white;
+			}
+		}
+	}
+	.menu-wrap{
+		width:100%;
+		height:70px;
+		background:transparent url(../images/header_repeat.png) repeat-x left bottom;
+	}
+	.menu-main{
+		height:58px;
+		width:100%;
+		background:@color-white;
+	}
+	.nav-wrap{
+			.layout-base(@global-screen-width);
+			text-align:right;
+			margin:0 auto;
+			font-size:0;
+			height: 100%;
+			a{
+				display:inline-block;
+				height:50px;
+				line-height:50px;
+				text-align: center;
+				font-size:@font-size-base + 2;
+				color:@color-gray3;
+				.no-outline-base;
+			}
+			.active{
+				color:@color-red1;
+				font-weight:bold;
+			}
+		}
+	.menu-sub{
+		height:12px;
+		width:100%;
+		>div{
+			.layout-base(@global-screen-width);
+			.layout-relative-base;
+			margin:0 auto;
+			height: 100%;
+		}
+		.logo{
+			display:none;
+			@logowidth:232px;
+			.layout-absolutel-base(0,1px);
+			width:@logowidth;
+			margin:0 0 0 -@logowidth/2;
+			height:64px;
+			background:transparent url(../images/header_logo.png) 0 0 no-repeat;
+		}
+		img{
+			@imgwidth:177px;
+			.layout-absolutel-base(0,-55px);
+			width:@imgwidth;
+			margin:0 0 0 -@imgwidth/2;
+			display: block;
+		}
+	}
+	.nav-item1,.nav-item2,.nav-item3,.nav-item4,.nav-item5{
+		width:100px;
+	}
+}
+/*头部缩略模式*/
+.header-scroll{
+	height:52px;
+	.header-info{
+		height:0;
+		display: none;
+	}
+	.menu-wrap{
+		height:52px;
+	}
+	.menu-main{
+		height:40px;
+	}
+	.nav-wrap{
+		a{
+			text-align: center;
+			height:40px;
+			line-height:40px;
+		}
+	}
+	.menu-sub{
+		>div{
+			display:none;
+		}
+	}
+	.nav-item1,.nav-item2,.nav-item3,.nav-item4,.nav-item5{
+		width:15% !important;
+	}
+}
+
+
+///max 1000px
+@media screen and (max-width:999px){
+	//变量适配
+	@global-screen-width:640px;
+	@global-screen-height:850px;
+	/*body*/
+	body{
+		padding:40px 0 0 0;
+		min-width:@global-screen-width;
+		min-height:@global-screen-height;
+	}
+
+	/*头部*/
+	.header-wrap{
+		height:52px;
+		min-width:@global-screen-width;
+		.header-info{
+			height:0;
+			display: none;
+		}
+		.menu-wrap{
+			height:52px;
+		}
+		.menu-main{
+			height:40px;
+		}
+		.nav-wrap{
+			.layout-base(@global-screen-width);
+			padding-left:50px;
+			a{
+				text-align: center;
+				height:40px;
+				line-height:40px;
+				font-size:@font-size-base;
+			}
+		}
+		.menu-sub{
+			>div{
+				.layout-base(@global-screen-width);
+				float:left;
+			}
+			.logo{
+				width:0 !important;
+				height:0 !important;
+				display: none !important;
+				left:0 !important;
+				top:0 !important;
+			}
+			img{
+				@imgwidth:80px;
+				left:10px;
+				top:-30px;
+				width:@imgwidth;
+				margin:0;
+			}
+		}
+		.nav-item1,.nav-item2,.nav-item3,.nav-item4,.nav-item5{
+			width:15% !important;
+		}
+		.nav-iteml{
+			float:none !important;
+		}
+	}
+}

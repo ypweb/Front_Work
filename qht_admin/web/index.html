@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh" data-ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+	<meta name="description" content="乾汇通运营管理平台" />
+	<meta name="keywords" content="乾汇通运营管理平台">
+	<meta name="author" content="yp" />
+	<title>乾汇通运营管理平台</title>
+	<link href="images/logo_icon.ico" rel="icon">
+	<link rel="stylesheet" href="js/plugins/datatables/dataTables.bootstrap.css">
+	<link rel="stylesheet" href="css/base.css">
+	<!--[if lt IE 9]>
+	<script src="js/base/h5support.js"></script>
+	<![endif]-->
+</head>
+<body class="struct-layout-wrap" ng-controller="AppController as app_ctrl">
+		<!--弹出层--是否支持相关浏览器-->
+		<div ng-if="app_ctrl.isSupport">
+			<div ng-if="app_ctrl.isLogin">
+				<!--头部-->
+				<div class="struct-layout-header" data-ng-include="'tpl/common/header.html'" id="struct_layout_header"></div>
+
+				<!--主体-->
+				<div ng-cloak ui-view="container"></div>
+
+				<!--<div class="struct-layout-container struct-layout-default">
+					<div class="struct-layout-main" ui-view="main"></div>
+					<div class="struct-layout-side" ui-view="sidemenu" id="struct_layout_side"></div>
+				</div>-->
+
+				<!--底部-->
+				<div class="struct-layout-footer">
+					<div class="footer-content-wrap"></div>
+				</div>
+			</div>
+			<div ng-if="!app_ctrl.isLogin">
+				<div ng-cloak ui-view="login"></div>
+			</div>
+		</div>
+		<div ng-if="!app_ctrl.isSupport" ng-cloak ui-view="support"></div>
+
+
+		<!--弹出层--退出系统动画-->
+		<div ng-cloak id="struct_layout_nologin" class="g-d-hidei">
+			<div class="struct-layout-support">
+				<div class="page-support-inner">
+					<div class="page-support-login">
+						<div></div>
+						<p>您还未登录<span id="struct_goto_login"></span>秒后跳入登陆页面</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--弹出层--加载动画-->
+		<div ng-cloak id="struct_layout_loading" class="g-d-hidei" ui-view="loading"></div>
+
+<!--jquery-->
+<script src="js/base/jquery-1.11.1.js"></script>
+
+<!--base-->
+<script src="js/base/base.js"></script>
+
+
+<!--angular-->
+<script src="js/angular/angular/angular.min.js"></script>
+<script src="js/angular/angular/angular-animate.min.js"></script>
+<!--<script src="js/angular/angular/angular-cookies.min.js"></script>
+<script src="js/angular/angular/angular-resource.min.js"></script>-->
+<script src="js/angular/angular/angular-sanitize.min.js"></script>
+<!--<script src="js/angular/angular/angular-touch.min.js"></script>-->
+<script src="js/angular/angular/angular-route.min.js"></script>
+
+<!--vendor-->
+<script src="js/angular/angular/angular-ui-router.min.js"></script>
+<!--<script src="js/angular/ngstorage/ngStorage.js"></script>-->
+
+<!--bootstrap-->
+<!--<script src="js/angular/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>-->
+
+<!--lazyload:延迟加载-->
+<script src="js/angular/oclazyload/ocLazyLoad.js"></script>
+
+<!--translate：国际化-->
+<!--<script src="../js/angular/angular-translate/angular-translate.js"></script>
+<script src="../js/angular/angular-translate/loader-static-files.js"></script>
+<script src="../js/angular/angular-translate/storage-cookie.js"></script>
+<script src="../js/angular/angular-translate/storage-local.js"></script>-->
+
+<!--引入测试类-->
+<!--<script src="../js/base/mock-min.js"></script>-->
+<!--<script src="../js/angular/angular/angular-mocks.js"></script>-->
+<script src="js/base/mock-min.js"></script>
+
+<!--app-->
+<!--引入angular模块功能，指明其相关依赖-->
+<script src="js/app/app.js"></script>
+
+<!--应用程序初始化配置-->
+<!--<script src="../js/app/config.js"></script>-->
+<script src="js/app/test_config.js"></script>
+
+<!--延迟加载，第三方插件加载-->
+<!--<script src="../js/app/config.lazyload.js"></script>-->
+<!--<script src="../js/app/test_config.lazyload.js"></script>-->
+
+<!--路由跳转-->
+<!--<script src="../js/app/config.router.js"></script>-->
+<script src="js/app/test_config.router.js"></script>
+
+<!--<script src="js/app/controllers/support.js"></script>-->
+
+<!--主程序，控制器设置基本配置-->
+<!--<script src="../js/app/main.js"></script>-->
+<script src="js/app/app_controller.js"></script>
+
+
+
+
+
+<!--指令定义-->
+<!--<script src="js/app/services/ui-load.js"></script>
+<script src="js/app/filters/fromNow.js"></script>
+<script src="js/app/directives/setnganimate.js"></script>
+<script src="js/app/directives/ui-butterbar.js"></script>
+<script src="js/app/directives/ui-focus.js"></script>
+<script src="js/app/directives/ui-fullscreen.js"></script>
+<script src="js/app/directives/ui-jq.js"></script>
+<script src="js/app/directives/ui-module.js"></script>
+<script src="js/app/directives/ui-nav.js"></script>
+<script src="js/app/directives/ui-scroll.js"></script>
+<script src="js/app/directives/ui-shift.js"></script>
+<script src="js/app/directives/ui-toggleclass.js"></script>
+<script src="js/app/directives/ui-validate.js"></script>
+<script src="js/app/controllers/bootstrap.js"></script>-->
+
+<!--自定义组件-->
+<!--http拦截器-->
+<!--<script src="js/base/factory/http-interceptor.js"></script>-->
+
+<!--公共组件-->
+<script src="js/base/services/tool-dialog.js"></script>
+<script src="js/base/factory/tool-util.js"></script>
+
+<!--公共指令集-->
+<script src="js/app/directives/ui-commonitem.js"></script>
+
+<!--表单指令集-->
+<script src="js/app/directives/ui-from.js"></script>
+
+<!--登录-->
+<script src="js/app/module/login/login_service.js"></script>
+
+<!--权限-->
+<script src="js/app/module/power/power_service.js"></script>
+
+</body>
+</html>

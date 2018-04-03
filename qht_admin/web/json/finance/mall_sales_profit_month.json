@@ -1,0 +1,53 @@
+{
+  "code":0,
+  "message": "成功",
+  "result": {
+    "list": [
+      {
+        "id": "1",
+        "m1ProfitsLevel1": "465.34",
+        "m1ProfitsLevel2": "725.64",
+        "m1SalesLevel1": "34.32",
+        "m1SalesLevel2": "36.52",
+        "m2ProfitsLevel2": "825.72",
+        "m2SalesLevel2": "547.44",
+        "m3ProfitsLevel3": "8344.34",
+        "m3SalesLevel3": "8223.28",
+        "m4ProfitsLevel1": "5682.52",
+        "m4SalesLevel1": "95853.32",
+        "m5ProfitsLevel1": "986.57",
+        "m5ProfitsLevel3": "8344.34",
+        "m5SalesLevel1": "725645.36",
+        "m5SalesLevel3": "61563.62",
+        "m6ProfitsLevel2": "65464.57",
+        "m6ProfitsLevel3": "83568.54",
+        "m6SalesLevel2": "2856.36",
+        "m6SalesLevel3": "9568.62",
+        "m7ProfitsLevel1": "923.61",
+        "m7ProfitsLevel2": "825.54",
+        "m7SalesLevel1": "1233.36",
+        "m7SalesLevel2": "6714.32",
+        "m8ProfitsLevel1": "3616.61",
+        "m8ProfitsLevel2": "1114.74",
+        "m8ProfitsLevel3": "2461.67",
+        "m8SalesLevel1": "9364.74",
+        "m8SalesLevel2": "257.45",
+        "m8SalesLevel3": "2578.24",
+        "m9ProfitsLevel1": "825.65",
+        "m9ProfitsLevel3": "745.98",
+        "m9SalesLevel1": "945.22",
+        "m9SalesLevel3": "9225.23",
+        "m10ProfitsLevel2": "72.75",
+        "m10ProfitsLevel3": "24.46",
+        "m10SalesLevel2": "24.85",
+        "m10SalesLevel3": "23.74",
+        "m11ProfitsLevel1": "725.56",
+        "m11SalesLevel3": "345.45",
+        "m12ProfitsLevel2": "9256.55",
+        "m12SalesLevel1": "4627.75",
+        "type": "1",
+        "year": "2016"
+      }
+    ]
+  }
+}

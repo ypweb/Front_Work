@@ -1,0 +1,137 @@
+{
+  "code": "0",
+  "message": "查询成功",
+  "result": {
+    "pageCount": 2,
+    "count": 6,
+    "page": 1,
+    "pageSize": 5,
+    "list": [
+      {
+        "customerName": "3c0001",
+        "id": 153,
+        "list": [
+          {
+            "attributeName": "颜色:白色 规格:1.5米 ",
+            "detailState": 21,
+            "goodsName": "商品名称_测试商品_0014,颜色：白色(8),黑色(9),红色(10),蓝色(59)规格：1.5米(11),2.0米(12),2.5米(13),13.3\"(71)",
+            "id": 274,
+            "wholesalePrice":"10.00",
+            "purchasingQuantlity": 2
+          },
+          {
+            "attributeName": "颜色:白色 规格:2.0米 ",
+            "detailState": 21,
+            "goodsName": "商品名称_测试商品_0014,颜色：白色(8),黑色(9),红色(10),蓝色(59)规格：1.5米(11),2.0米(12),2.5米(13),13.3\"(71)",
+            "id": 275,
+            "wholesalePrice":"5.50",
+            "purchasingQuantlity": 1
+          },
+          {
+            "attributeName": "颜色:白色 规格:1.5米 ",
+            "detailState": 21,
+            "goodsName": "商品名称_测试商品_0013,颜色：白色(8),黑色(9),红色(10),蓝色(59),黄色(60);规格：1.5米(11),2.0米(12)",
+            "id": 276,
+            "wholesalePrice":"50.00",
+            "purchasingQuantlity": 3
+          }
+        ],
+        "orderNumber": "201612202017470001",
+        "orderState": 0,
+        "orderTime": "2016-12-20 20:17:47"
+      },
+      {
+        "customerName": "3c0001",
+        "id": 135,
+        "list": [
+          {
+            "attributeName": "颜色:白色 规格:1.5米 ",
+            "detailState": 21,
+            "goodsName": "商品名称_测试商品_0014,颜色：白色(8),黑色(9),红色(10),蓝色(59)规格：1.5米(11),2.0米(12),2.5米(13),13.3\"(71)",
+            "id": 179,
+            "wholesalePrice":"2.55",
+            "purchasingQuantlity": 1
+          }
+        ],
+        "orderNumber": "201612201846320001",
+        "orderState": 5,
+        "orderTime": "2016-12-20 18:46:32"
+      },
+      {
+        "customerName": "3c0001",
+        "id": 134,
+        "list": [
+          {
+            "attributeName": "颜色:白色 规格:2.0米 ",
+            "detailState": 21,
+            "goodsName": "test_modify_颜色(白色)_规格(1.5米，2.0米)",
+            "id": 175,
+            "wholesalePrice":"120.58",
+            "purchasingQuantlity": 2
+          },
+          {
+            "attributeName": "颜色:黑色 规格:250 ",
+            "detailState": 21,
+            "goodsName": "test_modify_颜色(黑色)_规格(25米，250)",
+            "id": 176,
+            "wholesalePrice":"356.90",
+            "purchasingQuantlity": 2
+          },
+          {
+            "attributeName": "颜色:白色 规格:1.5米 ",
+            "detailState": 21,
+            "goodsName": "商品名称_测试商品_0014,颜色：白色(8),黑色(9),红色(10),蓝色(59)规格：1.5米(11),2.0米(12),2.5米(13),13.3\"(71)",
+            "id": 177,
+            "wholesalePrice":"170.00",
+            "purchasingQuantlity": 2
+          }
+        ],
+        "orderNumber": "1482223292554",
+        "orderState": 5,
+        "orderTime": "2016-12-20 16:41:32"
+      },
+      {
+        "customerName": "3c0001",
+        "id": 111,
+        "list": [
+          {
+            "attributeName": "颜色:白色 规格:2.0米 ",
+            "detailState": 21,
+            "goodsName": "test_modify_颜色(白色)_规格(1.5米，2.0米)",
+            "id": 124,
+            "wholesalePrice":"624.50",
+            "purchasingQuantlity": 2
+          },
+          {
+            "attributeName": "颜色:黑色 规格:250 ",
+            "detailState": 21,
+            "goodsName": "test_modify_颜色(黑色)_规格(25米，250)",
+            "id": 125,
+            "wholesalePrice":"945.00",
+            "purchasingQuantlity": 2
+          }
+        ],
+        "orderNumber": "1482206282197",
+        "orderState": 1,
+        "orderTime": "2016-12-20 11:58:02"
+      },
+      {
+        "customerName": "大广东超级物流中心",
+        "id": 107,
+        "list": [
+          {
+            "attributeName": "颜色:白色 重量:5kg ",
+            "detailState": 20,
+            "goodsName": "商品名称_测试商品_0012_白色(8)_5kg(96)",
+            "id": 118,
+            "wholesalePrice":"288",
+            "purchasingQuantlity": 50
+          }
+        ],
+        "orderNumber": "1479778502244",
+        "orderState": 3,
+        "orderTime": "2016-11-22 09:35:02"
+      }
+    ]
+  }
+}

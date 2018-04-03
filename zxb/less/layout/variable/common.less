@@ -1,0 +1,334 @@
+///*公共部分*/
+.g-fill{
+	.color-bg-base(@color-white);
+	.layout-relative-base;
+	.box-sizing-base;
+}
+///*显示隐藏*/
+.g-d-show{
+	display:block;
+}
+.g-d-hide{
+	display:none;
+}
+.g-d-showi{
+	display:block !important;
+}
+.g-d-hidei{
+	display:none !important;
+}
+///*清除内外间距*/
+.g-cleargap{
+	margin:0;
+	padding:0;
+}
+.g-cleargapi{
+	margin:0 !important;
+	padding:0 !important;
+}
+.g-clearpadding{
+	padding:0;
+}
+.g-clearmargin{
+	margin:0;
+}
+.g-clearpaddingi{
+	padding:0 !important;
+}
+.g-clearmargini{
+	margin:0 !important;
+}
+///*不换行*/
+.g-t-nowrap{
+	white-space:nowrap;
+}
+///*浮动*/
+.g-f-l{
+	float:left;
+}
+.g-f-r{
+	float:right;
+}
+.g-t-l{
+	text-align: left;
+}
+.g-t-r{
+	text-align:right;
+}
+
+///*提示信息*/
+///*成功*/
+.g-btips-succ{
+	&:before{
+		content:'\e60c';
+		font-family:'ux_six';
+		display:inline-block;
+		padding:0 3px 0 0;
+		font-size:@font-size-base;
+	}
+}
+.g-atips-succ{
+	&:after{
+		content:'\e60c';
+		font-family:'ux_six';
+		display:inline-block;
+		padding:0 0 0 3px;
+		font-size:@font-size-base;
+	}
+}
+///*错误*/
+.g-btips-error{
+	&:before{
+		content:'\e60e';
+		font-family:'ux_six';
+		display:inline-block;
+		padding:0 3px 0 0;
+		font-size:@font-size-base;
+	}
+}
+.g-atips-error{
+	&:after{
+		content:'\e60e';
+		font-family:'ux_six';
+		display:inline-block;
+		padding:0 0 0 3px;
+		font-size:@font-size-base;
+	}
+}
+///*警告*/
+.g-btips-warn{
+	&:before{
+		content:'\e617';
+		font-family:'ux_six';
+		display:inline-block;
+		padding:0 3px 0 0;
+		font-size:@font-size-base;
+	}
+}
+.g-atips-warn{
+	&:after{
+		content:'\e617';
+		font-family:'ux_six';
+		display:inline-block;
+		padding:0 0 0 3px;
+		font-size:@font-size-base;
+	}
+}
+///*公告*/
+.g-btips-notice{
+	&:before{
+		content:'\e604';
+		font-family:'ux_six';
+		display:inline-block;
+		padding:0 3px 0 0;
+		font-size:@font-size-base;
+	}
+}
+.g-atips-notice{
+	&:after{
+		content:'\e604';
+		font-family:'ux_six';
+		display:inline-block;
+		padding:0 0 0 3px;
+		font-size:@font-size-base;
+	}
+}
+
+///*全局颜色*/
+
+///*字体*/
+.g-c-white{color:@color-white !important;}
+.g-c-base{color:@color-base !important;}
+.g-c-err{color:@color-err !important;}
+.g-c-succ{color:@color-succ !important;}
+.g-c-warn{color:@color-warn !important;}
+.g-c-info{color:@color-info !important;}
+.g-c-dark{color:@color-dark !important;}
+.g-c-ligh{color:@color-ligh !important;}
+.g-c-border{color:@color-border !important;}
+.g-c-focus{color:@color-focus !important;}
+.g-c-default{color:@color-default !important;}
+
+///*背景*/
+.g-b-white{background-color:@color-white !important;}
+.g-b-base{background-color:@color-base !important;}
+.g-b-err{background-color:@color-err !important;}
+.g-b-succ{background-color:@color-succ !important;}
+.g-b-warn{background-color:@color-warn !important;}
+.g-b-info{background-color:@color-info !important;}
+.g-b-dark{background-color:@color-dark !important;}
+.g-b-ligh{background-color:@color-ligh !important;}
+.g-b-border{background-color:@color-border !important;}
+.g-b-focus{background-color:@color-focus !important;}
+.g-b-default{background-color:@color-default !important;}
+
+
+
+///*字体颜色*/
+///red
+.g-c-redfor(@n,@i:1) when (@i =< @n) {
+	.g-c-red@{i}{
+		.color-t-base(~'@{color-red@{i}} !important';);
+	}
+	.g-c-redfor(@n,(@i+1));
+}
+.g-c-redfor(3);
+
+///green
+.g-c-greenfor(@n,@i:1) when (@i =< @n) {
+	.g-c-green@{i}{
+		.color-t-base(~'@{color-green@{i}} !important';);
+	}
+	.g-c-greenfor(@n,(@i+1));
+}
+.g-c-greenfor(2);
+
+///blue
+.g-c-bluefor(@n,@i:1) when (@i =< @n) {
+	.g-c-blue@{i}{
+		.color-t-base(~'@{color-blue@{i}} !important';);
+	}
+	.g-c-bluefor(@n,(@i+1));
+}
+.g-c-bluefor(2);
+
+
+///yellow
+.g-c-yellowfor(@n,@i:1) when (@i =< @n) {
+	.g-c-yellow@{i}{
+		.color-t-base(~'@{color-yellow@{i}} !important';);
+	}
+	.g-c-yellowfor(@n,(@i+1));
+}
+.g-c-yellowfor(2);
+
+///orange
+.g-c-orangefor(@n,@i:1) when (@i =< @n) {
+	.g-c-orange@{i}{
+		.color-t-base(~'@{color-orange@{i}} !important';);
+	}
+	.g-c-orangefor(@n,(@i+1));
+}
+.g-c-orangefor(1);
+
+///gray
+.g-c-grayfor(@n,@i:1) when (@i =< @n) {
+	.g-c-gray@{i}{
+		.color-t-base(~'@{color-gray@{i}} !important';);
+	}
+	.g-c-grayfor(@n,(@i+1));
+}
+.g-c-grayfor(16);
+
+
+
+///*背景颜色*/
+///red
+.g-b-redfor(@n,@i:1) when (@i =< @n) {
+	.g-b-red@{i}{
+		.color-bg-base(~'@{color-red@{i}} !important';);
+	}
+	.g-b-redfor(@n,(@i+1));
+}
+.g-b-redfor(3);
+
+///green
+.g-b-greenfor(@n,@i:1) when (@i =< @n) {
+	.g-b-green@{i}{
+		.color-bg-base(~'@{color-green@{i}} !important';);
+	}
+	.g-b-greenfor(@n,(@i+1));
+}
+.g-b-greenfor(2);
+
+///blue
+.g-b-bluefor(@n,@i:1) when (@i =< @n) {
+	.g-b-blue@{i}{
+		.color-bg-base(~'@{color-blue@{i}} !important';);
+	}
+	.g-b-bluefor(@n,(@i+1));
+}
+.g-b-bluefor(2);
+
+
+///yellow
+.g-b-yellowfor(@n,@i:1) when (@i =< @n) {
+	.g-b-yellow@{i}{
+		.color-bg-base(~'@{color-yellow@{i}} !important';);
+	}
+	.g-b-yellowfor(@n,(@i+1));
+}
+.g-b-yellowfor(2);
+
+///orange
+.g-b-orangefor(@n,@i:1) when (@i =< @n) {
+	.g-b-orange@{i}{
+		.color-bg-base(~'@{color-orange@{i}} !important';);
+	}
+	.g-b-orangefor(@n,(@i+1));
+}
+.g-b-orangefor(1);
+
+///gray
+.g-b-grayfor(@n,@i:1) when (@i =< @n) {
+	.g-b-gray@{i}{
+		.color-bg-base(~'@{color-gray@{i}} !important';);
+	}
+	.g-b-grayfor(@n,(@i+1));
+}
+.g-b-grayfor(16);
+
+
+///*----文本----*/
+.g-t-offix{
+	.text-of;
+	text-overflow:ellipsis;
+}
+.g-t-ofhide{.text-of;}
+.g-t-ofww{.text-ww;}
+.g-t-unselect{.user-select-base;}
+
+///*文本垂直居中*/
+.g-t-vcwrap{
+	width:100%;
+	height:100%;
+	display:table;
+	margin:0 auto;
+	min-height:300px;
+}
+.g-t-vc{
+	width:100%;
+	height:100%;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	font-size:@font-size-small;
+	color:@color-default;
+}
+
+///*----圆角----*/
+.g-brfor(@n,@i:1) when (@i =< @n) {
+	.g-br@{i}{
+		.border-radius-base(~'@{i}px');
+	}
+	.g-brfor(@n,(@i+1));
+}
+.g-brfor(10);
+
+///*----百分比宽度----*/
+.g-w-percentfor(@n,@i:1) when (@i =< @n) {
+	.g-w-percent@{i}{
+		width:@i * 2% !important;
+	}
+	.g-w-percentfor(@n,(@i+1));
+}
+.g-w-percentfor(50);
+
+///*----具体宽度----*/
+.g-w-numberfor(@n,@i:1) when (@i =< @n) {
+	.g-w-number@{i}{
+		width:@i * 25px !important;
+	}
+	.g-w-numberfor(@n,(@i+1));
+}
+.g-w-numberfor(50);

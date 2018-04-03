@@ -1,0 +1,40 @@
+<!--设备管理-->
+<h1 class="admin-layout-theme3">分润设置</h1>
+
+<!--主内容-->
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-9">
+        <!--表格主体-->
+        <table id="admin_list_wrap" class="table table-bordered table-striped table-hover admin-layout-table">
+            <!--分组样式-->
+            <colgroup>
+                <col class="g-w-percent10">
+                <col class="g-w-percent10">
+                <col class="g-w-percent10">
+                <col class="g-w-percent10">
+                <col class="g-w-percent10">
+            </colgroup>
+
+            <!--表头-->
+            <thead>
+            <tr>
+                <th>用户名(昵称)</th>
+                <th>手机号</th>
+                <th>创建时间</th>
+                <th>最后登录时间</th>
+                <th>登录次数</th>
+            </tr>
+            </thead>
+
+
+            <!--表主体-->
+            <tbody class="middle-align"></tbody>
+        </table>
+        <div class="admin-page-wrap">
+            <div class="easyui-pagination g-w-percent50" id="admin_page_wrap" data-options="links:5,layout:['manual','first','prev','links','next','last'],displayMsg:'显示{from}&nbsp;到&nbsp;{to}&nbsp;共&nbsp;{total}条记录'"></div>
+        </div>
+    </div>
+</div>

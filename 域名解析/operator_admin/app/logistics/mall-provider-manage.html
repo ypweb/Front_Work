@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1">
+	<meta name="description" content="布住网运营管理平台--仓储管理--入库统计" />
+	<meta name="keywords" content="布住网运营管理平台--仓储管理--入库统计">
+  <meta name="author" content="yp" />
+	<title>布住网运营管理平台--仓储管理--入库统计</title>
+	<link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../js/plugins/datatables/dataTables.bootstrap.css">
+	<link rel="stylesheet" href="../../css/admin.css">
+  <script src="../../js/common/jquery-1.11.1.js"></script>
+	<!--[if lt IE 9]>
+		<script src="../../js/common/h5support.js"></script>
+	<![endif]-->
+</head>
+<body class="page-body">
+
+    <div class="page-container">
+
+        <!--测边栏--菜单导航模块-->
+        <div id="main_menu_wrap" class="sidebar-menu toggle-others fixed">
+            <div class="sidebar-menu-inner">
+                <!--菜单头部按钮-->
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="#" class="logo-expanded">
+                            <img src="../../images/logo@2x.png" width="130" alt="" />
+                        </a>
+
+                        <a href="#" class="logo-collapsed">
+                            <img src="../../images/logo-collapsed@2x.png" width="40" alt="" />
+                        </a>
+                    </div>
+
+                    <!--小屏模式下按钮-->
+                    <div class="mobile-menu-toggle visible-xs">
+                        <a href="#" data-toggle="mobile-menu">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </div>
+                </header>
+                <!--菜单条-->
+                <ul id="main_menu" class="main-menu"></ul>
+            </div>
+        </div>
+
+        <!--主模块-->
+        <div id="main_content" class="main-content">
+
+            <!--顶部按钮区域-->
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- 顶部左侧部分 -->
+                <ul class="user-info-menu left-links list-inline list-unstyled">
+                    <!--切换菜单为全部模式或者缩略模式-->
+                    <li class="hidden-sm hidden-xs">
+                        <a href="#" data-toggle="sidebar">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- 顶部右侧部分 -->
+                <ul class="user-info-menu right-links list-inline list-unstyled">
+
+                    <li class="dropdown user-profile">
+                        <a href="#" data-toggle="dropdown">
+                            <img src="../../images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+                            <span id="admin_show_wrap"></span>
+                        </a>
+
+                        <ul class="dropdown-menu user-profile-menu list-unstyled">
+
+                            <li class="last">
+                                <a href="../../index.html" id="logout_btn"><i class="fa-lock"></i>登出</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <!--主题描述-->
+            <div class="page-title">
+                <div class="title-env">
+                    <h1 class="title">仓储管理</h1>
+                    <p class="description">入库统计</p>
+                </div>
+                <div class="breadcrumb-env">
+                    <ol class="breadcrumb bc-1">
+                        <li><a href=""><i class="fa-home"></i>仓储管理</a></li>
+                        <li class="active"><strong>入库统计</strong></li>
+                    </ol>
+                </div>
+            </div>
+
+
+            <!--主内容-->
+            <div class="row row-main-wrap">
+                <div class="col-md-12">
+                    <div class="panel">
+
+                        <!--表格标题-->
+                        <div class="panel-heading">
+                            <h3 class="panel-title">入库统计</h3>
+
+                            <div class="panel-options">
+                                <a href="#" data-toggle="panel">
+                                    <span class="collapse-icon">&ndash;</span>
+                                    <span class="expand-icon">+</span>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <!--表格主体-->
+                        <div class="panel-body">
+                            <div>
+                                <span id="storage_stats_add" class="btn btn-info btn-icon btn-xs g-br2">
+                                    <i class="fa-plus"></i>
+                                    <span>新增入库单</span>
+                                </span>
+                            </div>
+
+                            <table id="storage_stats_wrap" class="table table-bordered table-striped table-hover admin-table">
+                                <!--分组样式-->
+                                <colgroup>
+                                    <col class="g-w-percent10">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent8">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent8">
+                                    <col class="g-w-percent4">
+                                    <col class="g-w-percent5">
+                                </colgroup>
+
+                                <!--表头-->
+                                <thead>
+                                <tr>
+                                    <th>入库单号</th>
+                                    <th>入库时间</th>
+                                    <th>入库仓库</th>
+                                    <th>入库类型</th>
+                                    <th>经办人</th>
+                                    <th>供应商</th>
+                                    <th>审核状态</th>
+                                    <th class="no-sorting">操作</th>
+                                </tr>
+                                </thead>
+
+
+                                <!--表主体-->
+                                <tbody class="middle-align"></tbody>
+                            </table>
+                            <div class="admin-page-wrap">
+                                <div class="easyui-pagination g-w-percent50" id="admin_page_wrap" data-options="links:5,layout:['manual','first','prev','links','next','last'],displayMsg:'显示{from}&nbsp;到&nbsp;{to}&nbsp;共&nbsp;{total}条记录'"></div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!--底部信息-->
+            <footer class="main-footer sticky footer-type-1">
+                <div class="footer-inner">
+                    <!-- 版权所有 -->
+                    <div class="footer-text">
+                        &copy; 2016
+                        <strong>银通天下</strong>
+                        <a href="#" target="_blank" title="">****</a>
+                    </div>
+
+                    <!--回到顶部-->
+                    <div class="go-up">
+                        <a href="#" rel="go-top">
+                            <i class="fa-angle-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+    </div>
+
+
+
+    <!--新增入库单-->
+    <div class="modal fade custom-width" id="show_add_wrap">
+        <div class="modal-dialog g-w-percent46">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">新增入库单</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form"  method="post" id="admin_storagestatsadd_form" class="admin-form1 validate">
+                        <table class="table table-bordered table-striped table-hover admin-table">
+                            <colgroup>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent6"/>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent6"/>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent10"/>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th><span class="form-require-item g-c-red1">*</span>入库单号</th>
+                                    <th><span class="form-require-item g-c-red1">*</span>入库时间</th>
+                                    <th><span class="form-require-item g-c-red1">*</span>入库仓库</th>
+                                    <th><span class="form-require-item g-c-red1">*</span>入库类型</th>
+                                    <th><span class="form-require-item g-c-red1">*</span>供应商</th>
+                                    <th><span class="form-require-item g-c-red1">*</span>经办人</th>
+                                    <th>备注</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="form-group">
+                                        <input type="text" class="form-control self-error-tips" name="number" placeholder="请输入入库单号" data-validate="required" data-message-required="入库单号不能为空"  id="admin_number" />
+                                    </td>
+                                    <td class="form-group">
+                                        <input type="text" class="form-control self-error-tips" placeholder="请选择入库时间" data-validate="required" data-message-required="入库时间不能为空"  name="time" readonly  id="admin_time" />
+                                    </td>
+                                    <td class="form-group">
+                                        <input type="text" class="form-control self-error-tips" name="store" placeholder="请输入入库仓库" data-validate="required" data-message-required="入库仓库不能为空"  id="admin_store" />
+                                    </td>
+                                    <td class="form-group">
+                                        <input type="text" class="form-control self-error-tips" name="type" placeholder="请输入入库类型" data-validate="required" data-message-required="入库类型不能为空"  id="admin_type" />
+                                    </td>
+                                    <td class="form-group">
+                                        <input type="text" class="form-control self-error-tips" name="provider" placeholder="请输入供应商" data-validate="required" data-message-required="供应商不能为空"  id="admin_provider" />
+                                    </td>
+                                    <td class="form-group">
+                                        <input type="text" class="form-control self-error-tips" name="operator" placeholder="请输入经办人" data-validate="required" data-message-required="经办人不能为空"  id="admin_operator" />
+                                    </td>
+                                    <td class="form-group">
+                                        <input type="text" class="form-control" name="remark"  id="admin_remark" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7" class="form-group self-error-pos-tips"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover admin-table">
+                            <colgroup>
+                                <col class="g-w-percent2" />
+                                <col class="g-w-percent10" />
+                                <col class="g-w-percent15" />
+                                <col class="g-w-percent15" />
+                                <col class="g-w-percent8" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>条码</th>
+                                    <th>商品名称</th>
+                                    <th>商品型号</th>
+                                    <th>数量</th>
+                                </tr>
+                            </thead>
+                            <tbody id="show_add_list"></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4" class="g-t-r">合计：</td>
+                                    <td id="storage_total">0</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <button type="submit" class="btn btn-success">确定入库</button>
+                                        <button type="button" id="storage_stats_additem" class="btn btn-info pull-right" >&nbsp;&nbsp;+&nbsp;&nbsp;</button>
+                                        <button type="button" id="storage_stats_removeitem" class="btn btn-info pull-right" >&nbsp;&nbsp;-&nbsp;&nbsp;</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                   </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--查看入库统计-->
+    <div class="modal fade custom-width" id="show_detail_wrap">
+        <div class="modal-dialog g-w-percent46">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">查看入库单</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="admin_storagestatsapply_form" class="admin-form1">
+                        <input value="" type="text" class="g-d-hidei" name="id"  id="admin_id" />
+                        <table class="table table-bordered table-striped table-hover admin-table">
+                            <colgroup>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent7"/>
+                                <col class="g-w-percent7"/>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>入库单号</th>
+                                    <th>入库时间</th>
+                                    <th>入库仓库</th>
+                                    <th>入库类型</th>
+                                    <th>供应商</th>
+                                    <th>经办人</th>
+                                    <th>备注</th>
+                                </tr>
+                            </thead>
+                            <tbody id="show_detail_content"></tbody>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover admin-table">
+                            <colgroup>
+                                <col class="g-w-percent2" />
+                                <col class="g-w-percent10" />
+                                <col class="g-w-percent15" />
+                                <col class="g-w-percent15" />
+                                <col class="g-w-percent8" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>条码</th>
+                                    <th>商品名称</th>
+                                    <th>商品型号</th>
+                                    <th>数量</th>
+                                </tr>
+                            </thead>
+                            <tbody id="show_detail_list"></tbody>
+                            <tfoot class="g-d-hidei" id="show_detail_action">
+                                <tr>
+                                    <td colspan="4" id="admin_apply">
+                                        <label>
+                                           <input type="radio" value="1" name="admin_apply">审核通过&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </label>
+                                        <label>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;<input checked type="radio" value="0" name="admin_apply"> 审核未通过
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success g-f-l" id="storage_apply" >确定</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+	
+	<!--加载遮罩层-->
+	<div id="page_loading_wrap" class="page-loading-overlay g-d-hidei">
+		<div class="loader-2"></div>
+	</div>
+
+
+
+	<!--提示信息-->
+  <div id="page_support_wrap" class="page-support-wrap g-d-hidei">
+      <div class="page-support-browser">
+          <h1 class="browser-theme">您的浏览器版本太低，请升级您的浏览器</h1>
+          <div class="browser-icon">
+              <a href="http://www.firefox.com.cn/" target="_blank">
+                  <p>火狐浏览器</p>
+                  <span>Firefox</span>
+                  <div class="browser-icon-firefox"></div>
+              </a>
+              <a href="http://www.googlechromer.cn/" target="_blank">
+                  <p>谷歌浏览器</p>
+                  <span>Chrome</span>
+                  <div class="browser-icon-chrome"></div>
+              </a>
+              <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+                  <p>IE浏览器</p>
+                  <span>Internet&nbsp;Explorer</span>
+                  <div class="browser-icon-ie"></div>
+              </a>
+              <a href="https://liulanqi.baidu.com/70/?sid=11100016" target="_blank">
+                  <p>百度浏览器</p>
+                  <span>Baidu</span>
+                  <div class="browser-icon-baidu"></div>
+              </a>
+              <a href="http://browser.qq.com/?adtag=SEM1" target="_blank">
+                  <p>QQ浏览器</p>
+                  <span>Tencent</span>
+                  <div class="browser-icon-qq"></div>
+              </a>
+          </div>
+      </div>
+      <div class="page-support-login">
+          <div></div>
+          <p>您还未登录<span id="goto_login"></span>秒后跳入登陆页面</p>
+      </div>
+  </div>
+
+
+    <script src="../../js/common/base.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/plugins/jquery-validate/jquery.validate.js"></script>
+    <script src="../../js/plugins/datatables/js/jquery.dataTables.js"></script>
+    <!--修饰分页，搜索等操作 -->
+    <script src="../../js/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="../../js/plugins/pagination/pagination.js"></script>
+    <script src="../../js/plugins/datepicker/datepicker.js"></script>
+    <script src="../../js/logistics/provider_manage.js"></script>
+</body>
+</html>

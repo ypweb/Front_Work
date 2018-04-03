@@ -1,0 +1,112 @@
+///组件--轮播
+///作者：易品
+
+
+///*--轮播--*/
+.slide-wrap{
+	.layout-absoluter-base;
+	min-height: 500px;
+	width:100%;
+	height:100%;
+	li[class*="filter-blur"]{
+		.transition-base(all .5s ease-in .02s);
+	}
+}
+
+
+//轮播图片及按钮
+.slide-toggle{
+	.layout-relative-base(0,0,5);
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	.slideimg{
+		.layout-absolutel-base(0,0,20);
+		width:auto;
+		height:100%;
+		li{
+			width:auto;
+			width:100vw;
+			height:100%;
+			float:left;
+			a{
+				height:100%;
+				width:100%;
+				display:block;
+				float:left;
+				overflow:hidden;
+				.no-outline-base;
+				img{
+					width:100%;
+					height:100%;
+				}
+			}
+		}
+	}
+	.slideimg-btn{
+		.layout-absolutelb-base(0,0,50);
+		.user-select-base;
+		.layout-base;
+		padding-right:20px;
+		height:34px;
+		overflow:hidden;
+		text-align:center;
+		li{
+			width:20px;
+			height:30px;
+			margin-right:3px;
+			display:inline-block;
+			vertical-align:middle;
+			div{
+				width:12px;
+				height:12px;
+				.border-radius-base(50%);
+				margin:9px auto 0 auto;			
+				cursor:pointer;
+				.opacity-base(50);
+				background:@color-gray6;
+			}
+			&.slidebtn-active{
+				div{
+					.opacity-base;
+				}
+			}
+		}
+	}
+	.slide-tips{
+		.layout-absolutel-base(0,160px,20);
+		width:100%;
+		height:30px;
+		.opacity-base(60);
+		p{
+			float:left;
+			width:100%;
+			height:30px;
+			line-height:30px;
+			text-indent:50px;
+			font-size:@font-size-base + 2;
+			font-weight:bold;
+			white-space:nowrap;
+			overflow:hidden;
+			text-overflow:ellipsis;
+			background:@color-base;
+			display:block;
+			color:@color-white;
+			&:hover{
+				.text-shadow-base(0 0 3px @color-white);
+				.transition-base(all ease-in 0.3s 0.05s);
+			}
+		}
+	}
+}
+
+
+///*----图片模糊滤镜----*/
+.g-filter-blurfor(@n,@i:1) when (@i =< @n) {
+	.g-filter-blur@{i}{
+		.filter-blur-base(~'@{i}');
+	}
+	.g-filter-blurfor(@n,(@i+1));
+}
+.g-filter-blurfor(20);
+

@@ -1,0 +1,174 @@
+@font-face {
+  font-family: 'zuimao';
+  src:  url('fonts/zuimao.eot?6ooh7w');
+  src:  url('fonts/zuimao.eot?6ooh7w#iefix') format('embedded-opentype'),
+    url('fonts/zuimao.ttf?6ooh7w') format('truetype'),
+    url('fonts/zuimao.woff?6ooh7w') format('woff'),
+    url('fonts/zuimao.svg?6ooh7w#zuimao') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "iconfont";
+  src: url('fonts/iconfont.eot?t=1482895107283'); /* IE9*/
+  src: url('fonts/iconfont.eot?t=1482895107283#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('fonts/iconfont.woff?t=1482895107283') format('woff'), /* chrome, firefox */
+  url('fonts/iconfont.ttf?t=1482895107283') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('fonts/iconfont.svg?t=1482895107283#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'zuimao' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-back:before {
+  content: "\e900";
+}
+.icon-edit:before {
+  content: "\e901";
+}
+.icon-hot:before {
+  content: "\e902";
+  color: #979797;
+}
+.icon-image:before {
+  content: "\e903";
+}
+.icon-more:after {
+  content: "\e904";
+}
+.icon-put:before {
+  content: "\e905";
+}
+.icon-report:before {
+  content: "\e906";
+}
+.icon-search:before {
+  content: "\e907";
+}
+.icon-user:before {
+  content: "\e908";
+}
+.icon-yen:before {
+  content: "\e909";
+}
+.icon-zhuan:before {
+  content: "\e90a";
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-erweima:before { content: "\e601"; }
+
+.icon-fenlei:before { content: "\e603"; }
+
+/*.icon-search:before { content: "\e602"; }*/
+
+.icon-add:before { content: "\e612"; }
+
+.icon-fabuhuodong:before { content: "\e634"; }
+
+.icon-arrow:before { content: "\e60a"; }
+
+.icon-share:before { content: "\e648"; }
+
+.icon-baoming:before { content: "\e607"; }
+
+.icon-close:before { content: "\e615"; }
+
+.icon-time:before { content: "\e61c"; }
+
+.icon-vip:before { content: "\e61a"; }
+
+.icon-wodedailishang:before { content: "\e610"; }
+
+.icon-hongjiu:before { content: "\e611"; }
+
+.icon-daishouhuo:before { content: "\e656"; }
+
+.icon-shangchengtubiaoyangjiu:before { content: "\e60c"; }
+
+.icon-wodeyongjin:before { content: "\e6c4"; }
+
+/*.icon-user:before { content: "\e614"; }*/
+
+.icon-daifukuan:before { content: "\e638"; }
+
+.icon-bianji:before { content: "\e618"; }
+
+.icon-view:before { content: "\e630"; }
+
+.icon-start:before { content: "\e627"; }
+
+.icon-bangzhuzhongxin:before { content: "\e604"; }
+
+.icon-zan:before { content: "\e62c"; }
+
+.icon-gerenziliao:before { content: "\e606"; }
+
+.icon-shop:before { content: "\e832"; }
+
+.icon-yiwancheng:before { content: "\e77e"; }
+
+.icon-follow:before { content: "\e76b"; }
+
+.icon-tixian:before { content: "\e60b"; }
+
+.icon-del:before { content: "\e6c1"; }
+
+.icon-tuikuan:before { content: "\e671"; }
+
+.icon-putao:before { content: "\e64c"; }
+
+.icon-edittel:before { content: "\e629"; }
+
+.icon-shouhuodizhi:before { content: "\e625"; }
+
+.icon-gouwuchejia:before { content: "\e620"; }
+
+.icon-lianxikefu:before { content: "\e62a"; }
+
+.icon-remen:before { content: "\e63b"; }
+
+.icon-gongsirenshu:before { content: "\e619"; }
+
+.icon-saomashoukuan:before { content: "\e706"; }
+
+.icon-zan-copy:before { content: "\e605"; }
+
+.icon-shenqing:before { content: "\e68e"; }
+
+.icon-huiyuan-copy:before { content: "\e600"; }
+
+.icon-shopping:before { content: "\e608"; }
+
+.icon-all-line:before { content: "\e64b"; }
+
+.icon-guanyuwomen:before { content: "\e91a"; }
+
+.icon-withdraw:before { content: "\e613"; }
+
+.icon-paiming:before { content: "\e694"; }
+
+.icon-liaotian:before { content: "\e6a0"; }
+
+.icon-000000-huangguan:before { content: "\e628"; }
+
+.icon-smile:before { content: "\e6d5"; }
+

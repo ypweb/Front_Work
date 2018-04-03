@@ -1,0 +1,25 @@
+/*延迟加载*/
+angular.module('app')
+    /*加载jquery插件*/
+  .constant('JQ_CONFIG', {
+          /*base:['../js/base/base.js'],*/
+          /*表格插件*/
+          dataTables:['js/plugins/datatables/js/jquery.dataTables.js','js/plugins/datatables/dataTables.bootstrap.css'],
+          /*分页插件*/
+          pagination:['js/plugins/pagination/pagination.js'],
+          /*表单验证插件*/
+          jqValidate:['js/plugins/jquery-validate/jquery.validate.js'],
+          /*单个日历插件*/
+          datePicker:['js/plugins/datepicker/datepicker.js'],
+          /*范围日历插件*/
+          dateRangePicker:['js/plugins/daterangepicker/daterangepicker.js','js/plugins/daterangepicker/daterangepicker-bs3.css'],
+          /*文本编辑插件*/
+          kindEditor:['js/plugins/kindeditor/kindeditor-all-min.js','js/plugins/kindeditor/themes/default/default.css'],
+          /*图表插件*/
+          highCharts:['js/plugins/highcharts/highcharts.js'],
+          /*上传插件*/
+          plUpload:['js/plugins/plupload/plupload.full.min.js','js/plugins/plupload/i18n/zh_CN.js'],
+          /*七牛上传服务插件*/
+          qnUploadServer:['js/plugins/qn/qiniu.min.js']
+      }
+  );

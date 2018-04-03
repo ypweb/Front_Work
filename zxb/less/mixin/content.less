@@ -1,0 +1,83 @@
+/*文章主体*/
+
+.content-wrap{
+	.layout-relative-base;
+	.layout-base;
+	min-height:400px;
+	.calc-base(min-height,'100vh - 360px');
+	background:@color-gray16;
+	&:after{
+		content: '';
+		display: table;
+		width:100%;
+		height:0;
+		clear: both;
+	}
+	.content-show{
+		.layout-absolutel-base(50%,-50px);
+		.layout-base(@global-screen-width);
+		margin:0 0 0 -@global-screen-width/2;
+		height:auto;
+		min-height:300px;
+		background:@color-white;
+		.box-shadow-base(0 10px 10px 0 @color-gray10);
+		padding:20px;
+		.content-theme{
+			.layout-base;
+			height:40px;
+			text-align:left;
+			line-height:38px;
+			.text-ww;
+			color:@color-gray6;
+			font-size:@font-size-base;
+			border-bottom:1px solid @color-gray12;
+			span{
+				.box-sizing-base(content-box);
+				height:38px;
+				padding:0 10px 0 0;
+				display:inline-block;
+				border-bottom:2px solid @color-red1;
+			}
+		}
+	}
+}
+
+///max 1000px
+@media screen and (max-width:999px){
+	//变量适配
+	@global-screen-width:640px;
+	@global-screen-height:850px;
+	
+	/*文章主体*/
+	.content-wrap{	
+		.content-show{
+			.layout-base(@global-screen-width);
+			margin:0 0 0 -@global-screen-width/2;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

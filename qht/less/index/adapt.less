@@ -1,0 +1,278 @@
+///max 1100px
+@media (max-width: 1199px){
+	//body适配
+	body{
+		max-width:1199px;
+		min-width:801px;
+		margin:50px 0 0 0;
+		background:@color-white;
+	}
+	
+	//头部适配
+	.header-wrap{
+		height:50px;
+	}
+	.header-content{
+		.layout-relative-base;
+		width:100%;
+		padding:0;
+		.header-logo{
+			margin:10px 0 0 10px;
+			width:109px;
+			height:30px;
+			background-size:100%;
+		}
+		.header-btn{
+			width:100px;
+			height:50px;
+			display:block;
+			&:after{
+				width:40px;
+				height:50px;
+				line-height:50px;
+			}
+		}
+		.header-menu{
+			.layout-fixedr-base(0,50px);
+			.layout-base(100px);
+			height:220px;
+			background:rgba(255,255,255,1);
+			display:none;
+			li{
+				.layout-float-base;
+				height:40px;
+				margin:0;
+				border-bottom:1px solid @color-gray14;
+				a{
+					.layout-base;
+					display:block;
+					height:100%;
+					line-height:40px;
+					text-align:right;
+					font-size:@font-size-base;
+					color:@color-gray3;
+				}
+			}
+			.menu-active{
+				border-bottom:3px solid @color-red2;
+				a{
+					color:@color-red2;
+				}
+			}
+		}
+	}
+	
+	
+	
+	//分屏适配
+	.screen-item{
+		>div{
+			width:100%;
+		}
+	}
+	
+	
+	//第一屏适配
+	.screen-index{
+		background:url(../images/screen_bg.png) repeat-x left -50px;
+	}
+	.part-slide{
+		width:400px;
+		background-size:350px auto;
+		left:50%;
+		margin:0 0 0 -240px;
+		height:400px;
+	}
+	.index-codewrap{
+		width:400px;
+		top:50px;
+		background-size:350px auto;
+		right:50%;
+		height:400px;
+		margin:0 -215px 0 0;
+		background-position:center top;
+	}
+
+
+
+	//第三屏适配
+	.scene-itemwrap{
+		li{
+			width:50%;
+		}
+		.scene-item3{
+			display:none;
+		}
+	}
+
+
+	//第四屏
+	.screen-app{
+		.app-wrap{
+			.app-item1{
+				height:30%;
+				min-height:150px;
+			}
+			.app-item2{
+				height:40%;
+				min-height:300px;
+			}
+			img{
+				max-height:300px;
+			}
+		}
+	}
+
+
+
+
+	//底部信息适配
+	.screen-footer{
+		min-height:40px;
+		padding:10px 0;
+		>div{
+			p{
+				width:100% !important;	
+				line-height:20px;
+				display:block;
+				text-align:left !important;
+			}
+		}
+	}
+	
+}
+
+
+///max 800px
+@media (max-width: 800px){
+	//body适配
+	body{
+		max-width:800px;
+		min-width:641px;
+	}
+
+
+	//第一屏适配
+	.part-slide{
+		width:350px;
+		background-size:350px auto;
+		left:50%;
+		margin:0 0 0 -220px;
+		height:400px;
+	}
+	.index-codewrap{
+		width:350px;
+		top:50px;
+		background-size:300px auto;
+		right:50%;
+		height:350px;
+		margin:0 -180px 0 0;
+		background-position:center top;
+	}
+	
+
+	
+	
+	//第二屏适配
+	.product-list{
+		background-size:150px auto;
+		background-position:center bottom 50px;
+	}
+	
+
+	//第三屏适配
+	.scene-itemwrap{
+		li{
+			width:100%;
+		}
+		.scene-item2,.scene-item3{
+			display:none;
+		}
+	}
+
+
+
+}
+
+///max 640px
+@media (max-width: 640px){
+	//body适配
+	body{
+		max-width:640px;
+		min-width:481px;
+	}
+
+
+}
+
+///max 480px
+@media (max-width: 480px){
+	//body适配
+	body{
+		max-width:480px;
+		min-width:321px;
+	}
+
+
+
+
+
+	//第二屏适配
+	.product-list{
+		background:none;
+		margin:140px 0 0 0;
+		.pl-iteml,
+		.pl-itemr{
+			padding:0;
+		}
+		.pl-itemwrap{
+			div{
+				width:80px;
+				height:80px;
+				background-size:auto 80px !important;
+			}
+		}
+		.pl-itemt{
+			min-height:80px;
+			.pl-itemwrap{
+				min-height:80px;
+				div{
+					margin:0 0 0 -50px;
+				}
+			}
+		}
+		.pl-item1{
+			background:url(../images/screen_icon.png) no-repeat 0 0;
+		}
+		.pl-item2{
+			background:url(../images/screen_icon.png) no-repeat -80px 0;
+		}
+		.pl-item3{
+			background:url(../images/screen_icon.png) no-repeat -160px 0;
+		}
+		.pl-item4{
+			background:url(../images/screen_icon.png) no-repeat -240px 0;
+		}
+		.pl-item5{
+			background:url(../images/screen_icon.png) no-repeat -320px 0;
+		}
+	}
+
+
+}
+
+///max 320px
+@media (max-width: 320px){
+	//body适配
+	body{
+		max-width:320px;
+		min-width:281px;
+	}
+
+
+
+
+
+
+
+}

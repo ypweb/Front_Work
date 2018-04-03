@@ -1,0 +1,70 @@
+{
+  "code": 0,
+  "message":"成功",
+  "result":{
+    "list":[{
+      "id":1,
+      "goodsName": "572457fghf",
+      "attributeName": "25674574",
+      "purchasingQuantlity":20,
+      "deliveredQuantlity":0,
+      "waitingQuantlity":20
+    },{
+        "id":2,
+        "goodsName": "78069",
+        "attributeName": "dfhfgfgj",
+        "purchasingQuantlity":10,
+        "deliveredQuantlity":5,
+        "waitingQuantlity":5
+    },{
+        "id":3,
+        "goodsName": "6793563",
+        "attributeName": "ghksfy575685",
+        "purchasingQuantlity":60,
+        "deliveredQuantlity":20,
+        "waitingQuantlity":40
+    },{
+      "id":4,
+      "goodsName": "25883568",
+      "attributeName": "yit853568568",
+      "purchasingQuantlity":100,
+      "deliveredQuantlity":50,
+      "waitingQuantlity":50
+    },{
+      "id":5,
+      "goodsName": "4647248568",
+      "attributeName": "35858fssartu4747",
+      "purchasingQuantlity":50,
+      "deliveredQuantlity":25,
+      "waitingQuantlity":25
+    },{
+      "id":6,
+      "goodsName": "41456rth583568",
+      "attributeName": "568256867",
+      "purchasingQuantlity":30,
+      "deliveredQuantlity":15,
+      "waitingQuantlity":15
+    },{
+      "id":7,
+      "goodsName": "93682745",
+      "attributeName": "45638568",
+      "purchasingQuantlity":60,
+      "deliveredQuantlity":24,
+      "waitingQuantlity":36
+    },{
+      "id":8,
+      "goodsName": "679567",
+      "attributeName": "45726",
+      "purchasingQuantlity":240,
+      "deliveredQuantlity":10,
+      "waitingQuantlity":230
+    },{
+      "id":9,
+      "goodsName": "145683568",
+      "attributeName": "56825668",
+      "purchasingQuantlity":200,
+      "deliveredQuantlity":120,
+      "waitingQuantlity":80
+    }]
+  }
+}

@@ -1,0 +1,66 @@
+
+/*banner广告*/
+.banner-wrap{
+	.layout-relative-base;
+	background-color:@color-gray16;
+	.layout-base;
+	min-height:300px;
+	max-height: 500px;
+	overflow:hidden;
+	>img{
+		display: block;
+		width:100%;
+		margin:0 auto;
+		min-height:300px;
+		max-height: 500px;
+	}
+	.banner-theme{
+		.layout-absolutelb-base(50%,-50px);
+		margin:0 0 0 -@global-screen-width/2;
+		width:@global-screen-width;
+		height:50%;
+		overflow:hidden;
+		h1,
+		h2{
+			font-size:0;
+			display:inline-block;
+			height:100%;
+			color:@color-white;
+			.text-of;
+			text-align:left;
+		}
+		h1{
+			@fs-h1:@font-size-base + 16;
+			font-size:@fs-h1;
+			line-height:@fs-h1;
+			padding:0 0 0 20px;
+		}
+		h2{
+			@fs-h2:@font-size-base;
+			font-size:@fs-h2;
+			line-height:@fs-h2 * 3.4;
+		}
+	}
+}
+
+
+///max 1000px
+@media screen and (max-width:999px){
+	//变量适配
+	@global-screen-width:640px;
+	@global-screen-height:850px;
+	
+	
+	/*banner广告*/
+	.banner-wrap{
+		.banner-theme{
+			.layout-absolutelb-base(50%,-50px);
+			margin:0 0 0 -@global-screen-width/2;
+			width:@global-screen-width;
+		}
+	}
+
+	
+	
+}
+

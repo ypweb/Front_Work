@@ -1,0 +1,5822 @@
+{
+  "code": "0",
+  "message": "查询成功",
+  "result": {
+    "pageCount": 1,
+    "count": 830,
+    "page": 1,
+    "pageSize": 10000,
+    "list": [
+      {
+        "gtCode": "10",
+        "id": 899,
+        "isVisible": true,
+        "name": "测试新增一级分类1",
+        "sort": 100
+      },
+      {
+        "gtCode": "T001",
+        "id": 898,
+        "isVisible": true,
+        "name": "T",
+        "sort": 1
+      },
+      {
+        "gtCode": "T001",
+        "id": 897,
+        "isVisible": true,
+        "name": "测试",
+        "sort": 0
+      },
+      {
+        "gtCode": "JY20160920020108",
+        "id": 896,
+        "isVisible": true,
+        "name": "鸡尾酒",
+        "sort": 8
+      },
+      {
+        "gtCode": "JY20160920020106",
+        "id": 895,
+        "isVisible": true,
+        "name": "养生酒",
+        "sort": 6
+      },
+      {
+        "gtCode": "JY20160920020107",
+        "id": 894,
+        "isVisible": true,
+        "name": "收藏酒",
+        "sort": 7
+      },
+      {
+        "gtCode": "JY20160920020105",
+        "id": 893,
+        "isVisible": true,
+        "name": "黄酒",
+        "sort": 5
+      },
+      {
+        "gtCode": "JY20160920020104",
+        "id": 892,
+        "isVisible": true,
+        "name": "啤酒",
+        "sort": 4
+      },
+      {
+        "gtCode": "JY20160920020103",
+        "id": 891,
+        "isVisible": true,
+        "name": "葡萄酒",
+        "sort": 3
+      },
+      {
+        "gtCode": "JY20160920020102",
+        "id": 890,
+        "isVisible": true,
+        "name": "洋酒",
+        "sort": 2
+      },
+      {
+        "gtCode": "JY20160920020101",
+        "id": 889,
+        "isVisible": true,
+        "name": "白酒",
+        "sort": 1
+      },
+      {
+        "gtCode": "JY20160920020507",
+        "id": 888,
+        "isVisible": true,
+        "name": "东南",
+        "sort": 7
+      },
+      {
+        "gtCode": "JY20160920020506",
+        "id": 887,
+        "isVisible": true,
+        "name": "西南",
+        "sort": 6
+      },
+      {
+        "gtCode": "JY20160920020505",
+        "id": 886,
+        "isVisible": true,
+        "name": "华南",
+        "sort": 5
+      },
+      {
+        "gtCode": "JY20160920020504",
+        "id": 885,
+        "isVisible": true,
+        "name": "华中",
+        "sort": 4
+      },
+      {
+        "gtCode": "JY20160920020503",
+        "id": 884,
+        "isVisible": true,
+        "name": "西北",
+        "sort": 3
+      },
+      {
+        "gtCode": "JY20160920020502",
+        "id": 883,
+        "isVisible": true,
+        "name": "华北",
+        "sort": 2
+      },
+      {
+        "gtCode": "JY20160920020501",
+        "id": 882,
+        "isVisible": true,
+        "name": "东北",
+        "sort": 1
+      },
+      {
+        "gtCode": "JY201609200203012",
+        "id": 881,
+        "isVisible": true,
+        "name": "白茶",
+        "sort": 12
+      },
+      {
+        "gtCode": "JY201609200203011",
+        "id": 880,
+        "isVisible": true,
+        "name": "黑茶",
+        "sort": 11
+      },
+      {
+        "gtCode": "JY201609200203010",
+        "id": 879,
+        "isVisible": true,
+        "name": "养生茶",
+        "sort": 10
+      },
+      {
+        "gtCode": "JY20160920020309",
+        "id": 878,
+        "isVisible": true,
+        "name": "花果茶",
+        "sort": 9
+      },
+      {
+        "gtCode": "JY20160920020308",
+        "id": 877,
+        "isVisible": true,
+        "name": "花草茶",
+        "sort": 8
+      },
+      {
+        "gtCode": "JY20160920020307",
+        "id": 876,
+        "isVisible": true,
+        "name": "乌龙茶",
+        "sort": 7
+      },
+      {
+        "gtCode": "JY20160920020306",
+        "id": 875,
+        "isVisible": true,
+        "name": "红茶",
+        "sort": 6
+      },
+      {
+        "gtCode": "JY20160920020305",
+        "id": 874,
+        "isVisible": true,
+        "name": "绿茶",
+        "sort": 5
+      },
+      {
+        "gtCode": "JY20160920020304",
+        "id": 873,
+        "isVisible": true,
+        "name": "毛尖",
+        "sort": 4
+      },
+      {
+        "gtCode": "JY20160920020303",
+        "id": 872,
+        "isVisible": true,
+        "name": "龙井",
+        "sort": 3
+      },
+      {
+        "gtCode": "JY20160920020302",
+        "id": 871,
+        "isVisible": true,
+        "name": "普洱",
+        "sort": 2
+      },
+      {
+        "gtCode": "JY20160920020301",
+        "id": 870,
+        "isVisible": true,
+        "name": "铁观音",
+        "sort": 1
+      },
+      {
+        "gtCode": "JY20160920020205",
+        "id": 869,
+        "isVisible": true,
+        "name": "奶茶",
+        "sort": 5
+      },
+      {
+        "gtCode": "JY20160920020207",
+        "id": 868,
+        "isVisible": true,
+        "name": "蜂蜜",
+        "sort": 7
+      },
+      {
+        "gtCode": "JY20160920020206",
+        "id": 867,
+        "isVisible": true,
+        "name": "冲饮谷物",
+        "sort": 6
+      },
+      {
+        "gtCode": "JY20160920020204",
+        "id": 866,
+        "isVisible": true,
+        "name": "咖啡",
+        "sort": 4
+      },
+      {
+        "gtCode": "JY20160920020203",
+        "id": 865,
+        "isVisible": true,
+        "name": "牛奶乳品",
+        "sort": 3
+      },
+      {
+        "gtCode": "JY20160920020202",
+        "id": 864,
+        "isVisible": true,
+        "name": "饮料",
+        "sort": 2
+      },
+      {
+        "gtCode": "JY20160920020201",
+        "id": 863,
+        "isVisible": true,
+        "name": "饮用水",
+        "sort": 1
+      },
+      {
+        "gtCode": "JY20160920020404",
+        "id": 862,
+        "isVisible": true,
+        "name": "休闲零食",
+        "sort": 4
+      },
+      {
+        "gtCode": "JY20160920020403",
+        "id": 861,
+        "isVisible": true,
+        "name": "巧克力",
+        "sort": 3
+      },
+      {
+        "gtCode": "JY20160920020402",
+        "id": 860,
+        "isVisible": true,
+        "name": "糖果",
+        "sort": 2
+      },
+      {
+        "gtCode": "JY20160920020401",
+        "id": 859,
+        "isVisible": true,
+        "name": "饼干蛋糕",
+        "sort": 1
+      },
+      {
+        "gtCode": "JY20160920020208",
+        "id": 858,
+        "isVisible": true,
+        "name": "奶粉",
+        "sort": 8
+      },
+      {
+        "gtCode": "JY201609200205",
+        "id": 857,
+        "isVisible": true,
+        "name": "地方特产",
+        "sort": 5
+      },
+      {
+        "gtCode": "JY201609200204",
+        "id": 856,
+        "isVisible": true,
+        "name": "进口食品",
+        "sort": 4
+      },
+      {
+        "gtCode": "JY201609200203",
+        "id": 855,
+        "isVisible": true,
+        "name": "茗茶",
+        "sort": 3
+      },
+      {
+        "gtCode": "JY201609200202",
+        "id": 854,
+        "isVisible": true,
+        "name": "饮料冲调",
+        "sort": 2
+      },
+      {
+        "gtCode": "JY201609200201",
+        "id": 853,
+        "isVisible": true,
+        "name": "中外名酒",
+        "sort": 1
+      },
+      {
+        "gtCode": "3C20160920010505",
+        "id": 852,
+        "isVisible": true,
+        "name": "摄像头",
+        "sort": 5
+      },
+      {
+        "gtCode": "3C20160920010504",
+        "id": 851,
+        "isVisible": true,
+        "name": "安防监控",
+        "sort": 4
+      },
+      {
+        "gtCode": "3C20160920010503",
+        "id": 850,
+        "isVisible": true,
+        "name": "POS机",
+        "sort": 3
+      },
+      {
+        "gtCode": "3C20160920010502",
+        "id": 849,
+        "isVisible": true,
+        "name": "电话机",
+        "sort": 2
+      },
+      {
+        "gtCode": "3C20160920010501",
+        "id": 848,
+        "isVisible": true,
+        "name": "路由器",
+        "sort": 1
+      },
+      {
+        "gtCode": "3C20160920010407",
+        "id": 847,
+        "isVisible": true,
+        "name": "激光笔",
+        "sort": 7
+      },
+      {
+        "gtCode": "3C20160920010406",
+        "id": 846,
+        "isVisible": true,
+        "name": "学生平板",
+        "sort": 6
+      },
+      {
+        "gtCode": "3C20160920010405",
+        "id": 845,
+        "isVisible": true,
+        "name": "点读机/笔",
+        "sort": 5
+      },
+      {
+        "gtCode": "3C20160920010404",
+        "id": 844,
+        "isVisible": true,
+        "name": "复读机",
+        "sort": 4
+      },
+      {
+        "gtCode": "3C20160920010403",
+        "id": 843,
+        "isVisible": true,
+        "name": "录音笔",
+        "sort": 3
+      },
+      {
+        "gtCode": "3C20160920010402",
+        "id": 842,
+        "isVisible": true,
+        "name": "电纸书",
+        "sort": 2
+      },
+      {
+        "gtCode": "3C20160920010401",
+        "id": 841,
+        "isVisible": true,
+        "name": "电子词典",
+        "sort": 1
+      },
+      {
+        "gtCode": "3C201609200103010",
+        "id": 840,
+        "isVisible": true,
+        "name": "无人机",
+        "sort": 10
+      },
+      {
+        "gtCode": "3C20160920010309",
+        "id": 839,
+        "isVisible": true,
+        "name": "智能机器人",
+        "sort": 9
+      },
+      {
+        "gtCode": "3C20160920010308",
+        "id": 838,
+        "isVisible": true,
+        "name": "智能配饰",
+        "sort": 8
+      },
+      {
+        "gtCode": "3C20160920010307",
+        "id": 837,
+        "isVisible": true,
+        "name": "运动跟踪器",
+        "sort": 7
+      },
+      {
+        "gtCode": "3C20160920010306",
+        "id": 836,
+        "isVisible": true,
+        "name": "智能眼镜",
+        "sort": 6
+      },
+      {
+        "gtCode": "3C20160920010305",
+        "id": 835,
+        "isVisible": true,
+        "name": "体感车",
+        "sort": 5
+      },
+      {
+        "gtCode": "3C20160920010304",
+        "id": 834,
+        "isVisible": true,
+        "name": "智能家居",
+        "sort": 4
+      },
+      {
+        "gtCode": "3C20160920010303",
+        "id": 833,
+        "isVisible": true,
+        "name": "健康监测",
+        "sort": 3
+      },
+      {
+        "gtCode": "3C20160920010302",
+        "id": 832,
+        "isVisible": true,
+        "name": "智能手表",
+        "sort": 2
+      },
+      {
+        "gtCode": "3C20160920010301",
+        "id": 831,
+        "isVisible": true,
+        "name": "智能手环",
+        "sort": 1
+      },
+      {
+        "gtCode": "3C201609200102016",
+        "id": 830,
+        "isVisible": true,
+        "name": "便携/无线音箱",
+        "sort": 16
+      },
+      {
+        "gtCode": "3C201609200102015",
+        "id": 829,
+        "isVisible": true,
+        "name": "手机支架",
+        "sort": 15
+      },
+      {
+        "gtCode": "3C201609200102014",
+        "id": 828,
+        "isVisible": true,
+        "name": "拍照配件",
+        "sort": 14
+      },
+      {
+        "gtCode": "3C201609200102013",
+        "id": 827,
+        "isVisible": true,
+        "name": "手机保护套",
+        "sort": 13
+      },
+      {
+        "gtCode": "3C20160920010212",
+        "id": 826,
+        "isVisible": true,
+        "name": "车载配件",
+        "sort": 12
+      },
+      {
+        "gtCode": "3C201609200102011",
+        "id": 825,
+        "isVisible": true,
+        "name": "创意配件",
+        "sort": 11
+      },
+      {
+        "gtCode": "3C201609200102010",
+        "id": 824,
+        "isVisible": true,
+        "name": "手机饰品",
+        "sort": 10
+      },
+      {
+        "gtCode": "3C20160920010209",
+        "id": 823,
+        "isVisible": true,
+        "name": "手机电池",
+        "sort": 9
+      },
+      {
+        "gtCode": "3C20160920010208",
+        "id": 822,
+        "isVisible": true,
+        "name": "手机存储卡",
+        "sort": 8
+      },
+      {
+        "gtCode": "3C20160920010207",
+        "id": 821,
+        "isVisible": true,
+        "name": "数据线",
+        "sort": 7
+      },
+      {
+        "gtCode": "3C20160920010206",
+        "id": 820,
+        "isVisible": true,
+        "name": "手机贴膜",
+        "sort": 6
+      },
+      {
+        "gtCode": "3C20160920010205",
+        "id": 819,
+        "isVisible": true,
+        "name": "充电器",
+        "sort": 5
+      },
+      {
+        "gtCode": "3C20160920010204",
+        "id": 818,
+        "isVisible": true,
+        "name": "手机耳机",
+        "sort": 4
+      },
+      {
+        "gtCode": "3C20160920010203",
+        "id": 817,
+        "isVisible": true,
+        "name": "苹果周边",
+        "sort": 3
+      },
+      {
+        "gtCode": "3C20160920010202",
+        "id": 816,
+        "isVisible": true,
+        "name": "移动电源",
+        "sort": 2
+      },
+      {
+        "gtCode": "3C20160920010201",
+        "id": 815,
+        "isVisible": true,
+        "name": "蓝牙耳机",
+        "sort": 1
+      },
+      {
+        "gtCode": "3C201609200106",
+        "id": 814,
+        "isVisible": true,
+        "name": "运营商",
+        "sort": 6
+      },
+      {
+        "gtCode": "3C20160920010103",
+        "id": 813,
+        "isVisible": true,
+        "name": "平板电脑",
+        "sort": 3
+      },
+      {
+        "gtCode": "3C20160920010102",
+        "id": 812,
+        "isVisible": true,
+        "name": "对讲机",
+        "sort": 2
+      },
+      {
+        "gtCode": "3C20160920010101",
+        "id": 811,
+        "isVisible": true,
+        "name": "手机",
+        "sort": 1
+      },
+      {
+        "gtCode": "3C201609200105",
+        "id": 810,
+        "isVisible": true,
+        "name": "网络产品",
+        "sort": 5
+      },
+      {
+        "gtCode": "3C201609200104",
+        "id": 809,
+        "isVisible": true,
+        "name": "电子教育",
+        "sort": 4
+      },
+      {
+        "gtCode": "3C201609200103",
+        "id": 808,
+        "isVisible": true,
+        "name": "智能设备",
+        "sort": 3
+      },
+      {
+        "gtCode": "3C201609200102",
+        "id": 807,
+        "isVisible": true,
+        "name": "手机配件",
+        "sort": 2
+      },
+      {
+        "gtCode": "3C201609200101",
+        "id": 806,
+        "isVisible": true,
+        "name": "手机通讯",
+        "sort": 1
+      },
+      {
+        "gtCode": "JY2016092002",
+        "id": 805,
+        "isVisible": true,
+        "name": "酒饮特产",
+        "sort": 254
+      },
+      {
+        "gtCode": "3C2016092001",
+        "id": 804,
+        "isVisible": true,
+        "name": "3C产品",
+        "sort": 255
+      },
+      {
+        "gtCode": "LIPIN07012",
+        "id": 802,
+        "isVisible": true,
+        "name": "珍珠",
+        "sort": 12
+      },
+      {
+        "gtCode": "LIPIN07010",
+        "id": 801,
+        "isVisible": true,
+        "name": "木手串/把件",
+        "sort": 10
+      },
+      {
+        "gtCode": "LIPIN0709",
+        "id": 800,
+        "isVisible": true,
+        "name": "铂金",
+        "sort": 9
+      },
+      {
+        "gtCode": "LIPIN0708",
+        "id": 799,
+        "isVisible": true,
+        "name": "彩宝",
+        "sort": 8
+      },
+      {
+        "gtCode": "LIPIN0707",
+        "id": 798,
+        "isVisible": true,
+        "name": "水晶玛瑙",
+        "sort": 7
+      },
+      {
+        "gtCode": "LIPIN0706",
+        "id": 797,
+        "isVisible": true,
+        "name": "银饰",
+        "sort": 6
+      },
+      {
+        "gtCode": "LIPIN0705",
+        "id": 796,
+        "isVisible": true,
+        "name": "翡翠玉石",
+        "sort": 5
+      },
+      {
+        "gtCode": "LIPIN0704",
+        "id": 795,
+        "isVisible": true,
+        "name": "钻石",
+        "sort": 4
+      },
+      {
+        "gtCode": "LIPIN0703",
+        "id": 794,
+        "isVisible": true,
+        "name": "时尚饰品",
+        "sort": 3
+      },
+      {
+        "gtCode": "LIPIN0702",
+        "id": 793,
+        "isVisible": true,
+        "name": "K金",
+        "sort": 2
+      },
+      {
+        "gtCode": "LIPIN0701",
+        "id": 792,
+        "isVisible": true,
+        "name": "黄金",
+        "sort": 1
+      },
+      {
+        "gtCode": "LIPIN06012",
+        "id": 791,
+        "isVisible": true,
+        "name": "钟表配件",
+        "sort": 12
+      },
+      {
+        "gtCode": "LIPIN06011",
+        "id": 790,
+        "isVisible": true,
+        "name": "挂钟",
+        "sort": 11
+      },
+      {
+        "gtCode": "LIPIN06010",
+        "id": 789,
+        "isVisible": true,
+        "name": "座钟",
+        "sort": 10
+      },
+      {
+        "gtCode": "LIPIN0609",
+        "id": 788,
+        "isVisible": true,
+        "name": "闹钟",
+        "sort": 9
+      },
+      {
+        "gtCode": "LIPIN0608",
+        "id": 787,
+        "isVisible": true,
+        "name": "智能手表",
+        "sort": 8
+      },
+      {
+        "gtCode": "LIPIN0606",
+        "id": 786,
+        "isVisible": true,
+        "name": "儿童手表",
+        "sort": 6
+      },
+      {
+        "gtCode": "LIPIN0605",
+        "id": 785,
+        "isVisible": true,
+        "name": "德表",
+        "sort": 5
+      },
+      {
+        "gtCode": "LIPIN0604",
+        "id": 784,
+        "isVisible": true,
+        "name": "欧美表",
+        "sort": 4
+      },
+      {
+        "gtCode": "LIPIN0603",
+        "id": 783,
+        "isVisible": true,
+        "name": "日韩表",
+        "sort": 3
+      },
+      {
+        "gtCode": "LIPIN0602",
+        "id": 782,
+        "isVisible": true,
+        "name": "国表",
+        "sort": 2
+      },
+      {
+        "gtCode": "LIPIN0601",
+        "id": 781,
+        "isVisible": true,
+        "name": "瑞士表",
+        "sort": 1
+      },
+      {
+        "gtCode": "LIPIN05011",
+        "id": 780,
+        "isVisible": true,
+        "name": "雷朋",
+        "sort": 11
+      },
+      {
+        "gtCode": "LIPIN05010",
+        "id": 779,
+        "isVisible": true,
+        "name": "COACH",
+        "sort": 10
+      },
+      {
+        "gtCode": "LIPIN0509",
+        "id": 778,
+        "isVisible": true,
+        "name": "GUCCI",
+        "sort": 9
+      },
+      {
+        "gtCode": "LIPIN0508",
+        "id": 777,
+        "isVisible": true,
+        "name": "配件",
+        "sort": 8
+      },
+      {
+        "gtCode": "LIPIN0507",
+        "id": 776,
+        "isVisible": true,
+        "name": "饰品",
+        "sort": 7
+      },
+      {
+        "gtCode": "LIPIN0506",
+        "id": 775,
+        "isVisible": true,
+        "name": "太阳镜/眼镜框",
+        "sort": 6
+      },
+      {
+        "gtCode": "LIPIN0505",
+        "id": 774,
+        "isVisible": true,
+        "name": "鞋靴",
+        "sort": 5
+      },
+      {
+        "gtCode": "LIPIN0504",
+        "id": 773,
+        "isVisible": true,
+        "name": "要带",
+        "sort": 4
+      },
+      {
+        "gtCode": "LIPIN0503",
+        "id": 772,
+        "isVisible": true,
+        "name": "服饰",
+        "sort": 3
+      },
+      {
+        "gtCode": "LIPIN0502",
+        "id": 771,
+        "isVisible": true,
+        "name": "钱包",
+        "sort": 2
+      },
+      {
+        "gtCode": "LIPIN0501",
+        "id": 770,
+        "isVisible": true,
+        "name": "箱包",
+        "sort": 1
+      },
+      {
+        "gtCode": "LIPIN04012",
+        "id": 769,
+        "isVisible": true,
+        "name": "鲜花绿植",
+        "sort": 12
+      },
+      {
+        "gtCode": "LIPIN04011",
+        "id": 768,
+        "isVisible": true,
+        "name": "婚庆用品",
+        "sort": 11
+      },
+      {
+        "gtCode": "LIPIN04010",
+        "id": 767,
+        "isVisible": true,
+        "name": "创意礼品",
+        "sort": 10
+      },
+      {
+        "gtCode": "LIPIN0409",
+        "id": 766,
+        "isVisible": true,
+        "name": "礼品定制",
+        "sort": 9
+      },
+      {
+        "gtCode": "LIPIN0408",
+        "id": 765,
+        "isVisible": true,
+        "name": "古董把玩",
+        "sort": 8
+      },
+      {
+        "gtCode": "LIPIN0407",
+        "id": 764,
+        "isVisible": true,
+        "name": "收藏品",
+        "sort": 7
+      },
+      {
+        "gtCode": "LIPIN0406",
+        "id": 763,
+        "isVisible": true,
+        "name": "礼品文具",
+        "sort": 6
+      },
+      {
+        "gtCode": "LIPIN0405",
+        "id": 762,
+        "isVisible": true,
+        "name": "礼盒礼券",
+        "sort": 5
+      },
+      {
+        "gtCode": "LIPIN0404",
+        "id": 761,
+        "isVisible": true,
+        "name": "工艺礼品",
+        "sort": 4
+      },
+      {
+        "gtCode": "LIPIN0403",
+        "id": 760,
+        "isVisible": true,
+        "name": "美妆礼品",
+        "sort": 3
+      },
+      {
+        "gtCode": "LIPIN0402",
+        "id": 759,
+        "isVisible": true,
+        "name": "军刀军具",
+        "sort": 20
+      },
+      {
+        "gtCode": "LIPIN0401",
+        "id": 758,
+        "isVisible": true,
+        "name": "火机烟具",
+        "sort": 1
+      },
+      {
+        "gtCode": "LIPIN03011",
+        "id": 757,
+        "isVisible": true,
+        "name": "妈咪包",
+        "sort": 11
+      },
+      {
+        "gtCode": "LIPIN03010",
+        "id": 756,
+        "isVisible": true,
+        "name": "书包",
+        "sort": 10
+      },
+      {
+        "gtCode": "LIPIN0309",
+        "id": 755,
+        "isVisible": true,
+        "name": "旅行配件",
+        "sort": 9
+      },
+      {
+        "gtCode": "LIPIN0308",
+        "id": 754,
+        "isVisible": true,
+        "name": "登山包",
+        "sort": 8
+      },
+      {
+        "gtCode": "LIPIN0307",
+        "id": 753,
+        "isVisible": true,
+        "name": "腰包/胸包",
+        "sort": 7
+      },
+      {
+        "gtCode": "LIPIN0306",
+        "id": 752,
+        "isVisible": true,
+        "name": "相机包",
+        "sort": 6
+      },
+      {
+        "gtCode": "LIPIN0305",
+        "id": 751,
+        "isVisible": true,
+        "name": "休闲运动包",
+        "sort": 5
+      },
+      {
+        "gtCode": "LIPIN0304",
+        "id": 750,
+        "isVisible": true,
+        "name": "电脑包",
+        "sort": 4
+      },
+      {
+        "gtCode": "LIPIN0303",
+        "id": 749,
+        "isVisible": true,
+        "name": "旅行包",
+        "sort": 3
+      },
+      {
+        "gtCode": "LIPIN0302",
+        "id": 748,
+        "isVisible": true,
+        "name": "拉杆包",
+        "sort": 2
+      },
+      {
+        "gtCode": "LIPIN0301",
+        "id": 747,
+        "isVisible": true,
+        "name": "拉杆箱",
+        "sort": 1
+      },
+      {
+        "gtCode": "LIPIN0208",
+        "id": 746,
+        "isVisible": true,
+        "name": "钥匙包",
+        "sort": 8
+      },
+      {
+        "gtCode": "LIPIN0206",
+        "id": 745,
+        "isVisible": true,
+        "name": "名片夹",
+        "sort": 6
+      },
+      {
+        "gtCode": "LIPIN0207",
+        "id": 744,
+        "isVisible": true,
+        "name": "卡包",
+        "sort": 7
+      },
+      {
+        "gtCode": "LIPIN0205",
+        "id": 743,
+        "isVisible": true,
+        "name": "男士钱包",
+        "sort": 5
+      },
+      {
+        "gtCode": "LIPIN0204",
+        "id": 742,
+        "isVisible": true,
+        "name": "双肩包",
+        "sort": 4
+      },
+      {
+        "gtCode": "LIPIN0203",
+        "id": 741,
+        "isVisible": true,
+        "name": "男士手包",
+        "sort": 3
+      },
+      {
+        "gtCode": "LIPIN0202",
+        "id": 740,
+        "isVisible": true,
+        "name": "单肩/斜挎包",
+        "sort": 2
+      },
+      {
+        "gtCode": "LIPIN0201",
+        "id": 739,
+        "isVisible": true,
+        "name": "商务公务包",
+        "sort": 1
+      },
+      {
+        "gtCode": "LIPIN0108",
+        "id": 738,
+        "isVisible": true,
+        "name": "钥匙包",
+        "sort": 8
+      },
+      {
+        "gtCode": "LIPIN0107",
+        "id": 737,
+        "isVisible": true,
+        "name": "卡包/零钱包",
+        "sort": 7
+      },
+      {
+        "gtCode": "LIPIN0106",
+        "id": 736,
+        "isVisible": true,
+        "name": "手拿包",
+        "sort": 6
+      },
+      {
+        "gtCode": "LIPIN0105",
+        "id": 735,
+        "isVisible": true,
+        "name": "钱包",
+        "sort": 5
+      },
+      {
+        "gtCode": "LIPIN0104",
+        "id": 734,
+        "isVisible": true,
+        "name": "双肩包",
+        "sort": 4
+      },
+      {
+        "gtCode": "LIPIN0103",
+        "id": 733,
+        "isVisible": true,
+        "name": "斜挎包",
+        "sort": 3
+      },
+      {
+        "gtCode": "LIPIN0102",
+        "id": 732,
+        "isVisible": true,
+        "name": "手提包",
+        "sort": 2
+      },
+      {
+        "gtCode": "LIPIN0101",
+        "id": 731,
+        "isVisible": true,
+        "name": "单肩包",
+        "sort": 1
+      },
+      {
+        "gtCode": "GEHU06012",
+        "id": 730,
+        "isVisible": true,
+        "name": "套装",
+        "sort": 12
+      },
+      {
+        "gtCode": "GEHU06011",
+        "id": 729,
+        "isVisible": true,
+        "name": "美妆工具",
+        "sort": 11
+      },
+      {
+        "gtCode": "GEHU06010",
+        "id": 728,
+        "isVisible": true,
+        "name": "美甲",
+        "sort": 10
+      },
+      {
+        "gtCode": "GEHU0609",
+        "id": 727,
+        "isVisible": true,
+        "name": "腮红",
+        "sort": 9
+      },
+      {
+        "gtCode": "GEHU0608",
+        "id": 726,
+        "isVisible": true,
+        "name": "唇膏/彩",
+        "sort": 8
+      },
+      {
+        "gtCode": "GEHU0607",
+        "id": 725,
+        "isVisible": true,
+        "name": "眼影",
+        "sort": 7
+      },
+      {
+        "gtCode": "GEHU0606",
+        "id": 724,
+        "isVisible": true,
+        "name": "眼线",
+        "sort": 6
+      },
+      {
+        "gtCode": "GEHU0605",
+        "id": 723,
+        "isVisible": true,
+        "name": "睫毛膏",
+        "sort": 5
+      },
+      {
+        "gtCode": "GEHU0604",
+        "id": 722,
+        "isVisible": true,
+        "name": "眉笔",
+        "sort": 4
+      },
+      {
+        "gtCode": "GEHU0603",
+        "id": 721,
+        "isVisible": true,
+        "name": "底妆",
+        "sort": 3
+      },
+      {
+        "gtCode": "GEHU0602",
+        "id": 720,
+        "isVisible": true,
+        "name": "男士香水",
+        "sort": 2
+      },
+      {
+        "gtCode": "GEHU0601",
+        "id": 719,
+        "isVisible": true,
+        "name": "女士香水",
+        "sort": 1
+      },
+      {
+        "gtCode": "GEHU0506",
+        "id": 718,
+        "isVisible": true,
+        "name": "套装",
+        "sort": 6
+      },
+      {
+        "gtCode": "GEHU0505",
+        "id": 717,
+        "isVisible": true,
+        "name": "假发",
+        "sort": 5
+      },
+      {
+        "gtCode": "GEHU0504",
+        "id": 716,
+        "isVisible": true,
+        "name": "造型",
+        "sort": 4
+      },
+      {
+        "gtCode": "GEHU0503",
+        "id": 715,
+        "isVisible": true,
+        "name": "染发",
+        "sort": 3
+      },
+      {
+        "gtCode": "GEHU0502",
+        "id": 714,
+        "isVisible": true,
+        "name": "护发",
+        "sort": 2
+      },
+      {
+        "gtCode": "GEHU0501",
+        "id": 713,
+        "isVisible": true,
+        "name": "洗发",
+        "sort": 1
+      },
+      {
+        "gtCode": "GEHU0404",
+        "id": 712,
+        "isVisible": true,
+        "name": "脱毛膏",
+        "sort": 4
+      },
+      {
+        "gtCode": "GEHU0403",
+        "id": 711,
+        "isVisible": true,
+        "name": "私密护理",
+        "sort": 3
+      },
+      {
+        "gtCode": "GEHU0402",
+        "id": 710,
+        "isVisible": true,
+        "name": "卫生护垫",
+        "sort": 2
+      },
+      {
+        "gtCode": "GEHU0401",
+        "id": 709,
+        "isVisible": true,
+        "name": "卫生巾",
+        "sort": 1
+      },
+      {
+        "gtCode": "GEHU0304",
+        "id": 708,
+        "isVisible": true,
+        "name": "套装",
+        "sort": 4
+      },
+      {
+        "gtCode": "GEHU0303",
+        "id": 707,
+        "isVisible": true,
+        "name": "漱口水",
+        "sort": 3
+      },
+      {
+        "gtCode": "GEHU0302",
+        "id": 706,
+        "isVisible": true,
+        "name": "牙刷/压线",
+        "sort": 2
+      },
+      {
+        "gtCode": "GEHU0301",
+        "id": 705,
+        "isVisible": true,
+        "name": "牙膏/牙粉",
+        "sort": 1
+      },
+      {
+        "gtCode": "GEHU0208",
+        "id": 704,
+        "isVisible": true,
+        "name": "套装",
+        "sort": 8
+      },
+      {
+        "gtCode": "GEHU0207",
+        "id": 703,
+        "isVisible": true,
+        "name": "美胸",
+        "sort": 7
+      },
+      {
+        "gtCode": "GEHU0206",
+        "id": 702,
+        "isVisible": true,
+        "name": "纤体塑形",
+        "sort": 6
+      },
+      {
+        "gtCode": "GEHU0205",
+        "id": 701,
+        "isVisible": true,
+        "name": "手足",
+        "sort": 5
+      },
+      {
+        "gtCode": "GEHU0204",
+        "id": 700,
+        "isVisible": true,
+        "name": "颈部",
+        "sort": 4
+      },
+      {
+        "gtCode": "GEHU0203",
+        "id": 699,
+        "isVisible": true,
+        "name": "精油",
+        "sort": 3
+      },
+      {
+        "gtCode": "GEHU0202",
+        "id": 698,
+        "isVisible": true,
+        "name": "润肤",
+        "sort": 2
+      },
+      {
+        "gtCode": "GEHU0201",
+        "id": 697,
+        "isVisible": true,
+        "name": "沐浴",
+        "sort": 1
+      },
+      {
+        "gtCode": "GEHU01012",
+        "id": 696,
+        "isVisible": true,
+        "name": "套装",
+        "sort": 12
+      },
+      {
+        "gtCode": "GEHU01010",
+        "id": 695,
+        "isVisible": true,
+        "name": "剃须",
+        "sort": 10
+      },
+      {
+        "gtCode": "GEHU0109",
+        "id": 694,
+        "isVisible": true,
+        "name": "面膜",
+        "sort": 9
+      },
+      {
+        "gtCode": "GEHU0108",
+        "id": 693,
+        "isVisible": true,
+        "name": "防晒",
+        "sort": 8
+      },
+      {
+        "gtCode": "GEHU0107",
+        "id": 692,
+        "isVisible": true,
+        "name": "眼霜",
+        "sort": 7
+      },
+      {
+        "gtCode": "GEHU0106",
+        "id": 691,
+        "isVisible": true,
+        "name": "精华",
+        "sort": 6
+      },
+      {
+        "gtCode": "GEHU0105",
+        "id": 690,
+        "isVisible": true,
+        "name": "面霜",
+        "sort": 5
+      },
+      {
+        "gtCode": "GEHU0104",
+        "id": 689,
+        "isVisible": true,
+        "name": "乳液",
+        "sort": 4
+      },
+      {
+        "gtCode": "GEHU0103",
+        "id": 688,
+        "isVisible": true,
+        "name": "爽肤水",
+        "sort": 3
+      },
+      {
+        "gtCode": "GEHU0102",
+        "id": 687,
+        "isVisible": true,
+        "name": "洁面",
+        "sort": 2
+      },
+      {
+        "gtCode": "GEHU0101",
+        "id": 686,
+        "isVisible": true,
+        "name": "卸妆",
+        "sort": 1
+      },
+      {
+        "gtCode": "FUSHI07021",
+        "id": 685,
+        "isVisible": true,
+        "name": "鞋配件",
+        "sort": 21
+      },
+      {
+        "gtCode": "FUSHI07020",
+        "id": 684,
+        "isVisible": true,
+        "name": "雨鞋/雨靴",
+        "sort": 20
+      },
+      {
+        "gtCode": "FUSHI07019",
+        "id": 683,
+        "isVisible": true,
+        "name": "雪地靴",
+        "sort": 19
+      },
+      {
+        "gtCode": "FUSHI07018",
+        "id": 682,
+        "isVisible": true,
+        "name": "马丁靴",
+        "sort": 18
+      },
+      {
+        "gtCode": "FUSHI07017",
+        "id": 681,
+        "isVisible": true,
+        "name": "女靴",
+        "sort": 17
+      },
+      {
+        "gtCode": "FUSHI07016",
+        "id": 680,
+        "isVisible": true,
+        "name": "内增高",
+        "sort": 16
+      },
+      {
+        "gtCode": "FUSHI07015",
+        "id": 679,
+        "isVisible": true,
+        "name": "裸靴",
+        "sort": 15
+      },
+      {
+        "gtCode": "FUSHI07013",
+        "id": 678,
+        "isVisible": true,
+        "name": "高跟鞋",
+        "sort": 13
+      },
+      {
+        "gtCode": "FUSHI07012",
+        "id": 677,
+        "isVisible": true,
+        "name": "防水台",
+        "sort": 12
+      },
+      {
+        "gtCode": "FUSHI07010",
+        "id": 676,
+        "isVisible": true,
+        "name": "松糕鞋",
+        "sort": 10
+      },
+      {
+        "gtCode": "FUSHI0709",
+        "id": 675,
+        "isVisible": true,
+        "name": "坡跟鞋",
+        "sort": 9
+      },
+      {
+        "gtCode": "FUSHI0708",
+        "id": 674,
+        "isVisible": true,
+        "name": "布鞋/绣花鞋",
+        "sort": 8
+      },
+      {
+        "gtCode": "FUSHI0707",
+        "id": 673,
+        "isVisible": true,
+        "name": "拖鞋/人字拖",
+        "sort": 7
+      },
+      {
+        "gtCode": "FUSHI0706",
+        "id": 672,
+        "isVisible": true,
+        "name": "凉鞋",
+        "sort": 6
+      },
+      {
+        "gtCode": "FUSHI0705",
+        "id": 671,
+        "isVisible": true,
+        "name": "妈妈鞋",
+        "sort": 5
+      },
+      {
+        "gtCode": "FUSHI0704",
+        "id": 670,
+        "isVisible": true,
+        "name": "鱼嘴鞋",
+        "sort": 4
+      },
+      {
+        "gtCode": "FUSHI0703",
+        "id": 669,
+        "isVisible": true,
+        "name": "帆布鞋",
+        "sort": 3
+      },
+      {
+        "gtCode": "FUSHI0702",
+        "id": 668,
+        "isVisible": true,
+        "name": "休闲鞋",
+        "sort": 2
+      },
+      {
+        "gtCode": "FUSHI0701",
+        "id": 667,
+        "isVisible": true,
+        "name": "单鞋",
+        "sort": 1
+      },
+      {
+        "gtCode": "FUSHI06015",
+        "id": 666,
+        "isVisible": true,
+        "name": "鞋配件",
+        "sort": 15
+      },
+      {
+        "gtCode": "FUSHI06014",
+        "id": 665,
+        "isVisible": true,
+        "name": "功能鞋",
+        "sort": 14
+      },
+      {
+        "gtCode": "FUSHI06012",
+        "id": 664,
+        "isVisible": true,
+        "name": "传统布鞋",
+        "sort": 12
+      },
+      {
+        "gtCode": "FUSHI06011",
+        "id": 663,
+        "isVisible": true,
+        "name": "男靴",
+        "sort": 11
+      },
+      {
+        "gtCode": "FUSHI06010",
+        "id": 662,
+        "isVisible": true,
+        "name": "定制鞋",
+        "sort": 10
+      },
+      {
+        "gtCode": "FUSHI0609",
+        "id": 661,
+        "isVisible": true,
+        "name": "雨鞋/雨靴",
+        "sort": 9
+      },
+      {
+        "gtCode": "FUSHI0608",
+        "id": 660,
+        "isVisible": true,
+        "name": "凉鞋/沙滩鞋",
+        "sort": 8
+      },
+      {
+        "gtCode": "FUSHI0607",
+        "id": 659,
+        "isVisible": true,
+        "name": "拖鞋/人字拖",
+        "sort": 7
+      },
+      {
+        "gtCode": "FUSHI0606",
+        "id": 658,
+        "isVisible": true,
+        "name": "增高鞋",
+        "sort": 6
+      },
+      {
+        "gtCode": "FUSHI0605",
+        "id": 657,
+        "isVisible": true,
+        "name": "工装鞋",
+        "sort": 5
+      },
+      {
+        "gtCode": "FUSHI0604",
+        "id": 656,
+        "isVisible": true,
+        "name": "帆布鞋",
+        "sort": 4
+      },
+      {
+        "gtCode": "FUSHI0603",
+        "id": 655,
+        "isVisible": true,
+        "name": "正装鞋",
+        "sort": 3
+      },
+      {
+        "gtCode": "FUSHI0602",
+        "id": 654,
+        "isVisible": true,
+        "name": "商务休闲鞋",
+        "sort": 2
+      },
+      {
+        "gtCode": "FUSHI0601",
+        "id": 653,
+        "isVisible": true,
+        "name": "休闲鞋",
+        "sort": 1
+      },
+      {
+        "gtCode": "FUSHI05015",
+        "id": 652,
+        "isVisible": true,
+        "name": "配饰",
+        "sort": 15
+      },
+      {
+        "gtCode": "FUSHI05013",
+        "id": 651,
+        "isVisible": true,
+        "name": "凉鞋",
+        "sort": 13
+      },
+      {
+        "gtCode": "FUSHI05012",
+        "id": 650,
+        "isVisible": true,
+        "name": "功能鞋",
+        "sort": 12
+      },
+      {
+        "gtCode": "FUSHI05011",
+        "id": 649,
+        "isVisible": true,
+        "name": "裙子",
+        "sort": 11
+      },
+      {
+        "gtCode": "FUSHI05010",
+        "id": 648,
+        "isVisible": true,
+        "name": "演出服",
+        "sort": 10
+      },
+      {
+        "gtCode": "FUSHI0509",
+        "id": 647,
+        "isVisible": true,
+        "name": "靴子",
+        "sort": 9
+      },
+      {
+        "gtCode": "FUSHI0508",
+        "id": 646,
+        "isVisible": true,
+        "name": "运动服",
+        "sort": 8
+      },
+      {
+        "gtCode": "FUSHI0507",
+        "id": 645,
+        "isVisible": true,
+        "name": "羽绒服/棉服",
+        "sort": 7
+      },
+      {
+        "gtCode": "FUSHI0506",
+        "id": 643,
+        "isVisible": true,
+        "name": "亲子装",
+        "sort": 6
+      },
+      {
+        "gtCode": "FUSHI0505",
+        "id": 642,
+        "isVisible": true,
+        "name": "皮鞋/帆布鞋",
+        "sort": 5
+      },
+      {
+        "gtCode": "FUSHI0505",
+        "id": 641,
+        "isVisible": true,
+        "name": "内裤",
+        "sort": 5
+      },
+      {
+        "gtCode": "FUSHI0504",
+        "id": 640,
+        "isVisible": true,
+        "name": "裤子",
+        "sort": 4
+      },
+      {
+        "gtCode": "FUSHI0503",
+        "id": 639,
+        "isVisible": true,
+        "name": "运动鞋",
+        "sort": 3
+      },
+      {
+        "gtCode": "FUSHI0502",
+        "id": 638,
+        "isVisible": true,
+        "name": "上衣",
+        "sort": 2
+      },
+      {
+        "gtCode": "FUSHI0501",
+        "id": 637,
+        "isVisible": true,
+        "name": "套装",
+        "sort": 1
+      },
+      {
+        "gtCode": "FUSHI04021",
+        "id": 636,
+        "isVisible": true,
+        "name": "情趣内衣",
+        "sort": 21
+      },
+      {
+        "gtCode": "FUSHI04020",
+        "id": 635,
+        "isVisible": true,
+        "name": "保暖内衣",
+        "sort": 20
+      },
+      {
+        "gtCode": "FUSHI04019",
+        "id": 634,
+        "isVisible": true,
+        "name": "秋衣秋裤",
+        "sort": 19
+      },
+      {
+        "gtCode": "FUSHI04018",
+        "id": 633,
+        "isVisible": true,
+        "name": "泳衣",
+        "sort": 18
+      },
+      {
+        "gtCode": "FUSHI04017",
+        "id": 632,
+        "isVisible": true,
+        "name": "打底衫",
+        "sort": 17
+      },
+      {
+        "gtCode": "FUSHI04016",
+        "id": 631,
+        "isVisible": true,
+        "name": "大妈内衣",
+        "sort": 16
+      },
+      {
+        "gtCode": "FUSHI04015",
+        "id": 630,
+        "isVisible": true,
+        "name": "内衣配件",
+        "sort": 15
+      },
+      {
+        "gtCode": "FUSHI04015",
+        "id": 629,
+        "isVisible": true,
+        "name": "抹胸",
+        "sort": 15
+      },
+      {
+        "gtCode": "FUSHI04014",
+        "id": 628,
+        "isVisible": true,
+        "name": "打底裤袜",
+        "sort": 14
+      },
+      {
+        "gtCode": "FUSHI04013",
+        "id": 627,
+        "isVisible": true,
+        "name": "美腿袜",
+        "sort": 13
+      },
+      {
+        "gtCode": "FUSHI04012",
+        "id": 626,
+        "isVisible": true,
+        "name": "连体袜/丝袜",
+        "sort": 12
+      },
+      {
+        "gtCode": "FUSHI04011",
+        "id": 625,
+        "isVisible": true,
+        "name": "商务男袜",
+        "sort": 11
+      },
+      {
+        "gtCode": "FUSHI04010",
+        "id": 624,
+        "isVisible": true,
+        "name": "休闲棉袜",
+        "sort": 10
+      },
+      {
+        "gtCode": "FUSHI0409",
+        "id": 623,
+        "isVisible": true,
+        "name": "少女文胸",
+        "sort": 9
+      },
+      {
+        "gtCode": "FUSHI0408",
+        "id": 622,
+        "isVisible": true,
+        "name": "吊带/背心",
+        "sort": 8
+      },
+      {
+        "gtCode": "FUSHI0407",
+        "id": 621,
+        "isVisible": true,
+        "name": "情侣睡衣",
+        "sort": 7
+      },
+      {
+        "gtCode": "FUSHI0406",
+        "id": 620,
+        "isVisible": true,
+        "name": "文胸套装",
+        "sort": 6
+      },
+      {
+        "gtCode": "FUSHI0405",
+        "id": 619,
+        "isVisible": true,
+        "name": "塑身美体",
+        "sort": 5
+      },
+      {
+        "gtCode": "FUSHI0404",
+        "id": 618,
+        "isVisible": true,
+        "name": "女式内裤",
+        "sort": 4
+      },
+      {
+        "gtCode": "FUSHI0403",
+        "id": 617,
+        "isVisible": true,
+        "name": "男士内裤",
+        "sort": 3
+      },
+      {
+        "gtCode": "FUSHI0402",
+        "id": 616,
+        "isVisible": true,
+        "name": "睡衣/家居服",
+        "sort": 2
+      },
+      {
+        "gtCode": "FUSHI0401",
+        "id": 615,
+        "isVisible": true,
+        "name": "文胸",
+        "sort": 1
+      },
+      {
+        "gtCode": "FUSHI03013",
+        "id": 614,
+        "isVisible": true,
+        "name": "毛衫/线衫",
+        "sort": 13
+      },
+      {
+        "gtCode": "FUSHI03012",
+        "id": 613,
+        "isVisible": true,
+        "name": "乒羽网服",
+        "sort": 12
+      },
+      {
+        "gtCode": "FUSHI03011",
+        "id": 612,
+        "isVisible": true,
+        "name": "运动配饰",
+        "sort": 11
+      },
+      {
+        "gtCode": "FUSHI03010",
+        "id": 611,
+        "isVisible": true,
+        "name": "夹克/风衣",
+        "sort": 10
+      },
+      {
+        "gtCode": "FUSHI0309",
+        "id": 610,
+        "isVisible": true,
+        "name": "棉服",
+        "sort": 9
+      },
+      {
+        "gtCode": "FUSHI0307",
+        "id": 609,
+        "isVisible": true,
+        "name": "卫衣/套头衫",
+        "sort": 7
+      },
+      {
+        "gtCode": "FUSHI0306",
+        "id": 608,
+        "isVisible": true,
+        "name": "羽绒服",
+        "sort": 6
+      },
+      {
+        "gtCode": "FUSHI0305",
+        "id": 607,
+        "isVisible": true,
+        "name": "运动背心",
+        "sort": 5
+      },
+      {
+        "gtCode": "FUSHI0304",
+        "id": 606,
+        "isVisible": true,
+        "name": "运动套装",
+        "sort": 4
+      },
+      {
+        "gtCode": "FUSHI0303",
+        "id": 605,
+        "isVisible": true,
+        "name": "健身服",
+        "sort": 3
+      },
+      {
+        "gtCode": "FUSHI0302",
+        "id": 604,
+        "isVisible": true,
+        "name": "运动裤",
+        "sort": 2
+      },
+      {
+        "gtCode": "FUSHI0301",
+        "id": 603,
+        "isVisible": true,
+        "name": "T恤",
+        "sort": 1
+      },
+      {
+        "gtCode": "FUSHI02034",
+        "id": 602,
+        "isVisible": true,
+        "name": "加绒裤",
+        "sort": 34
+      },
+      {
+        "gtCode": "FUSHI02033",
+        "id": 601,
+        "isVisible": true,
+        "name": "设计师/潮服",
+        "sort": 33
+      },
+      {
+        "gtCode": "FUSHI02032",
+        "id": 600,
+        "isVisible": true,
+        "name": "礼服",
+        "sort": 32
+      },
+      {
+        "gtCode": "FUSHI02031",
+        "id": 599,
+        "isVisible": true,
+        "name": "旗袍/唐装",
+        "sort": 31
+      },
+      {
+        "gtCode": "FUSHI02030",
+        "id": 598,
+        "isVisible": true,
+        "name": "婚纱",
+        "sort": 30
+      },
+      {
+        "gtCode": "FUSHI02028",
+        "id": 596,
+        "isVisible": true,
+        "name": "仿皮皮衣",
+        "sort": 28
+      },
+      {
+        "gtCode": "FUSHI02027",
+        "id": 595,
+        "isVisible": true,
+        "name": "羽绒服",
+        "sort": 27
+      },
+      {
+        "gtCode": "FUSHI02026",
+        "id": 594,
+        "isVisible": true,
+        "name": "棉服",
+        "sort": 26
+      },
+      {
+        "gtCode": "FUSHI02025",
+        "id": 593,
+        "isVisible": true,
+        "name": "羊绒衫",
+        "sort": 25
+      },
+      {
+        "gtCode": "FUSHI02024",
+        "id": 592,
+        "isVisible": true,
+        "name": "羊毛衫",
+        "sort": 24
+      },
+      {
+        "gtCode": "FUSHI02023",
+        "id": 591,
+        "isVisible": true,
+        "name": "皮草",
+        "sort": 23
+      },
+      {
+        "gtCode": "FUSHI02020",
+        "id": 590,
+        "isVisible": true,
+        "name": "真皮皮衣",
+        "sort": 20
+      },
+      {
+        "gtCode": "FUSHI02019",
+        "id": 589,
+        "isVisible": true,
+        "name": "中老年女装",
+        "sort": 19
+      },
+      {
+        "gtCode": "FUSHI02018",
+        "id": 588,
+        "isVisible": true,
+        "name": "正装裤",
+        "sort": 18
+      },
+      {
+        "gtCode": "FUSHI02017",
+        "id": 587,
+        "isVisible": true,
+        "name": "打底裤",
+        "sort": 17
+      },
+      {
+        "gtCode": "FUSHI02016",
+        "id": 586,
+        "isVisible": true,
+        "name": "打底衫",
+        "sort": 16
+      },
+      {
+        "gtCode": "FUSHI02014",
+        "id": 585,
+        "isVisible": true,
+        "name": "吊带/背心",
+        "sort": 14
+      },
+      {
+        "gtCode": "FUSHI02013",
+        "id": 584,
+        "isVisible": true,
+        "name": "短裤",
+        "sort": 13
+      },
+      {
+        "gtCode": "FUSHI02012",
+        "id": 583,
+        "isVisible": true,
+        "name": "半身裙",
+        "sort": 12
+      },
+      {
+        "gtCode": "FUSHI02011",
+        "id": 582,
+        "isVisible": true,
+        "name": "毛呢大衣",
+        "sort": 10
+      },
+      {
+        "gtCode": "FUSHI02010",
+        "id": 581,
+        "isVisible": true,
+        "name": "风衣",
+        "sort": 10
+      },
+      {
+        "gtCode": "FUSHI0209",
+        "id": 580,
+        "isVisible": true,
+        "name": "小西装",
+        "sort": 9
+      },
+      {
+        "gtCode": "FUSHI0208",
+        "id": 579,
+        "isVisible": true,
+        "name": "卫衣",
+        "sort": 8
+      },
+      {
+        "gtCode": "FUSHI0206",
+        "id": 578,
+        "isVisible": true,
+        "name": "针织衫",
+        "sort": 6
+      },
+      {
+        "gtCode": "FUSHI0205",
+        "id": 577,
+        "isVisible": true,
+        "name": "牛仔裤",
+        "sort": 5
+      },
+      {
+        "gtCode": "FUSHI0204",
+        "id": 576,
+        "isVisible": true,
+        "name": "休闲裤",
+        "sort": 4
+      },
+      {
+        "gtCode": "FUSHI0203",
+        "id": 575,
+        "isVisible": true,
+        "name": "雪纺衫",
+        "sort": 3
+      },
+      {
+        "gtCode": "FUSHI0202",
+        "id": 574,
+        "isVisible": true,
+        "name": "T恤",
+        "sort": 2
+      },
+      {
+        "gtCode": "FUSHI0201",
+        "id": 572,
+        "isVisible": true,
+        "name": "连衣裙",
+        "sort": 1
+      },
+      {
+        "gtCode": "FUSHI02022",
+        "id": 571,
+        "isVisible": true,
+        "name": "大码女装",
+        "sort": 22
+      },
+      {
+        "gtCode": "FUSHI02021",
+        "id": 569,
+        "isVisible": true,
+        "name": "马甲",
+        "sort": 21
+      },
+      {
+        "gtCode": "FUSHI01014",
+        "id": 550,
+        "isVisible": true,
+        "name": "仿皮皮衣",
+        "sort": 14
+      },
+      {
+        "gtCode": "FUSHI01013",
+        "id": 549,
+        "isVisible": true,
+        "name": "短裤",
+        "sort": 13
+      },
+      {
+        "gtCode": "FUSHI01012",
+        "id": 548,
+        "isVisible": true,
+        "name": "卫裤/运动裤",
+        "sort": 12
+      },
+      {
+        "gtCode": "FUSHI01011",
+        "id": 547,
+        "isVisible": true,
+        "name": "风衣",
+        "sort": 11
+      },
+      {
+        "gtCode": "FUSHI01010",
+        "id": 546,
+        "isVisible": true,
+        "name": "夹克",
+        "sort": 10
+      },
+      {
+        "gtCode": "FUSHI0109",
+        "id": 545,
+        "isVisible": true,
+        "name": "真皮皮衣",
+        "sort": 9
+      },
+      {
+        "gtCode": "FUSHI0108",
+        "id": 544,
+        "isVisible": true,
+        "name": "羽绒服",
+        "sort": 8
+      },
+      {
+        "gtCode": "FUSHI0107",
+        "id": 543,
+        "isVisible": true,
+        "name": "POLO衫",
+        "sort": 7
+      },
+      {
+        "gtCode": "FUSHI0106",
+        "id": 542,
+        "isVisible": true,
+        "name": "西服西裤",
+        "sort": 6
+      },
+      {
+        "gtCode": "FUSHI0105",
+        "id": 541,
+        "isVisible": true,
+        "name": "针织衫",
+        "sort": 5
+      },
+      {
+        "gtCode": "FUSHI0104",
+        "id": 540,
+        "isVisible": true,
+        "name": "卫衣",
+        "sort": 4
+      },
+      {
+        "gtCode": "FUSHI0103",
+        "id": 539,
+        "isVisible": true,
+        "name": "牛仔/休闲裤",
+        "sort": 3
+      },
+      {
+        "gtCode": "FUSHI0102",
+        "id": 538,
+        "isVisible": true,
+        "name": "T恤",
+        "sort": 2
+      },
+      {
+        "gtCode": "FUSHI0101",
+        "id": 537,
+        "isVisible": true,
+        "name": "衬衫",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIAJU07012",
+        "id": 536,
+        "isVisible": true,
+        "name": "龙头",
+        "sort": 12
+      },
+      {
+        "gtCode": "JIAJU07011",
+        "id": 535,
+        "isVisible": true,
+        "name": "油漆涂料",
+        "sort": 11
+      },
+      {
+        "gtCode": "JIAJU07010",
+        "id": 534,
+        "isVisible": true,
+        "name": "开关插座",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIAJU0709",
+        "id": 533,
+        "isVisible": true,
+        "name": "淋浴花洒",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIAJU0708",
+        "id": 532,
+        "isVisible": true,
+        "name": "吸顶灯",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIAJU0707",
+        "id": 531,
+        "isVisible": true,
+        "name": "装修服务",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIAJU0706",
+        "id": 530,
+        "isVisible": true,
+        "name": "装饰材料",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIAJU0705",
+        "id": 529,
+        "isVisible": true,
+        "name": "墙地面材料",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU0704",
+        "id": 528,
+        "isVisible": true,
+        "name": "电工电科",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIAJU0703",
+        "id": 527,
+        "isVisible": true,
+        "name": "五金工具",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIAJU0702",
+        "id": 526,
+        "isVisible": true,
+        "name": "厨房卫浴",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIAJU0701",
+        "id": 525,
+        "isVisible": true,
+        "name": "灯饰照明",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIAJU06015",
+        "id": 524,
+        "isVisible": true,
+        "name": "保暖防护",
+        "sort": 15
+      },
+      {
+        "gtCode": "JIAJU06014",
+        "id": 523,
+        "isVisible": true,
+        "name": "创意家居",
+        "sort": 14
+      },
+      {
+        "gtCode": "JIAJU06013",
+        "id": 522,
+        "isVisible": true,
+        "name": "隔断",
+        "sort": 13
+      },
+      {
+        "gtCode": "JIAJU06012",
+        "id": 521,
+        "isVisible": true,
+        "name": "钟饰帘艺",
+        "sort": 12
+      },
+      {
+        "gtCode": "JIAJU06011",
+        "id": 520,
+        "isVisible": true,
+        "name": "节庆饰品",
+        "sort": 11
+      },
+      {
+        "gtCode": "JIAJU06010",
+        "id": 519,
+        "isVisible": true,
+        "name": "香薰蜡烛",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIAJU0609",
+        "id": 518,
+        "isVisible": true,
+        "name": "花瓶花艺",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIAJU0608",
+        "id": 517,
+        "isVisible": true,
+        "name": "花瓶花艺",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIAJU0607",
+        "id": 516,
+        "isVisible": true,
+        "name": "相框/照片墙",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIAJU0606",
+        "id": 515,
+        "isVisible": true,
+        "name": "手工/十字绣",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIAJU0605",
+        "id": 514,
+        "isVisible": true,
+        "name": "装饰摆件",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU0604",
+        "id": 513,
+        "isVisible": true,
+        "name": "装饰字画",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIAJU0603",
+        "id": 512,
+        "isVisible": true,
+        "name": "沙发垫套/椅垫",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIAJU0602",
+        "id": 511,
+        "isVisible": true,
+        "name": "地毯地垫",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIAJU0601",
+        "id": 510,
+        "isVisible": true,
+        "name": "桌布/罩件",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIAJU05011",
+        "id": 509,
+        "isVisible": true,
+        "name": "宠物驱虫",
+        "sort": 11
+      },
+      {
+        "gtCode": "JIAJU05010",
+        "id": 508,
+        "isVisible": true,
+        "name": "宠物牵引",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIAJU0509",
+        "id": 507,
+        "isVisible": true,
+        "name": "宠物玩具",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIAJU0508",
+        "id": 506,
+        "isVisible": true,
+        "name": "出行装备",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIAJU0507",
+        "id": 505,
+        "isVisible": true,
+        "name": "医疗保健",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIAJU0506",
+        "id": 504,
+        "isVisible": true,
+        "name": "家居日用",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIAJU0505",
+        "id": 503,
+        "isVisible": true,
+        "name": "洗护美容",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU0504",
+        "id": 502,
+        "isVisible": true,
+        "name": "猫砂/尿布",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIAJU0503",
+        "id": 501,
+        "isVisible": true,
+        "name": "宠物零食",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIAJU0502",
+        "id": 500,
+        "isVisible": true,
+        "name": "宠物主粮",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIAJU0501",
+        "id": 499,
+        "isVisible": true,
+        "name": "水族用品",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIAJU0407",
+        "id": 498,
+        "isVisible": true,
+        "name": "皮具护理",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIAJU0406",
+        "id": 497,
+        "isVisible": true,
+        "name": "驱虫用品",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIAJU0405",
+        "id": 496,
+        "isVisible": true,
+        "name": "一次性用品",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU0404",
+        "id": 495,
+        "isVisible": true,
+        "name": "家庭清洁",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIAJU0403",
+        "id": 494,
+        "isVisible": true,
+        "name": "清洁工具",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIAJU0402",
+        "id": 493,
+        "isVisible": true,
+        "name": "衣物清洁",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIAJU0401",
+        "id": 492,
+        "isVisible": true,
+        "name": "纸品湿巾",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIAJU02011",
+        "id": 491,
+        "isVisible": true,
+        "name": "氛围照明",
+        "sort": 11
+      },
+      {
+        "gtCode": "JIAJU02010",
+        "id": 490,
+        "isVisible": true,
+        "name": "吊灯",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIAJU0209",
+        "id": 489,
+        "isVisible": true,
+        "name": "装饰灯",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIAJU0208",
+        "id": 488,
+        "isVisible": true,
+        "name": "应急灯/手电",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIAJU0207",
+        "id": 487,
+        "isVisible": true,
+        "name": "五金电器",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIAJU0206",
+        "id": 486,
+        "isVisible": true,
+        "name": "落地灯",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIAJU0205",
+        "id": 485,
+        "isVisible": true,
+        "name": "节能灯",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU0204",
+        "id": 484,
+        "isVisible": true,
+        "name": "LED灯",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIAJU0203",
+        "id": 483,
+        "isVisible": true,
+        "name": "射灯",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIAJU0202",
+        "id": 482,
+        "isVisible": true,
+        "name": "吸顶灯",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIAJU0201",
+        "id": 481,
+        "isVisible": true,
+        "name": "台灯",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIAJU01018",
+        "id": 480,
+        "isVisible": true,
+        "name": "鞋架/衣帽架",
+        "sort": 18
+      },
+      {
+        "gtCode": "JIAJU01017",
+        "id": 479,
+        "isVisible": true,
+        "name": "电脑桌",
+        "sort": 17
+      },
+      {
+        "gtCode": "JIAJU01016",
+        "id": 478,
+        "isVisible": true,
+        "name": "餐桌",
+        "sort": 16
+      },
+      {
+        "gtCode": "JIAJU01015",
+        "id": 477,
+        "isVisible": true,
+        "name": "电视柜",
+        "sort": 15
+      },
+      {
+        "gtCode": "JIAJU01014",
+        "id": 476,
+        "isVisible": true,
+        "name": "茶几",
+        "sort": 14
+      },
+      {
+        "gtCode": "JIAJU01013",
+        "id": 475,
+        "isVisible": true,
+        "name": "衣柜",
+        "sort": 13
+      },
+      {
+        "gtCode": "JIAJU01012",
+        "id": 474,
+        "isVisible": true,
+        "name": "电脑椅",
+        "sort": 12
+      },
+      {
+        "gtCode": "JIAJU01011",
+        "id": 473,
+        "isVisible": true,
+        "name": "沙发",
+        "sort": 11
+      },
+      {
+        "gtCode": "JIAJU01010",
+        "id": 472,
+        "isVisible": true,
+        "name": "床垫",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIAJU0109",
+        "id": 471,
+        "isVisible": true,
+        "name": "床",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIAJU0108",
+        "id": 470,
+        "isVisible": true,
+        "name": "商业办公",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIAJU0105",
+        "id": 469,
+        "isVisible": true,
+        "name": "儿童家具",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU0104",
+        "id": 468,
+        "isVisible": true,
+        "name": "书房家具",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIAJU0103",
+        "id": 467,
+        "isVisible": true,
+        "name": "餐厅家具",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIAJU0102",
+        "id": 466,
+        "isVisible": true,
+        "name": "客厅家具",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIAJU0101",
+        "id": 465,
+        "isVisible": true,
+        "name": "卧室家具",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIAJU0307",
+        "id": 464,
+        "isVisible": true,
+        "name": "清洁工具",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIAJU0306",
+        "id": 463,
+        "isVisible": true,
+        "name": "缝纫/针织用品",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIAJU0305",
+        "id": 462,
+        "isVisible": true,
+        "name": "洗晒/熨烫",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU0304",
+        "id": 461,
+        "isVisible": true,
+        "name": "浴室用品",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIAJU0303",
+        "id": 460,
+        "isVisible": true,
+        "name": "净化除味",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIAJU0302",
+        "id": 459,
+        "isVisible": true,
+        "name": "雨伞雨具",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIAJU0301",
+        "id": 458,
+        "isVisible": true,
+        "name": "收纳用品",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIAJU0108",
+        "id": 455,
+        "isVisible": true,
+        "name": "茶具/咖啡具",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIAJU0107",
+        "id": 454,
+        "isVisible": true,
+        "name": "餐具",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIAJU0106",
+        "id": 453,
+        "isVisible": true,
+        "name": "酒具",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIAJU0105",
+        "id": 452,
+        "isVisible": true,
+        "name": "水具",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU0104",
+        "id": 451,
+        "isVisible": true,
+        "name": "厨房配件",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIAJU0103",
+        "id": 450,
+        "isVisible": true,
+        "name": "菜板",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIAJU0102",
+        "id": 449,
+        "isVisible": true,
+        "name": "刀剪",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIAJU0101",
+        "id": 448,
+        "isVisible": true,
+        "name": "烹饪锅具",
+        "sort": 1
+      },
+      {
+        "gtCode": "DIANNAO0708",
+        "id": 447,
+        "isVisible": true,
+        "name": "财会用品",
+        "sort": 8
+      },
+      {
+        "gtCode": "DIANNAO0707",
+        "id": 446,
+        "isVisible": true,
+        "name": "画具画材",
+        "sort": 7
+      },
+      {
+        "gtCode": "DIANNAO0706",
+        "id": 445,
+        "isVisible": true,
+        "name": "笔类",
+        "sort": 6
+      },
+      {
+        "gtCode": "DIANNAO0704",
+        "id": 444,
+        "isVisible": true,
+        "name": "计算器文件夹类",
+        "sort": 4
+      },
+      {
+        "gtCode": "DIANNAO0703",
+        "id": 443,
+        "isVisible": true,
+        "name": "学生工具",
+        "sort": 3
+      },
+      {
+        "gtCode": "DIANNAO0702",
+        "id": 442,
+        "isVisible": true,
+        "name": "办公工具",
+        "sort": 2
+      },
+      {
+        "gtCode": "DIANNAO0701",
+        "id": 441,
+        "isVisible": true,
+        "name": "打印办公周边",
+        "sort": 1
+      },
+      {
+        "gtCode": "DIANNAO0605",
+        "id": 440,
+        "isVisible": true,
+        "name": "游戏周边",
+        "sort": 5
+      },
+      {
+        "gtCode": "DIANNAO0604",
+        "id": 439,
+        "isVisible": true,
+        "name": "游戏软件",
+        "sort": 4
+      },
+      {
+        "gtCode": "DIANNAO0603",
+        "id": 438,
+        "isVisible": true,
+        "name": "手柄/方向盘",
+        "sort": 3
+      },
+      {
+        "gtCode": "DIANNAO0602",
+        "id": 437,
+        "isVisible": true,
+        "name": "游戏耳机",
+        "sort": 2
+      },
+      {
+        "gtCode": "DIANNAO0601",
+        "id": 436,
+        "isVisible": true,
+        "name": "游戏机",
+        "sort": 1
+      },
+      {
+        "gtCode": "DIANNAO05015",
+        "id": 435,
+        "isVisible": true,
+        "name": "白板",
+        "sort": 15
+      },
+      {
+        "gtCode": "DIANNAO05014",
+        "id": 434,
+        "isVisible": true,
+        "name": "办公家具",
+        "sort": 14
+      },
+      {
+        "gtCode": "DIANNAO05013",
+        "id": 433,
+        "isVisible": true,
+        "name": "封装机",
+        "sort": 13
+      },
+      {
+        "gtCode": "DIANNAO05012",
+        "id": 432,
+        "isVisible": true,
+        "name": "保险柜",
+        "sort": 12
+      },
+      {
+        "gtCode": "DIANNAO05011",
+        "id": 431,
+        "isVisible": true,
+        "name": "会议音频视频",
+        "sort": 11
+      },
+      {
+        "gtCode": "DIANNAO05010",
+        "id": 430,
+        "isVisible": true,
+        "name": "收款/POS机",
+        "sort": 10
+      },
+      {
+        "gtCode": "DIANNAO0509",
+        "id": 429,
+        "isVisible": true,
+        "name": "考勤机",
+        "sort": 9
+      },
+      {
+        "gtCode": "DIANNAO0508",
+        "id": 428,
+        "isVisible": true,
+        "name": "碎纸机",
+        "sort": 8
+      },
+      {
+        "gtCode": "DIANNAO0507",
+        "id": 427,
+        "isVisible": true,
+        "name": "复合机",
+        "sort": 7
+      },
+      {
+        "gtCode": "DIANNAO0506",
+        "id": 426,
+        "isVisible": true,
+        "name": "扫描设备",
+        "sort": 6
+      },
+      {
+        "gtCode": "DIANNAO0505",
+        "id": 425,
+        "isVisible": true,
+        "name": "验钞/点钞机",
+        "sort": 5
+      },
+      {
+        "gtCode": "DIANNAO0504",
+        "id": 424,
+        "isVisible": true,
+        "name": "传真设备",
+        "sort": 4
+      },
+      {
+        "gtCode": "DIANNAO0503",
+        "id": 423,
+        "isVisible": true,
+        "name": "打印机",
+        "sort": 3
+      },
+      {
+        "gtCode": "DIANNAO0502",
+        "id": 422,
+        "isVisible": true,
+        "name": "多功能一体机",
+        "sort": 2
+      },
+      {
+        "gtCode": "DIANNAO0501",
+        "id": 421,
+        "isVisible": true,
+        "name": "投影机",
+        "sort": 1
+      },
+      {
+        "gtCode": "DIANNAO0407",
+        "id": 420,
+        "isVisible": true,
+        "name": "网络配件",
+        "sort": 7
+      },
+      {
+        "gtCode": "DIANNAO0406",
+        "id": 419,
+        "isVisible": true,
+        "name": "网络盒子",
+        "sort": 6
+      },
+      {
+        "gtCode": "DIANNAO0405",
+        "id": 418,
+        "isVisible": true,
+        "name": "4G/3G上网",
+        "sort": 5
+      },
+      {
+        "gtCode": "DIANNAO0404",
+        "id": 417,
+        "isVisible": true,
+        "name": "网络存储",
+        "sort": 4
+      },
+      {
+        "gtCode": "DIANNAO0403",
+        "id": 416,
+        "isVisible": true,
+        "name": "交换机",
+        "sort": 3
+      },
+      {
+        "gtCode": "DIANNAO0402",
+        "id": 415,
+        "isVisible": true,
+        "name": "网卡",
+        "sort": 2
+      },
+      {
+        "gtCode": "DIANNAO0401",
+        "id": 414,
+        "isVisible": true,
+        "name": "路由器",
+        "sort": 1
+      },
+      {
+        "gtCode": "DIANNAO03015",
+        "id": 413,
+        "isVisible": true,
+        "name": "插座",
+        "sort": 15
+      },
+      {
+        "gtCode": "DIANNAO03014",
+        "id": 412,
+        "isVisible": true,
+        "name": "UPS电源",
+        "sort": 14
+      },
+      {
+        "gtCode": "DIANNAO03013",
+        "id": 411,
+        "isVisible": true,
+        "name": "电脑清洁",
+        "sort": 13
+      },
+      {
+        "gtCode": "DIANNAO03012",
+        "id": 410,
+        "isVisible": true,
+        "name": "电脑工具",
+        "sort": 12
+      },
+      {
+        "gtCode": "DIANNAO03011",
+        "id": 409,
+        "isVisible": true,
+        "name": "硬盘盒",
+        "sort": 11
+      },
+      {
+        "gtCode": "DIANNAO03010",
+        "id": 408,
+        "isVisible": true,
+        "name": "手写板",
+        "sort": 10
+      },
+      {
+        "gtCode": "DIANNAO0309",
+        "id": 407,
+        "isVisible": true,
+        "name": "线缆",
+        "sort": 9
+      },
+      {
+        "gtCode": "DIANNAO0308",
+        "id": 406,
+        "isVisible": true,
+        "name": "摄像头",
+        "sort": 8
+      },
+      {
+        "gtCode": "DIANNAO0307",
+        "id": 405,
+        "isVisible": true,
+        "name": "鼠标垫",
+        "sort": 7
+      },
+      {
+        "gtCode": "DIANNAO0306",
+        "id": 404,
+        "isVisible": true,
+        "name": "移动硬盘",
+        "sort": 6
+      },
+      {
+        "gtCode": "DIANNAO0305",
+        "id": 403,
+        "isVisible": true,
+        "name": "U盘",
+        "sort": 5
+      },
+      {
+        "gtCode": "DIANNAO0304",
+        "id": 402,
+        "isVisible": true,
+        "name": "网络仪表仪器",
+        "sort": 4
+      },
+      {
+        "gtCode": "DIANNAO0303",
+        "id": 401,
+        "isVisible": true,
+        "name": "键鼠套装",
+        "sort": 3
+      },
+      {
+        "gtCode": "DIANNAO0302",
+        "id": 400,
+        "isVisible": true,
+        "name": "键盘",
+        "sort": 2
+      },
+      {
+        "gtCode": "DIANNAO0301",
+        "id": 399,
+        "isVisible": true,
+        "name": "鼠标",
+        "sort": 1
+      },
+      {
+        "gtCode": "DIANNAO02013",
+        "id": 398,
+        "isVisible": true,
+        "name": "组装电脑",
+        "sort": 13
+      },
+      {
+        "gtCode": "DIANNAO02012",
+        "id": 397,
+        "isVisible": true,
+        "name": "装机配件",
+        "sort": 12
+      },
+      {
+        "gtCode": "DIANNAO02011",
+        "id": 396,
+        "isVisible": true,
+        "name": "散热器",
+        "sort": 11
+      },
+      {
+        "gtCode": "DIANNAO02010",
+        "id": 395,
+        "isVisible": true,
+        "name": "声卡/扩展卡",
+        "sort": 10
+      },
+      {
+        "gtCode": "DIANNAO0209",
+        "id": 394,
+        "isVisible": true,
+        "name": "刻录机/光驱",
+        "sort": 9
+      },
+      {
+        "gtCode": "DIANNAO0208",
+        "id": 393,
+        "isVisible": true,
+        "name": "显示器",
+        "sort": 8
+      },
+      {
+        "gtCode": "DIANNAO0207",
+        "id": 392,
+        "isVisible": true,
+        "name": "机箱电源",
+        "sort": 7
+      },
+      {
+        "gtCode": "DIANNAO0205",
+        "id": 391,
+        "isVisible": true,
+        "name": "内存",
+        "sort": 5
+      },
+      {
+        "gtCode": "DIANNAO0206",
+        "id": 390,
+        "isVisible": true,
+        "name": "SSD",
+        "sort": 6
+      },
+      {
+        "gtCode": "DIANNAO0204",
+        "id": 389,
+        "isVisible": true,
+        "name": "硬盘",
+        "sort": 4
+      },
+      {
+        "gtCode": "DIANNAO0203",
+        "id": 388,
+        "isVisible": true,
+        "name": "显卡",
+        "sort": 3
+      },
+      {
+        "gtCode": "DIANNAO0202",
+        "id": 387,
+        "isVisible": true,
+        "name": "主板",
+        "sort": 2
+      },
+      {
+        "gtCode": "DIANNAO0201",
+        "id": 386,
+        "isVisible": true,
+        "name": "CPU",
+        "sort": 1
+      },
+      {
+        "gtCode": "DIANNAO0107",
+        "id": 385,
+        "isVisible": true,
+        "name": "服务器/工作站",
+        "sort": 7
+      },
+      {
+        "gtCode": "DIANNAO0106",
+        "id": 384,
+        "isVisible": true,
+        "name": "笔记本配件",
+        "sort": 6
+      },
+      {
+        "gtCode": "DIANNAO0105",
+        "id": 383,
+        "isVisible": true,
+        "name": "一体机",
+        "sort": 5
+      },
+      {
+        "gtCode": "DIANNAO0104",
+        "id": 382,
+        "isVisible": true,
+        "name": "台式机",
+        "sort": 4
+      },
+      {
+        "gtCode": "DIANNAO0103",
+        "id": 381,
+        "isVisible": true,
+        "name": "平板电脑",
+        "sort": 3
+      },
+      {
+        "gtCode": "DIANNAO0102",
+        "id": 380,
+        "isVisible": true,
+        "name": "游戏本",
+        "sort": 2
+      },
+      {
+        "gtCode": "DIANNAO0101",
+        "id": 379,
+        "isVisible": true,
+        "name": "笔记本",
+        "sort": 1
+      },
+      {
+        "gtCode": "SHIPIN017",
+        "id": 378,
+        "isVisible": true,
+        "name": "护理护具",
+        "sort": 17
+      },
+      {
+        "gtCode": "SHIPIN016",
+        "id": 377,
+        "isVisible": true,
+        "name": "保健器械",
+        "sort": 16
+      },
+      {
+        "gtCode": "SHIPIN015",
+        "id": 376,
+        "isVisible": true,
+        "name": "成人用品",
+        "sort": 15
+      },
+      {
+        "gtCode": "SHIPIN014",
+        "id": 375,
+        "isVisible": true,
+        "name": "滋补养生",
+        "sort": 14
+      },
+      {
+        "gtCode": "SHIPIN013",
+        "id": 374,
+        "isVisible": true,
+        "name": "茗茶",
+        "sort": 13
+      },
+      {
+        "gtCode": "SHIPIN012",
+        "id": 373,
+        "isVisible": true,
+        "name": "中外名酒",
+        "sort": 12
+      },
+      {
+        "gtCode": "SHIPIN011",
+        "id": 372,
+        "isVisible": true,
+        "name": "冷冻食饮",
+        "sort": 11
+      },
+      {
+        "gtCode": "SHIPIN010",
+        "id": 371,
+        "isVisible": true,
+        "name": "禽类蛋品",
+        "sort": 10
+      },
+      {
+        "gtCode": "SHIPIN09",
+        "id": 370,
+        "isVisible": true,
+        "name": "猪牛羊肉",
+        "sort": 9
+      },
+      {
+        "gtCode": "SHIPIN08",
+        "id": 369,
+        "isVisible": true,
+        "name": "海鲜水产",
+        "sort": 8
+      },
+      {
+        "gtCode": "SHIPIN07",
+        "id": 368,
+        "isVisible": true,
+        "name": "水果蔬菜",
+        "sort": 7
+      },
+      {
+        "gtCode": "SHIPIN06",
+        "id": 367,
+        "isVisible": true,
+        "name": "营养健康",
+        "sort": 6
+      },
+      {
+        "gtCode": "SHIPIN05",
+        "id": 366,
+        "isVisible": true,
+        "name": "酒饮冲调",
+        "sort": 5
+      },
+      {
+        "gtCode": "SHIPIN04",
+        "id": 365,
+        "isVisible": true,
+        "name": "粮油调味",
+        "sort": 4
+      },
+      {
+        "gtCode": "SHIPIN03",
+        "id": 364,
+        "isVisible": true,
+        "name": "休闲食品",
+        "sort": 3
+      },
+      {
+        "gtCode": "SHIPIN02",
+        "id": 363,
+        "isVisible": true,
+        "name": "地方特产",
+        "sort": 2
+      },
+      {
+        "gtCode": "SHIPIN01",
+        "id": 362,
+        "isVisible": true,
+        "name": "进口食品",
+        "sort": 1
+      },
+      {
+        "gtCode": "SHIPIN",
+        "id": 361,
+        "isVisible": true,
+        "name": "食品饮料、保健食品",
+        "sort": 11
+      },
+      {
+        "gtCode": "MUYIN09",
+        "id": 360,
+        "isVisible": true,
+        "name": "玩具乐器",
+        "sort": 9
+      },
+      {
+        "gtCode": "MUYIN08",
+        "id": 359,
+        "isVisible": true,
+        "name": "妈妈专区",
+        "sort": 8
+      },
+      {
+        "gtCode": "MUYIN07",
+        "id": 358,
+        "isVisible": true,
+        "name": "寝具服饰",
+        "sort": 7
+      },
+      {
+        "gtCode": "MUYIN06",
+        "id": 357,
+        "isVisible": true,
+        "name": "童车童床",
+        "sort": 6
+      },
+      {
+        "gtCode": "MUYIN05",
+        "id": 356,
+        "isVisible": true,
+        "name": "洗护用品",
+        "sort": 5
+      },
+      {
+        "gtCode": "MUYIN04",
+        "id": 355,
+        "isVisible": true,
+        "name": "喂养用品",
+        "sort": 4
+      },
+      {
+        "gtCode": "MUYIN03",
+        "id": 354,
+        "isVisible": true,
+        "name": "尿裤湿巾",
+        "sort": 3
+      },
+      {
+        "gtCode": "MUYIN02",
+        "id": 353,
+        "isVisible": true,
+        "name": "营养辅食",
+        "sort": 2
+      },
+      {
+        "gtCode": "MUYIN01",
+        "id": 352,
+        "isVisible": true,
+        "name": "奶粉",
+        "sort": 1
+      },
+      {
+        "gtCode": "MUYIN",
+        "id": 351,
+        "isVisible": true,
+        "name": "母婴、玩具乐器",
+        "sort": 10
+      },
+      {
+        "gtCode": "QICHE06",
+        "id": 350,
+        "isVisible": true,
+        "name": "安全自驾",
+        "sort": 6
+      },
+      {
+        "gtCode": "QICHE05",
+        "id": 349,
+        "isVisible": true,
+        "name": "坐垫脚垫",
+        "sort": 5
+      },
+      {
+        "gtCode": "QICHE04",
+        "id": 348,
+        "isVisible": true,
+        "name": "汽车美容",
+        "sort": 4
+      },
+      {
+        "gtCode": "QICHE03",
+        "id": 347,
+        "isVisible": true,
+        "name": "改装配件",
+        "sort": 3
+      },
+      {
+        "gtCode": "QICHE02",
+        "id": 346,
+        "isVisible": true,
+        "name": "系统养护",
+        "sort": 2
+      },
+      {
+        "gtCode": "QICHE01",
+        "id": 345,
+        "isVisible": true,
+        "name": "电子电器",
+        "sort": 1
+      },
+      {
+        "gtCode": "QICHE",
+        "id": 344,
+        "isVisible": true,
+        "name": "汽车用品",
+        "sort": 8
+      },
+      {
+        "gtCode": "YUNDONG08",
+        "id": 343,
+        "isVisible": true,
+        "name": "游泳用品",
+        "sort": 8
+      },
+      {
+        "gtCode": "YUNDONG07",
+        "id": 342,
+        "isVisible": true,
+        "name": "垂钓用品",
+        "sort": 7
+      },
+      {
+        "gtCode": "YUNDONG06",
+        "id": 341,
+        "isVisible": true,
+        "name": "户外服饰",
+        "sort": 6
+      },
+      {
+        "gtCode": "YUNDONG05",
+        "id": 340,
+        "isVisible": true,
+        "name": "体育用品",
+        "sort": 5
+      },
+      {
+        "gtCode": "YUNDONG04",
+        "id": 339,
+        "isVisible": true,
+        "name": "骑行运动",
+        "sort": 4
+      },
+      {
+        "gtCode": "YUNDONG03",
+        "id": 338,
+        "isVisible": true,
+        "name": "健身训练",
+        "sort": 3
+      },
+      {
+        "gtCode": "YUNDONG02",
+        "id": 337,
+        "isVisible": true,
+        "name": "户外装备",
+        "sort": 2
+      },
+      {
+        "gtCode": "YUNDONG01",
+        "id": 336,
+        "isVisible": true,
+        "name": "户外鞋服",
+        "sort": 1
+      },
+      {
+        "gtCode": "YUNDONG",
+        "id": 335,
+        "isVisible": true,
+        "name": "运动健康",
+        "sort": 8
+      },
+      {
+        "gtCode": "LIPIN07",
+        "id": 334,
+        "isVisible": true,
+        "name": "珠宝首饰",
+        "sort": 7
+      },
+      {
+        "gtCode": "LIPIN06",
+        "id": 333,
+        "isVisible": true,
+        "name": "钟表",
+        "sort": 6
+      },
+      {
+        "gtCode": "LIPIN05",
+        "id": 332,
+        "isVisible": true,
+        "name": "奢侈品",
+        "sort": 5
+      },
+      {
+        "gtCode": "LIPIN04",
+        "id": 331,
+        "isVisible": true,
+        "name": "礼品",
+        "sort": 4
+      },
+      {
+        "gtCode": "LIPIN03",
+        "id": 330,
+        "isVisible": true,
+        "name": "功能箱包",
+        "sort": 4
+      },
+      {
+        "gtCode": "LIPIN02",
+        "id": 329,
+        "isVisible": true,
+        "name": "时尚男包",
+        "sort": 2
+      },
+      {
+        "gtCode": "LIPIN01",
+        "id": 328,
+        "isVisible": true,
+        "name": "潮流女包",
+        "sort": 1
+      },
+      {
+        "gtCode": "LIPIN",
+        "id": 327,
+        "isVisible": true,
+        "name": "礼品箱包、钟表、珠宝",
+        "sort": 7
+      },
+      {
+        "gtCode": "GEHU06",
+        "id": 326,
+        "isVisible": true,
+        "name": "香水彩妆",
+        "sort": 6
+      },
+      {
+        "gtCode": "GEHU05",
+        "id": 325,
+        "isVisible": true,
+        "name": "洗发护发",
+        "sort": 5
+      },
+      {
+        "gtCode": "GEHU04",
+        "id": 324,
+        "isVisible": true,
+        "name": "女性护理",
+        "sort": 4
+      },
+      {
+        "gtCode": "GEHU03",
+        "id": 323,
+        "isVisible": true,
+        "name": "口腔护理",
+        "sort": 3
+      },
+      {
+        "gtCode": "GEHU02",
+        "id": 322,
+        "isVisible": true,
+        "name": "身体护理",
+        "sort": 2
+      },
+      {
+        "gtCode": "GEHU01",
+        "id": 321,
+        "isVisible": true,
+        "name": "面部护理",
+        "sort": 1
+      },
+      {
+        "gtCode": "GEHU",
+        "id": 320,
+        "isVisible": true,
+        "name": "个护化妆",
+        "sort": 6
+      },
+      {
+        "gtCode": "FUSHI07",
+        "id": 319,
+        "isVisible": true,
+        "name": "女鞋",
+        "sort": 7
+      },
+      {
+        "gtCode": "FUSHI06",
+        "id": 318,
+        "isVisible": true,
+        "name": "男鞋",
+        "sort": 6
+      },
+      {
+        "gtCode": "FUSHI05",
+        "id": 317,
+        "isVisible": true,
+        "name": "童装",
+        "sort": 5
+      },
+      {
+        "gtCode": "FUSHI04",
+        "id": 316,
+        "isVisible": true,
+        "name": "内衣",
+        "sort": 4
+      },
+      {
+        "gtCode": "FUSHI03",
+        "id": 315,
+        "isVisible": true,
+        "name": "运动",
+        "sort": 3
+      },
+      {
+        "gtCode": "FUSHI02",
+        "id": 314,
+        "isVisible": true,
+        "name": "女装",
+        "sort": 2
+      },
+      {
+        "gtCode": "FUSHI01",
+        "id": 313,
+        "isVisible": true,
+        "name": "男装",
+        "sort": 1
+      },
+      {
+        "gtCode": "FUSHI",
+        "id": 312,
+        "isVisible": true,
+        "name": "服饰、鞋帽",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU07",
+        "id": 311,
+        "isVisible": true,
+        "name": "家装建材",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIAJU06",
+        "id": 310,
+        "isVisible": true,
+        "name": "家装软饰",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIAJU05",
+        "id": 309,
+        "isVisible": true,
+        "name": "宠物用品",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIAJU04",
+        "id": 308,
+        "isVisible": true,
+        "name": "清洁用品",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIAJU03",
+        "id": 307,
+        "isVisible": true,
+        "name": "生活用品",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIAJU02",
+        "id": 306,
+        "isVisible": true,
+        "name": "灯具",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIAJU01",
+        "id": 305,
+        "isVisible": true,
+        "name": "家具",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIAJU",
+        "id": 304,
+        "isVisible": true,
+        "name": "家具、家装、厨具",
+        "sort": 4
+      },
+      {
+        "gtCode": "DIANNAO07",
+        "id": 303,
+        "isVisible": true,
+        "name": "办公文仪",
+        "sort": 7
+      },
+      {
+        "gtCode": "DIANNAO06",
+        "id": 302,
+        "isVisible": true,
+        "name": "游戏设备",
+        "sort": 6
+      },
+      {
+        "gtCode": "DIANNAO05",
+        "id": 301,
+        "isVisible": true,
+        "name": "办公打印",
+        "sort": 5
+      },
+      {
+        "gtCode": "DIANNAO04",
+        "id": 300,
+        "isVisible": true,
+        "name": "网络产品",
+        "sort": 4
+      },
+      {
+        "gtCode": "DIANNAO03",
+        "id": 299,
+        "isVisible": true,
+        "name": "外设产品",
+        "sort": 3
+      },
+      {
+        "gtCode": "DIANNAO02",
+        "id": 298,
+        "isVisible": true,
+        "name": "电脑配件",
+        "sort": 2
+      },
+      {
+        "gtCode": "DIANNAO01",
+        "id": 297,
+        "isVisible": true,
+        "name": "电脑整机",
+        "sort": 1
+      },
+      {
+        "gtCode": "DIANNAO",
+        "id": 296,
+        "isVisible": true,
+        "name": "电脑、办公",
+        "sort": 3
+      },
+      {
+        "gtCode": "SHOUJI0601",
+        "id": 295,
+        "isVisible": true,
+        "name": "学生平板",
+        "sort": 1
+      },
+      {
+        "gtCode": "SHOUJI05011",
+        "id": 294,
+        "isVisible": true,
+        "name": "其他配件",
+        "sort": 11
+      },
+      {
+        "gtCode": "SHOUJI05010",
+        "id": 293,
+        "isVisible": true,
+        "name": "无人机",
+        "sort": 10
+      },
+      {
+        "gtCode": "SHOUJI0509",
+        "id": 292,
+        "isVisible": true,
+        "name": "体感车",
+        "sort": 9
+      },
+      {
+        "gtCode": "SHOUJI0508",
+        "id": 291,
+        "isVisible": true,
+        "name": "智能家居",
+        "sort": 8
+      },
+      {
+        "gtCode": "SHOUJI0507",
+        "id": 290,
+        "isVisible": true,
+        "name": "智能配饰",
+        "sort": 7
+      },
+      {
+        "gtCode": "SHOUJI0506",
+        "id": 289,
+        "isVisible": true,
+        "name": "健康监测",
+        "sort": 6
+      },
+      {
+        "gtCode": "SHOUJI0505",
+        "id": 288,
+        "isVisible": true,
+        "name": "运动跟踪器",
+        "sort": 5
+      },
+      {
+        "gtCode": "SHOUJI0504",
+        "id": 287,
+        "isVisible": true,
+        "name": "智能机器人",
+        "sort": 4
+      },
+      {
+        "gtCode": "SHOUJI0503",
+        "id": 286,
+        "isVisible": true,
+        "name": "智能眼镜",
+        "sort": 3
+      },
+      {
+        "gtCode": "SHOUJI0502",
+        "id": 285,
+        "isVisible": true,
+        "name": "智能手表",
+        "sort": 2
+      },
+      {
+        "gtCode": "SHOUJI0501",
+        "id": 284,
+        "isVisible": true,
+        "name": "智能手环",
+        "sort": 1
+      },
+      {
+        "gtCode": "SHOUJI04011",
+        "id": 283,
+        "isVisible": true,
+        "name": "电池/充电器",
+        "sort": 11
+      },
+      {
+        "gtCode": "SHOUJI04010",
+        "id": 282,
+        "isVisible": true,
+        "name": "镜头附件",
+        "sort": 10
+      },
+      {
+        "gtCode": "SHOUJI0409",
+        "id": 281,
+        "isVisible": true,
+        "name": "机身附件",
+        "sort": 9
+      },
+      {
+        "gtCode": "SHOUJI0408",
+        "id": 280,
+        "isVisible": true,
+        "name": "相机清洁/贴膜",
+        "sort": 8
+      },
+      {
+        "gtCode": "SHOUJI0407",
+        "id": 279,
+        "isVisible": true,
+        "name": "三脚架/云台",
+        "sort": 7
+      },
+      {
+        "gtCode": "SHOUJI0406",
+        "id": 278,
+        "isVisible": true,
+        "name": "相机包",
+        "sort": 6
+      },
+      {
+        "gtCode": "SHOUJI0404",
+        "id": 277,
+        "isVisible": true,
+        "name": "滤镜",
+        "sort": 4
+      },
+      {
+        "gtCode": "SHOUJI0405",
+        "id": 276,
+        "isVisible": true,
+        "name": "闪光灯/手柄",
+        "sort": 5
+      },
+      {
+        "gtCode": "SHOUJI0403",
+        "id": 275,
+        "isVisible": true,
+        "name": "支架",
+        "sort": 3
+      },
+      {
+        "gtCode": "SHOUJI0402",
+        "id": 274,
+        "isVisible": true,
+        "name": "读卡器",
+        "sort": 2
+      },
+      {
+        "gtCode": "SHOUJI0401",
+        "id": 273,
+        "isVisible": true,
+        "name": "存储卡",
+        "sort": 1
+      },
+      {
+        "gtCode": "SHOUJI03011",
+        "id": 272,
+        "isVisible": true,
+        "name": "数码相框",
+        "sort": 11
+      },
+      {
+        "gtCode": "SHOUJI03010",
+        "id": 271,
+        "isVisible": true,
+        "name": "冲印服务",
+        "sort": 10
+      },
+      {
+        "gtCode": "SHOUJI0309",
+        "id": 270,
+        "isVisible": true,
+        "name": "影棚器材",
+        "sort": 9
+      },
+      {
+        "gtCode": "SHOUJI0308",
+        "id": 269,
+        "isVisible": true,
+        "name": "户外器材",
+        "sort": 8
+      },
+      {
+        "gtCode": "SHOUJI0307",
+        "id": 268,
+        "isVisible": true,
+        "name": "镜头",
+        "sort": 7
+      },
+      {
+        "gtCode": "SHOUJI0306",
+        "id": 267,
+        "isVisible": true,
+        "name": "摄像机",
+        "sort": 6
+      },
+      {
+        "gtCode": "SHOUJI0305",
+        "id": 266,
+        "isVisible": true,
+        "name": "运动相机",
+        "sort": 5
+      },
+      {
+        "gtCode": "SHOUJI0304",
+        "id": 265,
+        "isVisible": true,
+        "name": "拍立得",
+        "sort": 4
+      },
+      {
+        "gtCode": "SHOUJI0303",
+        "id": 264,
+        "isVisible": true,
+        "name": "单反相机",
+        "sort": 3
+      },
+      {
+        "gtCode": "SHOUJI0302",
+        "id": 263,
+        "isVisible": true,
+        "name": "单电/微单相机",
+        "sort": 2
+      },
+      {
+        "gtCode": "SHOUJI0301",
+        "id": 262,
+        "isVisible": true,
+        "name": "数码相机",
+        "sort": 1
+      },
+      {
+        "gtCode": "SHOUJI02016",
+        "id": 261,
+        "isVisible": true,
+        "name": "拍照配件",
+        "sort": 16
+      },
+      {
+        "gtCode": "SHOUJI02015",
+        "id": 260,
+        "isVisible": true,
+        "name": "手机饰品",
+        "sort": 15
+      },
+      {
+        "gtCode": "SHOUJI02014",
+        "id": 259,
+        "isVisible": true,
+        "name": "创意配件",
+        "sort": 14
+      },
+      {
+        "gtCode": "SHOUJI02013",
+        "id": 258,
+        "isVisible": true,
+        "name": "苹果周边",
+        "sort": 13
+      },
+      {
+        "gtCode": "SHOUJI02012",
+        "id": 257,
+        "isVisible": true,
+        "name": "车载配件",
+        "sort": 12
+      },
+      {
+        "gtCode": "SHOUJI02010",
+        "id": 256,
+        "isVisible": true,
+        "name": "保护套",
+        "sort": 10
+      },
+      {
+        "gtCode": "SHOUJI0209",
+        "id": 255,
+        "isVisible": true,
+        "name": "手机存储卡",
+        "sort": 9
+      },
+      {
+        "gtCode": "SHOUJI0208",
+        "id": 254,
+        "isVisible": true,
+        "name": "贴膜",
+        "sort": 8
+      },
+      {
+        "gtCode": "SHOUJI0207",
+        "id": 253,
+        "isVisible": true,
+        "name": "手机支架",
+        "sort": 7
+      },
+      {
+        "gtCode": "SHOUJI0206",
+        "id": 252,
+        "isVisible": true,
+        "name": "手机耳机",
+        "sort": 6
+      },
+      {
+        "gtCode": "SHOUJI0205",
+        "id": 251,
+        "isVisible": true,
+        "name": "数据线",
+        "sort": 5
+      },
+      {
+        "gtCode": "SHOUJI0204",
+        "id": 250,
+        "isVisible": true,
+        "name": "充电器",
+        "sort": 4
+      },
+      {
+        "gtCode": "SHOUJI0203",
+        "id": 249,
+        "isVisible": true,
+        "name": "蓝牙耳机",
+        "sort": 3
+      },
+      {
+        "gtCode": "SHOUJI0202",
+        "id": 248,
+        "isVisible": true,
+        "name": "移动电源",
+        "sort": 2
+      },
+      {
+        "gtCode": "SHOUJI0201",
+        "id": 247,
+        "isVisible": true,
+        "name": "手机电池",
+        "sort": 1
+      },
+      {
+        "gtCode": "SHOUJI0104",
+        "id": 246,
+        "isVisible": true,
+        "name": "手机维修",
+        "sort": 4
+      },
+      {
+        "gtCode": "SHOUJI0103",
+        "id": 245,
+        "isVisible": true,
+        "name": "以旧换新",
+        "sort": 3
+      },
+      {
+        "gtCode": "SHOUJI0102",
+        "id": 244,
+        "isVisible": true,
+        "name": "对讲机",
+        "sort": 2
+      },
+      {
+        "gtCode": "SHOUJI0101",
+        "id": 243,
+        "isVisible": true,
+        "name": "手机",
+        "sort": 1
+      },
+      {
+        "gtCode": "SHOUJI07",
+        "id": 242,
+        "isVisible": true,
+        "name": "时尚影音",
+        "sort": 7
+      },
+      {
+        "gtCode": "SHOUJI06",
+        "id": 241,
+        "isVisible": true,
+        "name": "电子教育",
+        "sort": 6
+      },
+      {
+        "gtCode": "SHOUJI05",
+        "id": 240,
+        "isVisible": true,
+        "name": "智能设备",
+        "sort": 5
+      },
+      {
+        "gtCode": "SHOUJI04",
+        "id": 239,
+        "isVisible": true,
+        "name": "数码配件",
+        "sort": 4
+      },
+      {
+        "gtCode": "SHOUJI03",
+        "id": 238,
+        "isVisible": true,
+        "name": "摄影摄像",
+        "sort": 3
+      },
+      {
+        "gtCode": "SHOUJI02",
+        "id": 237,
+        "isVisible": true,
+        "name": "手机配件",
+        "sort": 2
+      },
+      {
+        "gtCode": "SHOUJI01",
+        "id": 236,
+        "isVisible": true,
+        "name": "手机通讯",
+        "sort": 1
+      },
+      {
+        "gtCode": "SHOUJI",
+        "id": 235,
+        "isVisible": true,
+        "name": "手机、数码",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIADIAN05018",
+        "id": 234,
+        "isVisible": true,
+        "name": "电线/线缆",
+        "sort": 18
+      },
+      {
+        "gtCode": "JIADIAN05017",
+        "id": 233,
+        "isVisible": true,
+        "name": "监控安防",
+        "sort": 17
+      },
+      {
+        "gtCode": "JIADIAN05016",
+        "id": 232,
+        "isVisible": true,
+        "name": "电工电料",
+        "sort": 16
+      },
+      {
+        "gtCode": "JIADIAN05015",
+        "id": 231,
+        "isVisible": true,
+        "name": "插座",
+        "sort": 15
+      },
+      {
+        "gtCode": "JIADIAN05014",
+        "id": 230,
+        "isVisible": true,
+        "name": "电器开关",
+        "sort": 14
+      },
+      {
+        "gtCode": "JIADIAN05013",
+        "id": 229,
+        "isVisible": true,
+        "name": "门铃",
+        "sort": 13
+      },
+      {
+        "gtCode": "JIADIAN05012",
+        "id": 228,
+        "isVisible": true,
+        "name": "家具五金",
+        "sort": 12
+      },
+      {
+        "gtCode": "JIADIAN05011",
+        "id": 227,
+        "isVisible": true,
+        "name": "厨卫五金",
+        "sort": 11
+      },
+      {
+        "gtCode": "JIADIAN05010",
+        "id": 226,
+        "isVisible": true,
+        "name": "淋浴花洒",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIADIAN0509",
+        "id": 225,
+        "isVisible": true,
+        "name": "龙头",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIADIAN0508",
+        "id": 224,
+        "isVisible": true,
+        "name": "水槽",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIADIAN0507",
+        "id": 223,
+        "isVisible": true,
+        "name": "洁身器",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIADIAN0506",
+        "id": 222,
+        "isVisible": true,
+        "name": "LED灯",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIADIAN0505",
+        "id": 221,
+        "isVisible": true,
+        "name": "灯具",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIADIAN0504",
+        "id": 220,
+        "isVisible": true,
+        "name": "浴霸/排气扇",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIADIAN0503",
+        "id": 219,
+        "isVisible": true,
+        "name": "仪器仪表",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIADIAN0502",
+        "id": 218,
+        "isVisible": true,
+        "name": "手动工具",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIADIAN0501",
+        "id": 217,
+        "isVisible": true,
+        "name": "电动工具",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIADIAN04016",
+        "id": 216,
+        "isVisible": true,
+        "name": "其他健康电器",
+        "sort": 16
+      },
+      {
+        "gtCode": "JIADIAN04015",
+        "id": 215,
+        "isVisible": true,
+        "name": "计步器/脂肪检测仪",
+        "sort": 15
+      },
+      {
+        "gtCode": "JIADIAN04014",
+        "id": 214,
+        "isVisible": true,
+        "name": "体温计",
+        "sort": 14
+      },
+      {
+        "gtCode": "JIADIAN04013",
+        "id": 213,
+        "isVisible": true,
+        "name": "血糖仪",
+        "sort": 13
+      },
+      {
+        "gtCode": "JIADIAN04012",
+        "id": 212,
+        "isVisible": true,
+        "name": "血压计",
+        "sort": 12
+      },
+      {
+        "gtCode": "JIADIAN04011",
+        "id": 211,
+        "isVisible": true,
+        "name": "按摩椅",
+        "sort": 11
+      },
+      {
+        "gtCode": "JIADIAN04010",
+        "id": 210,
+        "isVisible": true,
+        "name": "按摩器",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIADIAN0409",
+        "id": 209,
+        "isVisible": true,
+        "name": "健康秤/厨房秤",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIADIAN0408",
+        "id": 208,
+        "isVisible": true,
+        "name": "足浴盆",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIADIAN0407",
+        "id": 207,
+        "isVisible": true,
+        "name": "剃/脱毛器",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIADIAN0406",
+        "id": 206,
+        "isVisible": true,
+        "name": "理发器",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIADIAN0405",
+        "id": 205,
+        "isVisible": true,
+        "name": "器卷/直发器",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIADIAN0404",
+        "id": 204,
+        "isVisible": true,
+        "name": "美容",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIADIAN0403",
+        "id": 203,
+        "isVisible": true,
+        "name": "电吹风",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIADIAN0402",
+        "id": 202,
+        "isVisible": true,
+        "name": "口腔护理",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIADIAN0401",
+        "id": 201,
+        "isVisible": true,
+        "name": "剃须刀",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIADIAN03027",
+        "id": 200,
+        "isVisible": true,
+        "name": "嵌入式厨电",
+        "sort": 27
+      },
+      {
+        "gtCode": "JIADIAN03026",
+        "id": 199,
+        "isVisible": true,
+        "name": "燃气热水器",
+        "sort": 26
+      },
+      {
+        "gtCode": "JIADIAN03025",
+        "id": 198,
+        "isVisible": true,
+        "name": "电热水器",
+        "sort": 25
+      },
+      {
+        "gtCode": "JIADIAN03024",
+        "id": 197,
+        "isVisible": true,
+        "name": "洗碗机",
+        "sort": 24
+      },
+      {
+        "gtCode": "JIADIAN03023",
+        "id": 196,
+        "isVisible": true,
+        "name": "消毒柜",
+        "sort": 23
+      },
+      {
+        "gtCode": "JIADIAN030122",
+        "id": 195,
+        "isVisible": true,
+        "name": "烟灶套装",
+        "sort": 22
+      },
+      {
+        "gtCode": "JIADIAN03021",
+        "id": 194,
+        "isVisible": true,
+        "name": "燃气灶",
+        "sort": 21
+      },
+      {
+        "gtCode": "JIADIAN03020",
+        "id": 193,
+        "isVisible": true,
+        "name": "油烟机",
+        "sort": 20
+      },
+      {
+        "gtCode": "JIADIAN03019",
+        "id": 192,
+        "isVisible": true,
+        "name": "其他厨房电器",
+        "sort": 19
+      },
+      {
+        "gtCode": "JIADIAN03018",
+        "id": 191,
+        "isVisible": true,
+        "name": "电热饭盒",
+        "sort": 18
+      },
+      {
+        "gtCode": "JIADIAN03017",
+        "id": 190,
+        "isVisible": true,
+        "name": "点烧烤炉",
+        "sort": 17
+      },
+      {
+        "gtCode": "JIADIAN03016",
+        "id": 189,
+        "isVisible": true,
+        "name": "多用途锅",
+        "sort": 16
+      },
+      {
+        "gtCode": "JIADIAN03015",
+        "id": 188,
+        "isVisible": true,
+        "name": "电炖锅",
+        "sort": 15
+      },
+      {
+        "gtCode": "JIADIAN03014",
+        "id": 187,
+        "isVisible": true,
+        "name": "电水壶/热水瓶",
+        "sort": 14
+      },
+      {
+        "gtCode": "JIADIAN03013",
+        "id": 186,
+        "isVisible": true,
+        "name": "煮蛋器",
+        "sort": 13
+      },
+      {
+        "gtCode": "JIADIAN03012",
+        "id": 185,
+        "isVisible": true,
+        "name": "酸奶机",
+        "sort": 12
+      },
+      {
+        "gtCode": "JIADIAN03011",
+        "id": 184,
+        "isVisible": true,
+        "name": "养生壶/煎药壶",
+        "sort": 11
+      },
+      {
+        "gtCode": "JIADIAN03010",
+        "id": 183,
+        "isVisible": true,
+        "name": "电饼铛",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIADIAN0309",
+        "id": 182,
+        "isVisible": true,
+        "name": "料理机",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIADIAN0308",
+        "id": 181,
+        "isVisible": true,
+        "name": "榨汁机",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIADIAN0307",
+        "id": 180,
+        "isVisible": true,
+        "name": "面包机",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIADIAN0306",
+        "id": 179,
+        "isVisible": true,
+        "name": "咖啡机",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIADIAN0305",
+        "id": 178,
+        "isVisible": true,
+        "name": "豆浆机",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIADIAN0304",
+        "id": 177,
+        "isVisible": true,
+        "name": "电压力锅",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIADIAN0303",
+        "id": 176,
+        "isVisible": true,
+        "name": "电烤箱",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIADIAN0302",
+        "id": 175,
+        "isVisible": true,
+        "name": "微波炉",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIADIAN0301",
+        "id": 174,
+        "isVisible": true,
+        "name": "电饭煲",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIADIAN02018",
+        "id": 173,
+        "isVisible": true,
+        "name": "生活电器配件",
+        "sort": 18
+      },
+      {
+        "gtCode": "JIADIAN02017",
+        "id": 172,
+        "isVisible": true,
+        "name": "其他生活电器",
+        "sort": 17
+      },
+      {
+        "gtCode": "JIADIAN02016",
+        "id": 171,
+        "isVisible": true,
+        "name": "收录/音机",
+        "sort": 16
+      },
+      {
+        "gtCode": "JIADIAN02015",
+        "id": 170,
+        "isVisible": true,
+        "name": "清洁机",
+        "sort": 15
+      },
+      {
+        "gtCode": "JIADIAN02014",
+        "id": 169,
+        "isVisible": true,
+        "name": "干衣机",
+        "sort": 14
+      },
+      {
+        "gtCode": "JIADIAN02013",
+        "id": 168,
+        "isVisible": true,
+        "name": "除湿机",
+        "sort": 13
+      },
+      {
+        "gtCode": "JIADIAN02012",
+        "id": 167,
+        "isVisible": true,
+        "name": "饮水机",
+        "sort": 12
+      },
+      {
+        "gtCode": "JIADIAN02011",
+        "id": 166,
+        "isVisible": true,
+        "name": "净水器",
+        "sort": 11
+      },
+      {
+        "gtCode": "JIADIAN02010",
+        "id": 165,
+        "isVisible": true,
+        "name": "电话机",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIADIAN0209",
+        "id": 164,
+        "isVisible": true,
+        "name": "插座",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIADIAN0206",
+        "id": 163,
+        "isVisible": true,
+        "name": "取暖电器",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIADIAN0208",
+        "id": 162,
+        "isVisible": true,
+        "name": "挂烫机/熨斗",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIADIAN0207",
+        "id": 161,
+        "isVisible": true,
+        "name": "加湿器",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIADIAN0205",
+        "id": 160,
+        "isVisible": true,
+        "name": "扫地机器人",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIADIAN0204",
+        "id": 159,
+        "isVisible": true,
+        "name": "净化器",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIADIAN0203",
+        "id": 158,
+        "isVisible": true,
+        "name": "吸尘器",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIADIAN0202",
+        "id": 157,
+        "isVisible": true,
+        "name": "冷风扇",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIADIAN0201",
+        "id": 156,
+        "isVisible": true,
+        "name": "电风扇",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIADIAN01010",
+        "id": 155,
+        "isVisible": true,
+        "name": "家电配件",
+        "sort": 10
+      },
+      {
+        "gtCode": "JIADIAN0109",
+        "id": 154,
+        "isVisible": true,
+        "name": "酒柜",
+        "sort": 9
+      },
+      {
+        "gtCode": "JIADIAN0108",
+        "id": 153,
+        "isVisible": true,
+        "name": "冷柜/冰吧",
+        "sort": 8
+      },
+      {
+        "gtCode": "JIADIAN0107",
+        "id": 152,
+        "isVisible": true,
+        "name": "迷你音响",
+        "sort": 7
+      },
+      {
+        "gtCode": "JIADIAN0106",
+        "id": 151,
+        "isVisible": true,
+        "name": "DVD",
+        "sort": 6
+      },
+      {
+        "gtCode": "JIADIAN0105",
+        "id": 150,
+        "isVisible": true,
+        "name": "家庭影院",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIADIAN0104",
+        "id": 149,
+        "isVisible": true,
+        "name": "洗衣机",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIADIAN0103",
+        "id": 148,
+        "isVisible": true,
+        "name": "冰箱",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIADIAN0102",
+        "id": 147,
+        "isVisible": true,
+        "name": "空调",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIADIAN0101",
+        "id": 146,
+        "isVisible": true,
+        "name": "平板电视",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIADIAN05",
+        "id": 145,
+        "isVisible": true,
+        "name": "五金电器",
+        "sort": 5
+      },
+      {
+        "gtCode": "JIADIAN04",
+        "id": 144,
+        "isVisible": true,
+        "name": "个人健康",
+        "sort": 4
+      },
+      {
+        "gtCode": "JIADIAN03",
+        "id": 143,
+        "isVisible": true,
+        "name": "厨房电器",
+        "sort": 3
+      },
+      {
+        "gtCode": "JIADIAN02",
+        "id": 142,
+        "isVisible": true,
+        "name": "生活电器",
+        "sort": 2
+      },
+      {
+        "gtCode": "JIADIAN01",
+        "id": 141,
+        "isVisible": true,
+        "name": "大家电",
+        "sort": 1
+      },
+      {
+        "gtCode": "JIADIAN",
+        "id": 140,
+        "isVisible": true,
+        "name": "家电电器",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU01008",
+        "id": 139,
+        "isVisible": true,
+        "name": "外文原版",
+        "sort": 8
+      },
+      {
+        "gtCode": "TUSHU01007",
+        "id": 138,
+        "isVisible": true,
+        "name": "婚恋两性",
+        "sort": 7
+      },
+      {
+        "gtCode": "TUSHU01006",
+        "id": 137,
+        "isVisible": true,
+        "name": "社科",
+        "sort": 6
+      },
+      {
+        "gtCode": "TUSHU01005",
+        "id": 136,
+        "isVisible": true,
+        "name": "文学",
+        "sort": 5
+      },
+      {
+        "gtCode": "TUSHU01004",
+        "id": 135,
+        "isVisible": true,
+        "name": "经济金融",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU01003",
+        "id": 134,
+        "isVisible": true,
+        "name": "励志与成功",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU01002",
+        "id": 133,
+        "isVisible": true,
+        "name": "小说",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU01001",
+        "id": 132,
+        "isVisible": true,
+        "name": "畅读VIP",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU0903",
+        "id": 131,
+        "isVisible": true,
+        "name": "港台图书",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU0902",
+        "id": 130,
+        "isVisible": true,
+        "name": "英文原版书",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU0901",
+        "id": 129,
+        "isVisible": true,
+        "name": "杂志/期刊",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU0808",
+        "id": 128,
+        "isVisible": true,
+        "name": "农林",
+        "sort": 8
+      },
+      {
+        "gtCode": "TUSHU0807",
+        "id": 127,
+        "isVisible": true,
+        "name": "科学与自然",
+        "sort": 7
+      },
+      {
+        "gtCode": "TUSHU0806",
+        "id": 126,
+        "isVisible": true,
+        "name": "医学",
+        "sort": 6
+      },
+      {
+        "gtCode": "TUSHU0805",
+        "id": 125,
+        "isVisible": true,
+        "name": "电子/通信",
+        "sort": 5
+      },
+      {
+        "gtCode": "TUSHU0804",
+        "id": 124,
+        "isVisible": true,
+        "name": "工业技术",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU0803",
+        "id": 123,
+        "isVisible": true,
+        "name": "建筑",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU0802",
+        "id": 122,
+        "isVisible": true,
+        "name": "科普",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU0801",
+        "id": 121,
+        "isVisible": true,
+        "name": "计算机与互联网",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU07010",
+        "id": 120,
+        "isVisible": true,
+        "name": "体育",
+        "sort": 10
+      },
+      {
+        "gtCode": "TUSHU0709",
+        "id": 119,
+        "isVisible": true,
+        "name": "两性",
+        "sort": 9
+      },
+      {
+        "gtCode": "TUSHU0708",
+        "id": 118,
+        "isVisible": true,
+        "name": "手工DIY",
+        "sort": 8
+      },
+      {
+        "gtCode": "TUSHU0707",
+        "id": 117,
+        "isVisible": true,
+        "name": "家居",
+        "sort": 7
+      },
+      {
+        "gtCode": "TUSHU0706",
+        "id": 116,
+        "isVisible": true,
+        "name": "时尚美妆",
+        "sort": 6
+      },
+      {
+        "gtCode": "TUSHU0705",
+        "id": 115,
+        "isVisible": true,
+        "name": "美食",
+        "sort": 5
+      },
+      {
+        "gtCode": "TUSHU0704",
+        "id": 114,
+        "isVisible": true,
+        "name": "旅游/地图",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU0703",
+        "id": 113,
+        "isVisible": true,
+        "name": "健身保健",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU0702",
+        "id": 112,
+        "isVisible": true,
+        "name": "孕产/胎教",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU0701",
+        "id": 111,
+        "isVisible": true,
+        "name": "育儿/家教",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU0604",
+        "id": 110,
+        "isVisible": true,
+        "name": "励志与成功",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU0603",
+        "id": 109,
+        "isVisible": true,
+        "name": "经济",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU0602",
+        "id": 108,
+        "isVisible": true,
+        "name": "金融与投资",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU0601",
+        "id": 107,
+        "isVisible": true,
+        "name": "管理",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU0508",
+        "id": 106,
+        "isVisible": true,
+        "name": "文化",
+        "sort": 8
+      },
+      {
+        "gtCode": "TUSHU0507",
+        "id": 105,
+        "isVisible": true,
+        "name": "法律",
+        "sort": 7
+      },
+      {
+        "gtCode": "TUSHU0506",
+        "id": 104,
+        "isVisible": true,
+        "name": "社会科学",
+        "sort": 6
+      },
+      {
+        "gtCode": "TUSHU0505",
+        "id": 103,
+        "isVisible": true,
+        "name": "哲学/宗教",
+        "sort": 5
+      },
+      {
+        "gtCode": "TUSHU0504",
+        "id": 102,
+        "isVisible": true,
+        "name": "国学/古籍",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU0503",
+        "id": 101,
+        "isVisible": true,
+        "name": "政治/军事",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU0502",
+        "id": 100,
+        "isVisible": true,
+        "name": "心理学",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU0501",
+        "id": 99,
+        "isVisible": true,
+        "name": "历史",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU04010",
+        "id": 98,
+        "isVisible": true,
+        "name": "智力开发",
+        "sort": 10
+      },
+      {
+        "gtCode": "TUSHU0409",
+        "id": 97,
+        "isVisible": true,
+        "name": "手工游戏",
+        "sort": 9
+      },
+      {
+        "gtCode": "TUSHU0408",
+        "id": 96,
+        "isVisible": true,
+        "name": "幼儿启蒙",
+        "sort": 8
+      },
+      {
+        "gtCode": "TUSHU0407",
+        "id": 95,
+        "isVisible": true,
+        "name": "科普",
+        "sort": 7
+      },
+      {
+        "gtCode": "TUSHU0406",
+        "id": 94,
+        "isVisible": true,
+        "name": "绘本",
+        "sort": 6
+      },
+      {
+        "gtCode": "TUSHU0405",
+        "id": 93,
+        "isVisible": true,
+        "name": "儿童文学",
+        "sort": 5
+      },
+      {
+        "gtCode": "TUSHU0404",
+        "id": 92,
+        "isVisible": true,
+        "name": "11~14岁",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU0403",
+        "id": 91,
+        "isVisible": true,
+        "name": "7~10岁",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU0402",
+        "id": 90,
+        "isVisible": true,
+        "name": "3~6岁",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU0401",
+        "id": 89,
+        "isVisible": true,
+        "name": "0~2岁",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU03010",
+        "id": 88,
+        "isVisible": true,
+        "name": "绘画",
+        "sort": 10
+      },
+      {
+        "gtCode": "TUSHU0309",
+        "id": 87,
+        "isVisible": true,
+        "name": "音乐",
+        "sort": 9
+      },
+      {
+        "gtCode": "TUSHU0308",
+        "id": 86,
+        "isVisible": true,
+        "name": "书法",
+        "sort": 8
+      },
+      {
+        "gtCode": "TUSHU0307",
+        "id": 85,
+        "isVisible": true,
+        "name": "摄影",
+        "sort": 7
+      },
+      {
+        "gtCode": "TUSHU0306",
+        "id": 84,
+        "isVisible": true,
+        "name": "艺术",
+        "sort": 7
+      },
+      {
+        "gtCode": "TUSHU0305",
+        "id": 83,
+        "isVisible": true,
+        "name": "动漫",
+        "sort": 5
+      },
+      {
+        "gtCode": "TUSHU0304",
+        "id": 82,
+        "isVisible": true,
+        "name": "传记",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU0303",
+        "id": 81,
+        "isVisible": true,
+        "name": "青春文学",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU0302",
+        "id": 80,
+        "isVisible": true,
+        "name": "文学",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU0301",
+        "id": 79,
+        "isVisible": true,
+        "name": "小说",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU0206",
+        "id": 78,
+        "isVisible": true,
+        "name": "字典词典",
+        "sort": 6
+      },
+      {
+        "gtCode": "TUSHU0204",
+        "id": 77,
+        "isVisible": true,
+        "name": "外语学习",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU0203",
+        "id": 76,
+        "isVisible": true,
+        "name": "考试",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU0202",
+        "id": 75,
+        "isVisible": true,
+        "name": "中小学教辅",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU0201",
+        "id": 74,
+        "isVisible": true,
+        "name": "教材",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU0105",
+        "id": 73,
+        "isVisible": true,
+        "name": "影视/动漫周边",
+        "sort": 5
+      },
+      {
+        "gtCode": "TUSHU0104",
+        "id": 72,
+        "isVisible": true,
+        "name": "游戏",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU0103",
+        "id": 71,
+        "isVisible": true,
+        "name": "教育音像",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU0102",
+        "id": 70,
+        "isVisible": true,
+        "name": "影视",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU0101",
+        "id": 69,
+        "isVisible": true,
+        "name": "音乐",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU010",
+        "id": 68,
+        "isVisible": true,
+        "name": "电子书",
+        "sort": 10
+      },
+      {
+        "gtCode": "TUSHU09",
+        "id": 67,
+        "isVisible": true,
+        "name": "刊/原版",
+        "sort": 9
+      },
+      {
+        "gtCode": "TUSHU08",
+        "id": 66,
+        "isVisible": true,
+        "name": "科技",
+        "sort": 8
+      },
+      {
+        "gtCode": "TUSHU07",
+        "id": 63,
+        "isVisible": true,
+        "name": "生活",
+        "sort": 7
+      },
+      {
+        "gtCode": "TUSHU06",
+        "id": 62,
+        "isVisible": true,
+        "name": "经管励志",
+        "sort": 6
+      },
+      {
+        "gtCode": "TUSHU05",
+        "id": 61,
+        "isVisible": true,
+        "name": "人文社科",
+        "sort": 5
+      },
+      {
+        "gtCode": "TUSHU04",
+        "id": 60,
+        "isVisible": true,
+        "name": "少儿",
+        "sort": 4
+      },
+      {
+        "gtCode": "TUSHU03",
+        "id": 57,
+        "isVisible": true,
+        "name": "文艺",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU02",
+        "id": 56,
+        "isVisible": true,
+        "name": "教育",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU01",
+        "id": 55,
+        "isVisible": true,
+        "name": "音像",
+        "sort": 1
+      },
+      {
+        "gtCode": "TUSHU",
+        "id": 54,
+        "isVisible": true,
+        "name": "图书、电子书刊、音像",
+        "sort": 255
+      },
+      {
+        "gtCode": "TUSHU03",
+        "id": 23,
+        "isVisible": true,
+        "name": "教育音像",
+        "sort": 3
+      },
+      {
+        "gtCode": "TUSHU02",
+        "id": 22,
+        "isVisible": true,
+        "name": "影视",
+        "sort": 2
+      },
+      {
+        "gtCode": "TUSHU01",
+        "id": 21,
+        "isVisible": true,
+        "name": "音像",
+        "sort": 1
+      },
+      {
+        "gtCode": "GT_002_1",
+        "id": 10,
+        "isVisible": true,
+        "name": "牙膏",
+        "sort": 0
+      },
+      {
+        "gtCode": "GT_001_2_1",
+        "id": 9,
+        "isVisible": true,
+        "name": "海虾",
+        "sort": 0
+      },
+      {
+        "gtCode": "GT_001_1_2",
+        "id": 8,
+        "isVisible": true,
+        "name": "斑鱼",
+        "sort": 0
+      },
+      {
+        "gtCode": "GT_001_1_1",
+        "id": 7,
+        "isVisible": true,
+        "name": "墨鱼",
+        "sort": 0
+      },
+      {
+        "gtCode": "GT_001_2",
+        "id": 6,
+        "isVisible": true,
+        "name": "虾类",
+        "sort": 0
+      },
+      {
+        "gtCode": "GT_001_1",
+        "id": 5,
+        "isVisible": false,
+        "name": "鱼类",
+        "sort": 0
+      },
+      {
+        "gtCode": "GT_004",
+        "id": 4,
+        "isVisible": true,
+        "name": "海外购",
+        "sort": 0
+      },
+      {
+        "gtCode": "GT_003",
+        "id": 3,
+        "isVisible": true,
+        "name": "婴幼儿",
+        "sort": 0
+      },
+      {
+        "gtCode": "GT_002",
+        "id": 2,
+        "isVisible": true,
+        "name": "日用品",
+        "sort": 0
+      },
+      {
+        "gtCode": "GT_001",
+        "id": 1,
+        "isVisible": true,
+        "name": "生鲜",
+        "sort": 0
+      }
+    ]
+  }
+}
