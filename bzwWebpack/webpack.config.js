@@ -1,7 +1,9 @@
 /*内置插件*/
 const path = require('path');
 const glob = require('glob');
+const webpack = require('webpack');
 /*内置路径插件*/
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
@@ -21,12 +23,6 @@ module.exports = {
     /*模块加载配置*/
     module: {
         rules: [{
-            test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader?importLoaders=2!postcss-loader']
-            })
-        }, {
             test: /iconfont\.(ttf|woff|svg|eot)$/,
             use: [{
                 loader: 'url-loader'
@@ -41,16 +37,16 @@ module.exports = {
                 }
             }]
         }, {
-            test: /\.less$/,
+            test: /\.(less|css)$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', 'less-loader']
+                use: ['css-loader', /*'postcss-loader',*/ 'less-loader']
             })
         }]
     },
-    postcss:{
+    /*postcss:{
 
-    },
+    },*/
     /*插件*/
     plugins: [
         new ExtractTextPlugin('base.css')/*分离css文件*/,
@@ -64,6 +60,7 @@ module.exports = {
             },
             canPrint: true
         })/*压缩css*/,
+        new UglifyJSPlugin(),
         new HtmlWebpackPlugin({
             template: './index.html',
             favicon: './src/images/logo_icon.ico'
