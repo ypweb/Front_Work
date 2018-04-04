@@ -11,6 +11,7 @@ const copyWebpackPlugin = require('copy-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
+    mode:"production",/*打包模式*/
     /*入口文件*/
     entry: {
         'index': './src/js/index.js'
@@ -40,7 +41,7 @@ module.exports = {
             test: /\.(less|css)$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', /*'postcss-loader',*/ 'less-loader']
+                use: ['css-loader', 'postcss-loader', 'less-loader']
             })
         }]
     },
@@ -48,7 +49,12 @@ module.exports = {
 
     },*/
     /*插件*/
-    plugins: [
+    plugins: [{
+            'postcss-import': {},
+'postcss-cssnext': {
+    browsers: ['last 2 versions', '> 5%'],
+}
+},
         new ExtractTextPlugin('base.css')/*分离css文件*/,
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,

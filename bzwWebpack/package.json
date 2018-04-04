@@ -9,6 +9,7 @@
   "keywords": [],
   "author": "yipin",
   "license": "MIT",
+  "sideEffects": false,
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "babel-core": "^6.26.0",
@@ -33,6 +34,7 @@
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^1.0.1",
     "webpack": "^4.3.0",
+    "webpack-cli": "^2.0.13",
     "webpack-dev-server": "^3.1.1"
   }
 }
