@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "test webpack",
   "main": "webpack.config.js",
-  "scripts": {},
+  "scripts": {
+    "dev": "webpack-dev-server --open --mode development"
+  },
   "keywords": [],
   "author": "yipin",
   "license": "MIT",

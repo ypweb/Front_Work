@@ -12,7 +12,7 @@ const CleanWebpackPlugin=require('clean-webpack-plugin');
 
 
 module.exports = {
-    mode: 'none',
+    mode: 'development'/*'production'*//*'none'*/,
     /*入口文件*/
     entry: {
         'index': './src/js/index.js'
@@ -34,28 +34,47 @@ module.exports = {
             use: [{
                 loader: 'url-loader',
                 options: {
-                    limit: 10,
+                    limit: 200,
                     outputPath: 'images/'
                 }
             }]
         }, {
-            test: /\.css$/,
+            test: /\.(html|htm)$/,/*处理html中使用图片*/
+            use: ['html-withimg-loader']
+        }, {
+            test: /\.css$/,/*处理css*/
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: ['css-loader', 'postcss-loader']
             })
         }, {
-            test: /\.less$/,
+            test: /\.less$/,/*处理less*/
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: ['css-loader', 'less-loader']
             })
         }]
     },
+    /*devServer:{
+        contentBase:path.resolve(__dirname,'dist'),
+        host:'localhost',
+        compress:true,
+        port:8095
+    },*//*服务器配置*/
     /*插件*/
     plugins: [
         new CleanWebpackPlugin(['dist']),/*生成dist目录前先删除这个目录--正常*/
         new ExtractTextPlugin('base.css'),/*指定生成css文件--正常*/
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorOptions: {
+                discardComments: {
+                    removeAll: true
+                }
+            },
+            canPrint: true
+        }),/*压缩css--正常*/
         /*require('autoprefixer'),*/
         /*new autoprefixer({
             browsers: [
