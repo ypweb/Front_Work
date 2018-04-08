@@ -1,35 +1,29 @@
 /*内置插件*/
 const path = require('path');
 const glob = require('glob');
-const webpack = require('webpack');
 /*内置路径插件*/
-/*const UglifyJSPlugin = require('uglifyjs-webpack-plugin');*/
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const copyWebpackPlugin = require('copy-webpack-plugin');
-/*const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');*/
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+
 
 module.exports = {
-   // mode: "production", /*打包模式*/
+    mode: 'none',
     /*入口文件*/
     entry: {
         'index': './src/js/index.js'
     },
     /*输出文件*/
     output: {
-        filename: 'bundle.js'/*输出文件名*/,
-        path: path.resolve(__dirname, './dist')/*输出文件夹*/
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, './dist')
     },
     /*模块加载配置*/
     module: {
         rules: [{
-            test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader']
-            })
-        }, {
             test: /iconfont\.(ttf|woff|svg|eot)$/,
             use: [{
                 loader: 'url-loader'
@@ -47,39 +41,45 @@ module.exports = {
             test: /\.less$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', 'less-loader']
+                use: [{loader:'css-loader'},
+                    'postcss-loader',
+                    'less-loader'
+                ]
             })
         }]
     },
     /*插件*/
-    plugins: [/*{
-            'postcss-import': {},
-'postcss-cssnext': {
-    browsers: ['last 2 versions', '> 5%'],
-}
-},*/
-        new ExtractTextPlugin('base.css')/*分离css文件*//*,
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: {
-                discardComments: {
-                    removeAll: true
-                }
-            },
-            canPrint: true
-        })*//*压缩css*/,
-        /*new UglifyJSPlugin(),*/
+    plugins: [
+        new autoprefixer({
+            browsers: [
+                'iOS>7',
+                'Android>4',
+                "> 1%",
+                "last 5 versions",
+                "not ie <= 8"
+            ]
+        }),
+        new ExtractTextPlugin('base.css'),
+        /* new OptimizeCssAssetsPlugin({
+             assetNameRegExp: /\.css$/g,
+             cssProcessor: require('cssnano'),
+             cssProcessorOptions: {
+                 discardComments: {
+                     removeAll: true
+                 }
+             },
+             canPrint: true
+         }),*/
         new HtmlWebpackPlugin({
             template: './index.html',
             favicon: './src/images/logo_icon.ico'
-        })/*自定义生成html文件*/,
-        new PurifyCSSPlugin({
-            paths: glob.sync(path.join(__dirname, './*.html'))/*清除多余css todo*/
         }),
+        /*new PurifyCSSPlugin({
+            paths: glob.sync(path.join(__dirname, './!*.html'))/!*清除多余css todo*!/
+        }),*/
         new copyWebpackPlugin([{
-            from: __dirname + '/src/static',//打包的静态资源目录地址
-            to: './static' //打包到dist下面的public
+            from: __dirname + '/src/static',
+            to: './static'
         }])
     ]
 };

@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "test webpack",
   "main": "webpack.config.js",
-  "scripts": {
-    "build": "webpack --mode production"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "yipin",
   "license": "MIT",
@@ -14,6 +12,7 @@
     "autoprefixer": "^8.2.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "cssnano": "^3.10.0",
