@@ -63,12 +63,7 @@ module.exports = {
                 use: [{
                     loader: 'css-loader',
                     options: {
-                        importLoaders: 1,
-                        browserslist: [
-                            "> 1%",
-                            "last 5 versions",
-                            "not ie <= 8"
-                        ]
+                        autoprefixer: true
                     }
                 },
                     'postcss-loader']
@@ -107,14 +102,6 @@ module.exports = {
             },
             canPrint: true
         }), /*压缩css--正常*/
-        /*require('autoprefixer'),
-        new autoprefixer({
-            browsers: [
-                "> 1%",
-                "last 5 versions",
-                "not ie <= 8"
-            ]
-        }),*/
         new HtmlWebpackPlugin({
             template: './index.html',
             favicon: './src/images/logo_icon.ico'
