@@ -1,5 +1,6 @@
-import '../less/base.less';
-
+/**
+ * Created by yipin on 2017/5/31 0031.
+ */
 (function ($) {
     'use strict';
     $(function () {
@@ -181,6 +182,49 @@ import '../less/base.less';
 
 
         /*百度地图调用*/
+        getBaiDuMap();
 
     });
+
+    /*百度地图调用*/
+    function getBaiDuMap() {
+        /*地图调用*/
+        var map = new BMap.Map("address_wrap"),
+            point = new BMap.Point(113.9533, 22.5368);
+
+        /*初始化地图*/
+        map.centerAndZoom(point, 16);
+
+        /*设置相关开启项*/
+        map.enableScrollWheelZoom();
+
+        /*设置地图控件*/
+        map.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT}));
+        map.addControl(new BMap.NavigationControl());
+
+        /*设置定点覆盖物*/
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+
+
+        /*设置文字覆盖物*/
+        var label = new BMap.Label("大决策信息技术有限公司",{
+            position: point,
+            offset: new BMap.Size(-70,30)
+        });
+
+        label.setStyle({
+            color: "#336fd0",
+            fontSize: "12px",
+            height: "26px",
+            maxWidth: "none",
+            border:"1px solid #336fd0",
+            lineHeight: "20px",
+            borderRadius:"3px",
+            padding:"3px 10px",
+            boxShadow:"1px 1px 3px 0 #888",
+            fontFamily: "微软雅黑"
+        });
+        marker.setLabel(label);
+    }
 })(jQuery);
