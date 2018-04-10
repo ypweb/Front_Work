@@ -1,0 +1,86 @@
+/*--兼容版本版本--*/
+
+///*--伸缩盒--*/
+
+///*显示方式*/
+.display-base(@str:flex) {
+  display: ~'@{str}';
+}
+
+///*伸缩盒（旧）*/
+///*排列规则*/
+.box-orient-base(@str:horizontal) {
+  box-orient: @str;
+}
+
+///*对齐方式(水平方向)*/
+.box-pack-base(@str:start) {
+  box-pack: @str;
+}
+
+///*对齐方式（垂直方向）*/
+.box-align-base(@str:stretch) {
+  box-align: @str;
+}
+
+///*分配父元素剩余空间的比例*/
+.box-flex-base(@str:0) {
+  box-flex: @str;
+}
+
+///*设置子对象所属组*/
+.box-flex-group-base(@str:1) {
+  box-flex-group: @str;
+}
+
+///*设置子对象的显示顺序*/
+.box-ordinal-group-base(@str:1) {
+  box-ordinal-group: @str;
+}
+
+///*设置子对象的排列顺序是否反转*/
+.box-direction-base(@str:normal) {
+  box-direction: @str;
+}
+
+///*设置子对象是否可以换行显示*/
+.box-lines-base(@str:normal) {
+  box-lines: @str;
+}
+
+///*伸缩盒（新）*/
+///*设置子对象如何分配空间--复合属性（扩展比率 收缩比率 默认基准值）*/
+.flex-base(@str:0 0 auto) {
+  flex: @str;
+}
+
+///*设置子对象排列方式--复合属性（排列方向 溢出父元素是否换行）*/
+.flex-flow-base(@str:row nowrap) {
+  flex-flow: @str;
+}
+
+///*设置堆叠缩进的对齐方式（水平方向）--总体上*/
+.align-content-base(@str:stretch) {
+  align-content: @str;
+}
+
+///*(弹性容器--容器，主要是对整个伸缩项目的设置)设置元素在侧轴（纵轴）方向上的对齐方式（垂直方向）*/
+.align-items-base(@str:stretch) {
+  align-items: @str;
+}
+
+///*（弹性项目--容器中的相关项目或子容器等,主要是对单个伸缩项目的设置）设置元素在侧轴（纵轴）方向上的对齐方式（垂直方向）*/
+.align-self-base(@str:auto) {
+  align-self: @str;
+}
+
+///*设置元素在主轴（横轴）方向上的对齐方式（水平方向）--细节上*/
+.justify-content-base(@str:flex-start) {
+  justify-content: @str;
+}
+
+///*设置元素出现的顺序*/
+.order-base(@str:0) {
+  order: @str;
+}
+

@@ -1,0 +1,54 @@
+/*主栏目*/
+/*背景*/
+.cl-mainbox{
+  .layout-base();
+  height:100%;
+  padding:@ad-box-gapp!important;
+  background-repeat: repeat;
+  background-color:@color-white;
+  background-position:left top;
+}
+.cl-mainbox-bg-default{
+  background-image:url('@{source-base-url}../images/bg/bg_default.png');
+}
+.cl-mainbox-bg-dot{
+  background-image:url('@{source-base-url}../images/bg/bg_dot.jpg');
+}
+.cl-mainbox-bg-whitecross{
+  background-image:url('@{source-base-url}../images/bg/bg_whitecross.jpg');
+}
+.cl-mainbox-bg-filter{
+  background-image:url('@{source-base-url}../images/bg/bg_filter.png');
+}
+.cl-mainbox-bg-block{
+  background-image:url('@{source-base-url}../images/bg/bg_bigblock.png');
+}
+
+/*展现区*/
+.cl-mainbox-wrap{
+  .layout-base();
+  height:auto;
+  background-color:@color-white;
+  padding:@ad-box-gapp;
+  &:after{
+    content:'';
+    display:table;
+    height:0;
+    width:100%;
+    line-height: 0;
+  }
+}
+.cl-mainbox-default{
+  background-image:url('@{source-base-url}../images/welcome_bg_top.png'),url('@{source-base-url}../images/welcome_bg_bottom.png');
+  background-position: left top,right bottom;
+  background-repeat: no-repeat;
+  &:empty{
+    height: 100%;
+    .calc-base(height,'100vh - (130px + 23px)');
+    min-height: @ad-content-min-height / 2;
+  }
+}
+.cl-panel{
+  .layout-base();
+  padding:@ad-box-gapp;
+}

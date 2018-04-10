@@ -1,0 +1,114 @@
+/*组合列表*/
+.cc-listgroup {
+  .box-sizing-base();
+  overflow: hidden;
+  font-size: 0;
+  > li {
+    text-align: center;
+    .user-select-base();
+    .box-sizing-base();
+    display: inline-block;
+    .cc-act-btn {
+      width: 100%;
+      margin: 0;
+      .transition(all ease-in .1s .01s);
+    }
+  }
+}
+
+/*有间隙列表*/
+.cc-listgroup-gap {
+  padding: 0 10px;
+  &.cc-listgroup1 {
+    > li {
+      padding: 5px 0;
+    }
+  }
+  &.cc-listgroup2{
+    >li:nth-child(2n){
+      padding:5px 0 5px 10px;
+    }
+  }
+  &.cc-listgroup3,
+  &.cc-listgroup4,
+  &.cc-listgroup5,
+  &.cc-listgroup6,
+  &.cc-listgroup7,
+  &.cc-listgroup8,
+  &.cc-listgroup9,
+  &.cc-listgroup10 {
+    >li{
+      padding:5px 0 5px 10px;
+      &:first-child{
+        padding-left:0;
+      }
+    }
+  }
+}
+
+/*定制宽度*/
+.cc-listgroup1 {
+  > li {
+    width: 100% !important;
+  }
+}
+
+.cc-listgroup2 {
+  > li {
+    width: 50% !important;
+  }
+}
+
+.cc-listgroup3 {
+  > li {
+    width: 33.33333% !important;
+  }
+}
+
+.cc-listgroup4 {
+  > li {
+    width: 25% !important;
+  }
+}
+
+.cc-listgroup5 {
+  > li {
+    width: 20% !important;
+  }
+}
+
+.cc-listgroup6 {
+  > li {
+    width: 16.66666% !important;
+  }
+}
+
+.cc-listgroup7 {
+  > li {
+    width: 14.285% !important;
+  }
+}
+
+.cc-listgroup8 {
+  > li {
+    width: 12.5% !important;
+  }
+}
+
+.cc-listgroup9 {
+  > li {
+    width: 11.11111% !important;
+  }
+}
+
+.cc-listgroup10 {
+  > li {
+    width: 10% !important;
+  }
+}
+
+
+
+
+
+
