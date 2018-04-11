@@ -38,11 +38,7 @@ module.exports = {
       {
         test: /\.js$/, /*加载js文件*/
         loader: 'babel-loader',
-        include: [
-          resolve('src'),
-          resolve('test'),
-          resolve('node_modules/webpack-dev-server/client')
-        ]
+        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
         test: /iconfont\.(ttf|woff|svg|eot)$/, /*处理字体图标字体文件*/
@@ -54,7 +50,7 @@ module.exports = {
       },
       {
         test: /^(iconfont)\.(ttf|woff|svg|eot)$/, /*处理非字体图标字体文件*/
-        loader: 'url-loader',
+        loader: 'url-loader!file-loader',
         options: {
           limit: 5000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
@@ -75,7 +71,7 @@ module.exports = {
           limit: 5000,
           name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
-      }, /* {
+      },/* {
         test: /\.(html|htm)$/, /!*处理html中使用图片--正常*!/
         loader: 'html-withimg-loader'
       },*/ {
@@ -83,9 +79,8 @@ module.exports = {
         loader: 'style-loader!css-loader!postcss-loader!less-loader'
       }, {
         test: /\.css$/, /*处理css-正常*/
-        exclude: /node_modules/,
-        /*loader: 'style-loader!css-loader'*/
-        loader:'vue-loader'
+        loader: 'style-loader!css-loader'
+        /*loader:'vue-loader'*/
       }
     ]
   },
