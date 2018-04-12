@@ -56,7 +56,8 @@
                 resetform0 = null,
                 islogistics = false,
                 sureObj = public_tool.sureDialog(dia)/*回调提示对象*/,
-                setSure = new sureObj();
+                setSure = new sureObj(),
+                operate_item;
 
 
             /*查询对象*/
@@ -194,7 +195,11 @@
                                         btns += '<span  data-subitem=""  data-action="select" data-state="' + state + '" data-id="' + id + '"  class="btn btn-white btn-icon btn-xs g-br2 g-c-gray8">\
 										<i class="fa-angle-right"></i>\
 										<span>查看</span>\
-										</span>';
+										</span>\
+                                        <span data-action="excel" data-id="' + id + '"  class="btn btn-white btn-icon btn-xs g-br2 g-c-gray8 g-d-hidei">\
+                                            <i class="fa-file-excel-o"></i>\
+                                            <span>导出</span>\
+                                        </span>';
                                     }
                                     return btns;
                                 }
@@ -306,7 +311,7 @@
 
             /*事件绑定*/
             /*绑定查看，修改操作*/
-            var operate_item;
+
             $order_stats_wrap.delegate('span', 'click', function (e) {
                 e.stopPropagation();
                 e.preventDefault();
@@ -315,6 +320,7 @@
                     $this,
                     id,
                     action,
+                    $excel,
                     $tr;
 
                 //适配对象
@@ -347,6 +353,7 @@
                         backdrop: 'static'
                     });
                 } else if (action === 'select') {
+                    $excel = $this.next();
                     /*查看收货详情*/
                     (function () {
                         var subclass = $this.children('i').hasClass('fa-angle-down'),
@@ -357,6 +364,7 @@
                             /*收缩*/
                             $this.children('i').removeClass('fa-angle-down');
                             tabletr.child().hide(200);
+                            $excel.addClass('g-d-hidei');
                         } else {
                             /*添加高亮状态*/
                             if (operate_item) {
@@ -489,7 +497,7 @@
                                         $this.attr({
                                             'data-subitem': 'true'
                                         }).children('i').addClass('fa-angle-down');
-
+                                        $excel.removeClass('g-d-hidei');
                                     })
                                     .fail(function (resp) {
                                         console.log(resp.message);
@@ -497,6 +505,7 @@
                             } else {
                                 tabletr.child().show();
                                 $this.children('i').addClass('fa-angle-down');
+                                $excel.removeClass('g-d-hidei');
                             }
                         }
                     }());
@@ -515,6 +524,11 @@
                         'data-freight': $this.attr('data-freight'),
                         'data-id': id
                     }).val('');
+                } else if (action === 'excel') {
+                    if (typeof id === 'undefined' || id === '' || id === null) {
+                        return false;
+                    }
+                    window.open('http://10.0.5.226:8082/mall-agentbms-api/goodsorder/detail/export?adminId=' + decodeURIComponent(logininfo.param.adminId) + '&token=' + decodeURIComponent(logininfo.param.token) + '&id=' + id, '_blank');
                 }
             });
 
@@ -740,6 +754,7 @@
                 table.ajax.config(opt.config.ajax).load();
             }
         }
+
 
     });
 
