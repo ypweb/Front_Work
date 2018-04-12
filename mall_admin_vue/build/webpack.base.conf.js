@@ -80,10 +80,9 @@ module.exports = {
         loader: 'html-withimg-loader'
       },*/ {
         test: /\.less$/, /*处理less*/
-        loader: 'style-loader!css-loader!postcss-loader!less-loader'
+        loader: 'vue-loader'
       }, {
         test: /\.css$/, /*处理css-正常*/
-        exclude: /node_modules/,
         /*loader: 'style-loader!css-loader'*/
         loader:'vue-loader'
       }
