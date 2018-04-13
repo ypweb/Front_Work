@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'ac_container_panel',
+  name: 'ch_container_panel',
   data () {
     return {}
   }

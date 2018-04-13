@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'ac_ftf_panel',
+  name: 'ch_ftf_panel',
   data () {
     return {}
   }

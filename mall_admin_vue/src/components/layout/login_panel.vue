@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'ac_login_panel',
+  name: 'ch_login_panel',
   data () {
     return {}
   }
