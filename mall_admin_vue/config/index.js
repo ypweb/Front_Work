@@ -5,7 +5,7 @@ module.exports = {
   /*开发环境*/
   dev: {
     assetsSubDirectory: 'static',
-    assetsPublicPath: '',
+    assetsPublicPath: '/',
     proxyTable: {},
     host: 'localhost',
     port: 8080,

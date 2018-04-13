@@ -75,15 +75,14 @@ module.exports = {
           limit: 5000,
           name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
-      }, /* {
-        test: /\.(html|htm)$/, /!*处理html中使用图片--正常*!/
+      },  {
+        test: /\.(html|htm)$/, /*处理html中使用图片--正常*/
         loader: 'html-withimg-loader'
-      },*/ {
+      }, {
         test: /\.less$/, /*处理less*/
         loader: 'vue-loader'
       }, {
         test: /\.css$/, /*处理css-正常*/
-        /*loader: 'style-loader!css-loader'*/
         loader:'vue-loader'
       }
     ]
