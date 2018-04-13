@@ -4,8 +4,6 @@
 
 /*---导入样式---*/
 import('./assets/less/base.less');
-/*导入自定义样式*/
-/*import 'element-ui/lib/theme-chalk/index.css';*//*element-ui样式*/
 
 
 /*---导入组件和相关脚本资源---*/
