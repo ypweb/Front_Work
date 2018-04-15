@@ -67,6 +67,13 @@
                 $admin_search_clear = $('#admin_search_clear');
 
 
+            /*打印对象*/
+            var $show_print_wrap = $('#show_print_wrap'),
+                $order_outerwrap = $('#order_outerwrap'),
+                $order_innerwrap = $('#order_innerwrap'),
+                $order_printok = $('#order_printok');
+
+
             /*列表请求配置*/
             var order_page = {
                     page: 1,
@@ -199,6 +206,10 @@
                                         <span data-action="excel" data-id="' + id + '"  class="btn btn-white btn-icon btn-xs g-br2 g-c-gray8 g-d-hidei">\
                                             <i class="fa-file-excel-o"></i>\
                                             <span>导出</span>\
+                                        </span>\
+                                        <span data-action="print" data-id="' + id + '" class="btn btn-white btn-icon btn-xs g-br2 g-c-gray8 g-d-hidei">\
+                                            <i class="fa-print"></i>\
+                                            <span>打印</span>\
                                         </span>';
                                     }
                                     return btns;
@@ -321,6 +332,7 @@
                     id,
                     action,
                     $excel,
+                    $print,
                     $tr;
 
                 //适配对象
@@ -354,6 +366,7 @@
                     });
                 } else if (action === 'select') {
                     $excel = $this.next();
+                    $print = $excel.next();
                     /*查看收货详情*/
                     (function () {
                         var subclass = $this.children('i').hasClass('fa-angle-down'),
@@ -365,6 +378,7 @@
                             $this.children('i').removeClass('fa-angle-down');
                             tabletr.child().hide(200);
                             $excel.addClass('g-d-hidei');
+                            $print.addClass('g-d-hidei');
                         } else {
                             /*添加高亮状态*/
                             if (operate_item) {
@@ -498,6 +512,7 @@
                                             'data-subitem': 'true'
                                         }).children('i').addClass('fa-angle-down');
                                         $excel.removeClass('g-d-hidei');
+                                        $print.removeClass('g-d-hidei');
                                     })
                                     .fail(function (resp) {
                                         console.log(resp.message);
@@ -506,6 +521,7 @@
                                 tabletr.child().show();
                                 $this.children('i').addClass('fa-angle-down');
                                 $excel.removeClass('g-d-hidei');
+                                $print.removeClass('g-d-hidei');
                             }
                         }
                     }());
@@ -529,12 +545,17 @@
                         return false;
                     }
                     window.open('http://10.0.5.226:8082/mall-agentbms-api/goodsorder/detail/export?adminId=' + decodeURIComponent(logininfo.param.adminId) + '&token=' + decodeURIComponent(logininfo.param.token) + '&id=' + id, '_blank');
+                } else if (action === 'print') {
+                    orderPrint({
+                        outer: table.row($tr).data(),
+                        inner: $tr.next().find('>td')
+                    });
                 }
             });
 
 
             /*关闭弹出框*/
-            $.each([$show_send_wrap, $show_freight_wrap], function (index) {
+            $.each([$show_send_wrap, $show_freight_wrap,$show_print_wrap], function (index) {
                 this.on('hide.bs.modal', function () {
                     if (operate_item) {
                         setTimeout(function () {
@@ -587,6 +608,21 @@
                     newvalue = public_tool.moneyCorrect(value, 15, true)[0];
                     this.value = newvalue;
                 }
+            });
+
+
+            /*确认打印*/
+            $order_printok.on('click',function () {
+                html2canvas(document.getElementById('order_print')).then(function (canvas){
+                    var img_print=window.open(''),
+                        blob=canvas.toDataURL(),
+                        img = document.createElement("img");
+
+                    img.alt='打印图片';
+                    img.src=blob;
+                    $(img).appendTo($(img_print.document.body).html(''));
+                    img_print.print();
+                });
             });
 
 
@@ -753,6 +789,18 @@
             } else {
                 table.ajax.config(opt.config.ajax).load();
             }
+        }
+
+
+        /*打印采购单*/
+        function orderPrint(obj) {
+            var outer_data=obj.outer,
+                outer_str='<td>'+outer_data["orderNumber"]+'</td><td>'+outer_data["orderTime"]+'</td><td>'+outer_data["customerName"]+'</td><td>'+outer_data["totalQuantity"]+'</td><td>'+ {0: "待付款",1: "取消订单",6:"待发货",9:"待收货",20:"待评价",21:"已评价"}[outer_data["orderState"]]+'</td>';
+            $(outer_str).appendTo($order_outerwrap.html(''));/*外部数据*/
+            $(obj.inner).appendTo($order_innerwrap.html(''));/*内部数据*/
+            setTimeout(function () {
+                $show_print_wrap.modal('show', {backdrop: 'static'});
+            },1000);
         }
 
 
