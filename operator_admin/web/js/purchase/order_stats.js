@@ -546,16 +546,19 @@
                     }
                     window.open('http://10.0.5.226:8082/mall-agentbms-api/goodsorder/detail/export?adminId=' + decodeURIComponent(logininfo.param.adminId) + '&token=' + decodeURIComponent(logininfo.param.token) + '&id=' + id, '_blank');
                 } else if (action === 'print') {
+                    if (typeof id === 'undefined' || id === '' || id === null) {
+                        return false;
+                    }
                     orderPrint({
                         outer: table.row($tr).data(),
-                        inner: $tr.next().find('>td')
+                        inner: $tr.next().find('>td').html()
                     });
                 }
             });
 
 
             /*关闭弹出框*/
-            $.each([$show_send_wrap, $show_freight_wrap,$show_print_wrap], function (index) {
+            $.each([$show_send_wrap, $show_freight_wrap, $show_print_wrap], function (index) {
                 this.on('hide.bs.modal', function () {
                     if (operate_item) {
                         setTimeout(function () {
@@ -612,16 +615,25 @@
 
 
             /*确认打印*/
-            $order_printok.on('click',function () {
-                html2canvas(document.getElementById('order_print')).then(function (canvas){
-                    var img_print=window.open(''),
-                        blob=canvas.toDataURL(),
-                        img = document.createElement("img");
+            $order_printok.on('click', function () {
+                html2canvas(document.getElementById('order_print')).then(function (canvas) {
+                    var img_print = window.open(''),
+                        blob = canvas.toDataURL(),
+                        img = document.createElement("img"),
+                        $body = $(img_print.document.body);
 
-                    img.alt='打印图片';
-                    img.src=blob;
-                    $(img).appendTo($(img_print.document.body).html(''));
-                    img_print.print();
+                    img.alt = '打印图片';
+                    img.src = blob;
+                    $body.css({
+                        'padding-top': '20',
+                        'padding-bottom': '20',
+                        'box-sizing': 'border-box'
+                    });
+                    $(img).appendTo($body.html(''));
+                    setTimeout(function () {
+                        img_print.print();
+                        img_print.close();
+                    }, 100);
                 });
             });
 
@@ -794,13 +806,22 @@
 
         /*打印采购单*/
         function orderPrint(obj) {
-            var outer_data=obj.outer,
-                outer_str='<td>'+outer_data["orderNumber"]+'</td><td>'+outer_data["orderTime"]+'</td><td>'+outer_data["customerName"]+'</td><td>'+outer_data["totalQuantity"]+'</td><td>'+ {0: "待付款",1: "取消订单",6:"待发货",9:"待收货",20:"待评价",21:"已评价"}[outer_data["orderState"]]+'</td>';
-            $(outer_str).appendTo($order_outerwrap.html(''));/*外部数据*/
-            $(obj.inner).appendTo($order_innerwrap.html(''));/*内部数据*/
+            var outer_data = obj.outer,
+                outer_str = '<td>' + outer_data["orderNumber"] + '</td><td>' + outer_data["orderTime"] + '</td><td>' + outer_data["customerName"] + '</td><td>' + outer_data["totalQuantity"] + '</td><td>' + {
+                    0: "待付款",
+                    1: "取消订单",
+                    6: "待发货",
+                    9: "待收货",
+                    20: "待评价",
+                    21: "已评价"
+                }[outer_data["orderState"]] + '</td>';
+            $(outer_str).appendTo($order_outerwrap.html(''));
+            /*外部数据*/
+            $(obj.inner).appendTo($order_innerwrap.html(''));
+            /*内部数据*/
             setTimeout(function () {
                 $show_print_wrap.modal('show', {backdrop: 'static'});
-            },1000);
+            }, 1000);
         }
 
 

@@ -60,9 +60,9 @@
 
             /*打印对象*/
             var $show_print_wrap = $('#show_print_wrap'),
-                $purchase_outerwrap=$('#purchase_outerwrap'),
-                $purchase_innerwrap=$('#purchase_innerwrap'),
-                $purchase_printok=$('#purchase_printok');
+                $purchase_outerwrap = $('#purchase_outerwrap'),
+                $purchase_innerwrap = $('#purchase_innerwrap'),
+                $purchase_printok = $('#purchase_printok');
 
 
             /*列表请求配置*/
@@ -377,8 +377,8 @@
 
                 } else if (action === 'print') {
                     purchasePrint({
-                        outer:table.row($tr).data(),
-                        inner:$tr.next().find('table tbody').html()
+                        outer: table.row($tr).data(),
+                        inner: $tr.next().find('table tbody').html()
                     });
                 }
             });
@@ -414,18 +414,25 @@
                     }, 1000);
                 }
             });
-            
-            /*确认打印*/
-            $purchase_printok.on('click',function () {
-                html2canvas(document.getElementById('purchase_print')).then(function (canvas){
-                    var img_print=window.open(''),
-                        blob=canvas.toDataURL(),
-                        img = document.createElement("img");
 
-                    img.alt='打印图片';
-                    img.src=blob;
-                    $(img).appendTo($(img_print.document.body).html(''));
-                    img_print.print();
+            /*确认打印*/
+            $purchase_printok.on('click', function () {
+                html2canvas(document.getElementById('purchase_print')).then(function (canvas) {
+                    var img_print = window.open(''),
+                        blob = canvas.toDataURL(),
+                        img = document.createElement("img"),
+                        $body = $(img_print.document.body);
+
+                    $body.css({
+                        'padding-top': '20',
+                        'padding-bottom': '20',
+                        'box-sizing': 'border-box'
+                    });
+                    $(img).appendTo($body.html(''));
+                    setTimeout(function () {
+                        img_print.print();
+                        img_print.close();
+                    }, 100);
                 });
             });
 
@@ -445,10 +452,17 @@
 
         /*打印采购单*/
         function purchasePrint(obj) {
-            var outer_data=obj.outer,
-            outer_str='<td>'+outer_data["orderNumber"]+'</td><td>'+outer_data["orderTime"]+'</td><td>'+outer_data["providerName"]+'</td><td>'+ {0: "待发货",1: "未收货",3: "部分收货",5: "已收货"}[outer_data["orderState"]]+'</td>';
-            $(outer_str).appendTo($purchase_outerwrap.html(''));/*外部数据*/
-            $(obj.inner).appendTo($purchase_innerwrap.html(''));/*内部数据*/
+            var outer_data = obj.outer,
+                outer_str = '<td>' + outer_data["orderNumber"] + '</td><td>' + outer_data["orderTime"] + '</td><td>' + outer_data["providerName"] + '</td><td>' + {
+                    0: "待发货",
+                    1: "未收货",
+                    3: "部分收货",
+                    5: "已收货"
+                }[outer_data["orderState"]] + '</td>';
+            $(outer_str).appendTo($purchase_outerwrap.html(''));
+            /*外部数据*/
+            $(obj.inner).appendTo($purchase_innerwrap.html(''));
+            /*内部数据*/
             $show_print_wrap.modal('show', {backdrop: 'static'});
         }
 
