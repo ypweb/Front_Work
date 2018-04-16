@@ -1,0 +1,87 @@
+/*--兼容版本版本--*/
+
+///*--布局--*/
+
+///*基本布局*/
+.layout-base(@w:100%,@box:border-box) {
+  width: @w;
+  .box-sizing-base(@box);
+}
+
+///*左上屏幕定位*/
+.layout-fixedl-base(@left:0,@top:0,@z-index:100) {
+  position: fixed;
+  left: @left;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*右上屏幕定位*/
+.layout-fixedr-base(@right:0,@top:0,@z-index:100) {
+  position: fixed;
+  right: @right;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*左下屏幕定位*/
+.layout-fixedlb-base(@left:0,@bottom:0,@z-index:100) {
+  position: fixed;
+  left: @left;
+  bottom: @bottom;
+  z-index: @z-index;
+}
+
+///*右下屏幕定位*/
+.layout-fixedrb-base(@right:0,@bottom:0,@z-index:100) {
+  position: fixed;
+  right: @right;
+  bottom: @bottom;
+  z-index: @z-index;
+}
+
+///*相对定位*/
+.layout-relative-base(@left:0,@top:0,@z-index:1) {
+  position: relative;
+  left: @left;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*左上绝对定位*/
+.layout-absolutel-base(@left:0,@top:0,@z-index:5) {
+  position: absolute;
+  left: @left;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*右上绝对定位*/
+.layout-absoluter-base(@right:0,@top:0,@z-index:5) {
+  position: absolute;
+  right: @right;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*左下绝对定位*/
+.layout-absolutelb-base(@left:0,@bottom:0,@z-index:5) {
+  position: absolute;
+  left: @left;
+  bottom: @bottom;
+  z-index: @z-index;
+}
+
+///*右下绝对定位*/
+.layout-absoluterb-base(@right:0,@bottom:0,@z-index:5) {
+  position: absolute;
+  right: @right;
+  bottom: @bottom;
+  z-index: @z-index;
+}
+
+///*浮动*/
+.layout-float-base(@w:100%,@box:border-box,@dir:left) {
+  .layout-base(@w, @box);
+  float: @dir;
+}

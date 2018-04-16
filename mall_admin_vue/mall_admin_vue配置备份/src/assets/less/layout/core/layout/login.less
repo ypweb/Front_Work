@@ -1,0 +1,117 @@
+.cl-login-container {
+  .layout-relative-base();
+  .layout-base();
+  background-color: @color-white;
+  background-repeat: repeat;
+  background-position: 0 0;
+  height: 100%;
+  min-height: @ad-login-height;
+  min-width: @ad-login-width;
+  height: 100vh;
+  width: 100vw;
+  /*logo*/
+  .cl-login-logo{
+    .layout-absolutel-base(0,10px);
+    width:@ad-login-icon-width;
+    height:@ad-login-icon-height;
+    //background: transparent url('@{source-base-url}../images/logo_black.png') 0 0 no-repeat;
+  }
+  /*提示区域*/
+  .cl-login-message{
+    .layout-absolutel-base(50%,0);
+    background:rgba(255,255,255,.6);
+    width:0;
+    height:0;
+    color:@color-red1;
+    text-align: center;
+    line-height: 0;
+    margin-left: 0;
+    .transition-base(width height margin-left 2s ease-in .01s);
+    &:not(:empty){
+      margin-left: -@ad-login-width/2;
+      width:@ad-login-width;
+      height:@ad-login-icon-height;
+      line-height: @ad-login-icon-height;
+    }
+  }
+  /*外部框*/
+  .cl-login-panel {
+    .layout-absolutel-base(50%, 50%);
+    .layout-base(@ad-login-width);
+    height: @ad-login-height;
+    margin-left: -@ad-login-width/2;
+    margin-top: -@ad-login-height/2;
+  }
+  .cl-login-wrap {
+    .layout-relative-base();
+    .layout-base();
+    height: 100%;
+    .box-shadow-base(1px 1px 5px 0 @color-gray13);
+  }
+  .cl-login-posa {
+    position: absolute;
+  }
+  /*遮罩部分*/
+  .cl-login-mask {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: @color-white;
+    .opacity-base(50);
+    z-index: 1;
+  }
+  .cl-login-show {
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    .layout-base();
+    height: 100%;
+  }
+  /*登录头部*/
+  @login-header-height:@ad-login-icon-height * 2;
+  .cl-login-header {
+    .layout-base();
+    display: block;
+    height: @login-header-height;
+    line-height: @login-header-height;
+    font-size: @font-size-base + 8 !important;
+    text-align: center;
+    color:@color-gray6;
+    .user-select-base();
+  }
+  /*登录表单区域*/
+  .cl-login-main {
+    .layout-base();
+    height: @ad-login-height - @login-header-height;
+    padding: 50px 100px 0 100px;
+  }
+  /*验证码*/
+  .ce-validcode-show {
+    overflow: hidden;
+    display: inline-block;
+    padding:0 10px;
+    >img{
+      .layout-float-base(82px);
+      .border-radius-base(3px);
+      border: 1px solid @color-gray12;
+      height: 28px;
+      max-width: 120px;
+      max-height: 40px;
+      cursor: pointer;
+      display:block;
+      margin-top:2px;
+    }
+    &:after{
+      content:'看不清楚';
+      color:@color-red1;
+      text-indent:10px;
+      display:inline-block;
+      cursor: pointer;
+    }
+  }
+  .cl-login-submit{
+    .border-radius-base(14px) !important;
+  }
+}
+

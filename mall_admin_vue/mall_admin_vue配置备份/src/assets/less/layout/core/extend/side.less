@@ -1,0 +1,31 @@
+/*侧边栏扩展*/
+
+/*logo*/
+.ce-side-logo{
+  .layout-base();
+  height:64px;
+  background-image:url('@{source-base-url}../images/logo.png');
+  background-position: 30px center;
+  background-repeat: no-repeat;
+  background-size: auto 38px;
+}
+
+.ant-layout-sider-collapsed{
+  .ce-side-logo{
+    background-position: center center;
+    //background-image:url('@{source-base-url}../images/logo_collapsed.png');
+    background-size: auto 30px;
+  }
+}
+
+@media screen and (max-width:768px){
+  .ce-side-logo{
+    background-position: center center;
+    //background-image:url('@{source-base-url}../images/logo_collapsed.png');
+    background-size: auto 30px;
+  }
+}
+
+
+
+

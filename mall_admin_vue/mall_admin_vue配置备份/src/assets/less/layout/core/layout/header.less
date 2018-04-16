@@ -1,0 +1,22 @@
+/*头部区域*/
+/*下拉信息面板*/
+.ce-header-info-panel {
+  position: absolute;
+  top:-@ad-header-height;
+  z-index: 100;
+  .layout-base(@ad-header-height/4);
+  height: 300px;
+  .ce-header-info-btn {
+    text-align: center !important;
+    .border-radius-base(2px) !important;
+    .layout-base(@ad-header-height/4);
+    height: @ad-header-height/3;
+    text-indent: -.25em;
+  }
+}
+.ce-header-info{
+  right:-@ad-header-gappr + 10;
+}
+.ce-header-message{
+  right:-@ad-header-gappr + 10 + @ad-header-height/2;
+}
