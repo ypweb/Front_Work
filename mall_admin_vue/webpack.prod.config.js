@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.config.js');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const fs = require('fs');
 
 fs.open('./src/config/env.js', 'w', function(err, fd) {
@@ -17,6 +19,7 @@ module.exports = merge(webpackBaseConfig, {
         chunkFilename: '[name].[hash].chunk.js'
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new ExtractTextPlugin({
             filename: '[name].[hash].css',
             allChunks: true
@@ -39,6 +42,10 @@ module.exports = merge(webpackBaseConfig, {
             filename: '../index_prod.html',
             template: './src/template/index.ejs',
             inject: false
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: __dirname + '/src/static',
+            to: './static'
+        }])
     ]
 });

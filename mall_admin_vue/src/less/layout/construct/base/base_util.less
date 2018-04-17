@@ -1,0 +1,115 @@
+/*--兼容版本版本--*/
+///*--基础类--*/
+///*盒模型*/
+.box-sizing-base(@boxsizing:border-box) {
+  box-sizing: @boxsizing;
+}
+
+///*圆角*/
+.border-radius-base(@radius:none) {
+  border-radius: @radius;
+}
+
+///*容器阴影*/
+.box-shadow-base(@str) {
+  box-shadow: @str;
+}
+
+///*文字阴影*/
+.text-shadow-base(@str) {
+  text-shadow: @str;
+}
+
+///*过渡*/
+.transition-base(@str) {
+  transition: @str;
+}
+
+///*变换中心*/
+.transform-origin-base(@origin) {
+  transform-origin: @origin;
+}
+
+///*变换*/
+.transform-base(@str) {
+  transform: @str;
+}
+
+///*动画定义*/
+.animation-base(@str) {
+  animation: @str;
+}
+
+///*横向渐变*/
+.linear-gradienth-base(@startColor: #555, @endColor: #333) {
+  background-color: @endColor;
+  background-image: linear-gradient(to right, @startColor, @endColor);
+  background-repeat: repeat-x;
+}
+
+///*纵项渐变*/
+.linear-gradientv-base(@startColor: #555, @endColor: #333) {
+  background-color: mix(@startColor, @endColor, 60%);
+  background-image: linear-gradient(to bottom, @startColor, @endColor);
+  background-repeat: repeat-x;
+}
+
+///*文字颜色*/
+.color-t-base(@color) {
+    @{color-type}: @color;
+}
+
+///*背景颜色*/
+.color-bg-base(@color) {
+  background-@{color-type}: @color;
+}
+
+///*轮廓*/
+.no-outline-base(@outline:none) {
+  outline: @outline;
+}
+
+///*透明*/
+.opacity-base(@str:100) {
+  opacity: @str / 100;
+}
+
+///*图像灰度*/
+.filter-grayscale-base(@str:100) {
+  filter: grayscale(~'@{str}%');
+}
+
+///*图像模糊*/
+.filter-blur-base(@str:5) {
+  filter: blur(~'@{str}px');
+}
+
+///*透视*/
+.perspective-base(@str:50px) {
+  perspective: @str;
+}
+
+///*透视坐标*/
+.perspective-origin-base(@strx:center,@stry:center) {
+  perspective-origin: @strx @stry;
+}
+
+///*屏幕模式下的文字缩放(none或者100%为关闭)*/
+.text-size-adjust-base(@str:100%) {
+  text-size-adjust: @str;
+}
+
+///*动态及时尺寸*/
+.calc-base(@obj,@str) {
+    @{obj}: calc(~'@{str}');
+}
+
+///*伪对象*/
+.placeholder-base(@obj,@str) {
+  @{obj}::placeholder {@str();}
+}
+
+///*外观*/
+.appearance-base(@app:normal){
+  appearance:@app;
+}

@@ -4,11 +4,16 @@ import iView from 'iview';
 import VueRouter from 'vue-router';
 import Routers from './router';
 import Vuex from 'vuex';
+import Tool from './libs/tool';
 import Util from './libs/util';
 import App from './app.vue';
 
 /*导入iview样式*/
 import 'iview/dist/styles/iview.css';
+
+/*导入自定义扩展less*/
+import './less/base.less';
+
 
 /*使用路由*/
 Vue.use(VueRouter);
@@ -57,7 +62,7 @@ const store = new Vuex.Store({
 
 
 new Vue({
-    el: '#app',
+    el: '#app_main',
     router: router,
     store: store,
     render: h => h(App)
