@@ -215,12 +215,12 @@ tool.requestHttp = function (config) {
     return axios.create(req);
 };
 /*适配请求信息*/
-tool.adaptReqUrl = function (url, debug) {
+tool.adaptReqUrl = function (url, common, debug) {
     /*debug模式则调用自定义json模式*/
     if (debug) {
         return 'static/test.json';
     } else {
-        if (config.common) {
+        if (common) {
             return `${commomdomain}${baseproject}${url}`;
         } else {
             return `${basedomain}${baseproject}${url}`;
@@ -232,12 +232,15 @@ tool.adaptReqConfig = function (config) {
     if (config.common) {
         /*如果是公用请求*/
         if (!config.url.test(new RegExp('\\' + commomdomain, 'g'))) {
-            /*ru*/
-            config.url = `${commomdomain}${baseproject}${config.url}`;
+            /*如果地址需要适配则适配*/
+            config.url = tool.adaptReqUrl(config.url, true, false);
         }
-    } else if (config.base) {
+    } else {
         /*如果是常用请求*/
-        req.url = `${basedomain}${baseproject}${url}`;
+        if (!config.url.test(new RegExp('\\' + basedomain, 'g'))) {
+            /*如果地址需要适配则适配*/
+            config.url = tool.adaptReqUrl(config.url, false, false);
+        }
     }
     return config;
 };

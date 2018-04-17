@@ -1,34 +1,5 @@
-/*容器*/
-.cs-container {
-  .layout-base();
-  height: 100%;
-}
-
-/*404*/
-.cs-f0f-container {
-  .layout-fixedl-base();
-  width: 100%;
-  height: 100%;
-  width: 100vw;
-  height: 100vh;
-  background: @color-white url('@{source-base-url}../images/404.png') center top no-repeat;
-  .f0f-content {
-    .layout-relative-base();
-    width: 100%;
-    height: 100%;
-  }
-  .f0f-show {
-    .layout-absolutel-base(50%, @ad-f0f-icon-height);
-    background: transparent;
-    margin-left: -@ad-f0f-icon-height/2;
-    width: @ad-f0f-icon-height;
-    height: @ad-f0f-icon-height/5;
-    text-align: center;
-  }
-}
-
 /*兼容面板*/
-.cs-support-container {
+.cs-panel-support{
   .layout-relative-base();
   .layout-fixedl-base();
   .layout-base();
@@ -38,14 +9,13 @@
   height: 100vh;
   width: 100vw;
   min-height: 600px;
-  min-width: 1080px;
-  .cs-support-inner {
+  .support-inner {
     .layout-absolutel-base();
     .layout-base();
     height: 100%;
     display: table;
   }
-  .cs-support-browser {
+  .support-browser {
     .layout-base();
     height: 100%;
     display: table-cell;
@@ -128,3 +98,74 @@
   }
 }
 
+
+@media (max-width: 1400px) {
+  .cs-panel-support{
+    .support-browser {
+      .browser-icon {
+        a {
+          width: 150px;
+          padding:20px 10px;
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .cs-panel-support{
+    .support-browser {
+      .browser-icon {
+        a {
+          margin: 10px 10px 0 10px;
+          width: 120px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cs-panel-support{
+    .support-browser {
+      .browser-icon {
+        a {
+          width: 100px;
+          height: 200px;
+        }
+        p {
+          font-size: @font-size-base !important;
+        }
+        div {
+          margin: 20px 0 0 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-panel-support{
+    .support-browser {
+      .browser-icon {
+        a {
+          width: 80px;
+          height: 150px;
+        }
+        p {
+          font-size: @font-size-base - 2 !important;
+          height: 30px;
+          line-height: 15px;
+        }
+        span {
+          height: 24px;
+          line-height: 12px;
+        }
+        div {
+          margin: 10px 0 0 0;
+        }
+      }
+    }
+  }
+}

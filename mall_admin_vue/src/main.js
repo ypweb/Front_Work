@@ -60,7 +60,7 @@ const store = new Vuex.Store({
     }
 });
 
-
+/*启动应用*/
 new Vue({
     el: '#app_main',
     router: router,
