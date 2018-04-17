@@ -1,6 +1,6 @@
 <template>
     <div class="cs-layout-container" :class="{'layout-hide-text': spanLeft < 4}">
-        <Row type="flex">
+        <Row class="cs-layout-wrap" type="flex">
             <Col :span="spanLeft" class="cs-layout-left">
                 <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
                     <div class="cs-layout-logo-left"></div>
@@ -60,7 +60,7 @@
                         <BreadcrumbItem>App</BreadcrumbItem>
                     </Breadcrumb>
                 </div>
-                <div class="cs-layout-content">
+                <div class="cs-layout-content" v-bind:class="contentClass">
                     <div class="cs-layout-content-main">
                         <router-view></router-view>
                     </div>
@@ -78,8 +78,17 @@
         data () {
             return {
                 spanLeft: 4,
-                spanRight: 20
+                spanRight: 20,
+                contentClass:'cs-layout-content-default'
             }
+        },
+        mounted() {
+            let contentstr='cs-layout-content-',
+                contentlist=['default','dot','filter','whitecross','bigblock'],
+            len=contentlist.length,
+            index=Math.floor(Math.random() * len);
+            console.log(index);
+            this.contentClass=`${contentstr}${contentlist[index]}`;
         },
         computed: {
             iconSize () {
