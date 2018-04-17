@@ -23,10 +23,6 @@
         </template>
     </div>
 </template>
-<!--<div>
-
-        <router-view></router-view>
-    </div>-->
 <script>
     /*导入组件*/
     import ch_panel_support from './views/panel/support'
@@ -37,7 +33,7 @@
     export default {
         data() {
             return {
-                isSupport: false,
+                isSupport: true,
                 isLogin: true,
                 isFZF:false
             };
