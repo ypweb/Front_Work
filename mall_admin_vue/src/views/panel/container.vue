@@ -47,7 +47,7 @@
                     </Submenu>
                 </Menu>
             </Col>
-            <Col :span="spanRight">
+            <Col class="cs-layout-mainbox" v-bind:class="mainboxClass" :span="spanRight">
                 <div class="cs-layout-header">
                     <Button type="text" @click="toggleClick">
                         <Icon type="navicon" size="32"></Icon>
@@ -60,7 +60,7 @@
                         <BreadcrumbItem>App</BreadcrumbItem>
                     </Breadcrumb>
                 </div>
-                <div class="cs-layout-content" v-bind:class="contentClass">
+                <div class="cs-layout-content">
                     <div class="cs-layout-content-main">
                         <router-view></router-view>
                     </div>
@@ -79,16 +79,15 @@
             return {
                 spanLeft: 4,
                 spanRight: 20,
-                contentClass:'cs-layout-content-default'
+                mainboxClass:'cs-layout-mainbox-default'
             }
         },
         mounted() {
-            let contentstr='cs-layout-content-',
-                contentlist=['default','dot','filter','whitecross','bigblock'],
-            len=contentlist.length,
+            let mainboxstr='cs-layout-mainbox-',
+                mainboxlist=['default','dot','filter','whitecross','bigblock'],
+            len=mainboxlist.length,
             index=Math.floor(Math.random() * len);
-            console.log(index);
-            this.contentClass=`${contentstr}${contentlist[index]}`;
+            this.mainboxClass=`${mainboxstr}${mainboxlist[index]}`;
         },
         computed: {
             iconSize () {

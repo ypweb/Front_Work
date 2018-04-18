@@ -1,42 +1,53 @@
+/*背景主题*/
+.cs-layout-mainbox{
+  background-repeat: repeat;
+  background-position: 0 0;
+}
+.cs-layout-mainbox-default{
+  background-image: url('@{source-base-url}../images/bg/bg_default.png');
+}
+.cs-layout-mainbox-dot{
+  background-image: url('@{source-base-url}../images/bg/bg_dot.jpg');
+}
+.cs-layout-mainbox-filter{
+  background-image: url('@{source-base-url}../images/bg/bg_filter.png');
+}
+.cs-layout-mainbox-whitecross{
+  background-image: url('@{source-base-url}../images/bg/bg_whitecross.jpg');
+}
+.cs-layout-mainbox-bigblock{
+  background-image: url('@{source-base-url}../images/bg/bg_bigblock.png');
+}
+/*头部*/
 .cs-layout-header{
-  height: 60px;
+  height: @core-layout-header-height;
   background: #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
+/*面包屑*/
 .cs-layout-breadcrumb{
-  padding: 10px 15px 0;
+  height: @core-layout-breadcrumb-height;
+  padding: @core-layout-gap-padding-top 15px 0;
 }
+/*主内容区域*/
 .cs-layout-content{
   min-height: @core-layout-content-minheight;
+  @content-height:(@core-layout-header-height + @core-layout-breadcrumb-height + @core-layout-footer-height + @core-layout-gap-padding-top * 2);
+  .calc-base(height,'100vh - @{content-height}');
   margin: 15px;
   overflow: hidden;
   background-color: #fff;
   border-radius: 4px;
-  background-repeat: repeat;
-  background-position: 0 0;
-}
-/*背景主题*/
-.cs-layout-content-default{
-  background-image: url('@{source-base-url}../images/bg/bg_default.png');
-}
-.cs-layout-content-dot{
-  background-image: url('@{source-base-url}../images/bg/bg_dot.jpg');
-}
-.cs-layout-content-filter{
-  background-image: url('@{source-base-url}../images/bg/bg_filter.png');
-}
-.cs-layout-content-whitecross{
-  background-image: url('@{source-base-url}../images/bg/bg_whitecross.jpg');
-}
-.cs-layout-content-bigblock{
-  background-image: url('@{source-base-url}../images/bg/bg_bigblock.png');
 }
 .cs-layout-content-main{
-  padding: 10px;
+  padding: @core-layout-gap-padding-top;
   background-color: #fff;
 }
+/*底部区域*/
 .cs-layout-copy{
+  height:@core-layout-footer-height;
   text-align: center;
-  padding: 10px 0 20px;
+  padding: @core-layout-gap-padding-top 0 20px;
   color: #9ea7b4;
+  background-color: #fff;
 }
