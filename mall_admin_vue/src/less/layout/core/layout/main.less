@@ -32,6 +32,7 @@
 /*主内容区域*/
 .cs-layout-content{
   min-height: @core-layout-content-minheight;
+
   @content-height:(@core-layout-header-height + @core-layout-breadcrumb-height + @core-layout-footer-height + @core-layout-gap-padding-top * 2);
   .calc-base(height,'100vh - @{content-height}');
   margin: 15px;
@@ -50,4 +51,9 @@
   padding: @core-layout-gap-padding-top 0 20px;
   color: #9ea7b4;
   background-color: #fff;
+}
+/*切换精简模式按钮去掉默认边框*/
+.ivu-btn-text,
+.ivu-btn-text:focus{
+  .box-shadow-base(none);
 }
