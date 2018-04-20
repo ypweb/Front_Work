@@ -1,9 +1,0 @@
-{
-  "code": "0",
-  "message": "登录成功",
-  "result": {
-    "adminId":"1",
-    "token": "a094fd1a-f8f9-4f0a-a496-b60e0c530fe7",
-    "organizationId": "2"
-  }
-}

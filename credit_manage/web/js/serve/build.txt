@@ -1,8 +1,0 @@
-
-serve.js
-----------------
-jquery.js
-jquery_mobile.js
-slide.js
-grid.js
-serve.js
