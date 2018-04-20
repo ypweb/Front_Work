@@ -1,0 +1,89 @@
+/*登录面板*/
+.cs-panel-login{
+  .layout-relative-base();
+  width:100%;
+  height:100%;
+  min-width:@core-login-width;
+  min-height:@core-login-width * .5;
+  .layout-base(100vw);
+  height:100vh;
+  background-image: url('@{source-base-url}../images/bg/bg_whitecross.jpg');
+  .login-wrap{
+    @login-width:@core-login-width * .8;
+    @login-height:@core-login-width * .4;
+    .layout-absolutel-base(50%,50%);
+    .layout-base(@login-width);
+    height:@login-height;
+    margin-left:-@login-width/2;
+    margin-top:-@login-height/2;
+    .border-radius-base(5px);
+    overflow: hidden;
+    background-color:@color-white;
+    .box-shadow-base(0 0 20px 0 @color-gray11);
+  }
+  .login-group{
+    float:left;
+    .box-sizing-base();
+    height:100%;
+  }
+  .login-main{
+    .layout-relative-base();
+    padding: 120px 50px 40px 50px;
+    width:40%;
+    .ivu-form-item{
+      width:100%;
+    }
+    .ivu-form-item-error-tip{
+      width:100%;
+    }
+    &:before{
+      .layout-absolutel-base(50px,20px);
+      border-bottom: 1px dashed @color-gray12;
+      width:220px;
+      height:60px;
+      content:'';
+      background:transparent url('@{source-base-url}../images/logo-red-bg.png') no-repeat left center;
+    }
+  }
+  .login-side{
+    width:60%;
+    background:transparent url('@{source-base-url}../images/show/4.jpg') repeat 0 0;
+  }
+  /*验证码*/
+  .login-valid{
+    width:100px;
+  }
+  .login-image{
+    float: right;
+    width:80px;
+    height:32px;
+    display: inline-block;
+    margin-top:-32px;
+    border:1px solid @color-gray10;
+    .border-radius-base(3px);
+    background:transparent url('@{source-base-url}../images/bg/bg_default.png') repeat 0 0;
+    background-size:100% auto;
+    cursor: pointer;
+    img{
+      width:100%;
+      height:100%;
+    }
+  }
+}
+
+
+@media (max-width: 1400px) {
+
+}
+
+@media (max-width: 1000px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 640px) {
+
+}

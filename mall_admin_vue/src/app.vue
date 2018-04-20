@@ -39,7 +39,7 @@
             return {
                 debug:true,/*测试模式*/
                 isSupport: this.getSupport(),/*是否兼容*/
-                isLogin: true,/*是否登录*/
+                isLogin: false,/*是否登录*/
                 isFZF:false/*是否路径正确即是否404错误*/
             };
         },

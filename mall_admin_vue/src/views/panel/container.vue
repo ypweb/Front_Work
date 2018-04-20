@@ -48,7 +48,7 @@
                 </Submenu>
             </Menu>
             </Col>
-            <Col class="cs-layout-mainbox cs-layout-mainbox-default" :span="spanRight">
+            <Col class="cs-layout-mainbox" v-bind:class="mainboxTheme"  :span="spanRight">
             <div class="cs-layout-header">
                 <div class="cs-header-navicon">
                     <Button type="text" @click="toggleClick">
@@ -64,12 +64,8 @@
                             <a href="javascript:void(0)">
                                 <Icon color="#999" type="ios-gear" size="18"></Icon>
                             </a>
-                            <!--<DropdownItem v-for="boxitem in mainboxList">{{boxitem.name}}</DropdownItem>-->
-                            <DropdownMenu>
-                                <DropdownItem>炸酱面</DropdownItem>
-                                <DropdownItem>豆汁儿豆汁儿</DropdownItem>
-                                <DropdownItem>冰糖葫芦冰糖葫芦</DropdownItem>
-                                <DropdownItem>北京烤鸭</DropdownItem>
+                            <DropdownMenu slot="list">
+                                    <DropdownItem v-on:click="changeMainBoxTheme(index)"  v-for="(boxitem,index) in mainboxList">{{boxitem.name}}</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </div>
@@ -95,6 +91,9 @@
     </div>
 </template>
 <script>
+    /*导入脚本*/
+    import Tool from './../../libs/tool';
+
     export default {
         name: 'ch_panel_container',
         data() {
@@ -118,16 +117,15 @@
                     name:'方块',
                     value:'bigblock'
                 }],
-                /*mainboxClass: 'cs-layout-mainbox-default',*/
+                mainboxTheme: '',
                 visible: false
             }
         },
         mounted() {
-            /*let self=this,
-                mainboxstr = 'cs-layout-mainbox-',
-                len = this.mainboxList.length,
+            this.initMainBoxTheme();
+            let len = this.mainboxList.length,
                 index = Math.floor(Math.random() * len);
-            this.mainboxClass = `${mainboxstr}${self.mainboxList[index]['value']}`;*/
+            this.mainboxTheme = `cs-layout-mainbox-${this.mainboxList[index]['value']}`;
         },
         computed: {
             iconSize() {
@@ -135,6 +133,14 @@
             }
         },
         methods: {
+            initMainBoxTheme(){
+                let cache=Tool.getParams();
+                console.log(cache);
+            },
+            changeMainBoxTheme(index){
+                console.log(index);
+                this.mainboxTheme=`cs-layout-mainbox-${this.mainboxList[index]['value']}`;
+            },
             toggleClick() {
                 if (this.spanLeft === 4) {
                     this.spanLeft = 2;
