@@ -7,7 +7,7 @@ let tool = {};
 /*定义相关常量*/
 const basedomain = (env === 'development') ? 'http://10.0.5.226:8082' : 'http://112.74.207.132:8081';
 const commomdomain = (env === 'development') ? 'http://112.74.207.132:8088' : 'http://112.74.207.132:8088';
-const baseproject = '/mall_admin';
+const baseproject = '/mall-buzhubms-api';
 const system_name = 'mall_admin';
 const system_key = 'unique_key_2018';
 const system_unique_key = `${system_name}_${system_key}`;
