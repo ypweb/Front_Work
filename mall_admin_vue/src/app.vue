@@ -1,19 +1,19 @@
 <template>
     <div>
         <!--路径错误-->
-        <template v-if="isFZF">
+        <template v-if="app_panel.isfzf">
             <ch-panel-fzf></ch-panel-fzf>
         </template>
         <!--路径正确-->
         <template v-else>
-            <template v-if="isSupport">
+            <template v-if="app_panel.issupport">
                 <!--是否登录-->
-                <template v-if="isLogin">
+                <template v-if="app_panel.islogin">
                     <ch-panel-container></ch-panel-container>
                 </template>
                 <!--未登录-->
                 <template v-else>
-                    <ch-panel-login></ch-panel-login>
+                    <ch-panel-login :app_panel="app_panel"></ch-panel-login>
                 </template>
             </template>
             <!--非兼容视图-->
@@ -38,9 +38,11 @@
         data() {
             return {
                 debug:true,/*测试模式*/
-                isSupport: this.getSupport(),/*是否兼容*/
-                isLogin: false,/*是否登录*/
-                isFZF:false/*是否路径正确即是否404错误*/
+                app_panel:{
+                    issupport: this.isSupport(),/*是否兼容*/
+                    islogin: false,/*是否登录*/
+                    isfzf:false/*是否路径正确即是否404错误*/
+                }
             };
         },
         mounted() {
@@ -56,7 +58,8 @@
         },
         methods: {
             /*判断是否兼容*/
-            getSupport(){
+            isSupport(){
+                /*return Math.floor(Math.random() * 100)%2===0*/
                 return Tool.supportImage && Tool.supportStorage && Tool.supportBox();
             }
         },

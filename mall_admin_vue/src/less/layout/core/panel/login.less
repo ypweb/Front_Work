@@ -19,7 +19,7 @@
     .border-radius-base(5px);
     overflow: hidden;
     background-color:@color-white;
-    .box-shadow-base(0 0 20px 0 @color-gray11);
+    .box-shadow-base(0 0 20px 0 @color-gray10);
   }
   .login-group{
     float:left;
@@ -72,18 +72,66 @@
 }
 
 
-@media (max-width: 1400px) {
-
-}
-
-@media (max-width: 1000px) {
-
+@media (max-width: 999px) {
+  .cs-panel-login{
+    min-width:auto;
+    .login-wrap{
+      padding:20px;
+      width:100%;
+      position: static;
+      margin: 0;
+      .border-radius-base(0);
+      .box-shadow-base(none);
+    }
+    .login-main{
+      width:50%;
+    }
+    .login-side{
+      width:50%;
+    }
+  }
 }
 
 @media (max-width: 768px) {
-
+  .cs-panel-login{
+    .login-wrap{
+      padding:10px;
+    }
+    .login-main{
+      width:50%;
+    }
+    .login-side{
+      width:50%;
+    }
+  }
 }
 
 @media (max-width: 640px) {
+  .cs-panel-login{
+    .login-main{
+      width:60%;
+      &:before{
+        left:0;
+        width:100%;
+        background-position: 50px center;
+        border-bottom: none;
+      }
+    }
+    .login-side{
+      width:40%;
+    }
+  }
+}
 
+@media (max-width: 480px) {
+  .cs-panel-login{
+    .login-main{
+      width:100%;
+    }
+    .login-side{
+      width:0;
+      height:0;
+      display: none;
+    }
+  }
 }

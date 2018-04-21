@@ -34,11 +34,19 @@
 </template>
 <script>
     /*导入测试*/
+    import test from './../../libs/test';
     import Tool from './../../libs/tool';
+    import Mock from './../../../node_modules/mockjs';
 
 
     export default {
         name:'ch_panel_login',
+        props:{
+            app_panel:{
+                type:Object,
+                required:true
+            }
+        },
         data () {
             return {
                 formLogin: {
@@ -85,13 +93,16 @@
         },
         methods: {
             loginSubmit(name) {
+                let self=this;
                 this.$refs[name].validate((valid) => {
-                    console.log(valid);
-                    /*if (valid) {
+                    if (valid) {
                         this.$Message.success('登录成功!');
+                        setTimeout(function () {
+                            self.app_panel.islogin=true;
+                        },1000);
                     } else {
                         this.$Message.error('登录失败!');
-                    }*/
+                    }
                 })
             }
         }
