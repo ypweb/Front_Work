@@ -5,17 +5,17 @@
                 <Form ref="formLogin" :model="formLogin" :rules="ruleLogin" inline>
                     <FormItem prop="username_mall">
                         <Input type="text" v-model="formLogin.username_mall" placeholder="用户名">
-                            <Icon type="ios-person-outline" color="#999" slot="prepend"></Icon>
+                            <Icon  size="16" type="ios-person-outline" color="#999" slot="prepend"></Icon>
                         </Input>
                     </FormItem>
                     <FormItem prop="passwd">
                         <Input type="password" v-model="formLogin.passwd" placeholder="密码">
-                            <Icon type="ios-locked-outline" color="#999" slot="prepend"></Icon>
+                            <Icon  size="16" type="ios-locked-outline" color="#999" slot="prepend"></Icon>
                         </Input>
                     </FormItem>
                     <FormItem prop="validcode_mall">
                         <Input type="text" class="login-valid" v-model="formLogin.validcode_mall" placeholder="验证码">
-                            <Icon type="ios-locked-outline" color="#999" slot="prepend"></Icon>
+                            <Icon size="12" type="image" color="#999" slot="prepend"></Icon>
                         </Input>
                         <div class="login-image"><img src=""></div>
                     </FormItem>
