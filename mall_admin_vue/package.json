@@ -49,6 +49,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "mockjs": "^1.0.1-beta3",
+    "moment": "^2.22.1",
     "style-loader": "^0.19.1",
     "url-loader": "^0.6.2",
     "vue-hot-reload-api": "^2.2.4",

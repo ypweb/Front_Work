@@ -33,6 +33,10 @@
     </div>
 </template>
 <script>
+    /*导入测试*/
+    import Tool from './../../libs/tool';
+
+
     export default {
         name:'ch_panel_login',
         data () {
@@ -82,11 +86,12 @@
         methods: {
             loginSubmit(name) {
                 this.$refs[name].validate((valid) => {
-                    if (valid) {
+                    console.log(valid);
+                    /*if (valid) {
                         this.$Message.success('登录成功!');
                     } else {
                         this.$Message.error('登录失败!');
-                    }
+                    }*/
                 })
             }
         }
