@@ -49,7 +49,7 @@
         },
         data() {
             return {
-                debug: false, /*本地测试模式*/
+                debug: true, /*本地测试模式*/
                 validsrc: '',
                 formLogin: {
                     username_mall: '',
