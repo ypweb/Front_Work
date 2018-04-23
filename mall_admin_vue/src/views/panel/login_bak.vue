@@ -41,12 +41,12 @@
 
     export default {
         name: 'ch_panel_login',
-        /*props: {
+        props: {
             app_panel: {
                 type: Object,
                 required: true
             }
-        },*/
+        },
         data() {
             return {
                 debug: true, /*本地测试模式*/
@@ -132,7 +132,7 @@
                     if (valid) {
                         this.$Message.success('登录成功!');
                         setTimeout(function () {
-                            //self.app_panel.islogin = true;
+                            self.app_panel.islogin = true;
                         }, 1000);
                     } else {
                         this.$Message.error('登录失败!');
