@@ -1,14 +1,14 @@
 <template>
     <div>
         <!--路径错误-->
-        <template v-if="$store.app_panel.state.isfzf">
+        <template v-if="$store.state.app_panel.isfzf">
             <ch-panel-fzf></ch-panel-fzf>
         </template>
         <!--路径正确-->
         <template v-else>
-            <template v-if="$store.app_panel.state.issupport">
+            <template v-if="$store.state.app_panel.issupport">
                 <!--是否登录-->
-                <template v-if="$store.app_panel.state.islogin">
+                <template v-if="$store.state.app_panel.islogin">
                     <ch-panel-container></ch-panel-container>
                 </template>
                 <!--未登录-->
@@ -27,6 +27,7 @@
     /*导入脚本*/
     import Tool from './libs/tool';
     import Mock from 'mockjs';
+    import mapState from  'vuex';
 
     /*导入组件*/
     import ch_panel_support from './views/panel/support'
@@ -35,7 +36,13 @@
     import ch_panel_fzf from './views/panel/fzf'
 
     export default {
+        /*data(){
+            return {
+                debug:true/!*测试模式*!/
+            }
+        },*/
         mounted() {
+
             /*let list=Mock.mock({
                 'list|5-10': [{
                     'id|+1': 1
@@ -45,12 +52,11 @@
         },
         beforeDestroy() {
         },
+        computed:{
+
+        },
         methods: {
-            /*判断是否兼容*/
-            /*isSupport() {
-                /!*return Math.floor(Math.random() * 100)%2===0*!/
-                return Tool.supportImage && Tool.supportStorage && Tool.supportBox();
-            }*/
+
         },
         components: {
             'ch-panel-support': ch_panel_support,
