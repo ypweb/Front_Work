@@ -25,8 +25,10 @@
                     </FormItem>
                 </Form>
             </div>
-            <div class="login-group login-side">
-
+            <div class="login-group login-side" :class="sidebg">
+                <div class="side-change" @click="changeSideBg()"></div>
+                <div class="side-theme side-theme1">生活够简单</div>
+                <div class="side-theme side-theme2">迅速、精准、优质、简单的购物APP</div>
             </div>
 
         </div>
@@ -41,59 +43,22 @@
 
     export default {
         name: 'ch_panel_login',
-        /*props: {
-            app_panel: {
-                type: Object,
-                required: true
-            }
-        },*/
         data() {
-            return {
-                debug: true, /*本地测试模式*/
-                validsrc: '',
-                formLogin: {
-                    username_mall: '',
-                    passwd: '',
-                    validcode_mall: ''
-                },
-                ruleLogin: {
-                    username_mall: [
-                        {
-                            required: true,
-                            message: '用户名不能为空',
-                            trigger: 'blur'
-                        }
-                    ],
-                    passwd: [
-                        {
-                            required: true,
-                            message: '密码不能为空',
-                            trigger: 'blur'
-                        },
-                        {
-                            type: 'string',
-                            min: 6,
-                            message: '密码长度不能小于6位字符',
-                            trigger: 'blur'
-                        }
-                    ],
-                    validcode_mall: [
-                        {
-                            required: true,
-                            message: '验证码不能为空',
-                            trigger: 'blur'
-                        },
-                        {
-                            type: 'string',
-                            len: 4,
-                            message: '验证码长度为4位字符',
-                            trigger: 'blur'
-                        }
-                    ]
-                }
-            }
+            return this.$store.state.login_store;
         },
         methods: {
+            /*切换背景*/
+            changeSideBg() {
+                this.sidebg = this.getSideBg();
+            },
+            /*生成背景图片*/
+            getSideBg() {
+                let bg = Math.floor(Math.random() * 10);
+                if (bg === 0) {
+                    bg = 1;
+                }
+                return `login-side-bg${bg}`;
+            },
             /*获取验证码*/
             getValidCode() {
                 if (this.debug) {
@@ -132,7 +97,7 @@
                     if (valid) {
                         this.$Message.success('登录成功!');
                         setTimeout(function () {
-                            //self.app_panel.islogin = true;
+                            self.$store.commit('app_store/changeLogin',true);
                         }, 1000);
                     } else {
                         this.$Message.error('登录失败!');

@@ -322,7 +322,6 @@
 
             /*事件绑定*/
             /*绑定查看，修改操作*/
-
             $order_stats_wrap.delegate('span', 'click', function (e) {
                 e.stopPropagation();
                 e.preventDefault();
