@@ -9,7 +9,7 @@ export default {
         issupport: (Tool.supportImage && Tool.supportStorage && Tool.supportBox()), /*是否兼容*/
         islogin: false, /*是否登录*/
         isfzf: false/*是否路径正确即是否404错误*/,
-        cache:Tool.getParams(Tool.getSystemUniqueKey())/*缓存信息*/
+        cache: Tool.getParams(Tool.getSystemUniqueKey())/*缓存信息*/
     },
     getters: {},
     mutations: {
@@ -18,13 +18,13 @@ export default {
             /*登录成功时进行持久保存*/
             if (flag) {
                 /*如果不存在缓存则创建缓存*/
-                let logininfo=false;
+                let logininfo = false;
                 if (state.cache === null) {
 
-                }else{
+                } else {
 
                 }
-            }else{
+            } else {
                 /*清空缓存*/
                 Tool.clear();
             }
@@ -43,11 +43,11 @@ export default {
             state.isfzf = flag;
         },
         /*校验缓存是否有效*/
-        validLogin(state){
-            if(state.cache!==null){
+        validLogin(state) {
+            if (state.cache !== null) {
                 /*存在缓存*/
-                let login_dt=state.cache.datetime;
-                if(!login_dt){
+                let login_dt = state.cache.datetime;
+                if (!login_dt) {
                     /*非法时间*/
                     return false;
                 }
@@ -74,13 +74,11 @@ export default {
                         return false;
                     }
                 }
-            }else{
+            } else {
                 /*不存在缓存*/
                 return false;
             }
         }
     },
-    actions: {
-
-    }
+    actions: {}
 };
