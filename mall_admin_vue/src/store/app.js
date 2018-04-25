@@ -17,16 +17,21 @@ export default {
         changeLogin(state, flag) {
             /*登录成功时进行持久保存*/
             if (flag) {
-                /*如果不存在缓存则创建缓存*/
-                let logininfo = false;
                 if (state.cache === null) {
-
+                    /*如果不存在缓存则创建缓存*/
                 } else {
+                    /*如果存在缓存需要判断缓存是否有效，有效则更新缓存,失效则清空重新创建*/
+                    let logininfo = this.commit('validLogin');
+                    if (logininfo) {
 
+                    } else {
+                        /*清空缓存*/
+                        this.commit('clear');
+                    }
                 }
             } else {
                 /*清空缓存*/
-                Tool.clear();
+                this.commit('clear');
             }
             state.islogin = flag;
         },
@@ -35,7 +40,7 @@ export default {
             state.issupport = flag;
             if (!flag) {
                 /*不兼容状态下需清除推出缓存*/
-                Tool.clear();
+                this.commit('clear');
                 state.islogin = false;
             }
         },
@@ -78,6 +83,20 @@ export default {
                 /*不存在缓存*/
                 return false;
             }
+        },
+        /*设置缓存*/
+        setCache(state, data) {
+            if (state.cache !== null) {
+
+            }else{
+                
+            }
+        },
+        /*清空缓存*/
+        clear(state) {
+            /*清空缓存*/
+            Tool.clear();
+            state.cache = null;
         }
     },
     actions: {}

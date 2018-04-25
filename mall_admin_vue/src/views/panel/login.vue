@@ -15,7 +15,7 @@
                     </FormItem>
                     <FormItem prop="validcode_mall">
                         <Input type="text" class="login-valid" v-model="formLogin.validcode_mall" placeholder="验证码">
-                        <Icon size="12" class="cs-icon-security" type="image" color="#999" slot="prepend"></Icon>
+                        <Icon size="10" class="cs-icon-security" type="image" color="#999" slot="prepend"></Icon>
                         </Input>
                         <div class="login-image" @click="getValidCode()"><img :src="validsrc"></div>
                     </FormItem>
