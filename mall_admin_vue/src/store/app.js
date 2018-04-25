@@ -1,6 +1,6 @@
 import Tool from './../libs/tool';
+import Test from './../libs/test';
 import moment from './../../node_modules/moment';
-import axios from 'axios';
 
 export default {
     namespaced: true,
@@ -87,10 +87,23 @@ export default {
         /*设置缓存*/
         setCache(state, data) {
             if (state.cache !== null) {
-
-            }else{
-                
+                state.cache.loginMap = data;
+            } else {
+                state.cache = {
+                    cacheMap: {},
+                    routeMap: {
+                        prev: '',
+                        current: ''
+                    },
+                    moduleMap: {},
+                    menuMap: {},
+                    powerMap: {},
+                    loginMap: data,
+                    settingMap: {},
+                    tempMap: {}
+                };
             }
+            Tool.setParams(Tool.getSystemUniqueKey(), state.cache);
         },
         /*清空缓存*/
         clear(state) {
@@ -99,5 +112,74 @@ export default {
             state.cache = null;
         }
     },
-    actions: {}
+    actions: {
+        /*请求登录*/
+        requestLogin(store, config) {
+            Tool.requestHttp({
+                debug: state.debug,
+                url: '/mall-buzhubms-api/sysuser/login',
+                method: 'post',
+                data: param
+            }).then(resp => {
+                if (state.debug) {
+                    let resp = Test.testSuccess('list');
+                    resp['result'] = Test.getMap({
+                        map: {
+                            grade: 'rule,-1,1,2',
+                            adminId: 'id',
+                            roleId: 'id',
+                            token: 'guid'
+                        },
+                        maptype: 'object'
+                    }).list;
+                }
+
+                let data = resp.data,
+                    status = parseInt(resp.status, 10);
+
+                if (status === 200) {
+                    let code = parseInt(data.code, 10),
+                        result = data.result,
+                        message = data.message;
+                    if (code !== 0) {
+                        if (typeof message !== 'undefined' && message !== '') {
+                            toastr.info(message);
+                        }
+                        return false;
+                    } else {
+                        /*设置缓存*/
+                        this.setCache({
+                            'isLogin': true,
+                            'datetime': moment().format('YYYY-MM-DD|HH:mm:ss'),
+                            'reqdomain': BASE_CONFIG.basedomain,
+                            'username': param,
+                            'param': {
+                                'adminId': encodeURIComponent(result.adminId),
+                                'token': encodeURIComponent(result.token),
+                                'organizationId': encodeURIComponent(result.organizationId),
+                                'organizationName': encodeURIComponent(result.organizationName || '')
+                            }
+                        });
+                        /*加载菜单*/
+                        this.loadMenuData(function () {
+                            /*重新刷新页面*/
+                            window.location.reload();
+                        });
+                        /*加载动画*/
+                        toolUtil.loading('show');
+                        var loadingid = setTimeout(function () {
+                            /*更新缓存*/
+                            cache = toolUtil.getParams(BASE_CONFIG.unique_key);
+                            /*路由跳转*/
+                            $state.go('app');
+                            toolUtil.loading('hide', loadingid);
+                        }, 1000);
+                        return true;
+                    }
+                }
+            }).catch(error => {
+                console.log(error);
+            })
+        }
+    }
 };

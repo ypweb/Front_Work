@@ -5,6 +5,7 @@ export default {
         debug: true, /*本地测试模式*/
         sidebg: 'login-side-bg4'/*生成登录背景图片,默认第4张照片*/,
         validsrc: '',
+        message:'',
         formLogin: {
             username_mall: '',
             passwd: '',

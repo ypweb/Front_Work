@@ -211,7 +211,10 @@ tool.clearAll = function (flag) {
 };
 /*返回请求信息*/
 tool.requestHttp = function (config) {
-    let req = this.adaptReqUrl(config);
+    let conf=config;
+
+    //conf['baseUrl']='';
+    let req = this.adaptReqUrl(conf);
     return axios.create(req);
 };
 /*适配请求信息*/
