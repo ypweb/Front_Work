@@ -1,6 +1,7 @@
 import Tool from './../libs/tool';
 import Test from './../libs/test';
 import moment from './../../node_modules/moment';
+import axios from 'axios';
 
 export default {
     namespaced: true,
@@ -15,25 +16,34 @@ export default {
     mutations: {
         /*更换登录*/
         changeLogin(state, flag) {
+            if (!flag) {
+                /*清空缓存*/
+                this.commit('clear');
+            }
+            state.islogin = flag;
+        },
+        /*判断登录*/
+        isLogin(state, flag) {
             /*登录成功时进行持久保存*/
+            state.islogin = flag;
             if (flag) {
                 if (state.cache === null) {
                     /*如果不存在缓存则创建缓存*/
                 } else {
                     /*如果存在缓存需要判断缓存是否有效，有效则更新缓存,失效则清空重新创建*/
                     let logininfo = this.commit('validLogin');
-                    if (logininfo) {
-
-                    } else {
+                    if (!logininfo) {
                         /*清空缓存*/
                         this.commit('clear');
+                    } else {
+                        /*登录并持久化保存数据*/
                     }
                 }
             } else {
                 /*清空缓存*/
                 this.commit('clear');
             }
-            state.islogin = flag;
+            return flag;
         },
         /*更换兼容*/
         changeSupport(state, flag) {
@@ -114,13 +124,29 @@ export default {
     },
     actions: {
         /*请求登录*/
-        requestLogin(store, config) {
-            Tool.requestHttp({
-                debug: state.debug,
-                url: '/mall-buzhubms-api/sysuser/login',
-                method: 'post',
-                data: param
+        /*data: {
+                    username: rootState.login_store.state.formLogin.username_mall,
+                    password: rootState.login_store.state.formLogin.passwd,
+                    identifyingCode: rootState.login_store.state.formLogin.validcode_mall
+                }*/
+        requestLogin(store) {
+            console.log('aaaa');
+            let self = this;
+            const {commit, dispatch, state, rootState} = store;
+            console.log('bbbb');
+            /*解构赋值*/
+            /*console.log(Tool.adaptReqUrl('/mall-buzhubms-api/sysuser/login', false, state.debug));
+            return false;*/
+            axios.post({
+                url: Tool.adaptReqUrl('/mall-buzhubms-api/sysuser/login', false, state.debug),
+                dataType: 'json',
+                data: {
+                    username: rootState.login_store.formLogin.username_mall,
+                    password: rootState.login_store.formLogin.passwd,
+                    identifyingCode: rootState.login_store.formLogin.validcode_mall
+                }
             }).then(resp => {
+                console.log('cccc');
                 if (state.debug) {
                     let resp = Test.testSuccess('list');
                     resp['result'] = Test.getMap({
@@ -136,23 +162,26 @@ export default {
 
                 let data = resp.data,
                     status = parseInt(resp.status, 10);
-
+                console.log('dddd');
                 if (status === 200) {
                     let code = parseInt(data.code, 10),
                         result = data.result,
                         message = data.message;
                     if (code !== 0) {
                         if (typeof message !== 'undefined' && message !== '') {
-                            toastr.info(message);
+                            rootState.login_store.message = message;
+                        } else {
+                            rootState.login_store.message = '登录失败';
                         }
+                        self.commit('changeLogin', false);
                         return false;
                     } else {
                         /*设置缓存*/
-                        this.setCache({
+                        self.commit('setCache', {
                             'isLogin': true,
                             'datetime': moment().format('YYYY-MM-DD|HH:mm:ss'),
-                            'reqdomain': BASE_CONFIG.basedomain,
-                            'username': param,
+                            'reqdomain': '',
+                            'username': rootState.login_store.formLogin.username_mall,
                             'param': {
                                 'adminId': encodeURIComponent(result.adminId),
                                 'token': encodeURIComponent(result.token),
@@ -160,24 +189,16 @@ export default {
                                 'organizationName': encodeURIComponent(result.organizationName || '')
                             }
                         });
-                        /*加载菜单*/
-                        this.loadMenuData(function () {
-                            /*重新刷新页面*/
-                            window.location.reload();
-                        });
-                        /*加载动画*/
-                        toolUtil.loading('show');
-                        var loadingid = setTimeout(function () {
-                            /*更新缓存*/
-                            cache = toolUtil.getParams(BASE_CONFIG.unique_key);
-                            /*路由跳转*/
-                            $state.go('app');
-                            toolUtil.loading('hide', loadingid);
-                        }, 1000);
+                        rootState.login_store.message = '登录成功';
+                        self.commit('changeLogin', true);
+                        /*清除掉登录数据
+                        todo
+                        */
                         return true;
                     }
                 }
             }).catch(error => {
+                rootState.login_store.message = '登录成功';
                 console.log(error);
             })
         }

@@ -95,12 +95,13 @@
                 let self = this;
                 this.$refs[name].validate((valid) => {
                     if (valid) {
-                        this.$Message.success('登录成功!');
+                        this.$Message.success(this.message);
+                        this.$store.dispatch('app_store/requestLogin');
                         setTimeout(function () {
                             self.$store.commit('app_store/changeLogin',true);
                         }, 1000);
                     } else {
-                        this.$Message.error('登录失败!');
+                        this.$Message.error(this.message);
                     }
                 })
             }

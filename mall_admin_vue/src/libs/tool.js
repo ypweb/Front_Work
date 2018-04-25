@@ -1,4 +1,3 @@
-import axios from 'axios';
 import env from '../config/env';
 
 /*自定义工具类*/
@@ -209,19 +208,18 @@ tool.clearAll = function (flag) {
         localStorage.clear();
     }
 };
-/*返回请求信息*/
-tool.requestHttp = function (config) {
+/*tool.requestHttp = function (config) {
     let conf=config;
 
     //conf['baseUrl']='';
     let req = this.adaptReqUrl(conf);
     return axios.create(req);
-};
+};*/
 /*适配请求信息*/
 tool.adaptReqUrl = function (url, common, debug) {
     /*debug模式则调用自定义json模式*/
     if (debug) {
-        return 'static/test.json';
+        return location + 'src/static/test.json';
     } else {
         if (common) {
             return `${commomdomain}${baseproject}${url}`;
