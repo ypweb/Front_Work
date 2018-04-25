@@ -219,7 +219,7 @@ tool.clearAll = function (flag) {
 tool.adaptReqUrl = function (url, common, debug) {
     /*debug模式则调用自定义json模式*/
     if (debug) {
-        return location + 'src/static/test.json';
+        return location + 'dist/static/test.json';
     } else {
         if (common) {
             return `${commomdomain}${baseproject}${url}`;

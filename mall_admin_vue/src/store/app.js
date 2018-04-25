@@ -3,6 +3,8 @@ import Test from './../libs/test';
 import moment from './../../node_modules/moment';
 import axios from 'axios';
 
+
+
 export default {
     namespaced: true,
     state: {
@@ -137,7 +139,7 @@ export default {
             /*解构赋值*/
             /*console.log(Tool.adaptReqUrl('/mall-buzhubms-api/sysuser/login', false, state.debug));
             return false;*/
-            axios.post({
+            axios.post(/*Tool.adaptReqUrl('/mall-buzhubms-api/sysuser/login', false, state.debug)*/{
                 url: Tool.adaptReqUrl('/mall-buzhubms-api/sysuser/login', false, state.debug),
                 dataType: 'json',
                 data: {
