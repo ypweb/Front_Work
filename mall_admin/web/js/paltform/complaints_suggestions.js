@@ -134,6 +134,9 @@
 									return public_tool.phoneFormat(data);
 								}
 							},
+                            {
+                                "data":"contact"
+                            },
 							{
 								"data":"storeName"
 							},

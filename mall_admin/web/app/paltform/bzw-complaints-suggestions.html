@@ -144,10 +144,11 @@
                             <table id="admin_list_wrap" class="table table-bordered table-striped table-hover admin-table">
                                 <!--分组样式-->
                                 <colgroup>
+                                    <col class="g-w-percent4">
+                                    <col class="g-w-percent5">
+                                    <col class="g-w-percent5">
                                     <col class="g-w-percent6">
                                     <col class="g-w-percent6">
-                                    <col class="g-w-percent6">
-                                    <col class="g-w-percent8">
                                     <col class="g-w-percent10">
                                     <col class="g-w-percent6">
                                     <col class="g-w-percent4">
@@ -159,6 +160,7 @@
                                 <tr>
                                     <th>用户名</th>
                                     <th>手机号</th>
+                                    <th>电话号码</th>
                                     <th>店铺名称</th>
                                     <th>店铺地址</th>
                                     <th>内容</th>
@@ -219,8 +221,8 @@
                     <form role="form"  method="post" id="admin_comsug_form" class="admin-form1 validate">
                         <input type="text" value="" class="g-d-hidei" id="admin_id">
                         <div class="form-group">
-                            <label class="control-label">备注：</label>
-                            <textarea class="form-control"  id="admin_dealRemark" name="dealRemark" placeholder="请输入处理备注" ></textarea>
+                            <label class="control-label"><span class="form-require-item g-c-red1">*</span>备注：</label>
+                            <textarea class="form-control"  id="admin_dealRemark" data-validate="required" data-message-required="备注不能为空"  name="dealRemark" placeholder="请输入处理备注" ></textarea>
                         </div>
 
                         <div class="form-group">
