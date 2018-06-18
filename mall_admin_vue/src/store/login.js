@@ -3,7 +3,7 @@ export default {
     namespaced: true,
     state: {
         debug: true, /*本地测试模式*/
-        sidebg: 'login-side-bg4'/*生成登录背景图片,默认第1张照片*/,
+        sideindex:4,
         validsrc: '',
         message:'',
         formLogin: {

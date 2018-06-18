@@ -25,7 +25,7 @@
                     </FormItem>
                 </Form>
             </div>
-            <div class="login-group login-side" :class="sidebg">
+            <div class="login-group login-side" :class="showSideBg">
                 <div class="side-change" @click="changeSideBg()"></div>
                 <div class="side-theme side-theme1">生活够简单</div>
                 <div class="side-theme side-theme2">迅速、精准、优质、简单的购物APP</div>
@@ -46,18 +46,19 @@
         data() {
             return this.$store.state.login_store;
         },
+        computed:{
+            showSideBg(){
+                return `login-side-bg${this.sideindex}`
+            }
+        },
         methods: {
             /*切换背景*/
             changeSideBg() {
-                this.sidebg = this.getSideBg();
-            },
-            /*生成背景图片*/
-            getSideBg() {
                 let bg = Math.floor(Math.random() * 10);
                 if (bg === 0) {
                     bg = 1;
                 }
-                return `login-side-bg${bg}`;
+                this.sideindex=bg;
             },
             /*获取验证码*/
             getValidCode() {
