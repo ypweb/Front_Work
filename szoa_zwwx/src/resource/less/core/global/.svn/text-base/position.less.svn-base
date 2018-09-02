@@ -1,0 +1,36 @@
+/*定位*/
+.g-pos-r {
+  .layout-relative-base();
+}
+
+.g-pos-al {
+  .layout-absolutel-base();
+}
+
+.g-pos-alb {
+  .layout-absolutelb-base();
+}
+
+.g-pos-ar {
+  .layout-absoluter-base();
+}
+
+.g-pos-arb {
+  .layout-absoluterb-base();
+}
+
+.g-pos-fl {
+  .layout-fixedl-base();
+}
+
+.g-pos-flb {
+  .layout-fixedlb-base();
+}
+
+.g-pos-fr {
+  .layout-fixedr-base();
+}
+
+.g-pos-frb {
+  .layout-fixedrb-base();
+}

@@ -1,0 +1,22 @@
+/*重构重置其他人*/
+.wrap{
+  .swiper-container{
+    .swiper-slide{
+      .calc-base(height,'100vh - 44px') !important;
+      overflow-y:auto;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

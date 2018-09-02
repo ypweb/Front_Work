@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>主题</title>
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl:'/zwwx/',
+            paths:{
+                "jquery": "resource/js/lib/jquery/jquery.min"
+            },
+            shim:{}
+        });
+
+
+        /*程序入口*/
+        require(['jquery'],function($) {
+            $(function() {
+                //页面元素获取
+                var $theme_toggle=$('#theme_toggle');
+
+
+                /*事件绑定*/
+                $theme_toggle.on('click',function () {
+                    $(this).toggleClass('toggle-active');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<!--待办列表-->
+<h2 class="wx-theme-wrap">默认主题</h2>
+
+<h2 class="wx-theme-wrap">默认主题--有编辑按钮<span data-name="张三" class="theme-icon theme-icon-edit"></span></h2>
+
+<h2 class="wx-theme-wrap g-bc-white">白色主题</h2>
+
+<h2 class="wx-theme-wrap g-bc-white">白色主题--有编辑按钮<span data-name="张三" class="theme-icon theme-icon-edit"></span></h2>
+
+<h2 class="wx-labeltheme-wrap g-gap-mt5">详情列表头部主题</h2>
+
+<h2 class="wx-labeltheme-wrap g-gap-mt5"><span data-name="张三" class="theme-icon theme-icon-edit"></span>详情列表头部主题--有编辑按钮</h2>
+
+<h2 class="wx-labeltheme-wrap g-gap-mt5">详情列表头部主题--可展开<span class="theme-icon theme-icon-toggle" id="theme_toggle"></span></h2>
+</body>
+</html>

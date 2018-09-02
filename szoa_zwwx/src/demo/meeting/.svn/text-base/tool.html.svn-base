@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>会议报名表--工具菜单</title>
+    <!--基础css-->
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+    <!--第三方-->
+    <link rel="stylesheet" href="../../resource/js/lib/weui/css/jquery-weui.css">
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl: '/zwwx/',
+            paths: {
+                "jquery": "resource/js/lib/jquery/jquery.min",
+                'tab_swiper': "resource/js/widget/tab_swiper"
+            },
+            shim: {
+                'tab_swiper': {
+                    deps: ['jquery']
+                }
+            }
+        });
+
+
+        /*程序入口*/
+        require(['jquery', 'tab_swiper'], function ($, TabSwiper) {
+            $(function () {
+                //页面元素获取
+                var $tool_tab = $('#tool_tab'),
+                    $tool_menu1 = $('#tool_menu1'),
+                    $tool_menu2 = $('#tool_menu2'),
+                    $tool_toggle = $('#tool_toggle'),
+                    $tool_nav = $('#tool_nav'),
+                    $tool_mask = $('#tool_mask');
+
+                /*执行TabSwiper渲染*/
+                TabSwiper.init({
+                    index: 0,
+                    item: 2,
+                    isswiper:false,
+                    render:function(){
+                        /*初始化渲染*/
+                        $tool_menu1.removeClass('g-d-hidei');
+                        $tool_menu2.addClass('g-d-hidei');
+                    },
+                    tabFn: function (config) {
+                        /*点击回调*/
+                        var index=config.index;
+                        if (index === 0) {
+                            $tool_menu1.removeClass('g-d-hidei');
+                            $tool_menu2.addClass('g-d-hidei');
+                        } else if (index === 1) {
+                            $tool_menu1.addClass('g-d-hidei');
+                            $tool_menu2.removeClass('g-d-hidei');
+                        }
+                    }
+                });
+
+                /*切换二级菜单*/
+                $tool_toggle.on('click', function () {
+                    $(this).toggleClass('tool-list-active');
+                    $tool_nav.toggleClass('g-d-hidei');
+                    $tool_mask.toggleClass('g-d-hidei');
+                });
+
+                /*关闭遮罩*/
+                $tool_mask.on('click', function () {
+                    $(this).addClass('g-d-hidei');
+                    $tool_nav.addClass('g-d-hidei');
+                    $tool_toggle.removeClass('tool-list-active');
+                });
+
+
+                var hiddenProperty = 'hidden' in document ? 'hidden' :
+                    'webkitHidden' in document ? 'webkitHidden' :
+                        'mozHidden' in document ? 'mozHidden' :
+                            null;
+                var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+                document.addEventListener(visibilityChangeEvent, function () {
+                    if (!document[hiddenProperty]) {
+                        console.log('页面非激活');
+                    } else {
+                        console.log('页面激活')
+                    }
+                });
+
+            });
+        });
+    </script>
+</head>
+<body class="g-bc-white">
+<div class="wx-tabpanel-wrap tabpanel-btnright" id="tabswiper_panel">
+    <div class="wx-tabpanel-list">
+        <div class="wx-tabpanel-slide" id="tabswiper_slide">
+            <ul class="wx-tablist-wrap">
+                <li>单个按钮(会议报名)</li>
+                <li>弹层按钮(待办模块)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="wx-tabpanel-grid">
+        <h1>切换查看不同的操作按钮</h1>
+        <ul class="wx-tabcolumn-wrap" id="tabswiper_grid"></ul>
+    </div>
+    <div class="wx-tabpanel-mask" id="tabswiper_mask"></div>
+    <div class="wx-tabpanel-toggle g-d-hidei" id="tabswiper_btn"></div>
+</div>
+
+<!--工具菜单1-->
+<div class="swiper-slide">
+    <div class="wx-tool-wrap wx-tool-lb-wrap" id="tool_menu1">
+        <a href=""></a>
+        <!--遮罩层-->
+        <!--第一级菜单-->
+        <ul class="wx-tool-list wx-tool-toggle">
+            <li class="tool-menu-meeting"></li>
+        </ul>
+    </div>
+</div>
+
+<!--工具菜单2-->
+<div class="swiper-slide">
+    <div class="wx-tool-wrap wx-tool-lb-wrap" id="tool_menu2">
+        <!--遮罩层-->
+        <div class="wx-tool-mask g-d-hidei" id="tool_mask"></div>
+        <!--第一级菜单-->
+        <ul class="wx-tool-list wx-tool-menu g-d-hidei" id="tool_nav">
+            <li class="tool-menu-finish" data-title="办结"><span></span></li>
+            <li class="tool-menu-turn" data-title="转办"><span></span></li>
+            <li class="tool-menu-back" data-title="退文"><span></span></li>
+            <li class="tool-menu-red" data-title="套红"></li>
+            <li class="tool-menu-return" data-title="退件"><span></span></li>
+            <li class="tool-menu-handle" data-title="送经办人"></li>
+            <li class="tool-menu-look" data-title="查看公文"><span></span></li>
+            <li class="tool-menu-document" data-title="发送公文"><span></span></li>
+            <li class="tool-menu-notice" data-title="发送通知"></li>
+            <li class="tool-menu-save" data-title="保存"></li>
+            <li class="tool-menu-send menu-extend-send" data-title="送出"><span></span></li>
+            <li class="tool-menu-meeting" data-title="会议报名"><span></span></li>
+        </ul>
+        <!--第一级菜单-->
+        <ul class="wx-tool-list wx-tool-toggle">
+            <li class="tool-list-toggle" id="tool_toggle"></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

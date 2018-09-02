@@ -1,0 +1,145 @@
+///*--伸缩盒--*/
+
+///*显示方式*/
+.display-base(@str:flex) {
+  display: -webkit- ~'@{str}';
+  display: -moz- ~'@{str}';
+  display: -ms- ~'@{str}';
+  display: -o- ~'@{str}';
+  display: ~'@{str}';
+}
+
+///*伸缩盒（旧）*/
+///*排列规则*/
+.box-orient-base(@str:horizontal) {
+  -moz-box-orient: @str;
+  -ms-box-origent: @str;
+  -webkit-box-orient: @str;
+  -o-box-orient: @str;
+  box-orient: @str;
+}
+
+///*对齐方式(水平方向)*/
+.box-pack-base(@str:start) {
+  -ms-box-pack: @str;
+  -webkit-box-pack: @str;
+  -moz-box-pack: @str;
+  -o-box-pack: @str;
+  box-pack: @str;
+}
+
+///*对齐方式（垂直方向）*/
+.box-align-base(@str:stretch) {
+  -ms-box-align: @str;
+  -webkit-box-align: @str;
+  -moz-box-align: @str;
+  -o-box-align: @str;
+  box-align: @str;
+}
+
+///*分配父元素剩余空间的比例*/
+.box-flex-base(@str:0) {
+  -ms-box-flex: @str;
+  -webkit-box-flex: @str;
+  -moz-box-flex: @str;
+  -o-box-flex: @str;
+  box-flex: @str;
+}
+
+///*设置子对象所属组*/
+.box-flex-group-base(@str:1) {
+  -ms-box-flex-group: @str;
+  -webkit-box-flex-group: @str;
+  -moz-box-flex-group: @str;
+  -o-box-flex-group: @str;
+  box-flex-group: @str;
+}
+
+///*设置子对象的显示顺序*/
+.box-ordinal-group-base(@str:1) {
+  -ms-box-ordinal-group: @str;
+  -webkit-box-ordinal-group: @str;
+  -moz-box-ordinal-group: @str;
+  -o-box-ordinal-group: @str;
+  box-ordinal-group: @str;
+}
+
+///*设置子对象的排列顺序是否反转*/
+.box-direction-base(@str:normal) {
+  -ms-box-direction: @str;
+  -webkit-box-direction: @str;
+  -moz-box-direction: @str;
+  -o-box-direction: @str;
+  box-direction: @str;
+}
+
+///*设置子对象是否可以换行显示*/
+.box-lines-base(@str:normal) {
+  -ms-box-lines: @str;
+  -webkit-box-lines: @str;
+  -moz-box-lines: @str;
+  -o-box-lines: @str;
+  box-lines: @str;
+}
+
+///*伸缩盒（新）*/
+///*设置子对象如何分配空间--复合属性（扩展比率 收缩比率 默认基准值）*/
+.flex-base(@str:0 0 auto) {
+  -ms-flex: @str;
+  -webkit-flex: @str;
+  -moz-flex: @str;
+  flex: @str;
+}
+
+///*设置子对象排列方式--复合属性（排列方向 溢出父元素是否换行）*/
+.flex-flow-base(@str:row nowrap) {
+  -ms-flex-flow: @str;
+  -webkit-flex-flow: @str;
+  -moz-flex-flow: @str;
+  flex-flow: @str;
+}
+
+///*设置堆叠缩进的对齐方式（水平方向）--总体上*/
+.align-content-base(@str:stretch) {
+  -ms-align-content: @str;
+  -webkit-align-content: @str;
+  -moz-align-content: @str;
+  -o-align-content: @str;
+  align-content: @str;
+}
+
+///*(弹性容器--容器，主要是对整个伸缩项目的设置)设置元素在侧轴（纵轴）方向上的对齐方式（垂直方向）*/
+.align-items-base(@str:stretch) {
+  -ms-align-items: @str;
+  -webkit-align-items: @str;
+  -moz-align-items: @str;
+  -o-align-items: @str;
+  align-items: @str;
+}
+
+///*（弹性项目--容器中的相关项目或子容器等,主要是对单个伸缩项目的设置）设置元素在侧轴（纵轴）方向上的对齐方式（垂直方向）*/
+.align-self-base(@str:auto) {
+  -ms-align-self: @str;
+  -webkit-align-self: @str;
+  -moz-align-self: @str;
+  -o-align-self: @str;
+  align-self: @str;
+}
+
+///*设置元素在主轴（横轴）方向上的对齐方式（水平方向）--细节上*/
+.justify-content-base(@str:flex-start) {
+  -ms-justify-content: @str;
+  -webkit-justify-content: @str;
+  -moz-justify-content: @str;
+  -o-justify-content: @str;
+  justify-content: @str;
+}
+
+///*设置元素出现的顺序*/
+.order-base(@str:0) {
+  -ms-order: @str;
+  -webkit-order: @str;
+  -moz-order: @str;
+  -o-order: @str;
+  order: @str;
+}

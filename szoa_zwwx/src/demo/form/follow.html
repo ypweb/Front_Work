@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>待办--交换跟踪</title>
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+    <link rel="stylesheet" href="../../resource/js/lib/weui/css/jquery-weui.css"/>
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl: '/zwwx/',
+            paths: {
+                "jquery": "resource/js/lib/jquery/jquery.min",
+                "weuiJS": "resource/js/lib/weui/js/jquery-weui.min",
+                "mock": "demo/mock"
+            },
+            shim: {
+                'weuiJS': {
+                    deps: ['jquery']
+                }
+            }
+        });
+
+
+        /*程序入口*/
+        require(['jquery', 'weuiJS', 'mock'], function ($, undefined, Mock) {
+            $(function () {
+                //页面元素获取
+                var $follow_toggle = $('#follow_toggle'),
+                    $follow_select = $('#follow_select'),
+                    $follow_list = $('#follow_list'),
+                    $follow_tab = $('#follow_tab'),
+                    $follow_process = $('#follow_process'),
+                    $follow_process_sure = $('#follow_process_sure');
+
+                var current_scorll_pos = null/*当前scorll位置*/;
+
+
+                /*初始化生成数据*/
+                renderHtml({
+                    type: 'select',
+                    wrap: $follow_select
+                });
+                renderHtml({
+                    type: 'list',
+                    wrap: $follow_list
+                });
+
+                /*绑定切换显示隐藏*/
+                $follow_toggle.on('click', function () {
+                    /*切换发送*/
+                    $(this).toggleClass('title-toggle');
+                    $follow_select.toggleClass('list-toggle');
+                });
+
+                /*绑定选中*/
+                $follow_select.on('click', 'li', function () {
+                    var $this = $(this),
+                        text = $this.html();
+
+                    $this.addClass('select-active').siblings().removeClass('select-active');
+                    $follow_toggle.html(text);
+                    $follow_toggle.trigger('click');
+                });
+
+                /*绑定tab切换*/
+                $follow_tab.on('click', function (e) {
+                    var target = e.target,
+                        nodename = target.nodeName.toLowerCase(),
+                        $this = null;
+
+                    if (nodename === 'div') {
+                        $this = $(target).parent();
+                    } else if (nodename === 'li') {
+                        $this = $(target);
+                    }
+                    $this.addClass('tabactive').siblings().removeClass('tabactive');
+                });
+
+                /*绑定查看意见*/
+                $follow_list.on('click', function (e) {
+                    var target = e.target,
+                        nodename = target.nodeName.toLowerCase();
+
+                    /*过滤非标签*/
+                    if (nodename !== 'div') {
+                        return false;
+                    } else if (nodename === 'div' && target.className.indexOf('follow-tip') !== -1) {
+                        /*切换查看意见*/
+                        $(target).toggleClass('tip-toggle');
+                    } else if (nodename === 'div' && target.className.indexOf('follow-title') !== -1) {
+                        /*弹窗--查看办文流程*/
+                        current_scorll_pos = $(window).scrollTop();
+                        $(target).addClass('follow-active').parents('li').siblings().find('>div:first-child .follow-title').removeClass('follow-active');
+                        $follow_process.toggleClass('g-d-hidei');
+                        $follow_list.addClass('g-d-hidei');
+                        $follow_tab.addClass('g-d-hidei');
+                    } else if (nodename === 'div' && target.className.indexOf('follow-icon') !== -1) {
+                        /*弹窗--查看姓名和联系方式*/
+                        current_scorll_pos = $(window).scrollTop();
+                        $(target).prev().addClass('follow-active').parents('li').siblings().find('>div:first-child .follow-title').removeClass('follow-active');
+                        var alertWords = '<div class="alertMsg">联系人：<span class="alertDetail">张三</span></div><br><div class="alertMsg">联系电话：<span class="alertDetail">15514630953</span></div>';
+                        $.alert(alertWords, "");
+                    }
+                });
+
+                /*绑定办文确定*/
+                $follow_process_sure.on('click', function () {
+                    $follow_process.toggleClass('g-d-hidei');
+                    $follow_list.removeClass('g-d-hidei');
+                    $follow_tab.removeClass('g-d-hidei');
+                    if (current_scorll_pos !== null) {
+                        $(window).scrollTop(current_scorll_pos);
+                    }
+                });
+
+            });
+
+
+            /*生成数据*/
+            function renderHtml(obj) {
+                $.ajax({
+                    url: '../test.json',
+                    dataType: 'json',
+                    type: 'post'
+                })
+                    .done(function (res) {
+                        var res = (function () {
+                            if (obj.type === 'select') {
+                                return Mock.mock({
+                                    'list|2-5': [{
+                                        'title': /[a-zA-Z0-9]{2,30}/,
+                                        'datetime': '2018-01-02'
+                                    }]
+                                });
+                            } else if (obj.type === 'list') {
+                                return Mock.mock({
+                                    'list|5-20': [{
+                                        'detail': /[a-zA-Z]{10,50}/,
+                                        'tip|1-10': [/[a-zA-Z0-9]{10,50}/]
+                                    }]
+                                });
+                            }
+                        }());
+
+                        var i = 0,
+                            list = res.list,
+                            len = list.length,
+                            str = '';
+                        for (i; i < len; i++) {
+                            var curitem = list[i];
+                            if (obj.type === 'select') {
+                                str += '<li>' + curitem['title'] + '<p>' + curitem['datetime'] + '</p></li>';
+                            } else if (obj.type === 'list') {
+                                var flag = parseInt(Math.random() * 10, 10) % 4 === 0;
+                                if (flag) {
+                                    str += '<li><div class="follow-theme"><div class="follow-title">' + curitem['detail'] + '</div><div class="follow-icon"></div></div><div class="follow-tip"><p>' + curitem['tip'].join('</p><p>') + '</p></div></li>';
+                                } else {
+                                    str += '<li><div class="follow-theme"><div class="follow-title">' + curitem['detail'] + '</div><div class="follow-icon"></div></div></li>';
+                                }
+                            }
+
+                        }
+                        $(str).appendTo(obj.wrap.html(''));
+                    })
+                    .fail(function (res) {
+                        console.log('请求失败');
+                    });
+            }
+        });
+    </script>
+</head>
+<body>
+<!--待办--交换跟踪-->
+<h2 class="wx-theme-wrap g-bc-white g-gap-mt5 g-gap-mb5">待办--交换跟踪</h2>
+
+<!--交换跟踪第一部分-->
+<div class="wx-followpanel-wrap">
+    <div class="wx-followselect-wrap">
+        <div class="select-title" id="follow_toggle">发送公文<p>2018-08-07 15:35:58</p></div>
+        <div class="select-list-wrap">
+            <ul class="select-list" id="follow_select">
+                <li>发送公文<p>2018-05-05 12:12:12</p></li>
+                <li>发送公文<p>2018-06-07 13:23:43</p></li>
+                <li>发送公文<p>2018-07-08 14:53:53</p></li>
+            </ul>
+        </div>
+    </div>
+    <ul class="wx-followdata-wrap">
+        <li class="data-icon"></li>
+        <li class="data-text">
+            <div class="g-c-red1">345</div>
+            <p>发送总数</p>
+        </li>
+        <li class="data-text">
+            <div class="g-c-green1">62</div>
+            <p>已发送</p>
+        </li>
+    </ul>
+</div>
+
+<!--交换跟踪第二部分-->
+<ul class="wx-tabradius-wrap wx-tablist-item3" id="follow_tab">
+    <li>
+        <div>未签收(34)</div>
+    </li>
+    <li class="tabactive">
+        <div>已签收(34)</div>
+    </li>
+    <li>
+        <div>拒收(34)</div>
+    </li>
+    <li>
+        <div>未签收(34)</div>
+    </li>
+    <li>
+        <div>已签收(34)</div>
+    </li>
+</ul>
+
+<!--交换跟踪第三部分-->
+<ul class="wx-followlist-wrap" id="follow_list">
+    <li>
+        <div class="follow-theme">
+            <div class="follow-title">Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）</div>
+            <div class="follow-icon"></div>
+        </div>
+    </li>
+    <li>
+        <div class="follow-theme">
+            <div class="follow-title">Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）</div>
+            <div class="follow-icon"></div>
+        </div>
+        <div class="follow-tip"></div>
+    </li>
+    <li>
+        <div class="follow-theme">
+            <div class="follow-title">Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）</div>
+            <div class="follow-icon"></div>
+        </div>
+        <div class="follow-tip">
+            <p>标题有错别字，请修改，标题有错别字，请修改，标题有错别字，请修改</p>
+            <p>时间不正确，请修改</p>
+        </div>
+    </li>
+</ul>
+
+<!--交换跟踪--办文状态-->
+<div class="wx-followtext-wrap g-d-hidei" id="follow_process">
+    <div class="wx-followtext-show">
+        <h1>办文状态</h1>
+        <ul class="wx-processtext-list">
+            <li class="text-already">
+                <h2 class="text-main"><span>拟稿</span>张三</h2>
+                <p><span>开始时间：</span>2018-08-01</p>
+                <p><span>结束时间：</span>2018-08-15</p>
+                <div class="action-wx"></div>
+                <div class="action-video"></div>
+            </li>
+            <li class="text-already">
+                <h2 class="text-main"><span>核稿</span>张三</h2>
+                <p><span>开始时间：</span>2018-08-01 06:24:53</p>
+                <p><span>结束时间：</span>2018-08-15</p>
+                <div class="action-wx"></div>
+                <div class="action-video"></div>
+            </li>
+            <li class="text-already">
+                <h2 class="text-main"><span>分办</span>张三</h2>
+                <p><span>开始时间：</span>2018-08-01</p>
+                <p><span>结束时间：</span>2018-08-15</p>
+                <div class="action-wx"></div>
+                <div class="action-video"></div>
+            </li>
+            <li class="text-now">
+                <h2 class="text-main"><span>拟办</span>张三</h2>
+                <p><span>开始时间：</span>2018-08- 01</p>
+                <p><span>结束时间：</span>2018-08-15 12:34:56</p>
+                <div class="action-wx"></div>
+                <div class="action-video"></div>
+            </li>
+            <li>
+                <h2 class="text-main"><span>批示</span>张三</h2>
+                <p><span>开始时间：</span>2018-08-01</p>
+                <p><span>结束时间：</span>2018-08-15</p>
+                <div class="action-wx"></div>
+                <div class="action-video"></div>
+            </li>
+            <li>
+                <h2 class="text-main"><span>打印</span>张三</h2>
+                <p><span>开始时间：</span>2018-08-01</p>
+                <p><span>结束时间：</span>2018-08-15</p>
+                <div class="action-wx"></div>
+                <div class="action-video"></div>
+            </li>
+            <li>
+                <h2 class="text-main"><span>盖章</span>张三</h2>
+                <p><span>开始时间：</span>2018-08-01 09:34:35</p>
+                <p><span>结束时间：</span>2018-08-15 16:36:52</p>
+                <div class="action-wx"></div>
+                <div class="action-video"></div>
+            </li>
+            <li>
+                <h2 class="text-main"><span>办结</span>张三</h2>
+                <p><span>开始时间：</span>2018-08-01</p>
+                <p><span>结束时间：</span>2018-08-15</p>
+                <div class="action-wx"></div>
+                <div class="action-video"></div>
+            </li>
+        </ul>
+        <div id="follow_process_sure">确定</div>
+    </div>
+</div>
+
+
+</body>
+</html>

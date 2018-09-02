@@ -1,0 +1,73 @@
+///*--多列--*/
+
+///*设置多列列数和列宽--复合属性（列宽 列数）*/
+.columns-base(@str:auto auto) {
+  -ms-columns: @str;
+  -webkit-columns: @str;
+  -moz-columns: @str;
+  -o-columns: @str;
+  columns: @str;
+}
+
+///*设置多列间隙*/
+.column-gap-base(@str:normal) {
+  -ms-column-gap: @str;
+  -webkit-column-gap: @str;
+  -moz-column-gap: @str;
+  -o-column-gap: @str;
+  column-gap: @str;
+}
+
+///*设置多列边框--复合属性（宽度 样式 颜色）*/
+.column-rule-base(@str:medium none transparent) {
+  -ms-column-rule: @str;
+  -webkit-column-rule: @str;
+  -moz-column-rule: @str;
+  -o-column-rule: @str;
+  column-rule: @str;
+}
+
+///*设置是否横跨所有列*/
+.column-span-base(@str:none) {
+  -ms-column-span: @str;
+  -webkit-column-span: @str;
+  -moz-column-span: @str;
+  -o-column-span: @str;
+  column-span: @str;
+}
+
+///*设置所有列的高度是否统一*/
+.column-fill-base(@str:auto) {
+  -ms-column-fill: @str;
+  -webkit-column-fill: @str;
+  -moz-column-fill: @str;
+  -o-column-fill: @str;
+  column-fill: @str;
+}
+
+///*设置对象之前是否断行*/
+.column-break-before-base(@str:auto) {
+  -ms-column-break-before: @str;
+  -webkit-column-break-before: @str;
+  -moz-column-break-before: @str;
+  -o-column-break-before: @str;
+  column-break-before: @str;
+}
+
+///*设置对象之后是否断行*/
+.column-break-after-base(@str:auto) {
+  -ms-column-break-after: @str;
+  -webkit-column-break-after: @str;
+  -moz-column-break-after: @str;
+  -o-column-break-after: @str;
+  column-break-after: @str;
+}
+
+///*设置对象内部是否断行*/
+.column-break-inside-base(@str:auto) {
+  -ms-column-break-inside: @str;
+  -webkit-column-break-inside: @str;
+  -moz-column-break-inside: @str;
+  -o-column-break-inside: @str;
+  column-break-inside: @str;
+}

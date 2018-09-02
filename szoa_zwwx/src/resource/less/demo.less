@@ -1,0 +1,167 @@
+/*定义全局设置样式，用于在dom中直接全局使用*/
+/*编译基础类支持*/
+@import "struct/base_variable_support.less";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  .box-sizing-base();
+}
+
+ul, ol, dl {
+  list-style: none;
+}
+
+@menu-height: 40px;
+
+/*菜单条*/
+.wx-demo-menu-wrap {
+  .layout-relative-base(0,0,10);
+  height:0;
+  width: 100%;
+  background-color:@color-global-white;
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    .user-tap-base();
+  }
+  >div{
+    .layout-absoluterb-base(0,-@menu-height,20);
+    height: @menu-height;
+    width: @menu-height;
+    background-color:@color-global-white;
+    &:after {
+      cursor: pointer;
+      border: 1px solid @color-gray10;
+      .border-radius-base(3px);
+      width: @menu-height;
+      height: @menu-height;
+      display: inline-block;
+      font-size: @font-size-base * 1.2;
+      text-align: center;
+      line-height: @menu-height;
+      color: @color-gray9;
+      .box-shadow-base(0 0 4px 0 @color-gray12);
+      content: '\e621';
+      font-family: zw_iconfont;
+    }
+  }
+  > ul {
+    width:100%;
+    display: none;
+    overflow-y:auto;
+    max-height: @menu-height * 4;
+    background-color: @color-global-white;
+    li {
+      float: left;
+      background-color:@color-global-white;
+      display: inline-block;
+      height: @menu-height;
+      width: 25%;
+      padding: 0 5px;
+      line-height: @menu-height;
+      color:@color-gray6;
+      font-size: @font-size-base;
+      .text-ofe();
+      text-align: center;
+      border-bottom: 1px solid @color-gray13;
+      border-right: 1px solid @color-gray13;
+    }
+  }
+  .active{
+    background-color:@color-blue1;
+    color:@color-global-white;
+  }
+}
+
+.wx-demo-menu-active {
+  width: 100vw;
+  height: auto;
+  .box-shadow-base(0 0 3px 0 @color-gray12);
+  >div{
+    bottom: -@menu-height;
+    &:after{
+      content:'\e619';
+    }
+  }
+  > ul {
+    display:inline-block;
+  }
+}
+
+/*iframe*/
+.wx-demo-iframe-wrap {
+  .layout-fixedl-base(0,0,1);
+  margin:0;
+  padding:0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  overflow-y:auto;
+}
+
+@media screen and (min-width:721px){
+  .wx-demo-menu-active {
+    > ul {
+      li {
+        width: 10%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:720px){
+  .wx-demo-menu-active {
+    > ul {
+      li {
+        width: 16.66666%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:640px){
+  .wx-demo-menu-active {
+    > ul {
+      li {
+        width: 20%;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width:480px){
+  .wx-demo-menu-active {
+    > ul {
+      li {
+        width: 25%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:320px){
+  .wx-demo-menu-active {
+    > ul {
+      li {
+        width: 33.33333%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:280px){
+  .wx-demo-menu-active {
+    > ul {
+      li {
+        width: 50%;
+      }
+    }
+  }
+}
+
+
+

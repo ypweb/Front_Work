@@ -1,0 +1,104 @@
+/*按钮骨架构建*/
+.zw-btn{
+  @btn-paddingt:5px;
+  @btn-paddingl:12px;
+
+  font-family: @fontfamliy-base;
+  display:inline-block;
+  font-size:@font-size-base;
+  padding:@btn-paddingt @btn-paddingl;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    .user-tap-base();
+  }
+  .button-operate-base(@color-gray5,@color-gray14,@color-gray12);
+}
+
+/*默认按钮*/
+.zw-btn-default{
+  .button-operate-base();
+}
+/*默认按钮*/
+.zw-btn-base{
+  .button-operate-base(@color-global-white,@color-gray4,@color-gray1);
+}
+/*红色按钮*/
+.zw-btn-red{
+  .button-operate-base(@color-global-white,@color-red1,@color-red2);
+}
+/*绿色按钮*/
+.zw-btn-green{
+  .button-operate-base(@color-global-white,@color-green1,@color-green1);
+}
+/*蓝色按钮*/
+.zw-btn-blue{
+  .button-operate-base(@color-global-white,@color-blue1,@color-blue1);
+}
+/*黄色按钮*/
+.zw-btn-yellow{
+  .button-operate-base(@color-global-white,@color-yellow1,@color-yellow1);
+}
+/*橘色按钮*/
+.zw-btn-orange{
+  .button-operate-base(@color-global-white,@color-orange1,@color-orange1);
+}
+/*橘色按钮*/
+.zw-btn-wxextend{
+  .button-operate-base(@color-global-white,@color-wx-extend1,@color-wx-extend1);
+}
+
+/*全局按钮*/
+/*黑色*/
+/*.g-zw-btn-base{
+  .button-operate-base(@color-global-white,lighten(@color-global-base,20%),@color-global-base);
+}*/
+/*默认*/
+/*.g-zw-btn-white{
+  .button-operate-base(@color-gray6,@color-global-white,@color-gray13);
+}*/
+/*红色*/
+/*.g-zw-btn-red{
+  .button-operate-base(@color-global-white,@color-global-red,@color-global-red);
+}*/
+/*绿色*/
+/*.g-zw-btn-green{
+  .button-operate-base(@color-global-white,@color-global-green,@color-global-green);
+}*/
+/*蓝色*/
+/*.g-zw-btn-blue{
+  .button-operate-base(@color-global-white,@color-global-blue,@color-global-blue);
+}*/
+/*兰绿色*/
+/*.g-zw-btn-teal{
+  .button-operate-base(@color-global-white,@color-global-teal,@color-global-teal);
+}*/
+/*橘色*/
+/*.g-zw-btn-orange{
+  .button-operate-base(@color-global-white,@color-global-orange,@color-global-orange);
+}*/
+/*淡蓝色*/
+/*.g-zw-btn-lightblue{
+  .button-operate-base(@color-global-white,@color-global-lightblue,@color-global-lightblue);
+}*/
+/*黄色*/
+/*.g-zw-btn-yellow{
+  .button-operate-base(@color-global-white,@color-global-yellow,@color-global-yellow);
+}*/
+/*靛蓝色*/
+/*.g-zw-btn-indigo{
+  .button-operate-base(@color-global-white,@color-global-indigo,@color-global-indigo);
+}*/
+/*紫色*/
+/*.g-zw-btn-purple{
+  .button-operate-base(@color-global-white,@color-global-purple,@color-global-purple);
+}*/
+/*粉红*/
+/*
+.g-zw-btn-pink{
+  .button-operate-base(@color-global-white,@color-global-pink,@color-global-pink);
+}*/

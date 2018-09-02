@@ -1,0 +1,118 @@
+body{
+	margin:0;
+	background-color:#f3f2f2;
+}
+
+.bannerStyle{
+	width:100%;
+	display:inline-table;
+	background-color:#5685f9;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.bannerImg{
+	width:100%;
+	max-width: 375px;
+	max-height:143px;
+}
+
+.usuallyFunc{
+	display:inline-table;
+	width:100%;
+	height:40px;
+	background-color:#fff;
+	margin-top:2px;
+	padding-left:20px;
+	box-sizing:border-box;
+}
+
+.usuallyFuncWords{
+	color:#333;
+	font-size:16px;
+	font-weight:bold;
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.fsdModel,.sdModel{
+	width:100%;
+	background-color:#fff;
+	border-top:1px solid #f3f2f2;
+	border-bottom:1px solid #f3f2f2;
+	display:none;
+}
+
+.fsdFuncStyle{
+	width:100%;
+	display:flex;
+}
+
+.function1{
+	position:relative;
+	width:33.33%;
+	height:100px;
+	border-bottom:1px solid #f3f2f2;
+	border-right:1px solid #f3f2f2;	
+}
+
+.function2{
+	position:relative;
+	width:33.33%;
+	height:100px;
+	border-bottom:1px solid #f3f2f2;
+	border-right:1px solid #f3f2f2;	
+}
+
+.function3{
+	position:relative;
+	width:33.33%;
+	height:100px;
+	border-bottom:1px solid #f3f2f2;	
+}
+
+.function4{
+	position:relative;
+	width:33.33%;
+	height:100px;
+	border-right:1px solid #f3f2f2;		
+}
+
+.function5{
+	position:relative;
+	width:33.33%;
+	height:100px;
+	border-right:1px solid #f3f2f2;		
+}
+
+.function6{
+	position:relative;
+	width:33.33%;
+	height:100px;
+}
+
+.imgDiv{
+	width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: 24px;	
+}
+
+.textStyle{
+	position:absolute;
+	left:0;
+	right:0;
+	margin:0 auto;
+	text-align:center;
+	font-size:16px;
+	color:#333;
+	margin-top:56px;
+}
+
+.imgStyle{
+	width: 100%;
+	height:100%;
+}

@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+/* 
+*办理信息 
+*/
+	.noData{
+	font-size:14px;
+	text-align:center;
+	color:#333;
+	margin-top:10px;
+	}
+	.loading2{
+     height: 40px;
+     line-height: 40px;
+     text-align: center;
+     width: 100%;
+     color: #555555;
+     font-weight: bold;
+	}
+	.banlixinxi{
+		margin:0 0 6px;
+		background-color:#fff;
+	}
+	.banli-start-info{
+		 border-bottom: 1px solid #c0c0c0;
+		 padding: 5px 15px;
+	}
+    .banli-info{
+        width: 100%;
+        display: flex;  
+        box-sizing: border-box;
+        flex: 1;
+    }
+    .name {
+        width: 50%;
+        text-align: left;
+        float: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .nodename {
+        width: 50%;
+        text-align: right;
+        float: right;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .banli-songda-time{
+    	padding: 5px 15px;
+    }
+
+.alertMsg{
+    color:#333;
+    text-align:left;
+}
+
+.alertDetail{
+    color:#3B9CFF;
+    text-align:left;
+}

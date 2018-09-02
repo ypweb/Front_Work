@@ -3,7 +3,8 @@
 module.exports = function (grunt) {
 
     /*配置文件*/
-    var configfile = 'package_bzw.json';
+    var configfile = 'package_szoa_zwwx.json';
+    /*var configfile = 'package_html_szoa.json';*/
 
     // Project configuration.
     grunt.initConfig({
@@ -14,14 +15,14 @@ module.exports = function (grunt) {
          '版本:<%= pkg.version %>;\n' +
          '日期:<%= grunt.template.today("yyyy-mm-dd") %>;\n' +
          '版权:* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;\n' +
-         '授权:<%= pkg.license %> *!/\n'*/,
+         '作者:<%= pkg.author %> *!/\n'*/,
         //css语法检查
         csslint: {
             //检查生成的css文件目录文件
             options: {
                 csslintrc: '.csslintrc'
             },
-            src:'<%= pkg.projcet%>/<%= pkg.less_dest%>/<%= pkg.less_name%>.css'
+            src:'<%= pkg.project%>/<%= pkg.less_dest%>/<%= pkg.less_name%>.css'
         },
         //定义js语法检查（看配置信息）
         jshint: {
@@ -29,7 +30,7 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             },
             //检查源目录文件和生成目录文件
-            all: '<%= pkg.projcet%>/<%= pkg.js_src%>/*.js'
+            all: '<%= pkg.project%>/<%= pkg.js_src%>/*.js'
         },
         //定义css图片压缩输出（一次性任务）
         imagemin: {
@@ -39,9 +40,9 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,//开启动态扩展
-                    cwd: '<%= pkg.projcet%>/<%= pkg.image_src%>',//当前工作路径img
+                    cwd: '<%= pkg.project%>/<%= pkg.image_src%>',//当前工作路径img
                     src: ['<%= pkg.image_minname%>.{png,jpg,gif,jpeg}'],//要处理的图片格式
-                    dest: '<%= pkg.projcet%>/<%= pkg.image_dest %>'//输出目录images
+                    dest: '<%= pkg.project%>/<%= pkg.image_dest %>'//输出目录images
                 }]
             }
 
@@ -49,16 +50,16 @@ module.exports = function (grunt) {
         //定义css图片拼合
         sprite: {
             all: {
-                src: '<%= pkg.projcet%>/<%= pkg.image_src%>/*.<%= pkg.image_spritetype%>',
-                dest: '<%= pkg.projcet%>/<%= pkg.image_dest%>/<%= pkg.image_spritename%>.<%= pkg.image_spritetype%>',
-                destCss: '<%= pkg.projcet%>/<%= pkg.less_dest%>/<%= pkg.image_spritename%>.css'
+                src: '<%= pkg.project%>/<%= pkg.image_src%>/*.<%= pkg.image_spritetype%>',
+                dest: '<%= pkg.project%>/<%= pkg.image_dest%>/<%= pkg.image_spritename%>.<%= pkg.image_spritetype%>',
+                destCss: '<%= pkg.project%>/<%= pkg.less_dest%>/<%= pkg.image_spritename%>.css'
             }
         },
         //less编译生成css
         less: {
             build: {
-                src: '<%= pkg.projcet%>/<%= pkg.less_src%>/<%=pkg.less_name %>.less',
-                dest: '<%= pkg.projcet%>/<%= pkg.less_dest%>/<%= pkg.less_name %>.css'
+                src: '<%= pkg.project%>/<%= pkg.less_src%>/<%=pkg.less_name %>.less',
+                dest: '<%= pkg.project%>/<%= pkg.less_dest%>/<%= pkg.less_name %>.css'
             },
             dev: {
                 options: {
@@ -70,6 +71,8 @@ module.exports = function (grunt) {
         //使用less时为定义css压缩。（没有使用less时为合并（一次性任务））
         cssmin: {
             options: {
+                compatibility : 'ie8', //设置兼容模式
+                noAdvanced : true, //取消高级特性
                 keepSpecialComments: 0, /* 移除 CSS文件中的所有注释 */
                 shorthandCompacting: false,
                 roundingPrecision: -1
@@ -77,9 +80,9 @@ module.exports = function (grunt) {
             target: {
                 files: [{
                     expand: true,//开启动态扩展
-                    cwd: '<%= pkg.projcet%>/<%= pkg.less_dest%>',//当前工作路径css/
+                    cwd: '<%= pkg.project%>/<%= pkg.less_dest%>',//当前工作路径css/
                     src: ['*.css'],
-                    dest: '<%= pkg.projcet%>/<%= pkg.less_dest%>',
+                    dest: '<%= pkg.project%>/<%= pkg.less_dest%>',
                     ext: '.css'//后缀名
                 }]
             }
@@ -105,14 +108,14 @@ module.exports = function (grunt) {
                     //压缩zepto
                     var names = ['batch_item', 'datepick', 'moneyFilter', 'simulation_batch'],
                         result = [],
-                        path = '<%= pkg.projcet%>/<%= pkg.js_src%>/';
+                        path = '<%= pkg.project%>/<%= pkg.js_src%>/';
                     for (var i = 0, len = names.length; i < len; i++) {
                         result.push(path + names[i] + '.js');
                     }
                     return result;
                 }()),
                 //生成目录
-                dest: '<%= pkg.projcet%>/<%= pkg.js_src%>/<%= pkg.js_minname%>.js'
+                dest: '<%= pkg.project%>/<%= pkg.js_src%>/<%= pkg.js_minname%>.js'
             }
         },
         //定义js压缩任务uglify
@@ -123,14 +126,14 @@ module.exports = function (grunt) {
                 banner: '<%= banner %>'
             },
             build: {
-                src: '<%= pkg.projcet%>/<%= pkg.js_src%>/<%= pkg.js_minname%>.js',
-                dest: '<%= pkg.projcet%>/<%= pkg.js_dest%>/<%= pkg.js_minname%>.min.js'
+                src: '<%= pkg.project%>/<%= pkg.js_src%>/<%= pkg.js_minname%>.js',
+                dest: '<%= pkg.project%>/<%= pkg.js_dest%>/<%= pkg.js_minname%>.min.js'
             }
         },
         //定义监控文件变化
         watch: {
             less: {
-                files: ['<%= pkg.projcet%>/<%= pkg.less_src %>/**/*.less'],
+                files: ['<%= pkg.project%>/<%= pkg.less_src %>/**/*.less'],
                 tasks: ['less', 'cssmin'],
                 options: {
                     spawn: false,
@@ -140,7 +143,7 @@ module.exports = function (grunt) {
                 }
             }/*,
              scripts: {
-             files: '<%= pkg.projcet%>/<%= pkg.js_dest%>/<%= pkg.less_name%>.js',
+             files: '<%= pkg.project%>/<%= pkg.js_dest%>/<%= pkg.less_name%>.js',
              tasks: ['uglify'],
              options: {
              spawn: false,
@@ -156,9 +159,9 @@ module.exports = function (grunt) {
     //导入任务所需的依赖支持服务
     /*可用任务*/
     //grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    /*grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-concat');*/
     //grunt.loadNpmTasks('grunt-contrib-imagemin');
     //grunt.loadNpmTasks('grunt-spritesmith');
     //grunt.loadNpmTasks('grunt-contrib-livereload');
@@ -203,6 +206,9 @@ module.exports = function (grunt) {
      grunt.task.run(['less', 'cssmin']);
      });*/
 
+    /*grunt.registerTask('default', "less编译生成css,同时实时监控", function () {
+        grunt.task.run(['less', 'watch:less']);
+    });*/
 
     grunt.registerTask('default', "less编译生成css并压缩,同时实时监控", function () {
         grunt.task.run(['less', 'cssmin', 'watch:less']);

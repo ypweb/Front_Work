@@ -1,0 +1,21 @@
+/*清除圆角*/
+.g-clear-br {
+  .border-radius-base(0) !important;
+}
+
+///*----圆角----*/
+.g-brfor(@n,@i:1) when (@i =< @n) {
+  .g-br@{i} {
+    .border-radius-base(~'@{i}px');
+  }
+  .g-brfor(@n, (@i+1));
+}
+
+.g-brfor(10);
+
+
+
+
+
+
+

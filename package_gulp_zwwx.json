@@ -1,0 +1,49 @@
+{
+  "project": "szoa",
+  "name": "szoa",
+  "version": "2.0.0",
+  "js_src": "szoa/business/trunk/webapp/zwwx/src/jquery-weui/js/",
+  "js_temp": "szoa/business/trunk/webapp/zwwx/resource/js/lib/weui/temp",
+  "js_dest": "szoa/business/trunk/webapp/zwwx/resource/js/lib/weui/js",
+  "js_minname": "jquery-weui.min",
+  "less_src": "szoa/business/trunk/webapp/zwwx/resource/less/",
+  "less_dest": "szoa/business/trunk/webapp/zwwx/resource/css",
+  "less_name": "weui",
+  "image_src": "img",
+  "image_dest": "images",
+  "image_minname": "2",
+  "image_spritename": "sprite_icon",
+  "image_spritetype": "png",
+  "description": "企业微信",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jQuery WeUI",
+    "weui",
+    "wechat",
+    "weixin",
+    "css",
+    "less",
+    "mobile",
+    "jQuery",
+    "Zepto",
+    "gulp"
+  ],
+  "author": "yipin",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-ejs": "^2.1.1",
+    "gulp-ext-replace": "^0.3.0",
+    "gulp-header": "^1.7.1",
+    "gulp-less": "^3.0.5",
+    "gulp-uglify": "^1.5.3"
+  }
+}

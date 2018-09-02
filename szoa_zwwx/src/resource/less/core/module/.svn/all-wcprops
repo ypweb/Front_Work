@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/szoa/!svn/ver/5240/szoa/business/trunk/webapp/zwwx/resource/less/core/module
+END
+tab.less
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/szoa/!svn/ver/5499/szoa/business/trunk/webapp/zwwx/resource/less/core/module/tab.less
+END
+form.less
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/szoa/!svn/ver/3384/szoa/business/trunk/webapp/zwwx/resource/less/core/module/form.less
+END
+panel.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/szoa/!svn/ver/3433/szoa/business/trunk/webapp/zwwx/resource/less/core/module/panel.less
+END
+mixin.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/szoa/!svn/ver/3433/szoa/business/trunk/webapp/zwwx/resource/less/core/module/mixin.less
+END
+btn_list.less
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/szoa/!svn/ver/4771/szoa/business/trunk/webapp/zwwx/resource/less/core/module/btn_list.less
+END
+list.less
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/szoa/!svn/ver/5240/szoa/business/trunk/webapp/zwwx/resource/less/core/module/list.less
+END
+empty.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/szoa/!svn/ver/4328/szoa/business/trunk/webapp/zwwx/resource/less/core/module/empty.less
+END
+select.less
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/szoa/!svn/ver/4771/szoa/business/trunk/webapp/zwwx/resource/less/core/module/select.less
+END
+variable.less
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/szoa/!svn/ver/3384/szoa/business/trunk/webapp/zwwx/resource/less/core/module/variable.less
+END
+detail_list.less
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/szoa/!svn/ver/5499/szoa/business/trunk/webapp/zwwx/resource/less/core/module/detail_list.less
+END
+btn_tool.less
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/szoa/!svn/ver/5499/szoa/business/trunk/webapp/zwwx/resource/less/core/module/btn_tool.less
+END
+extend.less
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/szoa/!svn/ver/3433/szoa/business/trunk/webapp/zwwx/resource/less/core/module/extend.less
+END
+theme.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/szoa/!svn/ver/4771/szoa/business/trunk/webapp/zwwx/resource/less/core/module/theme.less
+END
+download.less
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/szoa/!svn/ver/4421/szoa/business/trunk/webapp/zwwx/resource/less/core/module/download.less
+END

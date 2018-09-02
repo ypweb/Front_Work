@@ -1,0 +1,108 @@
+/*主题*/
+.wx-theme-function(){
+  /*theme列表容器*/
+  .wx-themelist-panel{
+    width:100%;
+    padding:0 @detail-list-gap/2;
+  }
+  /*theme*/
+  .wx-theme-wrap,
+  .wx-labeltheme-wrap{
+    .layout-relative-base();
+    width: 100%;
+    .text-ofe();
+    color: @color-gray3;
+    font-weight: normal;
+    font-size: @font-size-base + 2;
+  }
+
+
+  /*默认主题*/
+  @theme-gapt: 15px;
+  @theme-gapb: 7px;
+  .wx-theme-wrap {
+    height: @theme-height;
+    background-color: darken(@color-gray14, 0.5%);
+    padding: @theme-gapt @body-gap-left @theme-gapb @body-gap-left;
+    line-height: @theme-height - @theme-gapt - @theme-gapb;
+  }
+
+  /*小模块主题*/
+  @label-inner-height: 24px;
+  @label-inner-gap: (@labeltheme-height - @label-inner-height)/2;
+  .wx-labeltheme-wrap {
+    height: @labeltheme-height;
+    background-color: @color-global-white;
+    padding: @label-inner-gap @labeltheme-gap-left;
+    line-height: @label-inner-height;
+    border-bottom: 1px solid @color-gray12;
+  }
+  .wx-labeltheme-border{
+    border: 1px solid @color-gray13;
+  }
+
+  /*按钮*/
+  .wx-theme-wrap,
+  .wx-labeltheme-wrap{
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      .user-tap-base();
+    }
+    .theme-icon {
+      cursor: pointer;
+      display: inline-block;
+    }
+    /*编辑按钮*/
+    .theme-icon-edit {
+      height: @label-inner-height;
+      &:before{
+        content:attr(data-name);
+      }
+      &:after {
+        margin-left:10px;
+        margin-right:10px;
+        content: '\e6db';
+        font-family: zw_iconfont;
+        color: @color-blue1;
+        font-size:@font-size-base + 6;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        &:after {
+          color: darken(@color-blue1, 10%);
+        }
+      }
+    }
+    /*可展开按钮*/
+    .theme-icon-toggle{
+      .layout-absoluter-base();
+      .transition-base(all .3s ease-in .01s);
+      width:@labeltheme-height;
+      height:100%;
+      &:after{
+        .transition-base(all .3s ease-in .01s);
+        display: inline-block;
+        width:100%;
+        height:100%;
+        text-align: center;
+        line-height:@labeltheme-height;
+        content:'\e703';
+        font-size: @font-size-base * 1.6;
+        color:@color-gray6;
+        font-family: 'zw_iconfont';
+      }
+    }
+    .toggle-active{
+      &:after{
+        .transform-origin-base();
+        .transform-base(rotate(180deg));
+      }
+    }
+  }
+}
+
+/*主题调用*/
+.wx-theme-function();

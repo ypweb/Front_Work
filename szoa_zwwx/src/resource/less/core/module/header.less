@@ -1,0 +1,59 @@
+/*头部*/
+.wx-header-wrap {
+  @header-gap-top: 10px;
+  @side-btn-pos: (@header-height - @header-gap-top)/4;
+
+  .layout-relative-base();
+  height: @header-height;
+  background-color: @main-theme-color;
+  color: @color-global-white;
+  width: 100%;
+  padding: @header-gap-top @header-height;
+
+  .wx-header-back {
+    .layout-absolutel-base();
+    height:@header-height;
+    width: @header-height;
+    cursor: pointer;
+    &:before {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      content: '\e6ec';
+      cursor: pointer;
+      vertical-align: middle;
+      font-size: @font-size-base * 2;
+      font-family: 'zw_iconfont';
+      text-align: center;
+    }
+    &,
+    &:hover,
+    &:active,
+    &:focus{
+      .user-tap-base();
+    }
+  }
+  .wx-header-title {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: @header-height - @header-gap-top * 2;
+    color: @color-global-white;
+    font-size: @font-size-base + 2;
+  }
+  .wx-header-tip {
+    .layout-absoluter-base();
+    height: @header-height;
+    width: @header-height;
+    background: url("../images/icon_tips_white.png") no-repeat center center;
+    background-size: auto 50%;
+    cursor: pointer;
+    &,
+    &:hover,
+    &:active,
+    &:focus{
+      .user-tap-base();
+    }
+  }
+}
+

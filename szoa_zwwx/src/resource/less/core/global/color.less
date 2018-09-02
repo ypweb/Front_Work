@@ -1,0 +1,262 @@
+///*字体颜色*/
+/*基本色*/
+/*白色*/
+.g-c-white {
+  color: @color-global-white !important;
+}
+
+/*黑色*/
+.g-c-base {
+  color: @color-global-base !important;
+}
+
+/*灰色*/
+.g-c-gray {
+  color: lighten(@color-global-base, 80%) !important;
+}
+
+/*红色*/
+.g-c-red {
+  color: @color-global-red !important;
+}
+
+/*绿色*/
+.g-c-green {
+  color: @color-global-green !important;
+}
+
+/*蓝色*/
+.g-c-blue {
+  color: @color-global-blue !important;
+}
+
+/*兰绿色*/
+.g-c-teal {
+  color: @color-global-teal !important;
+}
+
+/*橙色*/
+.g-c-orange {
+  color: @color-global-orange !important;
+}
+
+/*淡蓝色*/
+.g-c-lightblue {
+  color: @color-global-lightblue !important;
+}
+
+/*黄色*/
+.g-c-yellow {
+  color: @color-global-yellow !important;
+}
+
+/*靛蓝*/
+.g-c-indigo {
+  color: @color-global-indigo !important;
+}
+
+/*紫色*/
+.g-c-purple {
+  color: @color-global-purple !important;
+}
+
+/*粉红*/
+.g-c-pink {
+  color: @color-global-pink !important;
+}
+
+
+/*扩展色*/
+.g-c-wxextend1{
+  color:@color-wx-extend1 !important;
+};
+///红色
+.g-c-redfor(@n,@i:1) when (@i =< @n) {
+  .g-c-red@{i} {
+    .color-t-base(~'@{color-red@{i}} !important';);
+  }
+  .g-c-redfor(@n, (@i+1));
+}
+
+.g-c-redfor(4);
+
+///绿色
+.g-c-greenfor(@n,@i:1) when (@i =< @n) {
+  .g-c-green@{i} {
+    .color-t-base(~'@{color-green@{i}} !important';);
+  }
+  .g-c-greenfor(@n, (@i+1));
+}
+
+.g-c-greenfor(2);
+
+///蓝色
+.g-c-bluefor(@n,@i:1) when (@i =< @n) {
+  .g-c-blue@{i} {
+    .color-t-base(~'@{color-blue@{i}} !important';);
+  }
+  .g-c-bluefor(@n, (@i+1));
+}
+
+.g-c-bluefor(3);
+
+///黄色
+.g-c-yellowfor(@n,@i:1) when (@i =< @n) {
+  .g-c-yellow@{i} {
+    .color-t-base(~'@{color-yellow@{i}} !important';);
+  }
+  .g-c-yellowfor(@n, (@i+1));
+}
+
+.g-c-yellowfor(2);
+
+///橘色
+.g-c-orangefor(@n,@i:1) when (@i =< @n) {
+  .g-c-orange@{i} {
+    .color-t-base(~'@{color-orange@{i}} !important';);
+  }
+  .g-c-orangefor(@n, (@i+1));
+}
+
+.g-c-orangefor(3);
+
+///灰色
+.g-c-grayfor(@n,@i:1) when (@i =< @n) {
+  .g-c-gray@{i} {
+    .color-t-base(~'@{color-gray@{i}} !important';);
+  }
+  .g-c-grayfor(@n, (@i+1));
+}
+
+.g-c-grayfor(15);
+
+///*背景颜色*/
+.g-bc-wxextend1{
+  color:@color-wx-extend1 !important;
+};
+/*基本色*/
+/*白色*/
+.g-bc-white {
+  background-color: @color-global-white !important;
+}
+
+/*黑色*/
+.g-bc-base {
+  background-color: @color-global-base !important;
+}
+
+/*灰色*/
+.g-bc-gray {
+  background-color: lighten(@color-global-base, 80%) !important;
+}
+
+/*红色*/
+.g-bc-red {
+  background-color: @color-global-red !important;
+}
+
+/*绿色*/
+.g-bc-green {
+  background-color: @color-global-green !important;
+}
+
+/*蓝色*/
+.g-bc-blue {
+  background-color: @color-global-blue !important;
+}
+
+/*兰绿色*/
+.g-bc-teal {
+  background-color: @color-global-teal !important;
+}
+
+/*橙色*/
+.g-bc-orange {
+  background-color: @color-global-orange !important;
+}
+
+/*淡蓝色*/
+.g-bc-lightblue {
+  background-color: @color-global-lightblue !important;
+}
+
+/*黄色*/
+.g-bc-yellow {
+  background-color: @color-global-yellow !important;
+}
+
+/*靛蓝*/
+.g-bc-indigo {
+  background-color: @color-global-indigo !important;
+}
+
+/*紫色*/
+.g-bc-purple {
+  background-color: @color-global-purple !important;
+}
+
+/*粉红*/
+.g-bc-pink {
+  background-color: @color-global-pink !important;
+}
+
+/*扩展色*/
+//红色
+.g-bc-redfor(@n,@i:1) when (@i =< @n) {
+  .g-bc-red@{i} {
+    .color-bg-base(~'@{color-red@{i}} !important';);
+  }
+  .g-bc-redfor(@n, (@i+1));
+}
+
+.g-bc-redfor(4);
+
+///绿色
+.g-bc-greenfor(@n,@i:1) when (@i =< @n) {
+  .g-bc-green@{i} {
+    .color-bg-base(~'@{color-green@{i}} !important';);
+  }
+  .g-bc-greenfor(@n, (@i+1));
+}
+
+.g-bc-greenfor(2);
+
+///蓝色
+.g-bc-bluefor(@n,@i:1) when (@i =< @n) {
+  .g-bc-blue@{i} {
+    .color-bg-base(~'@{color-blue@{i}} !important';);
+  }
+  .g-bc-bluefor(@n, (@i+1));
+}
+
+.g-bc-bluefor(3);
+
+///黄色
+.g-bc-yellowfor(@n,@i:1) when (@i =< @n) {
+  .g-bc-yellow@{i} {
+    .color-bg-base(~'@{color-yellow@{i}} !important';);
+  }
+  .g-bc-yellowfor(@n, (@i+1));
+}
+
+.g-bc-yellowfor(2);
+
+///橘色
+.g-bc-orangefor(@n,@i:1) when (@i =< @n) {
+  .g-bc-orange@{i} {
+    .color-bg-base(~'@{color-orange@{i}} !important';);
+  }
+  .g-bc-orangefor(@n, (@i+1));
+}
+
+.g-bc-orangefor(3);
+
+///灰色
+.g-bc-grayfor(@n,@i:1) when (@i =< @n) {
+  .g-bc-gray@{i} {
+    .color-bg-base(~'@{color-gray@{i}} !important';);
+  }
+  .g-bc-grayfor(@n, (@i+1));
+}
+
+.g-bc-grayfor(15);

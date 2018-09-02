@@ -1,0 +1,29 @@
+/*定义全局设置样式，用于在dom中直接全局使用*/
+@import "struct/base_variable_support.less"/*编译基础类支持*/;
+
+/*核心*/
+@import "core/global/text.less";/*!--文本--*/
+@import "core/global/color.less";/*!--颜色--*/
+@import "core/global/border.less";/*!--边框--*/
+@import "core/global/gap.less";/*!--间距--*/
+@import "core/global/size.less";/*!--尺寸--*/
+@import "core/global/box.less";/*!--用户容器--*/
+@import "core/global/font.less";/*!--字体--*/
+@import "core/global/position.less";/*!--定位--*/
+@import "core/global/shadow.less";/*!--阴影--*/
+@import "core/global/radius.less";/*!--圆角--*/
+@import "core/global/button.less";/*!--按钮--*/
+@import "core/global/extend.less";/*!--其他人扩展--*/
+
+
+
+
+
+
+
+
+
+
+
+
+

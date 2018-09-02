@@ -1,0 +1,25 @@
+///*----百分比尺寸,宽高----*/
+.g-size-percentfor(@n,@i:1) when (@i =< @n) {
+  .g-w-percent@{i} {
+    width: @i * 1% !important;
+  }
+  .g-h-percent@{i} {
+    height: @i * 1% !important;
+  }
+  .g-size-percentfor(@n, (@i+1));
+}
+
+.g-size-percentfor(100);
+
+///*----具体尺寸,宽高----*/
+.g-size-numberfor(@n,@i:1) when (@i =< @n) {
+  .g-w-number@{i} {
+    width: @i * 5px !important;
+  }
+  .g-h-number@{i} {
+    height: @i * 5px !important;
+  }
+  .g-size-numberfor(@n, (@i+1));
+}
+
+.g-size-numberfor(20);

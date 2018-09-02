@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>政务微信--demo</title>
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/demo.css">
+    <!--<link rel="stylesheet" href="demo.css">-->
+
+    <!--<router-link tag="li" v-for="(hitem,index) in headeritem" v-bind:to="hitem.href" replace active-class="active">
+                {{hitem.text}}
+            </router-link>-->
+
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl: '/zwwx/',
+            paths: {
+                "vue": "demo/wx/vue"
+            }
+        });
+
+
+        /*程序入口*/
+        require(['vue'], function (Vue) {
+
+            /*路由*/
+            /*var  router = new VueRouter({
+                mode: 'history',
+                routes: []
+            });*/
+
+
+            new Vue({
+                /*虚拟挂载点*/
+                el: '#vue_container',
+                /*数据*/
+                data: {
+                    togglemenu: 'wx-demo-menu-active',
+                    menudata: {
+                        'form': {
+                            'title': '参考资料,下载按钮,无数据,交换跟踪,交换弹出图标,办理信息,意见,便签贴',
+                            'href': 'data,download,empty,follow,follow_alert,handle,idea,note'
+                        }/*表单*/,
+                        'list': {
+                            'title': '详情列表,列表',
+                            'href': 'detail_list,list'
+                        }, /*列表*/
+                        'meeting': {
+                            'title': '会议报名,报名表单,hehe,主题,按钮',
+                            'href': 'meetingSignup,meetingSignupForm,signup,theme,tool'
+                        } /*会议*/,
+                        'tab': {
+                            'title': 'tab组件,tab_swiper组件',
+                            'href': 'tab,tab_swiper'
+                        }
+                    },
+                    menuitem:[]
+                },
+                /*router,/!*路由配置*!/*/
+                /*模板*/
+                template: '<div class="wx-demo-menu-wrap"  v-bind:class="togglemenu">' +
+                '<div v-on:click="toggleMenu()"></div>' +
+                '<ul><router-link  v-for="(item,index) in menuitem" v-bind:to="item.href" replace active-class="active">{{item.title}}</router-link></ul>' +
+                '</div>' +
+                '<div class="wx-demo-iframe-wrap"></div>',
+                mounted: function(){
+                    /*初始化*/
+                    this.renderMenu();
+                },
+                methods: {
+                    /*服务*/
+                    toggleMenu: function () {
+                        this.togglemenu === '' ? this.togglemenu = 'wx-demo-menu-active' : this.togglemenu = '';
+                    },
+                    renderMenu:function () {
+                        var menu = this.menudata;
+                        for (var i in menu) {
+                            var menuitem = menu[i],
+                                title = menuitem['title'].split(','),
+                                href = menuitem['href'].split(','),
+                                mlen = title.length;
+                            for (var j = 0; j < mlen; j++) {
+                                this.menuitem.push({
+                                    title:title[j],
+                                    href:i + '/' + href[j]
+                                });
+                            }
+                        }
+                    }
+                }
+            });
+
+
+            /*$(function () {
+                /!*dom节点*!/
+                var $demo_toggle = $('#demo_toggle'),
+                    $demo_btn = $demo_toggle.find('>div'),
+                    $demo_menu = $demo_toggle.find('>ul'),
+                    $wx_iframe_wrap = $('#wx_iframe_wrap');
+
+
+                /!*菜单数据*!/
+                var menu_obj = {
+                    'form': {
+                        'title': '参考资料,下载按钮,无数据,交换跟踪,交换弹出图标,办理信息,意见,便签贴',
+                        'href': 'data,download,empty,follow,follow_alert,handle,idea,note'
+                    }/!*表单*!/,
+                    'list': {
+                        'title': '详情列表,列表',
+                        'href': 'detail_list,list'
+                    }, /!*列表*!/
+                    'meeting': {
+                        'title': '会议报名,报名表单,hehe,主题,按钮',
+                        'href': 'meetingSignup,meetingSignupForm,signup,theme,tool'
+                    } /!*会议*!/,
+                    'tab': {
+                        'title': 'tab组件,tab_swiper组件',
+                        'href': 'tab,tab_swiper'
+                    }
+                };
+
+                /!*渲染菜单*!/
+                renderMenu({
+                    data: menu_obj,
+                    wrap: $demo_menu,
+                    iframe: $wx_iframe_wrap,
+                    toggle: $demo_toggle
+                });
+
+                /!*绑定事件*!/
+                menuBind({
+                    wrap: $demo_menu,
+                    iframe: $wx_iframe_wrap,
+                    btn: $demo_btn,
+                    toggle: $demo_toggle
+                });
+
+            });*/
+
+
+            /*渲染菜单*/
+            function renderMenu(config) {
+                var menu_str = '',
+                    menu = config.data,
+                    count = 0;
+                for (var i in menu) {
+                    var menuitem = menu[i],
+                        title = menuitem['title'].split(','),
+                        href = menuitem['href'].split(','),
+                        mlen = title.length;
+                    for (var j = 0; j < mlen; j++) {
+                        if (j === 0 && count === 0) {
+                            toHref({
+                                iframe: config.iframe,
+                                src: i + '/' + href[j] + '.html'
+                            });
+                        }
+                        menu_str += '<li data-href="' + i + '/' + href[j] + '.html">' + title[j] + '</li>';
+                    }
+                    count++;
+                }
+                $(menu_str).appendTo(config.wrap.html(''));
+                config.toggle.addClass('wx-demo-menu-active');
+            }
+
+            /*变更iframe 地址*/
+            function toHref(config) {
+                config.iframe.attr({
+                    'src': config.src
+                });
+            }
+
+            /*绑定事件*/
+            function menuBind(config) {
+                /*显示隐藏菜单*/
+                config.btn.on('click', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    config.toggle.toggleClass('wx-demo-menu-active');
+                });
+
+                /*切换菜单路径*/
+                config.wrap.on('click', 'li', function () {
+                    var $this = $(this),
+                        href = $this.attr('data-href');
+
+                    $this.addClass('active').siblings().removeClass('active');
+                    toHref({
+                        iframe: config.iframe,
+                        src: href
+                    });
+                });
+            }
+        });
+    </script>
+
+</head>
+<body id="vue_container"></body>
+</html>

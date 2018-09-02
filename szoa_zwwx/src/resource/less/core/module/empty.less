@@ -1,0 +1,98 @@
+/*空信息面板*/
+.wx-empty-panel {
+  @circle-width:@font-size-base * 8;
+
+  width: 100%;
+  padding: @grid-list-gap/2;
+  background-color: @color-global-white;
+  background-clip: content-box;
+  height: 80vh;
+  .layout-relative-base();
+  .display-base();
+  .flex-base();
+  .justify-content-base(center);
+  .align-items-base(center);
+  &:before {
+    font-family: zw_iconfont;
+    margin: 5px;
+    color: @color-global-white;
+    width: @circle-width;
+    height: @circle-width;
+    background-color: @color-gray14;
+    .border-radius-base(50%);
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    line-height: @circle-width;
+  }
+  &:after {
+    .layout-absolutel-base(0,50%);
+    margin-top:@circle-width/2;
+    text-align: center;
+    width:100%;
+    height:@font-size-base * 2;
+    line-height: @font-size-base * 2;
+    display: block;
+    content: attr(data-title);
+    color: @color-gray9;
+    font-size: @font-size-base + 2;
+  }
+}
+
+.wx-empty-document {
+  &:before {
+    content: '\e7d8';
+    font-size: @font-size-base * 4.4;
+  }
+}
+
+.wx-empty-query {
+  &:before {
+    content: '\e635';
+    font-size: @font-size-base * 4;
+    font-weight: bold;
+  }
+}
+
+.wx-empty-edit {
+  &:before {
+    content: '\e624';
+    font-size: @font-size-base * 4;
+    font-weight: bold;
+  }
+}
+
+.wx-empty-image {
+  &:before {
+    content: '\e7d1';
+    font-size: @font-size-base * 4.4;
+  }
+}
+
+.wx-empty-word {
+  &:before {
+    content: '\e7d5';
+    font-size: @font-size-base * 4.4;
+  }
+}
+
+.wx-empty-pdf {
+  &:before {
+    content: '\e7d0';
+    font-size: @font-size-base * 4.4;
+  }
+}
+
+.wx-empty-excel {
+  &:before {
+    content: '\e7ce';
+    font-size: @font-size-base * 4.4;
+  }
+}
+
+.wx-empty-zip {
+  &:before {
+    content: '\e7d6';
+    font-size: @font-size-base * 4.4;
+  }
+}

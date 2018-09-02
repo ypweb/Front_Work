@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>空页面</title>
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+</head>
+<body>
+
+<h2 class="wx-theme-wrap g-bc-white g-gap-mt5 g-gap-mb5">data 方式</h2>
+<!--空文档信息-->
+<div class="wx-empty-panel wx-empty-document" data-title="暂无文档信息"></div>
+
+<!--空查询信息-->
+<div class="wx-empty-panel wx-empty-query" data-title="暂无查询信息"></div>
+
+<!--空编辑信息-->
+<div class="wx-empty-panel wx-empty-edit" data-title="暂无编辑信息"></div>
+
+<!--空图片信息-->
+<div class="wx-empty-panel wx-empty-image" data-title="暂无图片信息"></div>
+
+
+<!--空word信息-->
+<div class="wx-empty-panel wx-empty-word" data-title="暂无word信息"></div>
+
+
+<!--空pdf信息-->
+<div class="wx-empty-panel wx-empty-pdf" data-title="暂无pdf信息"></div>
+
+<!--空excel信息-->
+<div class="wx-empty-panel wx-empty-excel" data-title="暂无excel信息"></div>
+
+
+<!--空zip信息-->
+<div class="wx-empty-panel wx-empty-zip" data-title="暂无zip信息"></div>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <!--禁止自动识别任何可能是电话号码的字符串-->
+    <meta name="format-detection" content="telephone=no"/>
+    <!--强制竖屏-->
+    <meta name="x5-orientation" content="portrait">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title></title>
+    <!--扩展样式-->
+    <link rel="stylesheet" href="/zwwx/resource/css/weui.css">
+    <!--第三方组件-->
+    <link rel="stylesheet" href="/zwwx/resource/js/lib/weui/css/jquery-weui.css"/>
+    <script src="/zwwx/resource/js/lib/jquery/jquery.min.js"></script>
+    <script src="/zwwx/resource/js/lib/weui/js/jquery-weui.min.js"></script>
+    <script src="/zwwx/resource/js/lib/require/require.js"></script>
+    <script src="/zwwx/resource/js/config/config.js"></script>
+</head>
+
+<body>
+<div style="display:none">
+    <div class="wrap">
+        <div class="wx-tabpanel-wrap tabpanel-btnright" id="tabswiper_panel">
+            <div class="wx-tabpanel-list g-d-hidei" id="allTab">
+                <div class="wx-tabpanel-slide" id="tabswiper_slide">
+                    <ul class="wx-tablist-wrap">
+                        <li id="yijian_tab" class="menu-yijian tabactive active">意见</li>
+                        <li id="zhengwen_tab" class="menu-zhengwen">正文</li>
+                        <li id="cankaoziliao_tab" class="menu-ziliao">参考资料</li>
+                        <li id="qianfa_tab" class="menu-qianfa">签发</li>
+                        <li id="bianqiantie_tab" class="menu-bianqian">便签贴</li>
+                        <li id="biaodan_tab" class="menu-chengpi">表单</li>
+                        <li id="huiyixinxi_tab" class="menu-huiyi">会议信息</li>
+                        <li id="jiaohuangenzong_tab" class="menu-genzong">交换跟踪</li>
+                        <li id="banlixinxi_tab" class="menu-banli">办理信息</li>
+                        <li id="huiyibaoming_tab" class="menu-huiyibaoming">会议报名表</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wx-tabpanel-grid">
+                <h1></h1>
+                <ul class="wx-tabcolumn-wrap" id="tabswiper_grid"></ul>
+            </div>
+            <div class="wx-tabpanel-mask" id="tabswiper_mask"></div>
+            <div class="wx-tabpanel-toggle g-d-hidei" id="tabswiper_btn"></div>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper ">
+                <div class="swiper-slide" data-title="暂无意见">
+                    <div id="yijian_div" class="g-d-hidei">
+                        <ul class="wx-lastshowlist-wrap g-gap-mt5" id="idea_btn">
+                            <li class="idea_li">
+                                <h2 class="wx-labeltheme-wrap wx-labeltheme-border">拟办意见/领导批示 <span
+                                        id="zhankaiyijian" class="theme-icon theme-icon-toggle"></span>
+                                </h2>
+                            </li>
+                        </ul>
+
+                        <!--意见弹窗-->
+                        <div class="wx-tool-wrap wx-tool-lb-wrap g-d-hidei" id="idea_textarea">
+                            <!--写信息-->
+                            <div class="wx-tool-textarea">
+                                <!--textarea-->
+                                <div class="text-info">
+                                    <textarea placeholder="请输入意见"></textarea>
+                                </div>
+                                <!--按钮组-->
+                                <ul class="wx-btnitem-wrap wx-btnitem-item2 g-gap-mb10">
+                                    <li>
+                                        <div class="zw-btn zw-btn-wxextend g-br5" id="idea_sure">确定</div>
+                                    </li>
+                                    <li>
+                                        <div class="zw-btn zw-btn-wxextend g-br5" id="idea_cancel">取消</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-title="暂无正文">
+                    <div id="zhengwen_div">
+
+                    </div>
+                </div>
+                <div class="swiper-slide" data-title="暂无参考资料">
+                    <div id="cankaoziliao_div" class="container-fluid">
+                        <ul id="guanlianxinxi" class="wx-datalist-wrap"></ul>
+                        <div class="wx-themelist-panel"><h2 class="wx-labeltheme-wrap">附件</h2></div>
+                        <ul id="docDetailFujian"
+                            class="wx-detaillist-wrap wx-detaillist-indent wx-detaillist-indent4">
+                        </ul>
+                    </div>
+                </div>
+                <div id="qianfa_swiper" class="swiper-slide">
+                    <div id="qianfa_div" class="">
+                        <ul class="wx-detaillist-wrap wx-detaillist-indent wx-detaillist-indent4">
+                            <li>
+                                <div class="wx-labelshow">
+                                    <div><span>发文机关:</span>
+                                        <p id="department"></p></div>
+                                    <div><span>公文种类:</span>
+                                        <p id="type2"></p></div>
+                                    <div><span>发文字号:</span>
+                                        <p id="documentNo"></p></div>
+                                    <div><span>公文类别:</span>
+                                        <p id="doctype"></p></div>
+                                    <div><span>行文类别:</span>
+                                        <p id="type1"></p></div>
+                                    <div><span>主送机关:</span>
+                                        <p id="sendTo"></p></div>
+                                    <div><span>抄报送:</span>
+                                        <p id="sendCC"></p></div>
+                                    <div><span>印发部门:</span>
+                                        <p id="distributeDepartment"></p></div>
+                                    <div><span>印发份数:</span>
+                                        <p id="dissributeCount"></p></div>
+                                    <div><span>签发人:</span>
+                                        <p id="issueEmployee"></p></div>
+                                    <div><span>签发日期:</span>
+                                        <p id="issueDate"></p></div>
+                                    <div><span>印发日期:</span>
+                                        <p id="disributeDate"></p></div>
+                                    <div><span>公开方式:</span>
+                                        <p id="publicType"></p></div>
+                                    <div><span>需要回复:</span>
+                                        <p id="reply"></p></div>
+                                    <div><span>回复时限:</span>
+                                        <p id="replyDate"></p></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="bianqiantie_swiper" class="swiper-slide">
+                    <div id="bianqiantie_div" class="">
+                        <ul id="noteListGrid" class="wx-notelist-wrap"></ul>
+                    </div>
+                </div>
+                <div id="biaodan_swiper" class="swiper-slide">
+                    <div id="laiwen_div" class="">
+                        <!--呈批信息-->
+                        <ul id="chengpixinxiGrid"
+                            class="wx-detaillist-wrap wx-detaillist-indent wx-detaillist-indent4"></ul>
+                        <!--办理流程  -->
+                        <div id="chengpiliucheng" class="wx-detaillist-wrap"></div>
+                    </div>
+                </div>
+                <div id="huiyixinxi_swiper" class="swiper-slide">
+                    <div id="huiyixinxi_div" class="">
+                        <!-会议信息表单-->
+                        <ul class="wx-detaillist-wrap wx-detaillist-indent wx-detaillist-indent4">
+                            <li>
+                                <div class="wx-labelshow">
+                                    <div><span>会议名称:</span>
+                                        <p id="meetingName"></p></div>
+                                    <div><span>文件编号:</span>
+                                        <p id="fileNo"></p></div>
+                                    <div><span>缓急:</span>
+                                        <p id="huanJi"></p></div>
+                                    <div><span>主持人:</span>
+                                        <p id="hostMan"></p></div>
+                                    <div><span>会议时间:</span>
+                                        <p id="meetTime"></p></div>
+                                    <div><span>截止时间:</span>
+                                        <p id="deadline"></p></div>
+                                    <div><span>联系人:</span>
+                                        <p id="connectMan"></p></div>
+                                    <div><span>联系方式:</span>
+                                        <p id="connectWay"></p></div>
+                                    <div><span>会议地址:</span>
+                                        <p id="meetingPlace"></p></div>
+                                    <div><span>办会单位:</span>
+                                        <p id="meetingPerson"></p></div>
+                                    <div><span>参会单位:</span>
+                                        <p id="zhusong"></p></div>
+                                    <div><span>会议内容:</span>
+                                        <p id="content"></p></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--办理流程  -->
+                        <div id="huiyiliucheng" class="wx-detaillist-wrap"></div>
+
+                    </div>
+                </div>
+                <div id="jiaohuangenzong_swiper" class="swiper-slide">
+                    <div id="jiaohuangenzong_div" class="">
+                        <!--交换跟踪第一部分-->
+                        <div class="wx-followpanel-wrap">
+                            <div class="wx-followselect-wrap">
+                                <div class="select-title" id="follow_toggle"></div>
+                                <div class="select-list-wrap">
+                                    <ul class="select-list" id="follow_select">
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="wx-followdata-wrap">
+                                <li class="data-icon"></li>
+                                <li class="data-text">
+                                    <div id="totalNb" class="g-c-red1">345</div>
+                                    <p>发送总数</p>
+                                </li>
+                                <li class="data-text">
+                                    <div id="sendNb" class="g-c-green1">62</div>
+                                    <p>已发送</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!--交换跟踪第二部分-->
+                        <ul id="qianshou_nb_all" class="wx-tabradius-wrap wx-tablist-item3 g-gap-mb1">
+                            <li data-id="wqsList" class="tabactive">
+                                <div id="wqs_nb">未签收()</div>
+                            </li>
+                            <li data-id="yqsList">
+                                <div id="yqs_nb">已签收()</div>
+                            </li>
+                            <li data-id="yhfList">
+                                <div id="yhf_nb">已回复()</div>
+                            </li>
+                            <li data-id="jsList">
+                                <div id="js_nb">拒收()</div>
+                            </li>
+                            <li data-id="nosendList">
+                                <div id="wsd_nb">未送达()</div>
+                            </li>
+                            <li data-id="ychList">
+                                <div id="ych_nb">已撤回()</div>
+                            </li>
+                        </ul>
+
+                        <!--交换跟踪第三部分-->
+                        <ul class="wx-followlist-wrap" id="follow_list">
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-title="暂无办理信息">
+                    <div id="banlixinxi_div" class="">
+                        <!-- 办理信息 -->
+                        <ul id="banlixinxiGrid" class="wx-handlelist-wrap"></ul>
+                    </div>
+                </div>
+                <div id="baoming_swiper" class="swiper-slide" data-title="暂无报名">
+                    <div id="huiyibaomingbiao_div" class="">
+                        <ul id="meetingBaomingTable"
+                            class="wx-detaillist-wrap wx-detaillist-indent wx-detaillist-indent4">
+                            <li>
+                                <h2 class="wx-labeltheme-wrap">会议报名表</h2>
+                                <ul id="huiyibaoming_div"
+                                    class="wx-detaillist-wrap wx-detaillist-indent wx-detaillist-border-rbl g-clear-pl g-clear-pr wx-detaillist-indent4">
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--交换跟踪--办文状态-->
+    <div class="wx-followtext-wrap g-d-hidei" id="follow_process">
+        <div class="wx-followtext-show">
+            <h1>办文状态</h1>
+            <ul class="wx-processtext-list">
+            </ul>
+            <div id="follow_process_sure">确定</div>
+        </div>
+    </div>
+</div>
+<script>
+    $.showLoading("努力加载中...");
+</script>
+<script type="text/javascript" src="/zwwx/app/shidian/waitSign/waitDoDetails/waitDoDetailsCtrl.js"></script>
+
+</body>
+
+</html>

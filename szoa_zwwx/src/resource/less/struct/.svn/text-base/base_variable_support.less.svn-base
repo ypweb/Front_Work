@@ -1,0 +1,418 @@
+/*--兼容版本版本--*/
+
+///*--字体--*/
+@weuiFontEN-extend: -apple-system-font, "Helvetica Neue";
+@weuiFontCN-extend: "SourceHanSanCN-Regular", '微软雅黑', '雅黑', 'Microsoft YaHei', 'YaHei', '\5FAE\8F6F\96C5\9ED1', "PingFang SC", "Hiragino Sans GB";
+@weuiFontSans-extend: sans-serif, '宋体', '\5B8B\4F53';
+
+@fontfamliy-base: @weuiFontCN-extend, @weuiFontEN-extend, @weuiFontSans-extend;
+
+///*字体大小*/
+@font-size-base: 14px;
+@font-size-small: @font-size-base - 2;
+@font-size-default: @font-size-base + 2;
+@font-size-large: @font-size-base + 4;
+@font-size-bigger: @font-size-base + 10;
+
+///*--颜色--*/
+@color-type: color;
+
+/*---基本色---*/
+///*全局色：黑色*/
+@color-global-base: rgba(0, 0, 0, 1.00);
+///*全局色：白色*/
+@color-global-white: rgba(255, 255, 255, 1.00);
+///*全局色:红色*/
+@color-global-red: rgba(227, 52, 47, 1.00);
+///*全局色:绿色*/
+@color-global-green: rgba(56, 193, 114, 1.00);
+///*全局色:蓝色*/
+@color-global-blue: rgba(52, 144, 220, 1.00);
+///*全局色:兰绿色*/
+@color-global-teal: rgba(77, 192, 181, 1.00);
+///*全局色:橙色*/
+@color-global-orange: rgba(246, 153, 63, 1.00);
+///*全局色:淡蓝色*/
+@color-global-lightblue: rgba(57, 183, 213, 1.00);
+///*全局色:黄色*/
+@color-global-yellow: rgba(255, 237, 74, 1.00);
+///*全局色:靛蓝*/
+@color-global-indigo: rgba(101, 116, 205, 1.00);
+///*全局色:紫色*/
+@color-global-purple: rgba(149, 97, 226, 1.00);
+///*全局色:粉红*/
+@color-global-pink: rgba(246, 109, 155, 1.00);
+
+/*---扩展色---*/
+///*红色*/
+@color-red1: rgba(227, 59, 59, 1.00); /*#E33B3B*/
+@color-red2: rgba(241, 90, 74, 1.00); /*#F15A4A*/
+@color-red3: rgba(233, 98, 98, 1.00); /*#E96262*/
+@color-red4: rgba(217, 97, 96, 1.00);
+/*#D96160/
+
+///*绿色*/
+@color-green1: rgba(45, 170, 104, 1.00); /*#2DAA68*/
+@color-green2: rgba(10, 218, 15, 1.00); /*#10B258*/
+
+///*蓝色*/
+@color-blue1: rgba(51, 151, 255, 1.00); /*#3397FF*/
+@color-blue2: rgba(135, 203, 240, 1.00); /*#87CBF0*/
+@color-blue3: rgba(153, 203, 255, 1.00); /*#99CBFF*/
+
+///*黄色*/
+@color-yellow1: rgba(242, 210, 9, 1.00); /*#F2D209*/
+@color-yellow2: rgba(250, 233, 28, 1.00); /*#FAE91C*/
+
+///*橘色*/
+@color-orange1: rgba(242, 96, 37, 1.00); /*#F26025*/
+@color-orange2: rgba(230, 130, 80, 1.00); /*#E68250*/
+@color-orange3: rgba(234, 160, 95, 1.00); /*#EAA05F*/
+
+///*基准灰色*/
+@color-gray1: rgba(17, 17, 17, 1.00); //#111
+@color-gray2: rgba(34, 34, 34, 1.00); //#222
+@color-gray3: rgba(51, 51, 51, 1.00); //#333
+@color-gray4: rgba(68, 68, 68, 1.00); //#444
+@color-gray5: rgba(85, 85, 85, 1.00); //#555
+@color-gray6: rgba(102, 102, 102, 1.00); //#666
+@color-gray7: rgba(119, 119, 119, 1.00); //#777
+@color-gray8: rgba(136, 136, 136, 1.00); //#888
+@color-gray9: rgba(153, 153, 153, 1.00); //#999
+@color-gray10: rgba(170, 170, 170, 1.00); //#aaa
+@color-gray11: rgba(187, 187, 187, 1.00); //#bbb
+@color-gray12: rgba(204, 204, 204, 1.00); //#ccc
+@color-gray13: rgba(221, 221, 221, 1.00); //#ddd
+@color-gray14: rgba(238, 238, 238, 1.00); //#eee
+@color-gray15: rgba(244, 244, 244, 1.00); //#f4f4f4
+///*--基础类--*/
+
+/*微信扩展色*/
+@color-wx-extend1: rgb(79, 119, 170, 1.00); //#4f77aa
+
+///*盒模型*/
+.box-sizing-base(@boxsizing:border-box) {
+  -ms-box-sizing: @boxsizing;
+  -o-box-sizing: @boxsizing;
+  -moz-box-sizing: @boxsizing;
+  -webkit-box-sizing: @boxsizing;
+  box-sizing: @boxsizing;
+}
+
+///*圆角*/
+.border-radius-base(@radius:none) {
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+
+///*容器阴影*/
+.box-shadow-base(@str) {
+  -moz-box-shadow: @str;
+  -ms-box-shadow: @str;
+  -o-box-shadow: @str;
+  -webkit-box-shadow: @str;
+  box-shadow: @str;
+}
+
+///*文字阴影*/
+.text-shadow-base(@str) {
+  -moz-text-shadow: @str;
+  -ms-text-shadow: @str;
+  -o-text-shadow: @str;
+  -webkit-text-shadow: @str;
+  text-shadow: @str;
+}
+
+///*过渡*/
+.transition-base(@str) {
+  -moz-transition: @str;
+  -ms-transition: @str;
+  -o-transition: @str;
+  -webkit-transition: @str;
+  transition: @str;
+}
+
+///*变换中心*/
+.transform-origin-base(@origin:50% 50%) {
+  -moz-transform-origin: @origin;
+  -ms-transform-origin: @origin;
+  -o-transform-origin: @origin;
+  -webkit-transform-origin: @origin;
+  transform-origin: @origin;
+}
+
+///*变换*/
+.transform-base(@str) {
+  -moz-transform: @str;
+  -ms-transform: @str;
+  -o-transform: @str;
+  -webkit-transform: @str;
+  transform: @str;
+}
+
+///*动画定义*/
+.animation-base(@str) {
+  -moz-animation: @str;
+  -ms-animation: @str;
+  -webkit-animation: @str;
+  -o-animation: @str;
+  animation: @str;
+}
+
+///*文字颜色*/
+.color-t-base(@color) {
+    @{color-type}: @color;
+}
+
+///*背景颜色*/
+.color-bg-base(@color) {
+  background-@{color-type}: @color;
+}
+
+///*轮廓*/
+.no-outline-base(@outline:none) {
+  -moz-outline: @outline;
+  -ms-outline: @outline;
+  -o-outline: @outline;
+  -webkit-outline: @outline;
+  outline: @outline;
+}
+
+///*透明*/
+.opacity-base (@str) when (isnumber(@str)) and (@str =< 1){
+  opacity: @str;
+  filter: ~"alpha(opacity="@str*100~")";
+}
+
+.opacity-base (@str) when (isnumber(@str)) and (@str > 1) and not (ispercentage(@str)){
+  opacity: @str/100;
+  filter: ~"alpha(opacity=" @str ~")";
+}
+
+.opacity-base (@str) when (ispercentage(@str)) {
+  @integerValue: `parseInt('@{str}')`;
+  opacity: (0 + @integerValue) /100;
+  filter: ~"alpha(opacity=" @integerValue ~")";
+}
+
+///*图像灰度*/
+.filter-grayscale-base(@str:100) {
+  -webkit-filter: ~"grayscale(" @str ~"%)";
+  -moz-filter: ~"grayscale(" @str ~"%)";
+  -o-filter: ~"grayscale(" @str ~"%)";
+  -ms-filter: ~"grayscale(" @str ~"%)";
+  filter: ~"grayscale(" @str ~"%)";
+  filter: gray;
+}
+
+///*图像模糊*/
+.filter-blur-base(@str:5) {
+  -webkit-filter: ~"blur(" @str ~"px)";
+  -moz-filter: ~"blur(" @str ~"px)";
+  -o-filter: ~"blur(" @str ~"px)";
+  -ms-filter: ~"blur(" @str ~"px)";
+  filter: ~"blur(" @str ~"px)";
+  filter: ~"progid:DXImageTransform.Microsoft.Blur(PixelRadius=" @str ~", MakeShadow=false)";
+}
+
+///*透视*/
+.perspective-base(@str:50px) {
+  -webkit-perspective: @str;
+  -ms-perspective: @str;
+  -moz-perspective: @str;
+  -o-perspective: @str;
+  perspective: @str;
+}
+
+///*透视坐标*/
+.perspective-origin-base(@strx:center,@stry:center) {
+  -webkit-perspective-origin: @strx @stry;
+  -moz-perspective-origin: @strx @stry;
+  -ms-perspective-origin: @strx @stry;
+  -o-perspective-origin: @strx @stry;
+  perspective-origin: @strx @stry;
+}
+
+///*屏幕模式下的文字缩放(none或者100%为关闭)*/
+.text-size-adjust-base(@str:100%) {
+  -moz-text-size-adjust: @str;
+  -o-text-size-adjust: @str;
+  -webkit-text-size-adjust: @str;
+  -ms-text-size-adjust: @str;
+  text-size-adjust: @str;
+}
+
+///*动态及时尺寸*/
+.calc-base(@obj,@str) {
+  /*@{obj}: ~"-webkit-calc(" @str ~")";
+  @{obj}: ~"-moz-calc(" @str ~")";
+  @{obj}: ~"calc(" @str ~")";*/
+  /*@{obj}: -webkit-calc( @str );
+  @{obj}: -moz-calc( @str );
+  @{obj}: calc( @str );*/
+    @{obj}: -webkit-calc(~'@{str}');
+    @{obj}: -moz-calc(~'@{str}');
+    @{obj}: calc(~'@{str}');
+}
+
+///*伪对象*/
+.placeholder-base(@obj,@str) {
+  @obj: ~"-ms-input-placeholder{" @str ~"}";
+  @obj: ~":-webkit-input-placeholder{" @str ~"}";
+  @obj: ~"-moz-placeholder{" @str ~"}";
+  @obj: ~":-moz-placeholder{" @str ~"}";
+}
+
+/*外观*/
+.appearance-base(@str:none) {
+  -webkit-appearance: @str;
+  -moz-appearance: @str;
+  appearance: @str;
+}
+
+///*--布局--*/
+
+///*基本布局*/
+.layout-base(@w:100%,@box:border-box) {
+  width: @w;
+  .box-sizing-base(@box);
+}
+
+///*左上屏幕定位*/
+.layout-fixedl-base(@left:0,@top:0,@z-index:100) {
+  position: fixed;
+  left: @left;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*右上屏幕定位*/
+.layout-fixedr-base(@right:0,@top:0,@z-index:100) {
+  position: fixed;
+  right: @right;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*左下屏幕定位*/
+.layout-fixedlb-base(@left:0,@bottom:0,@z-index:100) {
+  position: fixed;
+  left: @left;
+  bottom: @bottom;
+  z-index: @z-index;
+}
+
+///*右下屏幕定位*/
+.layout-fixedrb-base(@right:0,@bottom:0,@z-index:100) {
+  position: fixed;
+  right: @right;
+  bottom: @bottom;
+  z-index: @z-index;
+}
+
+///*相对定位*/
+.layout-relative-base(@left:0,@top:0,@z-index:1) {
+  position: relative;
+  left: @left;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*左上绝对定位*/
+.layout-absolutel-base(@left:0,@top:0,@z-index:5) {
+  position: absolute;
+  left: @left;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*右上绝对定位*/
+.layout-absoluter-base(@right:0,@top:0,@z-index:5) {
+  position: absolute;
+  right: @right;
+  top: @top;
+  z-index: @z-index;
+}
+
+///*左下绝对定位*/
+.layout-absolutelb-base(@left:0,@bottom:0,@z-index:5) {
+  position: absolute;
+  left: @left;
+  bottom: @bottom;
+  z-index: @z-index;
+}
+
+///*右下绝对定位*/
+.layout-absoluterb-base(@right:0,@bottom:0,@z-index:5) {
+  position: absolute;
+  right: @right;
+  bottom: @bottom;
+  z-index: @z-index;
+}
+
+///*浮动*/
+.layout-float-base(@w:100%,@box:border-box,@dir:left) {
+  .layout-base(@w, @box);
+  float: @dir;
+}
+
+/*清除*/
+.clearfix-base() {
+  *zoom: 1;
+  &:after {
+    content: ""; // 1
+    display: table; // 2
+    width: 100%;
+    height: 0;
+    clear: both;
+  }
+}
+
+///*--文本--*/
+
+///*不换行*/
+.text-of(@o:hidden,@w:nowrap) {
+  overflow: @o;
+  white-space: @w;
+}
+
+.text-ofe() {
+  .text-of();
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+///*文字强制换行*/
+.text-ww(@w1:break-all,@w2:break-word) {
+  word-break: @w1;
+  word-wrap: @w2;
+}
+
+///*长按或点击时取消高亮*/
+.user-tap-base(@str:none) {
+  -webkit-tap-highlight-color: transparent;
+  -moz-user-focus: @str;
+  user-focus: @str;
+  .user-select-base(@str);
+}
+
+///*禁止选中*/
+.user-select-base(@str:none) {
+  -moz-user-select: @str;
+  -webkit-user-select: @str;
+  -ms-user-select: @str;
+  user-select: @str;
+}
+
+/*按钮处理*/
+@import "base/button.less";
+/*多列处理*/
+@import "base/column.less";
+/*flex布局处理*/
+@import "base/flex.less";
+/*渐变处理*/
+@import "base/gradient.less";
+
