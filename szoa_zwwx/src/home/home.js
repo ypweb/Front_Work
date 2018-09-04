@@ -1,16 +1,11 @@
 define(["util","UrlBase","WX","weuiJS","css!HomeCss"],function (Util,UrlBase,wx){
 	var caId = "b339276f549b45498095a1ad74667e23";//试点饶文刚
 	//var caId = "d5bc0615d3f34f28aaff5e089b329d8d"//试点赖镇先
-	//var caId = "18d88313ee4342c0b04bd7cb1efafaed";//试点陈如桂
+	// var caId = "18d88313ee4342c0b04bd7cb1efafaed";//试点陈如桂
 	//var caId = "d67929d133cc45f6bafc83235726bf89";//试点市领导秘书王少波
 	//var caId = "11ab2a84cbc04dc58f58d8c6fb3f1377";//试点白昱
-<<<<<<< .mine
-	var caId = "ac3bd31066b14e41978dea04136a7f6f";//非试点赵雪菲
-	//var caId = "412ed1ebad174629acbcc7507c0c5092";//非试点孙彦蓉
-=======
 	//var caId = "ac3bd31066b14e41978dea04136a7f6f";//非试点赵雪菲
-	//var caId = "412ed1ebad174629acbcc7507c0c5092";//非试点孙彦蓉
->>>>>>> .r5417
+	// var caId = "412ed1ebad174629acbcc7507c0c5092";//非试点孙彦蓉
 	//var caId = "ca72030438a24a05981bee6a0e51a87a";//非试点任斌昱
 	//var caId = "85a901ef2dce40238573674026655868";//非试点臧磊
 	function init(){
@@ -166,21 +161,19 @@ define(["util","UrlBase","WX","weuiJS","css!HomeCss"],function (Util,UrlBase,wx)
     return init;
 });
 
-
-/*define(["util","UrlBase","WX","weuiJS"],function (Util,UrlBase,wx){
-	
+/*define(["util","UrlBase","WX","weuiJS","css!HomeCss"],function (Util,UrlBase,wx){	
 	var caId = "";
 	window.wx=wx;
     function init(){
-    	$("#waitCssComplete").show();
-		caId = Util.getSessionParams('ca_id');
+		$("#waitCssComplete").show();	
+    	caId = Util.getSessionParams('ca_id');
     	if(caId=="" || caId==null || caId==undefined){	
     		getCode();
     	}else{
     		getUserInfo();//通过CA的用户id获取登录人的基本信息
     	}
     	bindClickEvent();
-		getToken();
+		getToken();         
     }
     
     function getCode(){
@@ -258,11 +251,11 @@ define(["util","UrlBase","WX","weuiJS","css!HomeCss"],function (Util,UrlBase,wx)
                 	if(isPilotUnit == false){//非试点
                 		$("#fsdMain").show();
                 	}else if(isPilotUnit == true){//试点单位
-						$(".usuallyFuncWords").text("暂无常用功能");
+						//$(".usuallyFuncWords").text("暂无常用功能");
                 		if(isQsRen==true){//有签收功能
                 			//$("#sdqs").show();
                 		}
-                		//$("#sdMain").show();
+                		$("#sdMain").show();
                 	}
             	}else{
             		$.alert("未获取到您的登录信息!");
@@ -321,46 +314,44 @@ define(["util","UrlBase","WX","weuiJS","css!HomeCss"],function (Util,UrlBase,wx)
     function getToken() {
 		var urlTemp = window.location.href;
 		var  urlFinal =  encodeURIComponent(urlTemp);
-		//var url2 = urlTemp.substring(0,urlTemp.indexOf("?"));
         $.ajax({
             url: "/ajax.sword?ctrl=WeixinSDK_getSDKSignature",
             async:false,
             data:{
-                url:urlFinal,
-                isMsgJump:"1"
+               url:urlFinal,
             },
             dataType: "json",
             success: function (data) {
                 var json = data.message;
-                wx.config({
+                  wx.config({
                      beta: true,// 必须这么写，否则wx.invoke调用形式的jsapi会有问题
                      debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                      appId: json.appId, // 必填，企业微信的corpID
                      timestamp: parseInt(json.timestamp), // 必填，生成签名的时间戳
                      nonceStr: json.nonceStr, // 必填，生成签名的随机串
                      signature: json.signature,// 必填，签名，见附录1
-                     jsApiList: [ 'chooseImage','previewFile',"hideOptionMenu","shareAppMessage","onMenuShareAppMessage","showWatermark","hideWatermark"]
+                     jsApiList: ["hideOptionMenu","shareAppMessage","showWatermark"]
                      // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-                 });
+                });
                 wx.ready(function () {
                     wx.checkJsApi({
-                        jsApiList: [ 'chooseImage','previewFile',"hideOptionMenu","shareAppMessage","onMenuShareAppMessage","hideMenuItems","showWatermark","hideWatermark"], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+                        jsApiList: ["hideOptionMenu","shareAppMessage","showWatermark","hideWatermark"], // 需要检测的JS接口列表，所有JS接口列表见附录2,
                         success: function (res) {
                             // 以键值对的形式返回，可用的api值true，不可用为false
                             // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
-							wx.hideMenuItems({
-						menuList: ["menuItem:share:appMessage"] // 要隐藏的菜单项，所有menu项见附录3
-					});
                         }
                     });
+           
+    	wx.invoke("hideWatermark",{},function(res) {
+            //关闭页面水印
+        });
                     wx.hideOptionMenu();
                     wx.showMenuItems({
                         menuList: ["menuItem:favorite"]
-                    });
-                    wx.invoke("hideWatermark",{},function(res) {
-    					//关闭页面水印
-					}));
+                    })
+             
                 });
+
             }
         });
     }

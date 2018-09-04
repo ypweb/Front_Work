@@ -57,7 +57,7 @@
         display: inline-block;
         &:after {
           position: absolute;
-          top:-@icon-width * .25;
+          top: -@icon-width * .25;
           z-index: 5;
           width: @icon-width;
           height: @icon-width;
@@ -77,13 +77,12 @@
       &.label-showinline {
         height: @detail-list-icon + @detail-list-gap;
         p {
-          float:right;
-          height:100%;
-          line-height: @detail-list-icon + @detail-list-gap;
-          display: inline-block;
+          float: right;
+          height: 100%;
+          line-height: @detail-list-icon * .5;
           text-indent: 0;
-          width:100%;
-          .text-ofe() !important;
+          width: 100%;
+          .text-ofmle(2) !important;
         }
       }
     }
@@ -147,8 +146,8 @@
             padding-right: @pr-gap * .3;
           }
         }
-        .label-icon-download:after{
-          left:-(@indent-width * .6);
+        .label-icon-download:after {
+          left: -(@indent-width * .6);
         }
       }
     }

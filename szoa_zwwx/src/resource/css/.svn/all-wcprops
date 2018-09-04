@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 68
-/svn/szoa/!svn/ver/5495/szoa/business/trunk/webapp/zwwx/resource/css
+/svn/szoa/!svn/ver/5610/szoa/business/trunk/webapp/zwwx/resource/css
 END
 font.css
 K 25
@@ -13,13 +13,13 @@ base.css
 K 25
 svn:wc:ra_dav:version-url
 V 77
-/svn/szoa/!svn/ver/5495/szoa/business/trunk/webapp/zwwx/resource/css/base.css
+/svn/szoa/!svn/ver/5669/szoa/business/trunk/webapp/zwwx/resource/css/base.css
 END
 weui.css
 K 25
 svn:wc:ra_dav:version-url
 V 77
-/svn/szoa/!svn/ver/4748/szoa/business/trunk/webapp/zwwx/resource/css/weui.css
+/svn/szoa/!svn/ver/5610/szoa/business/trunk/webapp/zwwx/resource/css/weui.css
 END
 global.css
 K 25

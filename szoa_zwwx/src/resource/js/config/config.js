@@ -46,6 +46,11 @@ require.config({
         "waitHandleList":"app/shidian/waitHandle/waitHandleList/waitHandleList",
         "changeList":"app/feishidian/changeFollow/changeList/changeList",
         "searchResList":"app/feishidian/search/searchResList/searchResList",
+        "InterfaceTryCtrl":"app/interfaceTry/interfaceTry",   //接口测试，无用
+        "FirstButtonAction":"app/shidian/waitSign/waitDoDetails/firstButtonAction",//首期按钮功能开发
+        "SendOutCtrl":"app/shidian/waitSign/waitDoDetails/sendOut",  //送出新页面开发
+
+        /****************************CSS引入****************************/
         "HomeCss":"home/home",   //home.css 前台引用方式 css!HomeCss
         "ChangeCss":"app/feishidian/css/change",
         "SignCss":"app/feishidian/css/sign",

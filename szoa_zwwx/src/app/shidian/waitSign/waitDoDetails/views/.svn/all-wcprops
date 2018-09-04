@@ -1,11 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
 V 96
-/svn/szoa/!svn/ver/5168/szoa/business/trunk/webapp/zwwx/app/shidian/waitSign/waitDoDetails/views
+/svn/szoa/!svn/ver/5579/szoa/business/trunk/webapp/zwwx/app/shidian/waitSign/waitDoDetails/views
+END
+sendOut.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/szoa/!svn/ver/5579/szoa/business/trunk/webapp/zwwx/app/shidian/waitSign/waitDoDetails/views/sendOut.html
 END
 waitDoDetails.html
 K 25
 svn:wc:ra_dav:version-url
 V 115
-/svn/szoa/!svn/ver/5168/szoa/business/trunk/webapp/zwwx/app/shidian/waitSign/waitDoDetails/views/waitDoDetails.html
+/svn/szoa/!svn/ver/5579/szoa/business/trunk/webapp/zwwx/app/shidian/waitSign/waitDoDetails/views/waitDoDetails.html
 END

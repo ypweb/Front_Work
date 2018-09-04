@@ -127,6 +127,17 @@ td {
 
 
 /*扩展*/
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="date"]{
+    .box-shadow-base(none);
+    .text-shadow-base(none);
+}
+
+
 textarea:-ms-input-placeholder,
 input[type="text"]:-ms-input-placeholder,
 input[type="password"]:-ms-input-placeholder,

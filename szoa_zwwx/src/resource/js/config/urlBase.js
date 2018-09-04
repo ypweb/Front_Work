@@ -61,6 +61,9 @@ define(function () {
     var jumpSearchdoPerson = "/zwwx/app/feishidian/search/searchHome/views/doPerson.html";
     //跳转经办处室选择
     var jumpSearchdoDept = "/zwwx/app/feishidian/search/searchHome/views/doDept.html";
+
+    //送出下一节点选择
+    var jumpSendOut = "/zwwx/app/shidian/waitSign/waitDoDetails/views/sendOut.html";
     
     
     return {
@@ -87,6 +90,7 @@ define(function () {
         URL_JUMP_SEARCHRESLIST:jumpSearchResList,
         URL_JUMP_SEARCHDOPERSON:jumpSearchdoPerson,
         URL_JUMP_SEARCHDODEPT:jumpSearchdoDept,
+        URL_JUMP_SENDOUT:jumpSendOut,
 
 
     };

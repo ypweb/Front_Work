@@ -265,11 +265,13 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
+                var filePath=fileData.filepath;
+                var fix=filePath.substring(filePath.lastIndexOf("."));
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    // name: titel, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: docTitle_base+fix, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
-                    name: "",
+                    // name: "",
                     size: fileData.filesize
                 });
             }
@@ -294,11 +296,13 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
+                var filePath=fileData.filepath;
+                var fix=filePath.substring(filePath.lastIndexOf("."));
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    // name: titel, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: docTitle_base+fix, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
-                    name: "",
+                    // name: "",
                     size: fileData.filesize
                 });
             }

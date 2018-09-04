@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 94
-/svn/szoa/!svn/ver/5385/szoa/business/trunk/webapp/zwwx/app/feishidian/waitSign/waitdocDetails
+/svn/szoa/!svn/ver/5578/szoa/business/trunk/webapp/zwwx/app/feishidian/waitSign/waitdocDetails
 END
 returnDocCtrl.js
 K 25
@@ -13,7 +13,7 @@ waitDocDetails.js
 K 25
 svn:wc:ra_dav:version-url
 V 112
-/svn/szoa/!svn/ver/5263/szoa/business/trunk/webapp/zwwx/app/feishidian/waitSign/waitdocDetails/waitDocDetails.js
+/svn/szoa/!svn/ver/5578/szoa/business/trunk/webapp/zwwx/app/feishidian/waitSign/waitdocDetails/waitDocDetails.js
 END
 waitDocDetailsCtrl.js
 K 25

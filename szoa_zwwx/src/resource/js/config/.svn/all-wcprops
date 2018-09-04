@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 74
-/svn/szoa/!svn/ver/5424/szoa/business/trunk/webapp/zwwx/resource/js/config
+/svn/szoa/!svn/ver/5580/szoa/business/trunk/webapp/zwwx/resource/js/config
 END
 cssBase.js
 K 25
@@ -13,7 +13,7 @@ config.js
 K 25
 svn:wc:ra_dav:version-url
 V 84
-/svn/szoa/!svn/ver/5263/szoa/business/trunk/webapp/zwwx/resource/js/config/config.js
+/svn/szoa/!svn/ver/5580/szoa/business/trunk/webapp/zwwx/resource/js/config/config.js
 END
 base.js
 K 25
@@ -25,5 +25,5 @@ urlBase.js
 K 25
 svn:wc:ra_dav:version-url
 V 85
-/svn/szoa/!svn/ver/5424/szoa/business/trunk/webapp/zwwx/resource/js/config/urlBase.js
+/svn/szoa/!svn/ver/5580/szoa/business/trunk/webapp/zwwx/resource/js/config/urlBase.js
 END

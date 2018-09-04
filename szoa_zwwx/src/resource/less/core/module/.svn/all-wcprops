@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 81
-/svn/szoa/!svn/ver/5240/szoa/business/trunk/webapp/zwwx/resource/less/core/module
+/svn/szoa/!svn/ver/5611/szoa/business/trunk/webapp/zwwx/resource/less/core/module
 END
 tab.less
 K 25
@@ -67,7 +67,7 @@ btn_tool.less
 K 25
 svn:wc:ra_dav:version-url
 V 95
-/svn/szoa/!svn/ver/5499/szoa/business/trunk/webapp/zwwx/resource/less/core/module/btn_tool.less
+/svn/szoa/!svn/ver/5611/szoa/business/trunk/webapp/zwwx/resource/less/core/module/btn_tool.less
 END
 extend.less
 K 25

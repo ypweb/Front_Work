@@ -6,7 +6,7 @@
           content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta content="telephone=no" name="format-detection"/>
-    <title>会议报名表--工具菜单</title>
+    <title>弹窗,按钮--工具菜单</title>
     <!--基础css-->
     <link rel="stylesheet" href="../../resource/css/weui.css">
     <link rel="stylesheet" href="../../resource/css/font.css">
@@ -36,52 +36,120 @@
         require(['jquery', 'tab_swiper'], function ($, TabSwiper) {
             $(function () {
                 //页面元素获取
-                var $tool_tab = $('#tool_tab'),
-                    $tool_menu1 = $('#tool_menu1'),
+                var $tool_menu1 = $('#tool_menu1'),
                     $tool_menu2 = $('#tool_menu2'),
+                    $tool_menu3 = $('#tool_menu3'),
                     $tool_toggle = $('#tool_toggle'),
                     $tool_nav = $('#tool_nav'),
-                    $tool_mask = $('#tool_mask');
+                    $tool_idealist = $('#tool_idealist'),
+                    $tool_showidea = $('#tool_showidea'),
+                    $tool_editidea = $('#tool_editidea'),
+                    $tool_idea = $('#tool_idea'),
+                    $current_idea = $('#current_idea'),
+                    $tool_ideatextarea = $('#tool_ideatextarea'),
+                    $idea_cancel = $('#idea_cancel'),
+                    $idea_sure = $('#idea_sure'),
+                    $tool_closeidea = $('#tool_closeidea'),
+                    $tool_mask_filter = $('#tool_mask_filter'),
+                    $tool_mask_back = $('#tool_mask_back'),
+                    $tool_mask = $('#tool_mask'),
+                    $idea_send = $('#idea_send'),
+                    $idea_sendjbr = $('#idea_sendjbr'),
+                    $idea_save = $('#idea_save'),
+                    tool_menuitem = [$tool_menu1, $tool_menu2, $tool_menu3];
 
                 /*执行TabSwiper渲染*/
                 TabSwiper.init({
-                    index: 0,
-                    item: 2,
-                    isswiper:false,
-                    render:function(){
+                    index: 2,
+                    item: 3,
+                    isswiper: false,
+                    render: function () {
                         /*初始化渲染*/
-                        $tool_menu1.removeClass('g-d-hidei');
-                        $tool_menu2.addClass('g-d-hidei');
+                        _renderTool(tool_menuitem, 2);
                     },
                     tabFn: function (config) {
                         /*点击回调*/
-                        var index=config.index;
-                        if (index === 0) {
-                            $tool_menu1.removeClass('g-d-hidei');
-                            $tool_menu2.addClass('g-d-hidei');
-                        } else if (index === 1) {
-                            $tool_menu1.addClass('g-d-hidei');
-                            $tool_menu2.removeClass('g-d-hidei');
-                        }
+                        _renderTool(tool_menuitem, config.index);
                     }
                 });
 
-                /*切换二级菜单*/
-                $tool_toggle.on('click', function () {
-                    $(this).toggleClass('tool-list-active');
-                    $tool_nav.toggleClass('g-d-hidei');
-                    $tool_mask.toggleClass('g-d-hidei');
+
+                /*切换弹窗*/
+                $.each([$tool_toggle, $tool_idea, $current_idea, $tool_editidea], function () {
+                    var selector = this.selector;
+                    this.on('click', function () {
+                        var $this = $(this);
+                        if (selector.indexOf('tool_toggle') !== -1) {
+                            /*打开待办左侧菜单*/
+                            if ($this.hasClass('tool-list-active')) {
+                                /*隐藏*/
+                                $this.removeClass('tool-list-active');
+                                $tool_mask.addClass('g-d-hidei');
+                            } else {
+                                /*显示*/
+                                $this.addClass('tool-list-active');
+                                $tool_idealist.addClass('g-d-hidei');
+                                $tool_idea.removeClass('tool-list-active');
+                                $tool_mask.removeClass('g-d-hidei');
+                                $tool_ideatextarea.addClass('g-d-hidei');
+                            }
+                            $tool_nav.toggleClass('g-d-hidei');
+                        } else if (selector.indexOf('tool_idea') !== -1) {
+                            /*打开待办右侧意见*/
+                            if ($this.hasClass('tool-list-active')) {
+                                /*隐藏*/
+                                $this.removeClass('tool-list-active');
+                                $tool_mask.addClass('g-d-hidei');
+                            } else {
+                                /*显示*/
+                                $this.addClass('tool-list-active');
+                                $tool_mask.removeClass('g-d-hidei');
+                                $tool_nav.addClass('g-d-hidei');
+                                $tool_toggle.removeClass('tool-list-active');
+                                $tool_ideatextarea.addClass('g-d-hidei');
+                            }
+                            $tool_idealist.toggleClass('g-d-hidei');
+                        } else if (selector.indexOf('current_idea') !== -1 || selector.indexOf('tool_editidea') !== -1) {
+                            if (selector.indexOf('editidea') !== -1) {
+                                TabSwiper.tabSlide(function (config) {
+                                    /*点击回调*/
+                                    _renderTool(tool_menuitem, config.index);
+                                }, 2);
+                            }
+                            /*打开待办右侧意见*/
+                            if ($tool_ideatextarea.hasClass('g-d-hidei')) {
+                                /*显示*/
+                                $tool_ideatextarea.removeClass('g-d-hidei');
+                                $tool_idea.removeClass('tool-list-active');
+                                $tool_toggle.removeClass('tool-list-active');
+                                $tool_nav.addClass('g-d-hidei');
+                                $tool_mask.addClass('g-d-hidei');
+                                $tool_idealist.addClass('g-d-hidei');
+                            } else {
+                                /*隐藏*/
+                                $tool_ideatextarea.addClass('g-d-hidei');
+                            }
+                        }
+                    });
                 });
 
                 /*关闭遮罩*/
-                $tool_mask.on('click', function () {
-                    $(this).addClass('g-d-hidei');
-                    $tool_nav.addClass('g-d-hidei');
-                    $tool_toggle.removeClass('tool-list-active');
-                });
+                $.each([$idea_sure, $idea_cancel, $tool_mask, $tool_closeidea, $idea_send, $idea_sendjbr, $idea_save], function () {
+                    var selector = this.selector;
+                    this.on('click', function () {
+                        if (selector.indexOf('tool_mask') !== -1) {
+                            $(this).addClass('g-d-hidei');
+                            $tool_nav.addClass('g-d-hidei');
+                            $tool_toggle.removeClass('tool-list-active');
+                            $tool_idealist.addClass('g-d-hidei');
+                            $tool_idea.removeClass('tool-list-active');
+                        }
+                        $tool_ideatextarea.addClass('g-d-hidei');
+                    });
+                })
 
 
-                var hiddenProperty = 'hidden' in document ? 'hidden' :
+                /*var hiddenProperty = 'hidden' in document ? 'hidden' :
                     'webkitHidden' in document ? 'webkitHidden' :
                         'mozHidden' in document ? 'mozHidden' :
                             null;
@@ -92,9 +160,24 @@
                     } else {
                         console.log('页面激活')
                     }
-                });
+                });*/
+
 
             });
+
+
+            /*渲染不同模块*/
+            function _renderTool(arr, index) {
+                var i = 0,
+                    len = arr.length;
+                for (i; i < len; i++) {
+                    if (index === i) {
+                        arr[i].removeClass('g-d-hidei').parent().removeClass('g-d-hidei');
+                    } else {
+                        arr[i].addClass('g-d-hidei').parent().addClass('g-d-hidei');
+                    }
+                }
+            }
         });
     </script>
 </head>
@@ -105,6 +188,7 @@
             <ul class="wx-tablist-wrap">
                 <li>单个按钮(会议报名)</li>
                 <li>弹层按钮(待办模块)</li>
+                <li>领导意见(待办模块)</li>
             </ul>
         </div>
     </div>
@@ -116,11 +200,26 @@
     <div class="wx-tabpanel-toggle g-d-hidei" id="tabswiper_btn"></div>
 </div>
 
-<!--工具菜单1-->
+<!--1层1菜单-->
 <div class="swiper-slide">
+    <ul class="wx-btnlist-wrap wx-btnlist-item2">
+        <li>
+            <div>按钮1</div>
+        </li>
+        <li>
+            <div>按钮按钮2</div>
+        </li>
+        <li class="wx-btnlist-active">
+            <div>按钮按钮按钮3</div>
+        </li>
+        <li>
+            <div>按钮按钮按钮按钮4</div>
+        </li>
+        <li>
+            <div>按钮按钮5</div>
+        </li>
+    </ul>
     <div class="wx-tool-wrap wx-tool-lb-wrap" id="tool_menu1">
-        <a href=""></a>
-        <!--遮罩层-->
         <!--第一级菜单-->
         <ul class="wx-tool-list wx-tool-toggle">
             <li class="tool-menu-meeting"></li>
@@ -128,31 +227,165 @@
     </div>
 </div>
 
-<!--工具菜单2-->
+<!--2层多个菜单-->
 <div class="swiper-slide">
+    <ul class="wx-lastshowlist-wrap">
+        <li class="toggle-active">
+            <h2 class="wx-labeltheme-wrap wx-labeltheme-border">拟办意见/领导批示 <span
+                    class="theme-icon theme-icon-toggle toggle-active"></span>
+            </h2>
+            <div class="mainshow">
+                <div class="main-info">
+                    <p>在移动设备开发HTML5应用只有两种方法，要不就是全使用HTML5的语法，要不就是仅使用JavaScript引擎。</p>
+                    <ul>
+                        <li>HTML5的设计目的.doc<span class="download toshow">查看</span></li>
+                        <li>用HTML5的优点主要在于，这个技术可以进行跨平台的使用.pdf<span class="download">下载</span></li>
+                    </ul>
+                </div>
+                <div class="side-info">
+                    <p>张三，李四，王五，赵六</p>
+                    <p>2018-07-08</p>
+                    <div></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
     <div class="wx-tool-wrap wx-tool-lb-wrap" id="tool_menu2">
-        <!--遮罩层-->
+
+
+        <!--遮罩层--白色--有透明度-->
+        <div class="wx-tool-mask wx-tool-mask-filter g-d-hidei" id="tool_mask_filter"></div>
+        <!--遮罩层--白色-->
+        <div class="wx-tool-mask wx-tool-mask-back g-d-hidei" id="tool_mask_back"></div>
+        <!--遮罩层--黑色-->
         <div class="wx-tool-mask g-d-hidei" id="tool_mask"></div>
-        <!--第一级菜单-->
+
+
+        <!--第二级菜单--左侧待办弹窗按钮-->
         <ul class="wx-tool-list wx-tool-menu g-d-hidei" id="tool_nav">
-            <li class="tool-menu-finish" data-title="办结"><span></span></li>
-            <li class="tool-menu-turn" data-title="转办"><span></span></li>
-            <li class="tool-menu-back" data-title="退文"><span></span></li>
-            <li class="tool-menu-red" data-title="套红"></li>
-            <li class="tool-menu-return" data-title="退件"><span></span></li>
-            <li class="tool-menu-handle" data-title="送经办人"></li>
-            <li class="tool-menu-look" data-title="查看公文"><span></span></li>
-            <li class="tool-menu-document" data-title="发送公文"><span></span></li>
-            <li class="tool-menu-notice" data-title="发送通知"></li>
-            <li class="tool-menu-save" data-title="保存"></li>
-            <li class="tool-menu-send menu-extend-send" data-title="送出"><span></span></li>
-            <li class="tool-menu-meeting" data-title="会议报名"><span></span></li>
+            <li class="tool-menu-finish tool-menu-item2" data-title="办结"><span></span></li>
+            <li class="tool-menu-turn tool-menu-item2" data-title="转办"><span></span></li>
+            <li class="tool-menu-back tool-menu-item2" data-title="退文"><span></span></li>
+            <li class="tool-menu-red tool-menu-item2" data-title="套红"></li>
+            <li class="tool-menu-return tool-menu-item2" data-title="退件"><span></span></li>
+            <li class="tool-menu-handle tool-menu-item4" data-title="送经办人"><span></span></li>
+            <li class="tool-menu-look tool-menu-item4" data-title="查看公文"><span></span></li>
+            <li class="tool-menu-document tool-menu-item4" data-title="发送公文"><span></span></li>
+            <li class="tool-menu-notice tool-menu-item4" data-title="发送通知"></li>
+            <li class="tool-menu-save tool-menu-item2" data-title="保存"></li>
+            <li class="tool-menu-send tool-menu-item2" data-title="送出"><span></span></li>
+            <li class="tool-menu-meeting tool-menu-item4" data-title="会议报名"><span></span></li>
         </ul>
-        <!--第一级菜单-->
+        <!--第一级菜单--左侧待办操作按钮-->
         <ul class="wx-tool-list wx-tool-toggle">
             <li class="tool-list-toggle" id="tool_toggle"></li>
         </ul>
+
+
+        <!--第二级菜单--右侧意见弹窗列表-->
+        <div class="wx-tool-ideaouter g-d-hidei" id="tool_idealist">
+            <div class="wx-tool-ideainner">
+                <ul id="tool_showidea">
+                    <li>
+                        <div>标题太小,得改</div>
+                    </li>
+                    <li>
+                        <div>注意标点,注意标点</div>
+                    </li>
+                    <li>
+                        <div>文字有错误,已经在下面备注上</div>
+                    </li>
+                    <li>
+                        <div>流程错误,现在需要转经办人</div>
+                    </li>
+                    <li>
+                        <div>主送单位应当是一个,同时主送,搞乱了行文关系。抄送单位应当是与该申诉事项有关的单位。“×市政府、×区人民政府”,与税务申诉事项无关,不应将该申诉抄送给他们</div>
+                    </li>
+                    <li>
+                        <div>请示只能够有一个主送机关;若是双重领导机关,则需要向处理该事务的机关请示,另一机关应为抄报机关</div>
+                    </li>
+                    <li>
+                        <div>1.文号应为:X府发11994]8号;2.标题中不应出现引号,应去掉;3.标题中的“表彰”应与“通报”放在一起,为“关于4.通报类属普发性公文,可不写收文机关;</div>
+                    </li>
+                    <li>
+                        <div> 1.结尾处不用写“特此通报”;2.发文机关应写全称“X X市人民政府”的表彰通报”;3.发文时间应规范,并具体到日,为一九九四年一月十八日;4.主题词表中无“关于”词,应去掉
+                        </div>
+                    </li>
+                    <li>
+                        <div>1、缺少文号:改成京海供电字(2005)17号。 2、缺少主道机关:加上:全区用户同志们。3、将“为此,特声明如下”改成:“为此,特通告如下。”</div>
+                    </li>
+                    <li>
+                        <div>1、结尾的格式套语“特此请示”改成“特此通告”。2、结尾的落款应以单位名称署名,改成:北京市海淀区供电局。3、应在落款下方补上时间:加上2005年10月28日。
+                            4、标题应改成:××供电局通告(或只写“通告”二字作标题)
+                        </div>
+                    </li>
+                </ul>
+                <div id="tool_editidea">编写意见</div>
+            </div>
+        </div>
+        <!--第一级菜单--右侧意见按钮-->
+        <ul class="wx-tool-list wx-tool-idea">
+            <li class="tool-list-toggle" id="tool_idea"></li>
+        </ul>
     </div>
 </div>
+
+
+<!--意见弹框-->
+<div class="swiper-slide">
+    <ul class="wx-lastshowlist-wrap" id="tool_menu3">
+        <li>
+            <h2 class="wx-labeltheme-wrap wx-labeltheme-border">拟办意见/领导批示 <span
+                    class="theme-icon theme-icon-toggle"></span>
+            </h2>
+            <div>
+                <div class="main-info">
+                    <p>呵呵，哈哈，哦哦，嗯嗯</p>
+                </div>
+                <div class="side-info">
+                    <p><span>信息化处</span>赖镇先</p>
+                    <p>2018-07-08</p>
+                </div>
+            </div>
+            <div class="mainshow">
+                <div class="main-info">
+                    <p>文字小了点，加大2号</p>
+                    <p>请注意标点符号</p>
+                </div>
+                <div class="side-info side-edit">
+                    <p>张三，李四，王五，赵六</p>
+                    <p>2018-07-08</p>
+                    <div id="current_idea"></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <!--意见弹窗-->
+    <div class="wx-tool-wrap wx-tool-lb-wrap g-d-hidei" id="tool_ideatextarea">
+        <!--写信息-->
+        <div class="wx-tool-textarea">
+            <!--textarea-->
+            <div class="text-info">
+                <h2 id="tool_closeidea">本次意见</h2>
+                <textarea placeholder="请输入意见"></textarea>
+            </div>
+            <!--按钮组1--领导人修改意见按钮-->
+            <ul class="wx-btnaction-wrap wx-btnaction-item2">
+                <li class="wx-btnaction-cancel" id="idea_cancel">取消</li>
+                <li class="wx-btnaction-sure" id="idea_sure">确定</li>
+            </ul>
+            <!--按钮组1--本次意见按钮-->
+            <ul class="wx-btnaction-wrap wx-btnaction-item3">
+                <li class="wx-btnaction-sure" id="idea_send">送出</li>
+                <li class="wx-btnaction-sure" id="idea_sendjbr">送经办人</li>
+                <li class="wx-btnaction-sure" id="idea_save">保存</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 /**
  * Created by zhuhao on 2018/8/9.
  */
-define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "Swiper"], function (UrlBase,ChangeFollowDetails, Util, tab_swiper, InitDataUtil) {
+define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "FirstButtonAction","Swiper"], function (UrlBase,ChangeFollowDetails, Util, tab_swiper, InitDataUtil,FirstButtonAction) {
 
     //传参
     var hashData = {};
@@ -17,6 +17,17 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     var toggleFlag = 0;
     var isHaveFujian = false;
 
+    /*   //横竖屏切换刷新解决样式问题
+       window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+       function hengshuping() {
+           if (window.orientation == 90 || window.orientation == -90) {
+               window.location.reload();
+           } else {
+               window.location.reload();
+           }
+       }*/
+    var flowMsg = {};
+
     function init() {
         Util.getUserInfoAndUrl({
             whenSuccess: function (user,hash) {
@@ -24,6 +35,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                 userInfo=user;
                 openInstance();
                 initData();
+                FirstButtonAction.InitButton(instance,$button_menu); //初始化功能按钮
             },
             whenUserError:function (resultObj) {
                 $.alert(resultObj.errorMsg,function () {
@@ -53,6 +65,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             success: function (data) {
                 if (data.message && data.message.data) {
                     instance = data.message.data;
+                    // console.log(instance);
                 } else {
                     $.alert("暂无权限查看此公文！",function () {
                         window.history.go(-1);
@@ -83,6 +96,8 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     function initData() {
         InitDataUtil.initAll(hashData,userInfo, instance, function (data) {
             var allData = data;
+            flowMsg = allData.banliliucheng.data;
+            // console.log(flowMsg);
             //初始化意见栏
             initYijian(allData.yijianList.data);
             //初始化正文
@@ -106,7 +121,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             //初始化滑动页签
             initTabSwiper();
             //关闭流程实例
-            closeInstance();
+            // closeInstance();
             //初始化自定义转发
             initZhuanFa();
         })
@@ -265,7 +280,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             $("#content").html(meetingList.content);
         }
 
-        var $do = $("#liuchenglable");				//实现办理流程的展示与隐藏
+        var $do = $("#liuchenglable");              //实现办理流程的展示与隐藏
         //办理流程隐藏|显示切换
         $do.on('click', function () {
             $("#liuchenglable span").toggleClass('toggle-active');
@@ -562,7 +577,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
 
     //渲染流程
     function initLiucheng(data) {
-        var $liuchengxx = $("#liuchengxiangxi");		//实现办理流程信息追加
+        var $liuchengxx = $("#liuchengxiangxi");        //实现办理流程信息追加
         var flowMsgList = data.data;
         var openInstanceNodeId = instance.curFlowInfo.curNodeID;
         var len = flowMsgList.length;
@@ -631,7 +646,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             $("#bianqiantie_swiper").remove();
             return;
         }
-        var NoteList = null;	//便签列表
+        var NoteList = null;    //便签列表
         var $noteListGrid = $("#noteListGrid");//用于便签数据追加
         if (data.success === 1) {
             NoteList = data.data;
@@ -672,8 +687,8 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
         $("#distributeDepartment").html(qianfas.distributeDepartment);// 印发部门
         $("#dissributeCount").html(qianfas.dissributeCount);// 印发份数
         $("#issueEmployee").html(qianfas.issueEmployee);//签发人
-        $("#issueDate").html(qianfas.issueDate);	//签发日期
-        $("#disributeDate").html(qianfas.disributeDate);	// 印发日期
+        $("#issueDate").html(qianfas.issueDate);    //签发日期
+        $("#disributeDate").html(qianfas.disributeDate);    // 印发日期
         $("#publicType").html(qianfas.publicType);//公开方式
         $("#reply").html(qianfas.reply);// 需要回复
         $("#replyDate").html(qianfas.replyDate);//回复时限
@@ -751,6 +766,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                     break;
                 }
             }
+            // console.log(index)
             if (index == 0) {
                 $("#zhankaiyijian").addClass("g-d-hidei")
             }
@@ -797,6 +813,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     //渲染附件列表
     function initFujian(data) {
         var fujianArr = data.data.data.attachment
+        // console.log(fujianArr)
         if (fujianArr && fujianArr.length && fujianArr.length > 0) {
             isHaveFujian = true;
             for (var i = 0; i < fujianArr.length; i++) {
@@ -882,7 +899,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
 
     //渲染办理信息
     function initBanliXinxi(data) {
-        var $banlixinxiGrid = $("#banlixinxiGrid");  	//用于办理信息列表信息追加
+        var $banlixinxiGrid = $("#banlixinxiGrid");     //用于办理信息列表信息追加
         var proInfoList = data.data;
 
         if (proInfoList && proInfoList.length < 1) {
@@ -1041,7 +1058,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                     var that = this;
                     setTimeout(function () {
                         $.ajax({
-                            url: "/ajax.sword?ctrl=WeixinDocDital_getProInfo",	//获取部门下对应人员
+                            url: "/ajax.sword?ctrl=WeixinDocDital_getProInfo",  //获取部门下对应人员
                             type: "get",
                             dataType: "json",
                             data: {
@@ -1164,11 +1181,13 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
+                var filePath=fileData.filepath;
+                var fix=filePath.substring(filePath.lastIndexOf("."));
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    // name: titel, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: docTitle_base+fix, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
-                    name: "",
+                    // name: "",
                     size: fileData.filesize
                 });
             }
@@ -1192,11 +1211,13 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
+                var filePath=fileData.filepath;
+                var fix=filePath.substring(filePath.lastIndexOf("."));
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    // name: titel, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: docTitle_base+fix, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
-                    name: "",
+                    // name: "",
                     size: fileData.filesize
                 });
             }
@@ -1211,5 +1232,143 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
         return time;
     }
 
+    //按钮组遮罩层切换
+    var $tab_menu = $('#tab_menu'),         //切换按钮
+        $zhezhaoceng = $('#zhezhaoceng'),   //遮罩层
+        $button_menu = $('#button_menu');   //按钮容器
+    /*  $tab_menu.on('click',function () {
+          $zhezhaoceng.toggleClass('g-d-hidei');
+          $button_menu.toggleClass('g-d-hidei');
+      });*/
+    //循环判断点击按钮或者遮罩层隐藏
+    $.each([$zhezhaoceng, $tab_menu], function () {
+        this.on('click', function () {
+            $zhezhaoceng.toggleClass('g-d-hidei');
+            $button_menu.toggleClass('g-d-hidei');
+            $tab_menu.toggleClass('tool-list-active');
+        })
+    });
+
+
+    //功能按钮绑定
+    $button_menu.on('click',"li",function () {
+        //hashData获取数据
+        var userId = hashData.userId,
+            workid = hashData.workId,
+            trackid = hashData.trackId,
+            docType = hashData.type,
+            isLeader = hashData.isLeader;
+        /*userInfo获取数据*/
+        var  username = userInfo.truename,
+            deptname = userInfo.deptName;
+        /*实例流程获数据*/
+        var  nodeid = instance.curFlowInfo.curNodeID,
+            nodename = instance.curFlowInfo.curNodeName,
+            flowId = instance.curFlowInfo.flowId;
+        //退件和发送意见前获取当前节点的前一个nodeID和后一个nodeID
+        var fl = FirstButtonAction.returnNode(flowMsg,nodeid).split("-");
+        // console.log(fl);
+        //获取暂存意见
+        var contentInfo = FirstButtonAction.getTempCom(username, userId, workid, nodeid,trackid);
+        // console.log(contentInfo);
+        var $this = $(this);
+        var Temp = $this.attr("data-type");
+        // console.log(Temp);
+        switch (Temp) {
+            case "Submit"://送出
+                var nextid = fl[1];
+                // console.log(nextid);
+                var action = "2",content="", fworkid = "";
+                if(contentInfo ==="请填写本次意见"){
+                    if(nodeid.toUpperCase()==="START"||(nodeid.toUpperCase()==="NODE19"&&docType==="1")||nodeid.toUpperCase()==="NODE12"){
+                        /*不需要意见*/
+                        if(parseInt(nextid)===1){
+                            /*跳转页面，选环节，人*/
+                            var param="#userId="+userId+","+"userName="+username+","+"deptName="+deptname+","
+                                + "workId="+workid+","+"nodeId="+nodeid+","+"nodeName="+nodename+","+"trackId="+trackid+","
+                                +"content="+content+","+"action="+action+","+"docType="+docType+","+"flowId="+flowId;
+                            window.location.href=UrlBase.URL_JUMP_SENDOUT+param;
+                        }else {
+                            /*直接送出*/
+                            fworkid=nextid;
+                            FirstButtonAction.SaveOrSend(userId, username, deptname,workid, nodeid, nodename,
+                                trackid,content,action,fworkid,docType);}
+                    }else{
+                        $.toast(contentInfo);
+                    }
+                }else{
+                    content=$(contentInfo).text();
+                    var isToagent = FirstButtonAction.forSure(flowMsg,nodeid,userId);
+                    //需要经办人确定
+                    if(isToagent!==""&&parseInt(isToagent)===1||(parseInt(nextid)===1&&nodeid.toUpperCase()==="NODE4")||nodeid.toUpperCase()==="NODE15"|| (nodeid.toUpperCase()==="NODE19"&&docType==="2")||nodeid.toUpperCase()==="Node11"){
+                        //送经办人
+                       /* var content="";
+                        if(contentInfo!=="请填写本次意见"){
+                            content=$(contentInfo).text();
+                        }*/
+                        FirstButtonAction.sendTransactor(userId,username,deptname, nodeid, workid ,trackid,flowId ,docType,content,nodename);
+                    }else{
+                        if(parseInt(nextid)===1){
+                            /*跳转页面，选环节，人*/
+                            var param="#userId="+userId+","+"userName="+username+","+"deptName="+deptname+","
+                                + "workId="+workid+","+"nodeId="+nodeid+","+"nodeName="+nodename+","+"trackId="+trackid+","
+                                +"content="+content+","+"action="+action+","+"docType="+docType+","+"flowId="+flowId;
+                            window.location.href=UrlBase.URL_JUMP_SENDOUT+param;
+                        }else {
+                            fworkid=nextid;
+                            /*直接送出*/
+                            FirstButtonAction.SaveOrSend(userId, username, deptname,workid, nodeid, nodename,
+                                trackid,content,action,fworkid,docType);
+                        }
+                    }
+                }
+                break;
+            case "Save"://保存
+                var action = "1", content="", fworkid = "";
+                if(contentInfo!=="请填写本次意见"){
+                    content=$(contentInfo).text();
+                }
+                FirstButtonAction.SaveOrSend(userId, username, deptname,workid, nodeid, nodename, trackid,content,action,fworkid,docType);
+                break;
+            case "Reject"://退件
+                $.confirm({
+                    title: '退件',
+                    text: '是否退件？',
+                    onOK: function () { //点击确认
+                        var prevNodeid=fl[0];
+                        if(parseInt(prevNodeid)===0){
+                            $.toast("没有退件单位")
+                        }else{
+                            FirstButtonAction.backStep(username ,userId , deptname ,workid ,nodeid ,prevNodeid,trackid ,docType);
+                        }
+                    },
+                    onCancel: function () {
+                    }
+                });
+                break;
+            case "SendEnd"://办结
+                $.confirm({
+                    title: '办结',
+                    text: '是否办结？',
+                    onOK: function () { //点击确认
+                        FirstButtonAction.endFlow(userId, username, deptname, nodeid,workid, trackid, flowId);
+                    },
+                });
+                break;
+            case "SendFileBack"://退文
+                var param="#workId="+workid+","+"type="+docType+","+"userId="+userId;
+                window.location.href=UrlBase.URL_TUIWEN+param;
+                break;
+            case "SendSpecial"://送经办人
+                var content="";
+                if(contentInfo!=="请填写本次意见"){
+                    content=$(contentInfo).text();
+                }
+                FirstButtonAction.sendTransactor(userId,username,deptname, nodeid, workid ,trackid,flowId ,docType,content,nodename);
+                break;
+            default:
+                break;
+        }
+    });
     return init;
 })

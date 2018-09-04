@@ -378,11 +378,20 @@
   overflow: @o;
   white-space: @w;
 }
-
+///*单行省略*/
 .text-ofe() {
   .text-of();
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
+}
+///*多行省略*/
+.text-ofmle(@l:2,@o:hidden){
+  overflow: @o;
+  -webkit-line-clamp: @l;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 ///*文字强制换行*/

@@ -26,12 +26,12 @@ define(['jquery'], function ($) {
         $grid_item: null/*宫格项*/,
         $tab_title: null/*菜单标题*/,
         istitlehide: false/*是否隐藏标题*/,
-        isswiper:true/*是否组合swiper插件*/,
+        isswiper: true/*是否组合swiper插件*/,
         btn_width: 30/*侧边按钮宽*/,
         view_width: 0/*视口宽度*/,
         win_width: 0/*横排模式视口宽度*/,
         swiperVersion: '2'/*默认swiper版本*/,
-        tabType:'tab'/*切换方式:默认为tab类型，分为tab,swiper*/,
+        tabType: 'tab'/*切换方式:默认为tab类型，分为tab,swiper*/,
         index: 0/*当前高亮值*/,
         item: 3/*默认展现3个菜单*/,
         effect_time: 500/*动画切换时间*/,
@@ -202,7 +202,7 @@ define(['jquery'], function ($) {
                 activeIndex: tabMap.index,
                 speed: tabMap.effect_time, /*滑块切换速度*/
                 onSlideChangeStart: function () {
-                    tabMap.tabType='swiper';
+                    tabMap.tabType = 'swiper';
                     tabSlide(tabMap.tabFn);
                 }/*开始切换时执行*/
             };
@@ -212,20 +212,20 @@ define(['jquery'], function ($) {
             }
             /*创建swiper实例*/
             try {
-                if(tabMap.isswiper){
+                if (tabMap.isswiper) {
                     if (Swiper && typeof Swiper === 'function') {
                         swiper_instance = new Swiper(tabMap.swiper_selector, tempconfig);
-                        tabMap.tabType='swiper';
+                        tabMap.tabType = 'swiper';
                         tabMap.$swiper_container = $(tabMap.swiper_selector).find('>.swiper-wrapper');
                         tabMap.$swiper_item = tabMap.$swiper_container.find('>.swiper-slide');
                     }
-                }else{
+                } else {
                     tabMap.swiper_instance = null;
-                    tabMap.tabType='tab';
+                    tabMap.tabType = 'tab';
                 }
             } catch (e) {
                 tabMap.swiper_instance = null;
-                tabMap.tabType='tab';
+                tabMap.tabType = 'tab';
             }
         }
         tabSlide(tabMap.tabFn);
@@ -235,9 +235,13 @@ define(['jquery'], function ($) {
     function position(index) {
         tabMap.index = typeof index === 'undefined' ? tabMap.index : index;
         if (tabMap.count >= 2) {
-            if (tabMap.index > 1) {
+            if (tabMap.index >= 1) {
                 if (tabMap.index <= tabMap.slide_size - 1) {
-                    tabMap.cssleft = -(tabMap.index - 1) * tabMap.item_width;
+                    if (tabMap.item === 2) {
+                        tabMap.cssleft = -(tabMap.index * tabMap.item_width);
+                    } else {
+                        tabMap.cssleft = -(tabMap.index - 1) * tabMap.item_width;
+                    }
                 }
             } else {
                 tabMap.cssleft = 0;
@@ -249,12 +253,12 @@ define(['jquery'], function ($) {
     }
 
     /*slide高亮渲染*/
-    function tabSlide(fn) {
-        if(tabMap.tabType==='swiper'){
+    function tabSlide(fn, index) {
+        if (tabMap.tabType === 'swiper') {
             /*swiper滑动模式*/
             tabMap.index = swiper_instance.activeIndex;
         }
-        if(swiper_instance){
+        if (swiper_instance) {
             if (swiper_id !== null) {
                 clearTimeout(swiper_id);
                 swiper_id = null;
@@ -265,6 +269,9 @@ define(['jquery'], function ($) {
             }, 100);
         }
         if (fn && typeof fn === 'function') {
+            if (typeof index !== 'undefined') {
+                tabMap.index = index;
+            }
             fn.call(null, {
                 tab_wrap: tabMap.$tab_wrap,
                 index: tabMap.index,
@@ -327,8 +334,8 @@ define(['jquery'], function ($) {
                 if (nodename === 'a' || nodename === 'li') {
                     $this = $(target);
                     tempindex = $this.index();
-                    tabMap.tabType='tab';
-                    tabMap.index=tempindex;
+                    tabMap.tabType = 'tab';
+                    tabMap.index = tempindex;
                 } else {
                     return false;
                 }
