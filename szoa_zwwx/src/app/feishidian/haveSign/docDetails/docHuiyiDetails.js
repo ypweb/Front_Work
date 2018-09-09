@@ -33,42 +33,6 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 })
             }
         });
-
-        /*// hashData = Util.getHashData();
-         var userInfo = Util.getParams("login_userInfo");
-         if (userInfo && userInfo != null) {
-         unitId = userInfo.unitId;
-         }
-         if (hashData.isZF && hashData.isZF == "1") {
-         if (!unitId || unitId == "undefined" || unitId == "") {
-         $.alert("未获取到您的用户信息，请先打开工作台！");
-         $.hideLoading();
-         return;
-         }
-         if (hashData.unitId && hashData.unitId != unitId) {
-         $.alert("非本单位人员不允许查看报名信息！");
-         $.hideLoading();
-         return;
-         }
-         }
-
-         if (!userInfo.id || userInfo.id == "") {
-         if (hashData.unitId && hashData.unitId != "") {
-         var loginId = Util.getParams("login_id");
-         if (loginId && loginId != "" && loginId != null) {
-         userInfo.id = loginId;
-         } else {
-         $.alert("未获取到您的用户信息，请从工作台中的办公系统查看您的待签收信息！");
-         $.hideLoading();
-         return;
-         }
-         } else {
-         $.alert("未获取到您的用户信息！", function () {
-         window.history.go(-1);
-         });
-         }
-         }*/
-
     }
 
     //初始化滑动切换页面
@@ -144,7 +108,6 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 $("#priority").append(docData.receivedinfo.priority);
                 $("#SdocumentNo").append(docData.documentNo);
                 removeHide();
-                initZhuanfa();
             }
         });
     }
@@ -215,6 +178,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 var rul = data.message.data;
                 if (rul && rul.result && rul.result == "true") {
                     $(".wx-tool-lb-wrap").removeClass("g-d-hide");
+                    initZhuanfa();
                 } else {
                     $("#is_tab").html("表单")
                 }
@@ -267,9 +231,10 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 }
                 var filePath=fileData.filepath;
                 var fix=filePath.substring(filePath.lastIndexOf("."));
+                var fixx=docTitle_base+fix
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    name: docTitle_base+fix, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
                     // name: "",
                     size: fileData.filesize
@@ -298,9 +263,10 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 }
                 var filePath=fileData.filepath;
                 var fix=filePath.substring(filePath.lastIndexOf("."));
+                var fixx=titel+fix;
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    name: docTitle_base+fix, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
                     // name: "",
                     size: fileData.filesize

@@ -92,7 +92,6 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 		if(nowPage && nowScroll && isRefresh==1){//判断缓存中是否有滚动高度和页码
 			page = 1;
 			pageSize = nowPage*20;
-			$("#grid").css("opacity",0);
 		}
 		isRefresh = 0;
     	$.ajax({
@@ -119,6 +118,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     	        		$("#grid").append('<div class="noData">暂无数据!</div>');
     	        		scollif = false;
     	        	}else if(listLength<1 && isPullUp==1){
+    	        		page = page-1;
     	        		$(".loadingMore").text("");
     	        	}else{
     	        		$(".noData").remove();
@@ -163,13 +163,13 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 		        			page = nowPage;
 		        			pageSize = 20;
 		        			$("html,body").scrollTop(nowScroll);
-		        			setTimeout(function(){
-		        				$("#grid").css("opacity",1);
-		        			},200);
 		        		}
 			        	rowClick();
     	        	}
 	        	}else if(res.message.success==0){//失败
+	        		if(page>1){
+	        			page = page-1;
+	        		}
 	        		$(".loadingMore").text("查询失败，请稍后再试！");
 	        		var message = res.message.errors;
 	        		if(message){
@@ -351,6 +351,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
             container: "#container", next: function (e) {
                 //松手之后执行逻辑,ajax请求数据，数据返回后隐藏加载中提示
                 var that = this;
+                scollif = false;
                 setTimeout(function () {
                 	page = 1;
                 	pageSize = 20;
@@ -379,7 +380,6 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	            	        	var listLength = searchList.length;
 	            	        	if(listLength<1){
 	            	        		$("#grid").append('<div class="noData">暂无数据!</div>');
-	            	        		scollif = false;
 	            	        	}else{
 		            	        	for(var i=0;i<searchList.length;i++){
 		            	        		var color="#74cdf5";//默认平件
@@ -425,6 +425,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	            	        		that.back.call();
 	            	        	},500);
             	        	}else if(res.message.success==0){
+            	        		scollif = true;
             	        		loading.innerHTML = "刷新失败！";
 	            	        	setTimeout(function () {
 	            	        		that.back.call();

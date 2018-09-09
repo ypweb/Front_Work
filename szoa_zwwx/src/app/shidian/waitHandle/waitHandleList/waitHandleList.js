@@ -13,7 +13,6 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	var realSearchCode = "全部";//点击确定之后要真查询的状态
 	var isChangeStatus = 0;//是否为切换状态查询，新查询要判断是上拉加载还是重新按状态查询
 	var isLeaderSec=0;//是否是领导秘书（因为领导秘书的待办用单独的接口）1是 0不是
-	var isLeader = 0;//是否领导 0不是 1 是
 	//下拉刷新需要的全局变量
     var isScrollLeft = false;//判断是否有信息处于最左端状态
     var isScroll = false;//判断是否有信息处于左划状态
@@ -34,10 +33,6 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     		var isSec = userInfo.isLeaderSec;
         	if(isSec==true){
         		isLeaderSec=1;
-        	}
-        	var ifLeader = userInfo.checkIsLeader;
-        	if(ifLeader==true){
-        		isLeader = 1;
         	}
         	userName = userInfo.truename;
         	unitId = userInfo.unitId;
@@ -69,7 +64,6 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 		if(nowPage && nowScroll && isRefresh==1){//判断缓存中是否有滚动高度和页码
 			page = 1;
 			pageSize = nowPage*20;
-			$("#grid").css("opacity",0);
 		}
 		isRefresh = 0;
     	$.ajax({
@@ -87,6 +81,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	        	if(isChangeStatus==1){//切换状态
 	        		//如果是切换状态查询，那么查询回来之后先清空grid数据在遍历插入
 	        		$("#grid").children().remove();
+	        		$("html,body").scrollTop(0);
 	        	}
 	        	if(res.message.success==1){//请求成功，返回数据
 		        	var waitHandleList = res.message.data.todoList;//待办列表数据
@@ -96,6 +91,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     	        		$("#grid").append('<div class="noData">暂无数据!</div>');
     	        		$("title").html("请选择待办文件  (0)");
     	        	}else if(listLength<1 && isPullUp==1){
+    	        		page = page-1;
     	        		$(".loadingMore").text("");
     	        	}else{
     	        		$("title").html("请选择待办文件  ("+num+")");
@@ -144,18 +140,18 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     		        			'<div class="hideType" style="display:none">'+waitHandleList[i].type+'</div>'+
     		        			'<div class="hideTrackId" style="display:none">'+waitHandleList[i].trackid+'</div>'+
     		        		'</div>');
-    		        		if(nowPage && nowScroll){
-    		        			page = nowPage;
-    		        			pageSize = 20;
-    		        			$("html,body").scrollTop(nowScroll);
-    		        			setTimeout(function(){
-    		        				$("#grid").css("opacity",1);
-    		        			},200);
-    		        		}
-    		        		rowClick();
     		        	};
+    		        	if(nowPage && nowScroll){
+		        			page = nowPage;
+		        			pageSize = 20;
+		        			$("html,body").scrollTop(nowScroll);
+		        		}
+		        		rowClick();
     	        	}
 	        	}else if(res.message.success==0){
+	        		if(page>1){
+	        			page = page-1;
+	        		}
 	        		$(".loadingMore").text("查询失败，请稍后再试！");
 	        		var message = res.message.errors;
 	        		if(message){
@@ -339,6 +335,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
             container: "#container", next: function (e) {
                 //松手之后执行逻辑,ajax请求数据，数据返回后隐藏加载中提示
                 var that = this;
+                scollif = false;
                 setTimeout(function () {
                 	page = 1;
                 	pageSize = 20;
@@ -359,13 +356,13 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
             	        	if(res.message.success==1){//请求成功，返回数据
 	            	        	$("#grid").children().remove();
 	            	        	var waitHandleList = res.message.data.todoList;
-	        		        	var num = res.message.data.todoTotal;//待签收总数  接口写好后动态获取
+	        		        	var num = res.message.data.todoTotal;//待办总数  接口写好后动态获取
 	            	        	var listLength = waitHandleList.length;
 	            	        	if(listLength<1){
 	            	        		$("#grid").append('<div class="noData">暂无数据!</div>');
 	            	        	}else{
 	            	        		$(".noData").remove();
-	            	        		$("title").html("请选择待签收文件  ("+num+")");
+	            	        		$("title").html("请选择待办文件  ("+num+")");
 	            		        	for(var i=0;i<waitHandleList.length;i++){
 	            		        		var color="#74cdf5";//默认平件
 	            		        		var priorityStr = waitHandleList[i].priority;
@@ -409,8 +406,8 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	            		        			'<div class="hideType" style="display:none">'+waitHandleList[i].type+'</div>'+
 	            		        			'<div class="hideTrackId" style="display:none">'+waitHandleList[i].trackid+'</div>'+
 	            		        		'</div>');
-	            		        		rowClick();
 	            		        	};
+	            		        	scollif = true;
 	            	        	}
 	            	        	rowClick();
 	            	        	loading.innerHTML = "刷新成功！";
@@ -418,6 +415,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	            	        		that.back.call();
 	            	        	},500);
             	        	}else if(res.message.success==0){
+            	        		scollif = true;
             	        		loading.innerHTML = "刷新失败！";
 	            	        	setTimeout(function () {
 	            	        		that.back.call();
@@ -453,7 +451,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     			return false;
     		}
         	//跳转到详细页面
-			var param="#userId="+userId+","+"type="+type+","+"workId="+workId+","+"trackId="+trackId+","+"isLeader="+isLeader+","+"unitId="+unitId;
+			var param="#userId="+userId+","+"type="+type+","+"workId="+workId+","+"trackId="+trackId+","+"unitId="+unitId;
 			window.location.href=UrlBase.URL_JUMP_WAITHANDLEDETAILS+param;
     	});
     }
@@ -475,6 +473,10 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 				   $(".jjStatus").text("√");
 			   }else if(realSearchCode=="平件"){
 				   $(".pjStatus").text("√");
+			   }else if(realSearchCode=="加急"){
+				   $(".jiajiStatus").text("√");
+			   }else if(realSearchCode=="平急"){
+				   $(".pingjiStatus").text("√");
 			   }
 			   colorFlag = 2;
 			   $(".statusMain").css("color","#3B9CFF");

@@ -114,9 +114,9 @@ define(["util"], function (Util) {
                     employees = deptsList[index]['employees'],
                     sublen = employees.length,
                     str = '';
+                var dd = getSecondData();
                 for (var i = 0; i < sublen; i++) {
                     var subitem = employees[i];
-                    var dd = getSecondData();
                     if (dd.length > 0) {//实现页签切换，人名标记
                         for (var j = 0; j < dd.length; j++) {
                             if (dd[j] === subitem["id"]) {
@@ -155,13 +155,13 @@ define(["util"], function (Util) {
 
     /*获取二列数据*/
     function getSecondData() {
-        var as = [];
+        var secList = [];
         for (var i in secondarr) {
             if (i !== 'len' && secondarr.hasOwnProperty(i)) {
-                as.push(secondarr[i]);
+                secList.push(secondarr[i]);
             }
         }
-        return as;
+        return secList;
     };
     return init;
 });

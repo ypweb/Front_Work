@@ -19,31 +19,61 @@
 <body  >
 <div style="display:none">
     <!--表单-->
-    <ul class="wx-form-wrap wx-form-indent wx-form-indent5">
-        <li>
-            <label class="wx-form-label">
-                <span class="wx-form-require"></span>
-                <div class="wx-form-name">参会人姓名</div>
-                <div class="wx-form-text"><input id="personName" type="text"  name="chrxm" readonly/></div>
-                <div class="wx-form-tip"></div>
-            </label>
-        </li>
-        <li>
-            <label class="wx-form-label">
-                <span class="wx-form-require"></span>
-                <div class="wx-form-name">参会人职位</div>
-                <div class="wx-form-text"><input id="personJob" type="text" placeholder="请输入参会人职位" name="chrzw" /></div>
-                <div class="wx-form-tip"></div>
-            </label>
-        </li>
-        <li>
-            <label class="wx-form-label">
-                <span class="wx-form-require"></span>
-                <div class="wx-form-name">参会人单位</div>
-                <div class="wx-form-text"><input id="personDept" type="text" name="chrdw" readonly/></div>
-                <div class="wx-form-tip"></div>
-            </label>
-        </li>
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">参会人姓名</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input id="personName" class="weui-input" type="text" name="chrxm" readonly />
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">参会人职位</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input id="personJob" class="weui-input" type="text"  placeholder="请输入参会人职位" name="chrzw" />
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">参会人单位</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input id="personDept" class="weui-input" type="text" name="chrxm" readonly />
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">是否请假</label>
+            </div>
+            <div class="weui-cell__bd weui-cells_radio" id="workcheck">
+                <label class="weui-check__label">
+                    <input class="weui-check"  value="1" type="radio" name="sfqj">
+                    <span class="weui-icon-checked"></span>
+                     	是
+                </label>
+                <label class="weui-check__label">
+                    <input class="weui-check"  value="2" type="radio" name="sfqj">
+                    <span class="weui-icon-checked"></span>
+                 	   	否
+                </label>
+            </div>
+        </div>
+        <div class="wx-gap-wrap"></div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">请假原因</label>
+            </div>
+        </div>
+        <div class="weui-cell g-bt-pse-none">
+            <div class="weui-cell__bd">
+                <textarea id="workOffReason" name="chrdw" maxlength="200" class="weui-textarea" rows="4"></textarea>
+            </div>
+        </div>
+    </div>
+    <!--<ul class="wx-form-wrap wx-form-indent wx-form-indent5">
         <li>
             <div class="wx-form-label">
                 <div class="wx-form-name">是否请假</div>
@@ -54,15 +84,7 @@
                 <div class="wx-form-tip"></div>
             </div>
         </li>
-        <li class="wx-form-item3x">
-            <label class="wx-form-label">
-                <span class="wx-form-require"></span>
-                <div class="wx-form-name">请假原因</div>
-                <div class="wx-form-text"><textarea id="workOffReason" name="chrdw"></textarea></div>
-                <div class="wx-form-tip"></div>
-            </label>
-        </li>
-    </ul>
+    </ul>-->
     <!--按钮组-->
     <ul id="#bar_item" class="wx-btnaction-wrap wx-btnaction-item3">
         <li id="cancel" class="wx-btnaction-cancel">取消</li>

@@ -212,8 +212,9 @@ define(["util","FirstButtonAction", "weuiJS"], function (Util,FirstButtonAction)
             success: function (data) {
                 // console.log(data);
                 if(data.message.success===1){
-                    $.toast("送出成功");
-                    setTimeout(window.history.go(-2),2000);
+                    $.toast("送出成功",function() {
+                        window.history.go(-2)
+                    });
                 }else{
                     $.toast(data.message.errors,"cancel");
                 }

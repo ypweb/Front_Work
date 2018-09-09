@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--强制竖屏-->
+	<meta name="x5-orientation" content="portrait">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="height=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta charset="utf-8"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>退文</title>
+
+    <!--扩展资源-->
+   <link rel="stylesheet" href="/zwwxV2/resource/css/weui.css">
+
+    <link rel="stylesheet" href="/zwwxV2/resource/js/lib/weui/css/jquery-weui.css" />
+    <script src="/zwwxV2/resource/js/lib/jquery/jquery.min.js"></script>
+    <script src="/zwwxV2/resource/js/lib/weui/js/jquery-weui.min.js"></script>
+    <script src="/zwwxV2/resource/js/lib/require/require.js"></script>
+    <script src="/zwwxV2/resource/js/config/config.js"></script>
+</head>
+<body class="wx-btn-body">
+<div style="display:none" class="wx-detaillist-wrap g-d-hidei">
+    <div class="waitdoc-fromTitel waitdocTitel wx-labeltheme-wrap">退文类型</div>
+    <div class="waitdoc-fromMsg waitdocBody g-clear-p">
+        <ul class="waitdoc-fromMsg-ul wx-btnlist-wrap wx-btnlist-auto"></ul>
+    </div>
+    <div class="waitdoc-qsfbTitel waitdocTitel wx-labeltheme-wrap">退文原因</div>
+    <div class="waitdoc-qsfbMsg">
+        <div class="btn-Reason waitdocBody g-clear-p">
+            <ul class="wx-btnlist-wrap btn-Reason-ul wx-btnlist-auto"></ul>
+        </div>
+        <div class="bottom-returnDoc">
+            <div class="docTypeTitel">
+                <label style="float: left;">绩效考核</label>
+                <div class="btn-redio">
+                    <label class="checkbox-inline">
+                        <input type="radio" checked="checked" name="kaohe" id="qiyongkaohe"
+                               value="0"> <span>不启用</span>
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="radio" name="kaohe" id="buqiyongkaohe"
+                               value="1"> <span>启用</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!--按钮组-->
+        <ul id="#bar_item" class="wx-btnaction-wrap wx-btnaction-item2">
+            <li id="returnDocN" class="wx-btnaction-cancel">取消退文</li>
+            <li id="returnDocY" class="wx-btnaction-sure">确定退文</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    $.showLoading("努力加载中...");
+</script>
+<script type="text/javascript" src="/zwwxV2/app/feishidian/waitSign/waitdocDetails/returnDocCtrl.js"></script>
+</body>
+</html>

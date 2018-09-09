@@ -11,164 +11,73 @@
     <link rel="stylesheet" href="../../resource/css/global.css">
     <link rel="stylesheet" href="../../resource/css/base.css">
 </head>
-<body>
-<!--头部-->
-<header class="wx-header-wrap">
-    <div class="wx-header-back"></div>
-    <div class="wx-header-title">会议报名表</div>
-    <div class="wx-header-tip"></div>
-</header>
+<body class="wx-btn-body">
 
-<!--主题-->
-<h2 class="wx-theme-wrap g-bc-white">5单位表单</h2>
-<!--表单-->
-<ul class="wx-form-wrap wx-form-indent wx-form-indent5">
-    <li>
-        <label class="wx-form-label">
-            <span class="wx-form-require">*</span>
-            <div class="wx-form-name">参会人姓名</div>
-            <div class="wx-form-text"><input type="text" placeholder="请输入参会人姓名" name="chrxm" /></div>
-            <div class="wx-form-tip">提示信息</div>
-        </label>
-    </li>
-    <li>
-        <label class="wx-form-label">
-            <span class="wx-form-require"></span>
-            <div class="wx-form-name">参会人职位</div>
-            <div class="wx-form-text"><input type="text" placeholder="请输入参会人职位" name="chrzw" /></div>
-            <div class="wx-form-tip">呵呵，不能为空</div>
-        </label>
-    </li>
-    <li>
-        <label class="wx-form-label">
-            <span class="wx-form-require"></span>
-            <div class="wx-form-name">参会人单位</div>
-            <div class="wx-form-text"><input type="text" placeholder="请输入参会人单位" name="chrdw" /></div>
-            <div class="wx-form-tip"></div>
-        </label>
-    </li>
-    <li>
-        <div class="wx-form-label">
-            <div class="wx-form-name">是否请假</div>
-            <div class="wx-form-text">
-                <label data-title="否" class="wx-form-rc wx-form-rc-simulation simulation-radio simulation-checked"><input type="radio" name="sfqj" /></label>
-                <label data-title="是" class="wx-form-rc wx-form-rc-simulation  simulation-radio"><input type="radio" name="sfqj" /></label>
-            </div>
-            <div class="wx-form-tip"></div>
+<div class="weui-cells weui-cells_form g-clear-m">
+    <div class="weui-cell weui-cell_access">
+        <div class="weui-cell__hd">
+            <label class="weui-label">参会人姓名:</label>
         </div>
-    </li>
-    <li class="wx-form-item3x">
-        <label class="wx-form-label">
-            <span class="wx-form-require"></span>
-            <div class="wx-form-name">请假原因</div>
-            <div class="wx-form-text"><textarea placeholder="请输入请假原因" name="chrdw"></textarea></div>
-            <div class="wx-form-tip"></div>
-        </label>
-    </li>
-</ul>
-
-<!--主题-->
-<h2 class="wx-theme-wrap g-bc-white">2单位表单</h2>
-<!--表单-->
-<ul class="wx-form-wrap wx-form-indent wx-form-indent2">
-    <li>
-        <label class="wx-form-label">
-            <span class="wx-form-require">*</span>
-            <div class="wx-form-name">姓名</div>
-            <div class="wx-form-text"><input type="text" placeholder="请输入姓名" name="chrxm" /></div>
-            <div class="wx-form-tip">提示信息</div>
-        </label>
-    </li>
-    <li>
-        <div class="wx-form-label wx-form-labelauto">
-            <div class="wx-form-name">兴趣</div>
-            <div class="wx-form-text">
-                <label data-title="篮球" class="wx-form-rc wx-form-rc-simulation simulation-checkbox"><input type="checkbox" name="sfqj" /></label>
-                <label data-title="足球" class="wx-form-rc wx-form-rc-simulation simulation-checkbox simulation-checked"><input type="checkbox" name="sfqj" /></label>
-                <label data-title="排球" class="wx-form-rc wx-form-rc-simulation simulation-checkbox"><input type="checkbox" name="sfqj" /></label>
-                <label data-title="花样滑冰,高山滑雪" class="wx-form-rc wx-form-rc-simulation simulation-checkbox"><input type="checkbox" name="sfqj" /></label>
-                <label data-title="羽毛球" class="wx-form-rc wx-form-rc-simulation simulation-checkbox"><input type="checkbox" name="sfqj" /></label>
-            </div>
-            <div class="wx-form-tip"></div>
+        <div class="weui-cell__bd wx-form-inputdelete">
+            <input class="weui-input" required  type="text" placeholder="请输入参会人姓名" name="chrxm" />
+            <span class="icon-delete"></span>
         </div>
-    </li>
-    <li>
-        <label class="wx-form-label">
-            <span class="wx-form-require"></span>
-            <div class="wx-form-name">单位</div>
-            <div class="wx-form-text"><input type="text" placeholder="请输入单位" name="chrdw" /></div>
-            <div class="wx-form-tip"></div>
-        </label>
-    </li>
-    <li class="wx-form-item2x">
-        <label class="wx-form-label">
-            <span class="wx-form-require"></span>
-            <div class="wx-form-name">原因</div>
-            <div class="wx-form-text"><textarea placeholder="请输入原因" name="chrdw" disabled></textarea></div>
-            <div class="wx-form-tip"></div>
-        </label>
-    </li>
-</ul>
+        <div class="weui-cell__ft"></div>
+    </div>
 
-<!--主题-->
-<h2 class="wx-theme-wrap g-bc-white">3单位表单</h2>
-<!--表单-->
-<ul class="wx-form-wrap wx-form-indent wx-form-indent3">
-    <li>
-        <label class="wx-form-label">
-            <span class="wx-form-require">*</span>
-            <div class="wx-form-name">手机号</div>
-            <div class="wx-form-text"><input type="text" placeholder="请输入手机号" name="chrxm" /></div>
-            <div class="wx-form-tip">提示信息</div>
-        </label>
-    </li>
-    <li>
-        <label class="wx-form-label">
-            <span class="wx-form-require"></span>
-            <div class="wx-form-name">微信号</div>
-            <div class="wx-form-text"><input type="text" placeholder="请输入微信号" name="chrdw" /></div>
-            <div class="wx-form-tip"></div>
-        </label>
-    </li>
-</ul>
+    <div class="weui-cell weui-cell_access g-clear-pt g-clear-pb">
+        <div class="weui-cell__hd">
+            <label class="weui-label">参会人职位:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select g-clear-pl" name="chrzw">
+                <option value="" selected>请选择</option>
+                <option value="1">参会人职位1</option>
+                <option value="2">参会人职位2</option>
+                <option value="3">参会人职位3</option>
+                <option value="4">参会人职位4</option>
+            </select>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </div>
 
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">是否请假:</label>
+        </div>
+        <div class="weui-cell__bd weui-cells_radio">
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="sfqj">
+                <span class="weui-icon-checked"></span>
+                否
+            </label>
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="sfqj">
+                <span class="weui-icon-checked"></span>
+                是
+            </label>
+        </div>
+    </div>
 
-<!--主题-->
-<h2 class="wx-theme-wrap g-bc-white">4单位表单</h2>
-<!--表单-->
-<ul class="wx-form-wrap wx-form-indent wx-form-indent4">
-    <li>
-        <label class="wx-form-label">
-            <span class="wx-form-require">*</span>
-            <div class="wx-form-name">手机号码</div>
-            <div class="wx-form-text"><input type="text" placeholder="请输入手机号码" name="chrxm" /></div>
-            <div class="wx-form-tip">提示信息</div>
-        </label>
-    </li>
-    <li>
-        <label class="wx-form-label">
-            <span class="wx-form-require"></span>
-            <div class="wx-form-name">详细地址</div>
-            <div class="wx-form-text"><input type="text" placeholder="请输入详细地址" name="chrdw" /></div>
-            <div class="wx-form-tip"></div>
-        </label>
-    </li>
-</ul>
+    <div class="wx-gap-wrap"></div>
 
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">请假原因:</label>
+        </div>
+    </div>
+    <div class="weui-cell g-bt-pse-none">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" maxlength="100" placeholder="请输入请假原因" rows="4"></textarea>
+            <div class="weui-textarea-counter"><span>0</span>/100</div>
+        </div>
+    </div>
+</div>
 
-<!--按钮组-->
-<ul class="wx-btnitem-wrap wx-btnitem-item3 g-gap-mb10">
-    <li><div class="zw-btn zw-btn-blue g-br5">确定</div></li>
-    <li><div class="zw-btn zw-btn-blue g-br5">取消</div></li>
-    <li><div class="zw-btn zw-btn-blue g-br5">取消报名</div></li>
-</ul>
-
-
-<!--按钮组-->
-<ul class="wx-btnitem-wrap wx-btnitem-item3 g-gap-mb10">
-    <li><div class="zw-btn zw-btn-wxextend g-br5">确定</div></li>
-    <li><div class="zw-btn zw-btn-wxextend g-br5">取消</div></li>
-    <li><div class="zw-btn zw-btn-wxextend g-br5">取消报名</div></li>
+<ul class="wx-btnaction-wrap wx-btnaction-item3">
+    <li class="wx-btnaction-cancel">取消</li>
+    <li class="wx-btnaction-cancel">取消报名</li>
+    <li class="wx-btnaction-sure">确定</li>
 </ul>
 </body>
 </html>

@@ -97,7 +97,7 @@ define([], function () {
                     setParams('login_userInfo',userInfo);//把登录人userId存储到本地
                     var loginId = userInfo.id;//登录人在OA中的userId
                     setParams('login_id',loginId);//把登录人userId存储到本地
-                    resultObj = {
+                	resultObj = {
                         userId:loginId,
                         userInfo:userInfo,
                         hashData:hashData
@@ -136,6 +136,12 @@ define([], function () {
         }else {//列表进入
             var userInfo = getParams("login_userInfo");
             if (hashData.unitId&&userInfo.unitId==hashData.unitId){
+                var ifLeader = userInfo.checkIsLeader;
+                if(ifLeader==true){
+                    hashData.isLeader = 1;
+                }else{
+                    hashData.isLeader = 0;
+                }
                 _config.whenSuccess(userInfo,hashData);
             }else {
                 resultObj.errorMsg="非本单位人员不允许访问！";
@@ -178,6 +184,13 @@ define([], function () {
                                         success:function (res) {
                                             if(res.message.returnValue=="0"){//请求成功，返回数据
                                                 var userInfo = res.message.data;
+                                                var ifLeader = userInfo.checkIsLeader;
+                                                if(ifLeader==true){
+                                                    hashData.isLeader = 1;
+                                                }else{
+                                                    hashData.isLeader = 0;
+                                                }
+                                                setParams('login_isLeader',hashData.isLeader);//把登录人isLeader存储到本地
                                                 func(userInfo)
                                                 return;
                                             }else{

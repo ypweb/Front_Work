@@ -19,159 +19,28 @@
             baseUrl: '/zwwx/',
             paths: {
                 "jquery": "resource/js/lib/jquery/jquery.min",
-                'touchswipe': "demo/jquery.touchSwipe"
+                'swiper': "resource/js/lib/swiper/idangerous.swiper.min",
+                'tab_swiper': "resource/js/widget/tab_swiper"
             },
             shim: {
-                'touchswipe': {
-                    deps: ['jquery']
+                'tab_swiper': {
+                    deps: ['jquery', 'swiper']
                 }
             }
         });
 
 
         /*程序入口*/
-        require(['jquery', 'touchswipe'], function ($) {
+        require(['jquery', 'swiper', 'tab_swiper'], function ($, undefined, TabSwiper) {
             $(function () {
-                //页面元素获取
-                var $tab_btn = $('#tab_btn'),
-                    $tab_panel = $('#tab_panel'),
-                    $tab_slide = $('#tab_slide'),
-                    $title = $tab_slide.prev(),
-                    $tab_wrap = $tab_slide.find('>div'),
-                    win_width = $(window).width(),
-                    item = 3,
-                    item_width = Math.ceil(win_width / item),
-                    total_width = win_width,
-                    parent_class = [
-                        'wx-tabpanel-wp1',
-                        'wx-tabpanel-wp1half',
-                        'wx-tabpanel-wp2',
-                        'wx-tabpanel-wp2half',
-                        'wx-tabpanel-wp3',
-                        'wx-tabpanel-wp3half',
-                        'wx-tabpanel-wp4',
-                        'wx-tabpanel-wp4half',
-                        'wx-tabpanel-wp5',
-                        'wx-tabpanel-wp5half',
-                        'wx-tabpanel-wp6',
-                        'wx-tabpanel-wp6half',
-                        'wx-tabpanel-wp7',
-                        'wx-tabpanel-wp7half',
-                        'wx-tabpanel-wp8',
-                        'wx-tabpanel-wp8half',
-                        'wx-tabpanel-wp9',
-                        'wx-tabpanel-wp9half',
-                        'wx-tabpanel-wp10',
-                        'wx-tabpanel-wp10half'
-                    ],
-                    slide_length = $tab_slide.find('a,li').size(),
-                    count = 0,
-                    cssleft = parseInt($tab_slide.css('left'), 10),
-                    tab_class = (function () {
-                        var key = 'wx-tablist-item',
-                            str = [],
-                            i = 1;
-                        for (i; i <= 30; i++) {
-                            str.push(key + i);
-                        }
-                        return str.slice();
-                    }());
-
-
-                function tabInit() {
-                    if (slide_length > item) {
-                        count = Math.ceil(slide_length / item);
-                        total_width = win_width * count;
-                        $tab_slide.addClass('wx-tabpanel-wp' + count);
-                        $tab_wrap.addClass('wx-tablist-item' + (item * count));
-                    }
-                    /*绑定切换事件*/
-                    if (count > 1) {
-                        /*绑定swipe事件*/
-                        $tab_slide.swipe({
-                            swipeLeft: function (event, direction, distance, duration, fingerCount, fingerData) {
-                                if (cssleft <= -(total_width - win_width)) {
-                                    console.log('left1');
-                                    cssleft = -(total_width - win_width);
-                                } else {
-                                    console.log('left2');
-                                    cssleft -= item_width;
-                                }
-                                $tab_slide.css({
-                                    'left': cssleft
-                                });
-                            },
-                            swipeRight: function (event, direction, distance, duration, fingerCount, fingerData) {
-                                if (cssleft >= 0) {
-                                    console.log('right1');
-                                    cssleft = 0;
-                                } else {
-                                    console.log('right2');
-                                    cssleft += item_width;
-                                }
-                                $tab_slide.css({
-                                    'left': cssleft
-                                });
-                            }
-                        });
-
-                    }
-                }
-
-                /*执行初始化*/
-                tabInit();
-
-
-                /*事件绑定*/
-                $tab_btn.on('click', function () {
-                    /*切换菜单模式*/
-                    if ($tab_panel.hasClass('wx-tabpanel-column')) {
-                        /*横排模式*/
-                        $tab_panel.removeClass('wx-tabpanel-column');
-                        $tab_slide.addClass('wx-tabpanel-wp' + count);
-                        $tab_wrap.addClass('wx-tablist-item' + (item * count));
-                        /*开启滑动*/
-                        $tab_slide.swipe("enable");
-                    } else {
-                        /*竖排模式*/
-                        cssleft=0;
-                        $tab_slide.css({
-                            'left':cssleft
-                        });
-                        $tab_slide.removeClass(parent_class.join(' '));
-                        $tab_wrap.removeClass(tab_class.join(' '));
-                        $tab_panel.addClass('wx-tabpanel-column');
-                        /*取消滑动*/
-                        $tab_slide.swipe("disable");
-                    }
-
+                /*执行TabSwiper渲染
+                * 参数说明：
+                * 第一个参数为内部配置对象,默认为null
+                * 第二个参数为,swiper配置对象
+                * */
+                TabSwiper.init({
+                    index:3
                 });
-
-                /*绑定tap事件*/
-                $tab_slide.on('click', function (e) {
-                    var target = e.target,
-                        nodename = target.nodeName.toLowerCase(),
-                        $this = null;
-
-
-                    /*过滤非标签*/
-                    if (nodename === 'ul' || nodename === 'div') {
-                        return false;
-                    }
-
-
-
-                    if (nodename === 'a' || nodename === 'li') {
-                        /*切换显示隐藏*/
-                        $this = $(target);
-                        $this.toggleClass('tabactive').siblings().removeClass('tabactive');
-                        if($tab_panel.hasClass('wx-tabpanel-column')){
-                            $tab_btn.trigger('click');
-                        }
-                    }
-                });
-
-
             });
         });
     </script>
@@ -180,23 +49,30 @@
 
 <h2 class="wx-theme-wrap">tab切换--多列定宽</h2>
 
-<div class="wx-tabpanel-wrap tabpanel-btnright" id="tab_panel">
-    <div class="wx-tabpanel-show">
-        <h1>tab切换--多列定宽</h1>
-        <div class="wx-tabpanel-slide" id="tab_slide">
-            <div class="wx-tablist-wrap">
-                <a class="menu-yijian" href="#">意见</a>
-                <a class="menu-zhengwen" href="#" class="active">正文</a>
-                <a class="menu-ziliao" href="#">参考资料</a>
-                <a class="menu-bianqian" href="#">便签贴</a>
-                <a class="menu-chengpi" href="#">呈批信息</a>
-                <a class="menu-banli" href="#">办理信息</a>
-                <a class="menu-genzong" href="#">交换跟踪</a>
-                <a class="menu-biaodan" href="#">表单</a>
-            </div>
+<div class="wx-tabpanel-wrap tabpanel-btnright" id="tabswiper_panel">
+    <div class="wx-tabpanel-list">
+        <div class="wx-tabpanel-slide" id="tabswiper_slide">
+            <ul class="wx-tablist-wrap">
+                <li class="menu-yijian">意见</li>
+                <li class="menu-zhengwen">正文</li>
+                <li class="menu-ziliao">参考资料</li>
+                <li class="menu-qianfa">签发</li>
+                <li class="menu-bianqian">便签贴</li>
+                <li class="menu-chengpi">呈批信息</li>
+                <li class="menu-banli">办理信息</li>
+                <li class="menu-genzong">交换跟踪</li>
+                <li class="menu-biaodan">表单</li>
+                <li class="menu-huiyi">会议信息</li>
+                <li class="menu-huiyibaoming">会议报名表</li>
+            </ul>
         </div>
     </div>
-    <div class="wx-tabpanel-toggle" id="tab_btn"></div>
+    <div class="wx-tabpanel-grid">
+        <h1>tab切换--与swiper集成--给北京UI参考的界面图</h1>
+        <ul class="wx-tabcolumn-wrap" id="tabswiper_grid"></ul>
+    </div>
+    <div class="wx-tabpanel-mask" id="tabswiper_mask"></div>
+    <div class="wx-tabpanel-toggle g-d-hidei" id="tabswiper_btn"></div>
 </div>
 
 <h2 class="wx-theme-wrap">tab切换--自适应</h2>

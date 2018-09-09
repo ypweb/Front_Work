@@ -76,8 +76,15 @@
     .select-list{
       width:100%;
       display: none;
+      max-height:@select-list-height * 8;
+      overflow-y:auto;
+      border-bottom: 1px solid @color-gray11;
       >li{
         width:100%;
+        padding-left:@select-list-gap;
+        &:last-child{
+          border-bottom: none;
+        }
         &:hover,
         &:active{
           background-color:@color-gray14;

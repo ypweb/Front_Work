@@ -5,9 +5,12 @@ define(["util"], function (Util) {
 
     //传参
     var hashData = {};
+    var userInfo = {};
+    var nowfzbs="";
 
     function init() {
         hashData = Util.getHashData();
+        userInfo = getParams("login_userInfo");
         document.title = hashData.title;
         $.ajax({
             url: "/ajax.sword?ctrl=WeixinDocDital_exchangeTrace",
@@ -26,9 +29,64 @@ define(["util"], function (Util) {
             }
         });
     }
+    
+    function sendMsg(type) {
+        $.ajax({
+            url: "/ajax.sword?ctrl=WXDaiBanDocDital_sendSmsOrWechatMsg",
+            dataType: "json",
+            async: true,
+            data: {
+                "workId": hashData.workId,
+                "userId": userInfo.id,
+                "fzbs": nowfzbs,
+                "type": type
+            },
+            success: function (bdata) {
+                var msgs=bdata.message;
+                var dataMsg="";
+                for(var index in msgs){
+                    if (index==1){
+                        dataMsg+="短信通知："+msgs[index].data.result+"<br/>"
+                    }else if(index==2){
+                        dataMsg+="微信通知："+msgs[index].data.result+"<br/>"
+                    }
+                }
+                $.alert(dataMsg)
+            }
+        })
+
+        $.alert("消息已发送！",function () {
+            $("#zhezhaoceng").addClass("g-d-hidei");
+            $("#button_menu").addClass("g-d-hidei");
+        })
+    }
 
     //初始化交换跟踪
-    function initJiaohuangz(list) {
+    function initJiaohuangz(list,hash,user) {
+        console.log(list)
+        $("#button_menu").on("click","#tool_menu_tixing",function () {
+            var message_str='<div class="alert-send-message" id="wx_send_message">\
+                                <label>短信群发:<input type="checkbox" checked name="message" value="1"></label>\
+                                <label>微信群发:<input type="checkbox" checked name="message" value="2"></label>\
+                                </div>';
+            $.confirm({
+                title: '未签收单位消息提醒',
+                text: message_str,
+                onOK: function () {
+                    var id="";
+                    $('#wx_send_message').find('input:checked').each(function () {
+                        id+=$(this).val()+",";
+                    });
+                    if(id!==""){
+                        sendMsg(id)
+                    }else {
+                        $.alert("请选择提醒方式！")
+                    }
+                }
+            });
+        })
+        hashData=hash;
+        userInfo=user;
         //交换跟踪数据对象
         var GZList = {};
 
@@ -145,6 +203,8 @@ define(["util"], function (Util) {
 
         //根据数据初始化交换跟踪详情
         function initOne(data) {
+            nowfzbs=data.fzbs;
+
             //渲染发送总数和发送数
             $("#totalNb").html(data.sendTotal)
             $("#sendNb").html(data.ysdList.length)
@@ -251,14 +311,61 @@ define(["util"], function (Util) {
             });
 
             //给列表绑定点击事件，点击显示联系人和联系电话
-            /* $("#follow_list").off("click", ".follow-title").on("click", ".follow-title", function () {
-             current_scorll_pos=$(window).scrollTop();
-             var $this=$(this),
-             msg = $this.data();
-
-             $this.addClass('follow-active').parents('li').siblings().find('>div:first-child  .follow-title').removeClass('follow-active');
-             showInfoMsg(msg);
-             });*/
+            $("#follow_list").off("click", ".follow-title").on("click", ".follow-title", function () {
+                current_scorll_pos = $(window).scrollTop();
+                var $this = $(this),
+                    msg = $this.data();
+                $this.addClass('follow-active').parents('li').siblings().find('>div:first-child  .follow-title').removeClass('follow-active');
+                $.ajax({
+                    url: "/ajax.sword?ctrl=WXDaiBanDocDital_showJhgzTrack",
+                    dataType: "json",
+                    async:false,
+                    data: {
+                        "workId": hashData.workId,
+                        "userId": userInfo.id,
+                        "fzbs":data.fzbs,
+                        "deptId":msg.dept
+                    },
+                    success: function (bdata) {
+                        var bllcInfo=bdata.message.data;
+                        var tabData=$("#qianshou_nb_all>.tabactive").data();
+                        switch (tabData.id) {
+                            case "wqsList":
+                                if (bllcInfo.result){
+                                    $.alert("文件未签收，尚未办理！")
+                                }else {
+                                    showInfoMsg(bllcInfo);
+                                }
+                                break;
+                            case "yqsList":
+                                if (bllcInfo.result){
+                                    $.alert("文件已签收，尚未办理！")
+                                }else {
+                                    showInfoMsg(bllcInfo);
+                                }
+                                break;
+                            case "yhfList":
+                                if (bllcInfo.result){
+                                    $.alert("文件已回复！")
+                                }else {
+                                    showInfoMsg(bllcInfo);
+                                }
+                                break;
+                            case "jsList":
+                                $.alert("文件被拒收！")
+                                break;
+                            case "nosendList":
+                                $.alert("文件未送达！")
+                                break;
+                            case "ychList":
+                                $.alert("文件已撤回！")
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                })
+            });
 
 
             //给列表绑定点击事件，点击显示联系人和联系电话
@@ -275,19 +382,11 @@ define(["util"], function (Util) {
             removeHide();
         }
 
-        function showInfoMsg(msg) {
-            if (!msg.id || msg.id == "undefined") {
-                msg.id = "";
-                $.alert("没有查询到联系人！")
-                return;
+        function showInfoMsg(list) {
+            $("#follow_process ul").empty();
+            for (var i = 0; i < list.length; i++) {
+                $("#follow_process ul").append(weixinduihuaTemplate(list[i]));
             }
-            if (!msg.name || msg.name == "undefined") {
-                msg.name = "";
-            }
-            if (!msg.tel || msg.tel == "undefined") {
-                msg.tel = "";
-            }
-            $("#follow_process ul").empty().append(weixinduihuaTemplate(msg));
             $follow_process.toggleClass('g-d-hidei');
             $follow_list.addClass('g-d-hidei');
             $follow_tab.addClass('g-d-hidei');
@@ -339,11 +438,21 @@ define(["util"], function (Util) {
         }
 
         function weixinduihuaTemplate(msg) {
+            var startTime="";
+            if (!msg.starttime){
+                if (!msg.startTime){
+                    startTime="";
+                }else {
+                    startTime=msg.startTime;
+                }
+            }else {
+                startTime=msg.starttime;
+            }
             var html = '<li>' +
-                '<h2 class="text-main"><span>分办</span>' + msg.name + '</h2>' +
-                '<p><span>开始时间：</span>2018-08-01</p>' +
-                '<p><span>结束时间：</span>2018-08-15</p>' +
-                '<div class="action-wx" data-id="' + msg.id + '"></div>' +
+                '<h2 class="text-main"><span>'+msg.action+'</span>' + msg.name + '</h2>' +
+                '<p><span>开始时间：</span>'+startTime+'</p>' +
+                '<p><span>结束时间：</span>'+msg.endTime+'</p>' +
+                '<div class="action-wx" data-id="' + msg.username + '"></div>' +
                 '<div class="action-video"></div>' +
                 '</li>';
             return html;
@@ -352,7 +461,7 @@ define(["util"], function (Util) {
         //无特殊信息模板
         function qianshouTemplate(data) {
             var html = '<li>' +
-                '<div data-id="' + data.wxid + '" data-name="' + data.linkman + '" data-tel="' + data.tel + '" class="follow-theme"><div data-id="' + data.wxid + '" data-name="' + data.linkman + '" data-tel="' + data.tel + '" class="follow-title">' + data.department + '</div><div class="follow-icon" data-id="' + data.wxid + '" data-name="' + data.linkman + '" data-tel="' + data.tel + '"></div></div>' +
+                '<div data-dept="' + data.departmentId + '" data-id="' + data.wxid + '" data-name="' + data.linkman + '" data-tel="' + data.tel + '" class="follow-theme"><div data-dept="' + data.departmentId + '" data-id="' + data.wxid + '" data-name="' + data.linkman + '" data-tel="' + data.tel + '" class="follow-title">' + data.department + '</div><div class="follow-icon" data-id="' + data.wxid + '" data-name="' + data.linkman + '" data-tel="' + data.tel + '"></div></div>' +
                 '</li>';
             return html;
         }

@@ -22,10 +22,14 @@
             baseUrl: '/zwwx/',
             paths: {
                 "jquery": "resource/js/lib/jquery/jquery.min",
-                'tab_swiper': "resource/js/widget/tab_swiper"
+                'tab_swiper': "resource/js/widget/tab_swiper",
+                'weuiJS': "resource/js/lib/weui/js/jquery-weui.min"
             },
             shim: {
                 'tab_swiper': {
+                    deps: ['jquery']
+                },
+                'weuiJS': {
                     deps: ['jquery']
                 }
             }
@@ -33,12 +37,13 @@
 
 
         /*程序入口*/
-        require(['jquery', 'tab_swiper'], function ($, TabSwiper) {
+        require(['jquery', 'tab_swiper','weuiJS'], function ($, TabSwiper,undefined) {
             $(function () {
                 //页面元素获取
                 var $tool_panel1 = $('#tool_panel1'),
                     $tool_panel2 = $('#tool_panel2'),
                     $tool_panel3 = $('#tool_panel3'),
+                    $follow_tab = $('#follow_tab'),
                     $tool_mask_filter = $('#tool_mask_filter'),
                     $tool_mask_back = $('#tool_mask_back'),
                     $tool_mask_transparent = $('#tool_mask_transparent'),
@@ -55,6 +60,8 @@
                     $tool_idea_textarea = $('#tool_idea_textarea'),
                     $tool_idea_textarea_title = $tool_idea_textarea.find('h2'),
                     $tool_idea_textarea_ul = $tool_idea_textarea.find('>ul'),
+                    $tool_follow_list=$('#tool_follow_list'),
+                    $tool_follow_btn=$('#tool_follow_btn'),
                     tool_panelitem = [$tool_panel1, $tool_panel2, $tool_panel3];
 
                 /*执行TabSwiper渲染*/
@@ -71,14 +78,17 @@
 
 
                 /*切换弹窗*/
-                $.each([$tool_menu_btn, $tool_idea_btn, $edit_idea_btn, $tool_idea_textarea_ul, $tool_idea_list_btn], function () {
+                $.each([$tool_menu_btn, $tool_idea_btn, $edit_idea_btn, $tool_idea_textarea_ul, $tool_idea_list_btn,$tool_follow_btn,$follow_tab,$tool_menu_list,$tool_follow_list,$tool_mask_filter,$tool_mask_back,$tool_mask_transparent,$tool_mask], function () {
                     var selector = this.selector;
-                    this.on('click', function () {
-                        var $this = $(this),
+                    this.on('click', function (e) {
+                        var $this = null,
+                            target=e.target,
+                            nodename='',
                             action = 'show',
                             type = 'daiban';
                         if (selector.indexOf('tool_menu_btn') !== -1) {
                             /*切换待办*/
+                            $this=$(this);
                             if ($this.hasClass('tool-list-active')) {
                                 /*隐藏*/
                                 action = 'hide';
@@ -89,6 +99,7 @@
                             type = 'daiban';
                         } else if (selector.indexOf('tool_idea_btn') !== -1) {
                             /*切换本次意见*/
+                            $this=$(this);
                             if ($this.hasClass('tool-list-active')) {
                                 /*隐藏*/
                                 action = 'hide';
@@ -117,13 +128,47 @@
                                 action = 'hide';
                             }
                             type = 'current_idea';
+                        }else if (selector.indexOf('tool_follow_btn') !== -1) {
+                            $this=$(this);
+                            /*切换交换跟踪群发*/
+                            if ($this.hasClass('tool-list-active')) {
+                                /*显示*/
+                                action = 'hide';
+                            } else {
+                                /*隐藏*/
+                                action = 'show';
+                            }
+                            type = 'follow_btn';
+                        }else if (selector.indexOf('follow_tab') !== -1) {
+                            /*切换交换跟踪群发*/
+                            nodename = target.nodeName.toLowerCase();
+                            if (nodename === 'div') {
+                                $this = $(target).parent();
+                            } else if (nodename === 'li') {
+                                $this = $(target);
+                            }
+                            $this.addClass('tabactive').siblings().removeClass('tabactive');
+                            return false;
+                        }else if(selector.indexOf('tool_menu_list') !== -1 || selector.indexOf('tool_follow_list') !== -1){
+                            nodename = target.nodeName.toLowerCase();
+                            if (nodename === 'ul') {
+                                return false;
+                            } else if (nodename === 'li') {
+                                $this = $(target);
+                            }else if (nodename === 'span') {
+                                $this = $(target.parentNode);
+                            }
+                            switchMenu($this);
+                            return false;
+                        }else if (selector.indexOf('tool_mask') !== -1) {
+                            /*切换交换跟踪群发*/
+                            action='hide';
+                            type='mask';
                         }
                         toggleMask(action, type);
                         toggleBtn(action, type);
                     });
                 });
-
-
 
 
                 /*var hiddenProperty = 'hidden' in document ? 'hidden' :
@@ -138,6 +183,36 @@
                         console.log('页面激活')
                     }
                 });*/
+
+                function switchMenu($li) {
+                    var type=$li.attr('data-type');
+                    switch (type) {
+                        case 'tixing':
+                            /*提醒*/
+                            var message_str='<div class="alert-send-message" id="wx_send_message">\
+                                <label>短信群发:<input type="checkbox" checked name="message" value="1"></label>\
+                                <label>微信群发:<input type="checkbox" checked name="message" value="2"></label>\
+                                </div>';
+                            $.alert({
+                                title: '未签收短信群发',
+                                text: message_str,
+                                onOK: function () {
+                                    var res=[];
+                                    $('#wx_send_message').find('input:checked').each(function () {
+                                        res.push($(this).val());
+                                    });
+                                    if(res.length!==0){
+                                        /*to do*/
+                                        console.log('send message ajax');
+                                    }
+                                }
+                            });
+                            break;
+                        default:
+                            console.log(type);
+                            break;
+                    }
+                }
 
 
                 /*切换遮罩*/
@@ -165,6 +240,12 @@
                             $tool_mask_transparent.addClass('g-d-hidei');
                             $tool_mask.addClass('g-d-hidei');
                             $tool_idea_textarea.removeClass('g-d-hidei');
+                        }else if(type === 'follow_btn'){
+                            $tool_mask_filter.addClass('g-d-hidei');
+                            $tool_mask_back.addClass('g-d-hidei');
+                            $tool_mask_transparent.addClass('g-d-hidei');
+                            $tool_mask.removeClass('g-d-hidei');
+                            $tool_idea_textarea.addClass('g-d-hidei');
                         }
                     } else if (action === 'hide') {
                         $tool_mask_filter.addClass('g-d-hidei');
@@ -177,40 +258,58 @@
 
 
                 /*切换按钮*/
-                function toggleBtn(action, type, index) {
+                function toggleBtn(action, type) {
                     if (action === 'show') {
                         if (type === 'daiban') {
                             $tool_menu_btn.addClass('tool-list-active');
                             $tool_idea_btn.removeClass('tool-list-active');
+                            $tool_follow_btn.removeClass('tool-list-active');
+
                             $tool_menu_list.removeClass('g-d-hidei');
                             $tool_idea_list.addClass('g-d-hidei');
+                            $tool_follow_list.addClass('g-d-hidei');
                         } else if (type === 'idea_list') {
                             $tool_menu_btn.removeClass('tool-list-active');
                             $tool_idea_btn.addClass('tool-list-active');
+                            $tool_follow_btn.removeClass('tool-list-active');
                             $tool_menu_list.addClass('g-d-hidei');
                             $tool_idea_list.removeClass('g-d-hidei');
+                            $tool_follow_list.addClass('g-d-hidei');
                         } else if (type === 'current_idea') {
                             $tool_menu_btn.removeClass('tool-list-active');
                             $tool_idea_btn.removeClass('tool-list-active');
+                            $tool_follow_btn.removeClass('tool-list-active');
                             $tool_menu_list.addClass('g-d-hidei');
                             $tool_idea_list.addClass('g-d-hidei');
+                            $tool_follow_list.addClass('g-d-hidei');
                             $tool_idea_textarea_title.removeClass('g-d-hidei');
                             $tool_idea_textarea_ul.eq(0).addClass('g-d-hidei');
                             $tool_idea_textarea_ul.eq(1).removeClass('g-d-hidei');
                         } else if (type === 'edit_idea') {
                             $tool_menu_btn.removeClass('tool-list-active');
                             $tool_idea_btn.removeClass('tool-list-active');
+                            $tool_follow_btn.removeClass('tool-list-active');
                             $tool_menu_list.addClass('g-d-hidei');
                             $tool_idea_list.addClass('g-d-hidei');
+                            $tool_follow_list.addClass('g-d-hidei');
                             $tool_idea_textarea_title.addClass('g-d-hidei');
                             $tool_idea_textarea_ul.eq(0).removeClass('g-d-hidei');
                             $tool_idea_textarea_ul.eq(1).addClass('g-d-hidei');
+                        }else if (type === 'follow_btn') {
+                            $tool_menu_btn.removeClass('tool-list-active');
+                            $tool_idea_btn.removeClass('tool-list-active');
+                            $tool_follow_btn.addClass('tool-list-active');
+                            $tool_menu_list.addClass('g-d-hidei');
+                            $tool_idea_list.addClass('g-d-hidei');
+                            $tool_follow_list.removeClass('g-d-hidei');
                         }
                     } else if (action === 'hide') {
                         $tool_menu_btn.removeClass('tool-list-active');
                         $tool_idea_btn.removeClass('tool-list-active');
+                        $tool_follow_btn.removeClass('tool-list-active');
                         $tool_menu_list.addClass('g-d-hidei');
                         $tool_idea_list.addClass('g-d-hidei');
+                        $tool_follow_list.addClass('g-d-hidei');
                     }
                 }
 
@@ -227,6 +326,9 @@
                         $tool_idea_list.addClass('g-d-hidei');
                         $tool_idea_btn.parent().addClass('g-d-hidei');
                         $tool_idea_textarea.addClass('g-d-hidei');
+
+                        $tool_follow_btn.parent().addClass('g-d-hidei');
+                        $tool_follow_list.addClass('g-d-hidei');
                     } else if (index === 1) {
                         /*待办按钮*/
                         $tool_menu_meeting.parent().addClass('g-d-hidei');
@@ -237,8 +339,11 @@
                         $tool_idea_list.addClass('g-d-hidei');
                         $tool_idea_btn.parent().removeClass('g-d-hidei');
                         $tool_idea_textarea.addClass('g-d-hidei');
+
+                        $tool_follow_btn.parent().addClass('g-d-hidei');
+                        $tool_follow_list.addClass('g-d-hidei');
                     } else if (index === 2) {
-                        /*意见编辑*/
+                        /*交换跟踪*/
                         $tool_menu_meeting.parent().addClass('g-d-hidei');
 
                         $tool_menu_list.addClass('g-d-hidei');
@@ -247,6 +352,9 @@
                         $tool_idea_list.addClass('g-d-hidei');
                         $tool_idea_btn.parent().addClass('g-d-hidei');
                         $tool_idea_textarea.addClass('g-d-hidei');
+
+                        $tool_follow_btn.parent().removeClass('g-d-hidei');
+                        $tool_follow_list.addClass('g-d-hidei');
                     }
                 }
 
@@ -382,15 +490,15 @@
     </div>
 
     <!--交换跟踪第二部分-->
-    <ul class="wx-tabradius-wrap wx-tablist-item3">
+    <ul class="wx-tabradius-wrap wx-tablist-item3" id="follow_tab">
         <li class="tabactive">
-            <div>未签收(34)</div>
+            <div>未签收(25)</div>
         </li>
         <li>
-            <div>已签收(34)</div>
+            <div>已签收(274)</div>
         </li>
         <li>
-            <div>拒收(34)</div>
+            <div>拒收(13)</div>
         </li>
     </ul>
 
@@ -534,14 +642,19 @@
     </div>
 
 
-    <!--交换跟踪按钮模块-->
-    <!--左侧交换跟踪弹窗按钮-->
-    <div class="wx-tool-message">
 
-        <ul class="wx-tool-list wx-tool-toggle">
-            <li class="tool-list-message" id="tool_info_btn"></li>
-        </ul>
-    </div>
+
+    <!--交换跟踪--群发信息按钮模块-->
+    <ul class="wx-tool-list wx-tool-menu g-d-hidei" id="tool_follow_list">
+        <li class="tool-menu-cancel tool-menu-item2" data-type="zuofei" data-title="作废"><span></span></li>
+        <li class="tool-menu-reissue tool-menu-item2" data-type="bufa" data-title="补发"><span></span></li>
+        <li class="tool-menu-tip tool-menu-item2" data-type="tixing" data-title="提醒"><span></span></li>
+        <li class="tool-menu-withdraw tool-menu-item2" data-type="chehui" data-title="撤回"><span></span></li>
+    </ul>
+    <!--左侧待办操作按钮(第一级菜单)-->
+    <ul class="wx-tool-list wx-tool-toggle g-d-hidei">
+        <li class="tool-list-toggle" id="tool_follow_btn"></li>
+    </ul>
 </div>
 
 

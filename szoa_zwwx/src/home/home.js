@@ -1,10 +1,10 @@
 define(["util","UrlBase","WX","weuiJS","css!HomeCss"],function (Util,UrlBase,wx){
-	var caId = "b339276f549b45498095a1ad74667e23";//试点饶文刚
+	//var caId = "b339276f549b45498095a1ad74667e23";//试点饶文刚
 	//var caId = "d5bc0615d3f34f28aaff5e089b329d8d"//试点赖镇先
 	// var caId = "18d88313ee4342c0b04bd7cb1efafaed";//试点陈如桂
 	//var caId = "d67929d133cc45f6bafc83235726bf89";//试点市领导秘书王少波
 	//var caId = "11ab2a84cbc04dc58f58d8c6fb3f1377";//试点白昱
-	//var caId = "ac3bd31066b14e41978dea04136a7f6f";//非试点赵雪菲
+	var caId = "ac3bd31066b14e41978dea04136a7f6f";//非试点赵雪菲
 	// var caId = "412ed1ebad174629acbcc7507c0c5092";//非试点孙彦蓉
 	//var caId = "ca72030438a24a05981bee6a0e51a87a";//非试点任斌昱
 	//var caId = "85a901ef2dce40238573674026655868";//非试点臧磊

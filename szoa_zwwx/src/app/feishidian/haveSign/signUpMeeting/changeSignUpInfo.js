@@ -17,11 +17,14 @@ define(["util", "rule"], function (Util, Rule) {
         if (value === 1) {
             isLeave = value;
             $workOffReason.prop("disabled", false);
+            $workOffReason.attr("placeholder","请输入请假原因");
+
         } else {
             isLeave = 2;
             $workOffReason.val("").prop("disabled", true);
+            $workOffReason.attr("placeholder","");
         }
-        $this.addClass("simulation-checked").siblings().removeClass("simulation-checked");
+        // $this.addClass("simulation-checked").siblings().removeClass("simulation-checked");
     });
     //确定修改
     $sure.on('click', function () {
@@ -77,7 +80,6 @@ define(["util", "rule"], function (Util, Rule) {
         } else {
             isLeave = 1;
         }
-        ;
         leaveRerson = hashData.leaveperson;
         $job.val(hashData.job);
         $personName.val(hashData.meetman);
@@ -86,7 +88,9 @@ define(["util", "rule"], function (Util, Rule) {
             var $this = $(this),
                 value = parseInt($this.val(), 10);
             if (value === isLeave) {
-                $this.parent().addClass('simulation-checked');
+                $this.prop({
+                    'checked':true
+                });
                 if (isLeave === 2) {
                     $workOffReason.val("").prop("disabled", true);
                 } else {

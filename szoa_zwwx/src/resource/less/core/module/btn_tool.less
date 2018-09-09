@@ -3,6 +3,37 @@
   @li-width: @tool-list-width - @tool-list-gap * 2;
   @span-icon-width: 14px;
 
+  /*列表通用样式*/
+  .wx-tool-btn-function() {
+    .border-radius-base(50%);
+    cursor: pointer;
+    width: @li-width;
+    height: @li-width;
+    font-size: 0;
+    &:before {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      line-height: @tool-list-width - @tool-list-gap * 2.5;
+      text-align: center;
+    }
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      .user-tap-base();
+    }
+  }
+  /*-----第二层菜单按钮----*/
+  .tool-menu-item-loop(@index)when (@index>0){
+    .tool-menu-item@{index} {
+      &:after {
+        width: unit(@index,em) + .2em !important;
+      }
+    }
+    .tool-menu-item-loop(@index - 1);
+  }
+
   .wx-tool-lb-wrap {
     .layout-fixedlb-base();
   }
@@ -13,9 +44,13 @@
     /*半透明黑色遮罩*/
     .wx-tool-mask {
       .layout-fixedl-base(0, 0, 200);
+      .transition-base(all .3s ease-in .01s);
       width: 100vw;
       height: 100vh;
       background-color: rgba(0, 0, 0, .6);
+    }
+    .wx-tool-mask + .g-d-hidei {
+      left: -101% !important;
     }
     /*大比例黑色遮罩*/
     .wx-tool-mask-transparent {
@@ -34,26 +69,15 @@
       margin: 0;
       width: @tool-list-width;
       padding: @tool-list-gap;
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        .user-tap-base();
+      }
       > li {
-        .border-radius-base(50%);
-        cursor: pointer;
-        width: @li-width;
-        height: @li-width;
-        font-size: 0;
+        .wx-tool-btn-function();
         margin: 0 0 @tool-list-gap 0;
-        &:before {
-          width: 100%;
-          height: 100%;
-          display: inline-block;
-          line-height: @tool-list-width - @tool-list-gap * 2.5;
-          text-align: center;
-        }
-        &,
-        &:hover,
-        &:active,
-        &:focus {
-          .user-tap-base();
-        }
       }
     }
     /*----第一层切换按钮----*/
@@ -66,13 +90,13 @@
       }
       /*切换操作*/
       .tool-list-toggle {
-        background-color: @main-theme-color;
+        background-color: rgba(79, 119, 170, .8);
         .box-shadow-base(1px 1px 3px 0 @color-gray1);
         &:hover {
-          background-color: darken(@main-theme-color, 5%);
+          background-color: darken(rgba(79, 119, 170, .8), 5%);
         }
         &:active {
-          background-color: darken(@main-theme-color, 10%);
+          background-color: darken(rgba(79, 119, 170, .8), 10%);
         }
         &:before {
           content: '\e6b8';
@@ -82,11 +106,11 @@
         }
       }
       .tool-list-active {
-        background-color: @color-global-white;
+        background-color: rgba(255, 255, 255, .8);
         .box-shadow-base(1px 1px 3px 0 @color-gray2);
         &:hover,
         &:active {
-          background-color: @color-global-white;
+          background-color: rgba(255, 255, 255, .8);
         }
         &:before {
           color: @main-theme-color;
@@ -96,54 +120,17 @@
       .tool-menu-meeting {
         .layout-relative-base();
         .box-shadow-base(1px 1px 3px 0 @color-gray4);
-        background-color: @main-theme-color;
+        background-color: rgba(79, 119, 170, .8);
         &:hover {
-          background-color: darken(@main-theme-color, 5%);
+          background-color: darken(rgba(79, 119, 170, .8), 5%);
         }
         &:active {
-          background-color: darken(@main-theme-color, 10%);
+          background-color: darken(rgba(79, 119, 170, .8), 10%);
         }
         &:before {
           line-height: @tool-list-width - @tool-list-gap * 2;
           content: '报名';
           font-size: @font-size-base + 2;
-          color: @color-global-white;
-        }
-      }
-      /*发送信息*/
-      .tool-list-message{
-        .layout-relative-base();
-        .box-shadow-base(1px 1px 3px 0 @color-gray4);
-        background-color: @main-theme-color;
-        &:hover {
-          background-color: darken(@main-theme-color, 5%);
-        }
-        &:active {
-          background-color: darken(@main-theme-color, 10%);
-        }
-        &:before,
-        &:after{
-          position: absolute;
-          z-index: 5;
-          font-family: 'zw_iconfont';
-        }
-        &:before {
-          left:0;
-          top:0;
-          content: '\e625';
-          font-size: @font-size-base + 14;
-          color: @color-global-white;
-        }
-        &:after {
-          width: 14px;
-          height: 14px;
-          left:58%;
-          top:55%;
-          display: inline-block;
-          text-align: center;
-          line-height:14px;
-          content: '\e679';
-          font-size: @font-size-base - 2;
           color: @color-global-white;
         }
       }
@@ -165,13 +152,13 @@
       }
       /*切换操作*/
       .tool-list-toggle {
-        background-color: @main-theme-color;
+        background-color: rgba(79, 119, 170, .8);
         .box-shadow-base(1px 1px 3px 0 @color-gray1);
         &:hover {
-          background-color: darken(@main-theme-color, 5%);
+          background-color: darken(rgba(79, 119, 170, .8), 5%);
         }
         &:active {
-          background-color: darken(@main-theme-color, 10%);
+          background-color: darken(rgba(79, 119, 170, .8), 10%);
         }
         &:before {
           content: '\e6db';
@@ -181,18 +168,17 @@
         }
       }
       .tool-list-active {
-        background-color: @color-global-white;
+        background-color: rgba(255, 255, 255, .8);
         .box-shadow-base(1px 1px 3px 0 @color-gray2);
         &:hover,
         &:active {
-          background-color: @color-global-white;
+          background-color: rgba(255, 255, 255, .8);
         }
         &:before {
           color: @main-theme-color;
         }
       }
     }
-    /*-----第二层菜单按钮----*/
     /*菜单按钮*/
     .wx-tool-menu {
       .layout-fixedlb-base(0, @tool-list-width - @tool-list-gap, 240);
@@ -206,7 +192,7 @@
           .layout-relative-base(0, 0, 5);
           width: 100%;
           height: 100%;
-          display: block;
+          display: none;
           line-height: 0;
           &:before,
           &:after {
@@ -243,46 +229,7 @@
         }
       }
       /*菜单宽度*/
-      .tool-menu-item1 {
-        &:after {
-          width: 1.2em !important;
-        }
-      }
-      .tool-menu-item2 {
-        &:after {
-          width: 2.2em !important;
-        }
-      }
-      .tool-menu-item3 {
-        &:after {
-          width: 3.2em !important;
-        }
-      }
-      .tool-menu-item4 {
-        &:after {
-          width: 4.2em !important;
-        }
-      }
-      .tool-menu-item5 {
-        &:after {
-          width: 5.2em !important;
-        }
-      }
-      .tool-menu-item6 {
-        &:after {
-          width: 6.2em !important;
-        }
-      }
-      .tool-menu-item7 {
-        &:after {
-          width: 7.2em !important;
-        }
-      }
-      .tool-menu-item8 {
-        &:after {
-          width: 8.2em !important;
-        }
-      }
+      .tool-menu-item-loop(10);
       /*会议报名*/
       .tool-menu-meeting {
         background-color: @color-blue1;
@@ -317,15 +264,18 @@
       /*待办--送出*/
       .tool-menu-send {
         background-color: @color-green2;
-        span:before {
-          background-color: @color-green2;
-          .border-radius-base(50%);
-          font-weight: bold;
-          left: 55%;
-          top: 50%;
-          font-size: @font-size-base * 1.2;
-          content: '\e655';
-          color: @color-global-white;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-green2;
+            .border-radius-base(50%);
+            font-weight: bold;
+            left: 55%;
+            top: 50%;
+            font-size: @font-size-base * 1.2;
+            content: '\e655';
+            color: @color-global-white;
+          }
         }
         &:hover {
           background-color: darken(@color-green2, 5%);
@@ -362,16 +312,19 @@
       /*待办--退件*/
       .tool-menu-return {
         background-color: @color-global-pink;
-        span:before {
-          background-color: @color-global-pink;
-          overflow: hidden;
-          height: @span-icon-width/2;
-          line-height: @span-icon-width/2;
-          left: 45%;
-          top: 60%;
-          font-size: @font-size-base * 1.3;
-          content: '\e61a';
-          color: @color-global-white;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-global-pink;
+            overflow: hidden;
+            height: @span-icon-width/2;
+            line-height: @span-icon-width/2;
+            left: 45%;
+            top: 60%;
+            font-size: @font-size-base * 1.3;
+            content: '\e61a';
+            color: @color-global-white;
+          }
         }
         &:hover {
           background-color: darken(@color-global-pink, 5%);
@@ -407,16 +360,19 @@
       /*待办--退文*/
       .tool-menu-back {
         background-color: @color-global-purple;
-        span:before {
-          background-color: @color-global-purple;
-          .border-radius-base(50%);
-          font-weight: bold;
-          overflow: hidden;
-          left: 50%;
-          top: 50%;
-          font-size: @font-size-base * 1.4;
-          content: '\e650';
-          color: @color-global-white;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-global-purple;
+            .border-radius-base(50%);
+            font-weight: bold;
+            overflow: hidden;
+            left: 50%;
+            top: 50%;
+            font-size: @font-size-base * 1.4;
+            content: '\e650';
+            color: @color-global-white;
+          }
         }
         &:hover {
           background-color: darken(@color-global-purple, 5%);
@@ -438,16 +394,19 @@
       /*待办--转办*/
       .tool-menu-turn {
         background-color: @color-global-indigo;
-        span:before {
-          background-color: @color-global-white;
-          .border-radius-base(50%);
-          font-font: @fontfamliy-base;
-          overflow: hidden;
-          left: 50%;
-          top: 50%;
-          font-size: @font-size-base - 4;
-          content: '转';
-          color: @color-global-indigo;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-global-white;
+            .border-radius-base(50%);
+            font-font: @fontfamliy-base;
+            overflow: hidden;
+            left: 50%;
+            top: 50%;
+            font-size: @font-size-base - 4;
+            content: '转';
+            color: @color-global-indigo;
+          }
         }
         &:hover {
           background-color: darken(@color-global-indigo, 5%);
@@ -464,16 +423,19 @@
       /*待办--办结*/
       .tool-menu-finish {
         background-color: @color-red1;
-        span:before {
-          background-color: @color-red1;
-          .border-radius-base(50%);
-          font-weight: bold;
-          overflow: hidden;
-          left: 55%;
-          top: 50%;
-          font-size: @font-size-base * 1.2;
-          content: '\e601';
-          color: @color-global-white;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-red1;
+            .border-radius-base(50%);
+            font-weight: bold;
+            overflow: hidden;
+            left: 55%;
+            top: 50%;
+            font-size: @font-size-base * 1.2;
+            content: '\e601';
+            color: @color-global-white;
+          }
         }
         &:hover {
           background-color: darken(@color-red1, 5%);
@@ -509,15 +471,18 @@
       /*待办--发送公文*/
       .tool-menu-document {
         background-color: @color-blue1;
-        span:before {
-          background-color: @color-blue1;
-          .border-radius-base(50%);
-          font-weight: bold;
-          left: 55%;
-          top: 45%;
-          font-size: @font-size-base;
-          content: '\e786';
-          color: @color-global-white;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-blue1;
+            .border-radius-base(50%);
+            font-weight: bold;
+            left: 55%;
+            top: 45%;
+            font-size: @font-size-base;
+            content: '\e786';
+            color: @color-global-white;
+          }
         }
         &:hover {
           background-color: darken(@color-blue1, 5%);
@@ -539,15 +504,18 @@
       /*待办--查看公文*/
       .tool-menu-look {
         background-color: darken(@color-yellow1, 10%);
-        span:before {
-          background-color: darken(@color-yellow1, 10%);
-          .border-radius-base(50%);
-          font-weight: bold;
-          left: 50%;
-          top: 45%;
-          font-size: @font-size-base;
-          content: '\e6bb';
-          color: @color-global-white;
+        span {
+          display: block;
+          &:before {
+            background-color: darken(@color-yellow1, 10%);
+            .border-radius-base(50%);
+            font-weight: bold;
+            left: 50%;
+            top: 45%;
+            font-size: @font-size-base;
+            content: '\e6bb';
+            color: @color-global-white;
+          }
         }
         &:hover {
           background-color: darken(@color-yellow1, 15%);
@@ -569,14 +537,17 @@
       /*待办--送经办人*/
       .tool-menu-handle {
         background-color: @color-global-teal;
-        span:before {
-          background-color: @color-global-teal;
-          .border-radius-base(50%);
-          left: 55%;
-          top: 55%;
-          font-size: @font-size-base;
-          content: '\e679';
-          color: @color-global-white;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-global-teal;
+            .border-radius-base(50%);
+            left: 55%;
+            top: 55%;
+            font-size: @font-size-base;
+            content: '\e679';
+            color: @color-global-white;
+          }
         }
         &:hover {
           background-color: darken(@color-global-teal, 5%);
@@ -593,6 +564,134 @@
         &:before {
           font-size: @font-size-base * 1.8;
           content: '\e7e4';
+        }
+      }
+      /*交换跟踪--作废*/
+      .tool-menu-cancel {
+        background-color: @color-red1;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-red1;
+            .border-radius-base(50%);
+            left: 55%;
+            top: 55%;
+            font-size: @font-size-base - 2;
+            content: '\e602';
+            color: @color-global-white;
+          }
+        }
+        &:hover {
+          background-color: darken(@color-red1, 5%);
+          span:before {
+            background-color: darken(@color-red1, 5%);
+          }
+        }
+        &:active {
+          background-color: darken(@color-red1, 10%);
+          span:before {
+            background-color: darken(@color-red1, 10%);
+          }
+        }
+        &:before {
+          font-size: @font-size-base * 1.8;
+          content: '\e607';
+        }
+      }
+      /*交换跟踪--补发*/
+      .tool-menu-reissue {
+        background-color: @color-green1;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-green1;
+            .border-radius-base(50%);
+            left: 50%;
+            top: 50%;
+            font-size: @font-size-base - 2;
+            content: '\e6c2';
+            color: @color-global-white;
+          }
+        }
+        &:hover {
+          background-color: darken(@color-green1, 5%);
+          span:before {
+            background-color: darken(@color-green1, 5%);
+          }
+        }
+        &:active {
+          background-color: darken(@color-green1, 10%);
+          span:before {
+            background-color: darken(@color-green1, 10%);
+          }
+        }
+        &:before {
+          font-size: @font-size-base * 1.8;
+          content: '\e607';
+        }
+      }
+      /*交换跟踪--提醒*/
+      .tool-menu-tip {
+        background-color: @color-blue1;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-blue1;
+            .border-radius-base(50%);
+            left: 55%;
+            top: 50%;
+            font-size: @font-size-base + 2;
+            content: '\e672';
+            color: @color-global-white;
+          }
+        }
+        &:hover {
+          background-color: darken(@color-blue1, 5%);
+          span:before {
+            background-color: darken(@color-blue1, 5%);
+          }
+        }
+        &:active {
+          background-color: darken(@color-blue1, 10%);
+          span:before {
+            background-color: darken(@color-blue1, 10%);
+          }
+        }
+        &:before {
+          font-size: @font-size-base * 1.8;
+          content: '\e625';
+        }
+      }
+      /*交换跟踪--撤回*/
+      .tool-menu-withdraw {
+        background-color: @color-orange1;
+        span {
+          display: block;
+          &:before {
+            background-color: @color-orange1;
+            .border-radius-base(50%);
+            left: 55%;
+            top: 50%;
+            font-size: @font-size-base - 2;
+            content: '\e727';
+            color: @color-global-white;
+          }
+        }
+        &:hover {
+          background-color: darken(@color-orange1, 5%);
+          span:before {
+            background-color: darken(@color-orange1, 5%);
+          }
+        }
+        &:active {
+          background-color: darken(@color-orange1, 10%);
+          span:before {
+            background-color: darken(@color-orange1, 10%);
+          }
+        }
+        &:before {
+          font-size: @font-size-base * 1.8;
+          content: '\e607';
         }
       }
 

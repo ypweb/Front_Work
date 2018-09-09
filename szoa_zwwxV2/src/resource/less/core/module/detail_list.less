@@ -1,0 +1,394 @@
+/*详情列表*/
+.wx-detaillist-wrap {
+  display: inline-block;
+  width: 100%;
+  background-color: darken(@color-gray14, 0.5%);
+  padding: @detail-list-gap/2 @detail-list-gap/2 0 @detail-list-gap/2;
+  > li {
+    background-color: @color-global-white;
+    display: inline-block;
+    width: 100%;
+    margin: @detail-list-gap/2 0 0 0;
+    &:first-child {
+      margin: 0;
+    }
+  }
+  .wx-labelshow {
+    @icon-width: @detail-list-icon * .8;
+    padding-right: @detail-list-gap/2;
+    > div {
+      padding-top: @detail-list-gap/2;
+      padding-bottom: @detail-list-gap/2;
+      padding-right: 0;
+      min-height: @font-size-base + 2;
+      font-size: @font-size-base + 2;
+      line-height: @font-size-base + 12;
+      color: @color-gray3;
+      display: inline-block;
+      width: 100%;
+      .text-ww();
+      p {
+        color: @color-gray3;
+      }
+      > p {
+        display: inline;
+        .text-ww();
+      }
+      span {
+        display: inline-block;
+        color: @color-gray8;
+      }
+      em {
+        color: @color-gray8;
+        padding: 0 @detail-list-gap/2 0 @detail-list-gap;
+        font-style: normal;
+      }
+      /*图标*/
+      .label-icon {
+        .layout-relative-base();
+        vertical-align: middle;
+        text-align: center;
+        height: 0;
+        line-height: 0;
+      }
+      /*下载图标*/
+      .label-icon-download {
+        font-size: 0;
+        display: inline-block;
+        &:after {
+          position: absolute;
+          top: -@icon-width * .25;
+          z-index: 5;
+          width: @icon-width;
+          height: @icon-width;
+          overflow: hidden;
+          display: block;
+          line-height: @icon-width;
+          background: @color-blue1;
+          .border-radius-base(50%);
+          color: @color-global-white;
+          content: '\e68d';
+          text-align: center;
+          font-size: @font-size-base * 1.4;
+          font-family: zw_iconfont;
+        }
+      }
+      /*单行显示*/
+      &.label-showinline {
+        height: @detail-list-icon + @detail-list-gap;
+        p {
+          float: right;
+          height: 100%;
+          line-height: @detail-list-icon * .5;
+          text-indent: 0;
+          width: 100%;
+          .text-ofmle(2) !important;
+        }
+      }
+    }
+  }
+}
+
+.wx-detaillist-theme {
+  display: inline-block;
+  width: 100%;
+  background-color: darken(@color-gray14, 0.5%);
+  padding: 0 @detail-list-gap/2;
+}
+
+/*带边框列表*/
+.wx-detaillist-border {
+  border: 1px solid @color-gray12;
+}
+
+.wx-detaillist-border-rbl {
+  border-right: 1px solid @color-gray12;
+  border-bottom: 1px solid @color-gray12;
+  border-left: 1px solid @color-gray12;
+}
+
+/*偏移文字*/
+.wx-detaillist-indent {
+  > li {
+    .wx-labelshow {
+      padding: @detail-list-gap/2;
+      > div {
+        span {
+          vertical-align: top;
+          display: inline-block;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+/*!--循环生成1-10倍间距--*/
+/*参数说明
+@index:索引
+@pr-gap:向右的内间距
+@surplus:修正值
+*/
+.detaillist-indent-loop(@index,@pr-gap,@surplus) when (@index>0) {
+  @indent-unit: unit(@index, em);
+  .wx-detaillist-indent@{index} {
+    /*偏移量*/
+    @ml-surplus: @surplus * @index;
+    /*偏移值*/
+    @indent-width: @indent-unit + @pr-gap + @ml-surplus;
+    > li {
+      .wx-labelshow {
+        > div {
+          padding-left: @indent-width;
+          > span {
+            width: @indent-width;
+            margin-left: -(@indent-width + @pr-gap * .5);
+            padding-right: @pr-gap * .3;
+          }
+        }
+        .label-icon-download:after {
+          left: -(@indent-width * .6);
+        }
+      }
+    }
+  }
+  .detaillist-indent-loop(@index - 1, @pr-gap, @surplus);
+}
+
+/*间距生成调用*/
+.detaillist-indent-loop(10, .5em, .3em);
+
+/*环节流程--横向*/
+.wx-detailprocess-wrap {
+  width: 100%;
+  padding: @detail-list-gap/2 @detail-list-gap/2 0 @detail-list-gap/2;
+  > ul {
+    background-color: @color-global-white;
+    display: inline-block;
+    font-size: 0;
+    width: 100%;
+    padding: 0 @detail-process-height/2 @detail-process-height/2 0;
+    &:empty {
+      &:after {
+        content: '暂无流程';
+        font-size: @font-size-base;
+        color: @color-gray9;
+        text-align: center;
+        min-height: @detail-process-height;
+        line-height: @detail-process-height;
+      }
+    }
+    > li {
+      .layout-relative-base();
+      display: inline-block;
+      width: 50%;
+      padding: 0 0 0 @detail-process-height/2;
+      &:before {
+        .layout-absolutel-base(0, @detail-process-height/2);
+        display: inline-block;
+        width: @detail-process-height/2;
+        height: @detail-process-height + @grid-list-gap;
+        line-height: @detail-process-height + @grid-list-gap;
+        text-align: center;
+        content: '\e669';
+        color: @color-gray12;
+        font-family: zw_iconfont;
+        font-size: @font-size-base + 6;
+      }
+      &:first-child {
+        &:before {
+          content: '';
+        }
+      }
+      > div {
+        margin: @detail-process-height/2 0 0 0;
+        background-color: lighten(@color-gray14, 2%);
+        border: 1px solid @color-gray13;
+        min-height: @detail-process-height + @grid-list-gap;
+        padding: @grid-list-gap/2 0;
+        .border-radius-base(5px);
+        p {
+          height: @detail-process-height/2;
+          font-size: @font-size-base + 2;
+          line-height: @font-size-base + 2;
+          text-align: center;
+          .text-ofe();
+          &:first-child {
+            color: @color-gray6;
+          }
+          &:last-child {
+            color: @color-gray9;
+          }
+        }
+      }
+    }
+    .process-current {
+      > div {
+        background-color: lighten(@color-blue1, 35%);
+        border: 1px solid darken(@color-blue1, 30%);
+        p {
+          &:first-child {
+            color: darken(@color-blue1, 20%);
+          }
+          &:last-child {
+            color: darken(@color-blue1, 10%);
+          }
+        }
+      }
+    }
+    .process-undo {
+      > div {
+        background-color: @color-gray13;
+        border: 1px solid @color-gray12;
+        p {
+          &:first-child {
+            color: @color-gray3;
+          }
+          &:last-child {
+            color: @color-gray6;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*环节流程--垂直*/
+.wx-detailprocess-vertical-wrap {
+  .layout-relative-base();
+  width: 100%;
+  padding: @detail-list-gap/2 @detail-process-height/2 @detail-list-gap/2 @detail-list-gap/2;
+  &:before {
+    .layout-absolutel-base(@detail-process-height - @detail-list-gap/2 - 2, 0, -1);
+    background-color: @color-gray12;
+    width: 2px;
+    height: 100%;
+    content: '';
+    display: inline-block;
+  }
+  > p {
+    .layout-relative-base();
+    width: 100%;
+    height: @detail-process-height;
+    line-height: @detail-process-height;
+    .text-ww();
+    color: @color-gray6;
+    font-size: @font-size-base;
+    padding: 0 0 0 @detail-process-height + @detail-list-gap/2;
+    &:before {
+      .layout-absolutel-base(@detail-process-height * .55, @detail-process-height * .35);
+      content: '';
+      width: 14px;
+      height: 14px;
+      .border-radius-base(50%);
+      background-color: @color-blue1;
+    }
+  }
+  > ul {
+    .layout-relative-base();
+    width: 100%;
+    padding: 0 0 0 @detail-process-height;
+    counter-reset: process;
+    & + p {
+      margin: @detail-process-height/2 0 0 0;
+      &:before {
+        background-color: @color-gray12;
+      }
+    }
+    > li {
+      .layout-relative-base();
+      display: inline-block;
+      width: 100%;
+      padding: 0 0 0 @detail-process-height/2;
+      &:before {
+        .layout-absolutel-base(-(@detail-process-height * .8), @detail-process-height * .8);
+        display: inline-block;
+        width: @detail-process-height;
+        height: @detail-process-height;
+        line-height: @detail-process-height;
+        overflow: hidden;
+        .border-radius-base(50%);
+        text-align: center;
+        counter-increment: process 1;
+        content: counter(process);
+        background: @color-gray12;
+        color: @color-global-white;
+        font-size: @font-size-base + 6;
+      }
+      > div {
+        .layout-relative-base();
+        margin: @detail-process-height * .8 0 0 0;
+        background-color: @color-global-white;
+        min-height: @detail-process-height;
+        padding: @grid-list-gap/2 @grid-list-gap/2 @grid-list-gap/2 @detail-process-height/2;
+
+        .border-radius-base(5px);
+        &:before {
+          .layout-absolutel-base(-@grid-list-gap - 2, @grid-list-gap * .2);
+          content: '\e668';
+          color: @color-global-white;
+          font-family: 'zw_iconfont';
+          font-size: @font-size-base + 6;
+        }
+        &:after {
+          .layout-absolutel-base(@grid-list-gap, -@detail-process-height * .6);
+          content: attr(data-name);
+          color: @color-gray6;
+          display: inline-block;
+          width: 90%;
+          height: @detail-process-height/2;
+          .text-ofe();
+          font-size: @font-size-base;
+        }
+        p {
+          font-size: @font-size-base + 2;
+          line-height: @font-size-base + 10;
+          text-align: left;
+          .text-ww();
+          &:before {
+            font-size: @font-size-base + 8;
+            margin: 0 @grid-list-gap * .5 0 -@grid-list-gap * 1.5;
+            content: '\e6fd';
+            font-family: zw_iconfont;
+            color: @color-green1;
+          }
+        }
+      }
+    }
+    .process-current {
+      &:before {
+        background: @main-theme-color;
+      }
+      > div {
+        p {
+          &:before {
+            font-size: @font-size-base + 4;
+            margin: 0 @grid-list-gap * .5 0 -@grid-list-gap * 1.2;
+            content: '\e714';
+            font-family: zw_iconfont;
+            color: @color-orange1;
+          }
+        }
+      }
+    }
+    .process-undo {
+      &:before {
+        background: lighten(@main-theme-color, 30%);
+      }
+      > div {
+        p {
+          &:before {
+            font-size: @font-size-base + 4;
+            margin: 0 @grid-list-gap * .5 0 -@grid-list-gap * 1.2;
+            content: '\e672';
+            font-family: zw_iconfont;
+            color: @color-red1;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+

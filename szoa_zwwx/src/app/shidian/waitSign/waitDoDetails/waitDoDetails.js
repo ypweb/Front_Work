@@ -1,11 +1,11 @@
 /**
  * Created by zhuhao on 2018/8/9.
  */
-define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "FirstButtonAction","Swiper"], function (UrlBase,ChangeFollowDetails, Util, tab_swiper, InitDataUtil,FirstButtonAction) {
+define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "WaitButton", "Swiper"], function (UrlBase, ChangeFollowDetails, Util, tab_swiper, InitDataUtil, WaitButton) {
 
     //传参
     var hashData = {};
-    var userInfo={};
+    var userInfo = {};
     //流程实例对象
     var instance = {}
     //页面title
@@ -16,34 +16,35 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     var GZList = {};
     var toggleFlag = 0;
     var isHaveFujian = false;
+    var $tool_ideawrap=$('#tool_idea').parent();
+    var $button_menu = $('#button_menu');
 
     /*   //横竖屏切换刷新解决样式问题
-       window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
-       function hengshuping() {
-           if (window.orientation == 90 || window.orientation == -90) {
-               window.location.reload();
-           } else {
-               window.location.reload();
-           }
-       }*/
+     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+     function hengshuping() {
+     if (window.orientation == 90 || window.orientation == -90) {
+     window.location.reload();
+     } else {
+     window.location.reload();
+     }
+     }*/
     var flowMsg = {};
 
     function init() {
         Util.getUserInfoAndUrl({
-            whenSuccess: function (user,hash) {
-                hashData=hash;
-                userInfo=user;
+            whenSuccess: function (user, hash) {
+                hashData = hash;
+                userInfo = user;
                 openInstance();
                 initData();
-                FirstButtonAction.InitButton(instance,$button_menu); //初始化功能按钮
             },
-            whenUserError:function (resultObj) {
-                $.alert(resultObj.errorMsg,function () {
+            whenUserError: function (resultObj) {
+                $.alert(resultObj.errorMsg, function () {
                     window.history.go(-1);
                 })
             },
-            whenZFError:function (resultObj) {
-                $.alert(resultObj.errorMsg,function () {
+            whenZFError: function (resultObj) {
+                $.alert(resultObj.errorMsg, function () {
                     wx.closeWindow();
                 })
             }
@@ -67,7 +68,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                     instance = data.message.data;
                     // console.log(instance);
                 } else {
-                    $.alert("暂无权限查看此公文！",function () {
+                    $.alert("暂无权限查看此公文！", function () {
                         window.history.go(-1);
                     })
                 }
@@ -94,7 +95,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
 
     //获取所有表单数据
     function initData() {
-        InitDataUtil.initAll(hashData,userInfo, instance, function (data) {
+        InitDataUtil.initAll(hashData, userInfo, instance, function (data) {
             var allData = data;
             flowMsg = allData.banliliucheng.data;
             // console.log(flowMsg);
@@ -114,6 +115,8 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             initBaomingBiao(allData.baomingbiao);
             //初始化办理信息
             initBanliXinxi(allData.banlixinxi);
+            WaitButton(hashData, userInfo,instance,flowMsg);
+            $("#button_menu").empty();
             //初始化交换跟踪
             initJHGZ(allData);
             //删除隐藏，展示页面
@@ -123,14 +126,15 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             //关闭流程实例
             // closeInstance();
             //初始化自定义转发
-            initZhuanFa();
+            // initZhuanFa();
         })
     }
 
     function initJHGZ(allData) {
         if (allData.jiaohuangz.isShow == true) {
+            $("#button_menu").append('<li id="tool_menu_tixing" class="tool-menu-tip tool-menu-item2" data-type="tixing" data-title="提醒"><span></span></li>');
             var list = allData.jiaohuangz.data.data;
-            ChangeFollowDetails.initJiaohuangz(list);
+            ChangeFollowDetails.initJiaohuangz(list,hashData,userInfo);
         } else {
             $("#jiaohuangenzong_tab").remove();
             $("#jiaohuangenzong_swiper").remove();
@@ -143,8 +147,8 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                 "workId": hashData.workId,
                 "type": hashData.type,
                 "unitId": userInfo.unitId,
-                "trackId":hashData.trackId,
-                "isLeader":hashData.isLeader
+                "trackId": hashData.trackId,
+                "isLeader": hashData.isLeader
             },
             link: UrlBase.URL_SHARE_DAIBAN,
             title: docTitle_base,
@@ -158,12 +162,52 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     }
 
     function initTabSwiper() {
-        if (hashData.isJhgz=="1"){
+        var nodeid = instance.curFlowInfo.curNodeID;
+        if (hashData.isJhgz == "1") {
+            // $("#button_menu").append('<li id="tool_menu_tixing" class="tool-menu-tip tool-menu-item2" data-type="tixing" data-title="提醒"><span></span></li>');
             tab_swiper.init({
-                index:"jiaohuangenzong_tab"
+                index: "jiaohuangenzong_tab",
+                tabFn: function (config) {
+                    var item=config.tab_item;
+                    var tab=item.eq(config.index)
+                    var tabId=tab.attr("id");
+                    if (tabId==="jiaohuangenzong_tab"){
+                        $("#zhezhaoceng").parent().removeClass("g-d-hidei")
+                    }else {
+                        $("#zhezhaoceng").parent().addClass("g-d-hidei")
+                    }
+                    /*点击回调*/
+                    if (config.index === 0&&nodeid.toUpperCase() !== "NODE19") {
+                        $tool_ideawrap.removeClass('g-d-hidei');
+                    } else {
+                        $tool_ideawrap.addClass('g-d-hidei');
+                    }
+                }
             });
-        }else {
-            tab_swiper.init();
+        } else {
+            tab_swiper.init({
+                tabFn: function (config) {
+                    var item=config.tab_item;
+                    var tab=item.eq(config.index)
+                    var tabId=tab.attr("id");
+                    /*if (tabId==="jiaohuangenzong_tab"){
+                        $("#tool_menu_tixing").removeClass("g-d-hidei")
+                    }else {
+                        $("#tool_menu_tixing").addClass("g-d-hidei")
+                    }*/
+                    if (tabId==="jiaohuangenzong_tab"){
+                        $("#zhezhaoceng").parent().removeClass("g-d-hidei")
+                    }else {
+                        $("#zhezhaoceng").parent().addClass("g-d-hidei")
+                    }
+                    /*点击回调*/
+                    if (config.index === 0&&nodeid.toUpperCase() !== "NODE19") {
+                        $tool_ideawrap.removeClass('g-d-hidei');
+                    } else {
+                        $tool_ideawrap.addClass('g-d-hidei');
+                    }
+                }
+            });
         }
         tab_swiper.setTitle(document.title);
     }
@@ -171,6 +215,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     function removeHide() {
         $("#allTab").removeClass("g-d-hidei");
         $("#yijian_div").removeClass("g-d-hidei");
+        $("#anniuzu").removeClass("g-d-hidei");
         $.hideLoading();
     }
 
@@ -362,20 +407,21 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     }
 
     //初始化交换跟踪
-    function initJiaohuangz(list) {
+    /*function initJiaohuangz(list) {
+
         //页面元素获取
         var $follow_toggle = $('#follow_toggle'),
             $follow_select = $('#follow_select'),
             $follow_list = $('#follow_list');
 
-        /*绑定切换显示隐藏*/
+        /!*绑定切换显示隐藏*!/
         $follow_toggle.on('click', function (e) {
-            /*切换发送*/
+            /!*切换发送*!/
             $(this).toggleClass('title-toggle');
             $follow_select.toggleClass('list-toggle');
         });
 
-        /*绑定选中*/
+        /!*绑定选中*!/
         $follow_select.on('click', 'li', function () {
             var $this = $(this),
                 text = $this.html();
@@ -385,17 +431,17 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             $follow_toggle.trigger('click');
         });
 
-        /*绑定查看意见*/
+        /!*绑定查看意见*!/
         $follow_list.on('click', function (e) {
             var target = e.target,
                 nodename = target.nodeName.toLowerCase(),
                 $this = null;
 
-            /*过滤非标签*/
+            /!*过滤非标签*!/
             if (nodename !== 'div') {
                 return false;
             } else if (nodename === 'div' && target.className.indexOf('follow-tip') !== -1) {
-                /*切换查看意见*/
+                /!*切换查看意见*!/
                 $(target).toggleClass('tip-toggle');
             }
         });
@@ -551,7 +597,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             if (!msg.tel || msg.tel == "undefined") {
                 msg.tel = "";
             }
-            var alertWords = '<div class="alertMsg">联系人：<span class="alertDetail">' + msg.name + '</span></div><br><div class="alertMsg">联系电话：<a href="tel:'+ msg.tel + '" class="alertDetail">'+ msg.tel +'</a></div>';
+            var alertWords = '<div class="alertMsg">联系人：<span class="alertDetail">' + msg.name + '</span></div><br><div class="alertMsg">联系电话：<a href="tel:' + msg.tel + '" class="alertDetail">' + msg.tel + '</a></div>';
             $.alert(alertWords, "");
         }
 
@@ -573,7 +619,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                 '</li>';
             return html;
         }
-    }
+    }*/
 
     //渲染流程
     function initLiucheng(data) {
@@ -585,7 +631,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             /*追加流程第二版*/
             if (flowMsgList[i].isdo === "1") {
                 if (i < len - 1) {
-                    if (flowMsgList[i].cnodeid === openInstanceNodeId.toUpperCase() && parseInt(flowMsgList[i + 1].isdo)=== 0) {
+                    if (flowMsgList[i].cnodeid === openInstanceNodeId.toUpperCase() && parseInt(flowMsgList[i + 1].isdo) === 0) {
                         $liuchengxx.append('<li class="process-now">'
                             + '<div class="process-icon"></div>'
                             + '<div class="process-show">'
@@ -863,10 +909,10 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                         $("#cankaoziliao_div").parent().addClass("wx-empty-panel wx-empty-document");
                         $("#cankaoziliao_div").addClass("g-d-hidei")
                     }
-                $('<div class="wx-themelist-panel"><h2 class="wx-labeltheme-wrap g-bc-white g-gap-mt5 g-gap-mb5">关联信息</h2></div>').insertBefore($guanlianxinxi);
-                    var guanl_str='';
+                    $('<div class="wx-themelist-panel"><h2 class="wx-labeltheme-wrap g-bc-white g-gap-mt5 g-gap-mb5">关联信息</h2></div>').insertBefore($guanlianxinxi);
+                    var guanl_str = '';
                     for (var i = 0; i < guanlianList.length; i++) {
-                        guanl_str+='<li>'
+                        guanl_str += '<li>'
                             + '<div class="datalist-main">' + guanlianList[i].title + '</div>'
                             + '<div class="datalist-side">'
                             + '<div><span>操作：</span>取消关联</div>'
@@ -1103,7 +1149,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
 
     function banliRender(proInfoList) {
         var $banlixinxiGrid = $("#banlixinxiGrid");
-        var handle_str='';
+        var handle_str = '';
         for (var i = 0; i < proInfoList.length; i++) {
             var dotime = null;
             if (i === proInfoList.length - 1) {
@@ -1111,23 +1157,23 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             } else {
                 dotime = timeFn(proInfoList[i].starttime, proInfoList[i].endTime);
             }
-            if(i===0){
-                handle_str+='<li class="g-gap-mt5" data-title="'+proInfoList[i].action+'">' +
-                    '<div class="main">' +proInfoList[i].name + '</div>' +
+            if (i === 0) {
+                handle_str += '<li class="g-gap-mt5" data-title="' + proInfoList[i].action + '">' +
+                    '<div class="main">' + proInfoList[i].name + '</div>' +
                     '<div class="side">' +
-                    '<p><span>送达时间：</span>'+proInfoList[i].endTime+'</p>' +
+                    '<p><span>送达时间：</span>' + proInfoList[i].endTime + '</p>' +
                     '</div>' +
                     '<div class="side">' +
-                    '<p><span>办理时长：</span>'+dotime+'</p></div>' +
+                    '<p><span>办理时长：</span>' + dotime + '</p></div>' +
                     '</li>';
-            }else{
-                handle_str+='<li data-title="'+proInfoList[i].action+'">' +
-                    '<div class="main">' +proInfoList[i].name + '</div>' +
+            } else {
+                handle_str += '<li data-title="' + proInfoList[i].action + '">' +
+                    '<div class="main">' + proInfoList[i].name + '</div>' +
                     '<div class="side">' +
-                    '<p><span>送达时间：</span>'+proInfoList[i].endTime+'</p>' +
+                    '<p><span>送达时间：</span>' + proInfoList[i].endTime + '</p>' +
                     '</div>' +
                     '<div class="side">' +
-                    '<p><span>办理时长：</span>'+dotime+'</p></div>' +
+                    '<p><span>办理时长：</span>' + dotime + '</p></div>' +
                     '</li>';
             }
         }
@@ -1183,9 +1229,10 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                 }
                 var filePath=fileData.filepath;
                 var fix=filePath.substring(filePath.lastIndexOf("."));
+                var fixx=docTitle_base+fix
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    name: docTitle_base+fix, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
                     // name: "",
                     size: fileData.filesize
@@ -1213,9 +1260,10 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                 }
                 var filePath=fileData.filepath;
                 var fix=filePath.substring(filePath.lastIndexOf("."));
+                var fixx=titel+fix;
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    name: docTitle_base+fix, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
                     // name: "",
                     size: fileData.filesize
@@ -1232,143 +1280,5 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
         return time;
     }
 
-    //按钮组遮罩层切换
-    var $tab_menu = $('#tab_menu'),         //切换按钮
-        $zhezhaoceng = $('#zhezhaoceng'),   //遮罩层
-        $button_menu = $('#button_menu');   //按钮容器
-    /*  $tab_menu.on('click',function () {
-          $zhezhaoceng.toggleClass('g-d-hidei');
-          $button_menu.toggleClass('g-d-hidei');
-      });*/
-    //循环判断点击按钮或者遮罩层隐藏
-    $.each([$zhezhaoceng, $tab_menu], function () {
-        this.on('click', function () {
-            $zhezhaoceng.toggleClass('g-d-hidei');
-            $button_menu.toggleClass('g-d-hidei');
-            $tab_menu.toggleClass('tool-list-active');
-        })
-    });
-
-
-    //功能按钮绑定
-    $button_menu.on('click',"li",function () {
-        //hashData获取数据
-        var userId = hashData.userId,
-            workid = hashData.workId,
-            trackid = hashData.trackId,
-            docType = hashData.type,
-            isLeader = hashData.isLeader;
-        /*userInfo获取数据*/
-        var  username = userInfo.truename,
-            deptname = userInfo.deptName;
-        /*实例流程获数据*/
-        var  nodeid = instance.curFlowInfo.curNodeID,
-            nodename = instance.curFlowInfo.curNodeName,
-            flowId = instance.curFlowInfo.flowId;
-        //退件和发送意见前获取当前节点的前一个nodeID和后一个nodeID
-        var fl = FirstButtonAction.returnNode(flowMsg,nodeid).split("-");
-        // console.log(fl);
-        //获取暂存意见
-        var contentInfo = FirstButtonAction.getTempCom(username, userId, workid, nodeid,trackid);
-        // console.log(contentInfo);
-        var $this = $(this);
-        var Temp = $this.attr("data-type");
-        // console.log(Temp);
-        switch (Temp) {
-            case "Submit"://送出
-                var nextid = fl[1];
-                // console.log(nextid);
-                var action = "2",content="", fworkid = "";
-                if(contentInfo ==="请填写本次意见"){
-                    if(nodeid.toUpperCase()==="START"||(nodeid.toUpperCase()==="NODE19"&&docType==="1")||nodeid.toUpperCase()==="NODE12"){
-                        /*不需要意见*/
-                        if(parseInt(nextid)===1){
-                            /*跳转页面，选环节，人*/
-                            var param="#userId="+userId+","+"userName="+username+","+"deptName="+deptname+","
-                                + "workId="+workid+","+"nodeId="+nodeid+","+"nodeName="+nodename+","+"trackId="+trackid+","
-                                +"content="+content+","+"action="+action+","+"docType="+docType+","+"flowId="+flowId;
-                            window.location.href=UrlBase.URL_JUMP_SENDOUT+param;
-                        }else {
-                            /*直接送出*/
-                            fworkid=nextid;
-                            FirstButtonAction.SaveOrSend(userId, username, deptname,workid, nodeid, nodename,
-                                trackid,content,action,fworkid,docType);}
-                    }else{
-                        $.toast(contentInfo);
-                    }
-                }else{
-                    content=$(contentInfo).text();
-                    var isToagent = FirstButtonAction.forSure(flowMsg,nodeid,userId);
-                    //需要经办人确定
-                    if(isToagent!==""&&parseInt(isToagent)===1||(parseInt(nextid)===1&&nodeid.toUpperCase()==="NODE4")||nodeid.toUpperCase()==="NODE15"|| (nodeid.toUpperCase()==="NODE19"&&docType==="2")||nodeid.toUpperCase()==="Node11"){
-                        //送经办人
-                       /* var content="";
-                        if(contentInfo!=="请填写本次意见"){
-                            content=$(contentInfo).text();
-                        }*/
-                        FirstButtonAction.sendTransactor(userId,username,deptname, nodeid, workid ,trackid,flowId ,docType,content,nodename);
-                    }else{
-                        if(parseInt(nextid)===1){
-                            /*跳转页面，选环节，人*/
-                            var param="#userId="+userId+","+"userName="+username+","+"deptName="+deptname+","
-                                + "workId="+workid+","+"nodeId="+nodeid+","+"nodeName="+nodename+","+"trackId="+trackid+","
-                                +"content="+content+","+"action="+action+","+"docType="+docType+","+"flowId="+flowId;
-                            window.location.href=UrlBase.URL_JUMP_SENDOUT+param;
-                        }else {
-                            fworkid=nextid;
-                            /*直接送出*/
-                            FirstButtonAction.SaveOrSend(userId, username, deptname,workid, nodeid, nodename,
-                                trackid,content,action,fworkid,docType);
-                        }
-                    }
-                }
-                break;
-            case "Save"://保存
-                var action = "1", content="", fworkid = "";
-                if(contentInfo!=="请填写本次意见"){
-                    content=$(contentInfo).text();
-                }
-                FirstButtonAction.SaveOrSend(userId, username, deptname,workid, nodeid, nodename, trackid,content,action,fworkid,docType);
-                break;
-            case "Reject"://退件
-                $.confirm({
-                    title: '退件',
-                    text: '是否退件？',
-                    onOK: function () { //点击确认
-                        var prevNodeid=fl[0];
-                        if(parseInt(prevNodeid)===0){
-                            $.toast("没有退件单位")
-                        }else{
-                            FirstButtonAction.backStep(username ,userId , deptname ,workid ,nodeid ,prevNodeid,trackid ,docType);
-                        }
-                    },
-                    onCancel: function () {
-                    }
-                });
-                break;
-            case "SendEnd"://办结
-                $.confirm({
-                    title: '办结',
-                    text: '是否办结？',
-                    onOK: function () { //点击确认
-                        FirstButtonAction.endFlow(userId, username, deptname, nodeid,workid, trackid, flowId);
-                    },
-                });
-                break;
-            case "SendFileBack"://退文
-                var param="#workId="+workid+","+"type="+docType+","+"userId="+userId;
-                window.location.href=UrlBase.URL_TUIWEN+param;
-                break;
-            case "SendSpecial"://送经办人
-                var content="";
-                if(contentInfo!=="请填写本次意见"){
-                    content=$(contentInfo).text();
-                }
-                FirstButtonAction.sendTransactor(userId,username,deptname, nodeid, workid ,trackid,flowId ,docType,content,nodename);
-                break;
-            default:
-                break;
-        }
-    });
     return init;
 })

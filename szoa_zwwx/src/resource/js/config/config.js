@@ -49,6 +49,7 @@ require.config({
         "InterfaceTryCtrl":"app/interfaceTry/interfaceTry",   //接口测试，无用
         "FirstButtonAction":"app/shidian/waitSign/waitDoDetails/firstButtonAction",//首期按钮功能开发
         "SendOutCtrl":"app/shidian/waitSign/waitDoDetails/sendOut",  //送出新页面开发
+        "WaitButton":"app/shidian/waitSign/waitDoDetails/waitButton",
 
         /****************************CSS引入****************************/
         "HomeCss":"home/home",   //home.css 前台引用方式 css!HomeCss

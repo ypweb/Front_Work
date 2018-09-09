@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<!--强制竖屏-->
+	<meta name="x5-orientation" content="portrait">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>公文查询</title>
+    <link rel="stylesheet" href="/zwwxV2/resource/css/weui.css">
+    <link rel="stylesheet" href="/zwwxV2/resource/js/lib/weui/css/jquery-weui.css" />
+
+    <script src="/zwwxV2/resource/js/lib/jquery/jquery.min.js"></script>
+    <script src="/zwwxV2/resource/js/lib/weui/js/jquery-weui.min.js"></script>
+    <script src="/zwwxV2/resource/js/lib/require/require.js"></script>
+    <script src="/zwwxV2/resource/js/config/config.js"></script>
+    <style>
+        my-ui{
+            left:0px;
+        }
+    </style>
+
+</head>
+<body >
+<div style="display:none">
+    <!--待办列表-->
+    <div class="weui-cells weui-cells_form my-ui">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">文件编号</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input id="fileNo" class="weui-input" type="text" placeholder="文件编号" />
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">文件标题</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input id="fileTitle" class="weui-input" type="text" placeholder="文件标题" />
+            </div>
+        </div>
+        <div class="weui-cell ">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label">日期范围</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input id="startTime" type="text" class="weui-input" data-toggle='date' placeholder="开始日期" readonly/>
+            </div>
+            <div class="g-w-percent10">-</div>
+            <div class="weui-cell__bd">
+                <input id="endTime" type="text" class="weui-input" data-toggle='date' placeholder="结束日期" readonly/>
+            </div>
+        </div>
+        <div class="weui-cell" >
+            <div class="weui-cell__hd">
+                <label class="weui-label">批示领导</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input id="doLeader" class="weui-input" type="text" placeholder="批示领导" />
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_access" id="doDept_btn">
+            <div class="weui-cell__hd">
+                <label class="weui-label">经办处室</label>
+            </div>
+            <div class="weui-cell__bd"  >
+                <input  id="doDept" class="weui-input" type="text" placeholder="经办处室" readonly/>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell weui-cell_access" id="doPerson_btn">
+            <div class="weui-cell__hd" >
+                <label class="weui-label">经办人</label>
+            </div>
+            <div class="weui-cell__bd" >
+                <input id="doPerson" class="weui-input" type="text" placeholder="经办人" readonly/>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+    </div>
+    <!--按钮组-->
+    <ul id="#bar_item" class="wx-btnaction-wrap wx-btnaction-item2">
+        <li id="reset" class="wx-btnaction-cancel">重置</li>
+        <li id="query" class="wx-btnaction-sure">查询</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $.showLoading("努力加载中...");
+</script>
+<script type="text/javascript" src="/zwwxV2/app/feishidian/search/searchHome/searchCtrl.js"></script>
+</body>
+</html>
