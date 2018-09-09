@@ -7,7 +7,7 @@
   "js_minname": "",
   "less_src": "src/resource/less/",
   "less_dest": "src/resource/css/",
-  "less_name": "jquery-weui",
+  "less_name": "base",
   "image_src": "img",
   "image_dest": "images",
   "image_minname": "2",

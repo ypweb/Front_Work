@@ -30,8 +30,6 @@ define(['jquery'], function ($) {
         isswiper: true/*是否组合swiper插件*/,
         btn_width: 30/*侧边按钮宽*/,
         view_width: 0/*视口宽度*/,
-        iseffect: true/*是否采用动效*/,
-        isinit: false/*是否已经初始化*/,
         win_width: 0/*横排模式视口宽度*/,
         swiperVersion: '2'/*默认swiper版本*/,
         tabType: 'tab'/*切换方式:默认为tab类型，分为tab,swiper*/,
@@ -94,8 +92,6 @@ define(['jquery'], function ($) {
         resize();
         /*dom渲染*/
         render();
-        /*确定初始化相关*/
-        initRemoveEffect();
         /*list菜单渲染*/
         renderList();
         /*grid菜单渲染*/
@@ -144,30 +140,6 @@ define(['jquery'], function ($) {
                 index: tabMap.index,
                 tab_item: tabMap.$tab_item
             });
-        }
-    }
-
-
-    /*消除效果*/
-    function initRemoveEffect() {
-        /*不是默认索引且为初始化状态过程*/
-        if (tabMap.index !== 0 && !tabMap.isinit && tabMap.slide_size >= 2) {
-            /*清除初始化效果*/
-            tabMap.$tabswiper_slide.addClass('wx-tabpanel-slide-none');
-        } else {
-            /*恢复初始化效果*/
-            initAddEffect();
-        }
-    }
-
-    /*恢复效果*/
-    function initAddEffect() {
-        tabMap.isinit = true;
-        /*tab效果*/
-        tabMap.$tabswiper_slide.removeClass('wx-tabpanel-slide-none');
-        /**/
-        if(swiper_instance){
-            swiper_instance.params.speed=tabMap.effect_time;
         }
     }
 
@@ -228,7 +200,7 @@ define(['jquery'], function ($) {
         if (swiper_instance === null) {
             /*没有绑定则绑定*/
             var tempconfig = {
-                speed: tabMap.isinit ? tabMap.effect_time : 0, /*滑块切换速度*/
+                speed: tabMap.effect_time, /*滑块切换速度*/
                 onSlideChangeStart: function () {
                     tabMap.tabType = 'swiper';
                     tabSlide(tabMap.tabFn);
@@ -244,11 +216,11 @@ define(['jquery'], function ($) {
                     if (Swiper && typeof Swiper === 'function') {
                         swiper_instance = new Swiper(tabMap.swiper_selector, tempconfig);
                         tabMap.tabType = 'swiper';
-                        swiper_instance.activeIndex = tabMap.index;
+                        swiper_instance.activeIndex=tabMap.index;
                         tabMap.$swiper_container = $(tabMap.swiper_selector).find('>.swiper-wrapper');
                         tabMap.$swiper_item = tabMap.$swiper_container.find('>.swiper-slide');
-                    } else {
-                        tabMap.tabType = 'tab';
+                    }else{
+                        tabMap.tabType='tab';
                     }
                 } else {
                     tabMap.swiper_instance = null;
@@ -284,7 +256,7 @@ define(['jquery'], function ($) {
     }
 
     /*slide高亮渲染*/
-    function tabSlide(fn, index) {
+    function tabSlide(fn,index) {
         if (tabMap.tabType === 'swiper') {
             /*swiper滑动模式*/
             tabMap.index = swiper_instance.activeIndex;
@@ -297,9 +269,6 @@ define(['jquery'], function ($) {
             swiper_id = setTimeout(function () {
                 /*修正值*/
                 correctSwiper();
-                if(!tabMap.isinit){
-                    initAddEffect();
-                }
             }, 100);
         }
         if (typeof index !== 'undefined') {
@@ -453,19 +422,10 @@ define(['jquery'], function ($) {
         if (getSwiperVersion() === 2) {
             tabMap.$swiper_item.eq(index).addClass('swiper-slide-visible swiper-slide-active').siblings().removeClass('swiper-slide-visible swiper-slide-active');
             var sleft = index === 0 ? 0 : -(index * tabMap.view_width);
-            if (tabMap.isinit) {
-                /*如果已经初始化则恢复效果*/
-                tabMap.$swiper_container.css({
-                    'transition-duration': tabMap.effect_time / 1000 + 's',
-                    'transform': 'translate3d(' + sleft + 'px, 0px, 0px)'
-                });
-            } else {
-                /*如果没有初始化则消除效果*/
-                tabMap.$swiper_container.css({
-                    'transition-duration': '0s',
-                    'transform': 'none'
-                });
-            }
+            tabMap.$swiper_container.css({
+                'transition-duration': tabMap.effect_time / 1000 + 's',
+                'transform': 'translate3d(' + sleft + 'px, 0px, 0px)'
+            });
         } else if (getSwiperVersion() === 3) {
             /*to do 3*/
         } else if (getSwiperVersion() === 4) {
