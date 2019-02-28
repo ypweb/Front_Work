@@ -1,0 +1,62 @@
+/*定义按钮外观*/
+.button-operate-base(@color:@color-global-white; @background:@color-gray11; @border:@color-gray8) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  /*鼠标滑过*/
+  &:hover,
+  &.hover {
+    color: @color;
+    background-color: darken(@background, 8%);
+    border-color: darken(@border, 10%);
+  }
+  /*鼠标聚焦*/
+  &:focus,
+  &.focus {
+    color: @color;
+    background-color: darken(@background, 10%);
+    border-color: darken(@border, 12%);
+  }
+  /*激活*/
+  &:active,
+  &.active {
+    color: @color;
+    background-color: darken(@background, 15%);
+    border-color: darken(@border, 17%);
+
+    /*激活滑过,聚焦*/
+    &:hover,
+    &.hover,
+    &:focus,
+    &.focus {
+      color: @color;
+      background-color: darken(@background, 20%);
+      border-color: darken(@border, 22%);
+    }
+  }
+  &.disabled,
+  &[disabled] {
+    background-color: lighten(@background, 10%);
+    border-color: lighten(@border, 10%);
+    cursor: default;
+    .opacity-base(80);
+
+    &:hover,
+    &.hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: lighten(@background, 10%);
+      border-color: lighten(@border, 10%);
+      &:hover,
+      &.hover,
+      &:focus,
+      &.focus {
+        background-color: lighten(@background, 10%);
+        border-color: lighten(@border, 10%);
+      }
+    }
+  }
+}

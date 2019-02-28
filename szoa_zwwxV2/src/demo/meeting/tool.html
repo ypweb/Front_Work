@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>弹窗,按钮--工具菜单</title>
+    <!--基础css-->
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+    <!--第三方-->
+    <link rel="stylesheet" href="../../resource/js/lib/weui/css/jquery-weui.css">
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl: '/zwwx/',
+            paths: {
+                "jquery": "resource/js/lib/jquery/jquery.min",
+                'tab_swiper': "resource/js/widget/tab_swiper",
+                'weuiJS': "resource/js/lib/weui/js/jquery-weui.min"
+            },
+            shim: {
+                'tab_swiper': {
+                    deps: ['jquery']
+                },
+                'weuiJS': {
+                    deps: ['jquery']
+                }
+            }
+        });
+
+
+        /*程序入口*/
+        require(['jquery', 'tab_swiper','weuiJS'], function ($, TabSwiper,undefined) {
+            $(function () {
+                //页面元素获取
+                var $tool_panel1 = $('#tool_panel1'),
+                    $tool_panel2 = $('#tool_panel2'),
+                    $tool_panel3 = $('#tool_panel3'),
+                    $follow_tab = $('#follow_tab'),
+                    $tool_mask_filter = $('#tool_mask_filter'),
+                    $tool_mask_back = $('#tool_mask_back'),
+                    $tool_mask_transparent = $('#tool_mask_transparent'),
+                    $tool_mask = $('#tool_mask'),
+                    $tool_menu_meeting = $('#tool_menu_meeting'),
+                    $tool_menu_list = $('#tool_menu_list'),
+                    $tool_menu_btn = $('#tool_menu_btn'),
+                    $tool_idea_list = $('#tool_idea_list'),
+                    $tool_idea_list_ul = $tool_idea_list.find('ul'),
+                    $tool_idea_list_btn = $tool_idea_list.find('p'),
+                    $tool_idea_btn = $('#tool_idea_btn'),
+                    $edit_idea_btn = $('#edit_idea_btn'),
+                    current_index = 2,
+                    $tool_idea_textarea = $('#tool_idea_textarea'),
+                    $tool_idea_textarea_title = $tool_idea_textarea.find('h2'),
+                    $tool_idea_textarea_ul = $tool_idea_textarea.find('>ul'),
+                    $tool_follow_list=$('#tool_follow_list'),
+                    $tool_follow_btn=$('#tool_follow_btn'),
+                    tool_panelitem = [$tool_panel1, $tool_panel2, $tool_panel3];
+
+                /*执行TabSwiper渲染*/
+                TabSwiper.init({
+                    index: current_index,
+                    item: 3,
+                    isswiper: false,
+                    tabFn: function (config) {
+                        /*点击回调*/
+                        current_index = config.index;
+                        renderPanel(current_index, tool_panelitem);
+                    }
+                });
+
+
+                /*切换弹窗*/
+                $.each([$tool_menu_btn, $tool_idea_btn, $edit_idea_btn, $tool_idea_textarea_ul, $tool_idea_list_btn,$tool_follow_btn,$follow_tab,$tool_menu_list,$tool_follow_list,$tool_mask_filter,$tool_mask_back,$tool_mask_transparent,$tool_mask], function () {
+                    var selector = this.selector;
+                    this.on('click', function (e) {
+                        var $this = null,
+                            target=e.target,
+                            nodename='',
+                            action = 'show',
+                            type = 'daiban';
+                        if (selector.indexOf('tool_menu_btn') !== -1) {
+                            /*切换待办*/
+                            $this=$(this);
+                            if ($this.hasClass('tool-list-active')) {
+                                /*隐藏*/
+                                action = 'hide';
+                            } else {
+                                /*显示*/
+                                action = 'show';
+                            }
+                            type = 'daiban';
+                        } else if (selector.indexOf('tool_idea_btn') !== -1) {
+                            /*切换本次意见*/
+                            $this=$(this);
+                            if ($this.hasClass('tool-list-active')) {
+                                /*隐藏*/
+                                action = 'hide';
+                            } else {
+                                /*显示*/
+                                action = 'show';
+                            }
+                            type = 'idea_list';
+                        } else if (selector.indexOf('edit_idea_btn') !== -1 || selector.indexOf('tool_idea_textarea') !== -1) {
+                            /*切换领导意见*/
+                            if ($tool_idea_textarea.hasClass('g-d-hidei')) {
+                                /*显示*/
+                                action = 'show';
+                            } else {
+                                /*隐藏*/
+                                action = 'hide';
+                            }
+                            type = 'edit_idea';
+                        } else if (selector.indexOf('tool_idea_list') !== -1) {
+                            /*切换本次意见*/
+                            if ($tool_idea_textarea.hasClass('g-d-hidei')) {
+                                /*显示*/
+                                action = 'show';
+                            } else {
+                                /*隐藏*/
+                                action = 'hide';
+                            }
+                            type = 'current_idea';
+                        }else if (selector.indexOf('tool_follow_btn') !== -1) {
+                            $this=$(this);
+                            /*切换交换跟踪群发*/
+                            if ($this.hasClass('tool-list-active')) {
+                                /*显示*/
+                                action = 'hide';
+                            } else {
+                                /*隐藏*/
+                                action = 'show';
+                            }
+                            type = 'follow_btn';
+                        }else if (selector.indexOf('follow_tab') !== -1) {
+                            /*切换交换跟踪群发*/
+                            nodename = target.nodeName.toLowerCase();
+                            if (nodename === 'div') {
+                                $this = $(target).parent();
+                            } else if (nodename === 'li') {
+                                $this = $(target);
+                            }
+                            $this.addClass('tabactive').siblings().removeClass('tabactive');
+                            return false;
+                        }else if(selector.indexOf('tool_menu_list') !== -1 || selector.indexOf('tool_follow_list') !== -1){
+                            nodename = target.nodeName.toLowerCase();
+                            if (nodename === 'ul') {
+                                return false;
+                            } else if (nodename === 'li') {
+                                $this = $(target);
+                            }else if (nodename === 'span') {
+                                $this = $(target.parentNode);
+                            }
+                            switchMenu($this);
+                            return false;
+                        }else if (selector.indexOf('tool_mask') !== -1) {
+                            /*切换交换跟踪群发*/
+                            action='hide';
+                            type='mask';
+                        }
+                        toggleMask(action, type);
+                        toggleBtn(action, type);
+                    });
+                });
+
+
+                /*var hiddenProperty = 'hidden' in document ? 'hidden' :
+                    'webkitHidden' in document ? 'webkitHidden' :
+                        'mozHidden' in document ? 'mozHidden' :
+                            null;
+                var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+                document.addEventListener(visibilityChangeEvent, function () {
+                    if (!document[hiddenProperty]) {
+                        console.log('页面非激活');
+                    } else {
+                        console.log('页面激活')
+                    }
+                });*/
+
+                function switchMenu($li) {
+                    var type=$li.attr('data-type');
+                    switch (type) {
+                        case 'tixing':
+                            /*提醒*/
+                            var message_str='<div class="alert-send-message" id="wx_send_message">\
+                                <label>短信群发:<input type="checkbox" checked name="message" value="1"></label>\
+                                <label>微信群发:<input type="checkbox" checked name="message" value="2"></label>\
+                                </div>';
+                            $.alert({
+                                title: '未签收短信群发',
+                                text: message_str,
+                                onOK: function () {
+                                    var res=[];
+                                    $('#wx_send_message').find('input:checked').each(function () {
+                                        res.push($(this).val());
+                                    });
+                                    if(res.length!==0){
+                                        /*to do*/
+                                        console.log('send message ajax');
+                                    }
+                                }
+                            });
+                            break;
+                        default:
+                            console.log(type);
+                            break;
+                    }
+                }
+
+
+                /*切换遮罩*/
+                function toggleMask(action, type) {
+                    if (action === 'show') {
+                        if (type === 'daiban') {
+                            $tool_mask_filter.addClass('g-d-hidei');
+                            $tool_mask_back.addClass('g-d-hidei');
+                            $tool_mask_transparent.addClass('g-d-hidei');
+                            $tool_mask.removeClass('g-d-hidei');
+                        } else if (type === 'idea_list') {
+                            $tool_mask_filter.addClass('g-d-hidei');
+                            $tool_mask_back.addClass('g-d-hidei');
+                            $tool_mask_transparent.removeClass('g-d-hidei');
+                            $tool_mask.addClass('g-d-hidei');
+                        } else if (type === 'current_idea') {
+                            $tool_mask_filter.addClass('g-d-hidei');
+                            $tool_mask_back.addClass('g-d-hidei');
+                            $tool_mask_transparent.addClass('g-d-hidei');
+                            $tool_mask.addClass('g-d-hidei');
+                            $tool_idea_textarea.removeClass('g-d-hidei');
+                        } else if (type === 'edit_idea') {
+                            $tool_mask_filter.addClass('g-d-hidei');
+                            $tool_mask_back.addClass('g-d-hidei');
+                            $tool_mask_transparent.addClass('g-d-hidei');
+                            $tool_mask.addClass('g-d-hidei');
+                            $tool_idea_textarea.removeClass('g-d-hidei');
+                        }else if(type === 'follow_btn'){
+                            $tool_mask_filter.addClass('g-d-hidei');
+                            $tool_mask_back.addClass('g-d-hidei');
+                            $tool_mask_transparent.addClass('g-d-hidei');
+                            $tool_mask.removeClass('g-d-hidei');
+                            $tool_idea_textarea.addClass('g-d-hidei');
+                        }
+                    } else if (action === 'hide') {
+                        $tool_mask_filter.addClass('g-d-hidei');
+                        $tool_mask_back.addClass('g-d-hidei');
+                        $tool_mask_transparent.addClass('g-d-hidei');
+                        $tool_mask.addClass('g-d-hidei');
+                        $tool_idea_textarea.addClass('g-d-hidei');
+                    }
+                }
+
+
+                /*切换按钮*/
+                function toggleBtn(action, type) {
+                    if (action === 'show') {
+                        if (type === 'daiban') {
+                            $tool_menu_btn.addClass('tool-list-active');
+                            $tool_idea_btn.removeClass('tool-list-active');
+                            $tool_follow_btn.removeClass('tool-list-active');
+
+                            $tool_menu_list.removeClass('g-d-hidei');
+                            $tool_idea_list.addClass('g-d-hidei');
+                            $tool_follow_list.addClass('g-d-hidei');
+                        } else if (type === 'idea_list') {
+                            $tool_menu_btn.removeClass('tool-list-active');
+                            $tool_idea_btn.addClass('tool-list-active');
+                            $tool_follow_btn.removeClass('tool-list-active');
+                            $tool_menu_list.addClass('g-d-hidei');
+                            $tool_idea_list.removeClass('g-d-hidei');
+                            $tool_follow_list.addClass('g-d-hidei');
+                        } else if (type === 'current_idea') {
+                            $tool_menu_btn.removeClass('tool-list-active');
+                            $tool_idea_btn.removeClass('tool-list-active');
+                            $tool_follow_btn.removeClass('tool-list-active');
+                            $tool_menu_list.addClass('g-d-hidei');
+                            $tool_idea_list.addClass('g-d-hidei');
+                            $tool_follow_list.addClass('g-d-hidei');
+                            $tool_idea_textarea_title.removeClass('g-d-hidei');
+                            $tool_idea_textarea_ul.eq(0).addClass('g-d-hidei');
+                            $tool_idea_textarea_ul.eq(1).removeClass('g-d-hidei');
+                        } else if (type === 'edit_idea') {
+                            $tool_menu_btn.removeClass('tool-list-active');
+                            $tool_idea_btn.removeClass('tool-list-active');
+                            $tool_follow_btn.removeClass('tool-list-active');
+                            $tool_menu_list.addClass('g-d-hidei');
+                            $tool_idea_list.addClass('g-d-hidei');
+                            $tool_follow_list.addClass('g-d-hidei');
+                            $tool_idea_textarea_title.addClass('g-d-hidei');
+                            $tool_idea_textarea_ul.eq(0).removeClass('g-d-hidei');
+                            $tool_idea_textarea_ul.eq(1).addClass('g-d-hidei');
+                        }else if (type === 'follow_btn') {
+                            $tool_menu_btn.removeClass('tool-list-active');
+                            $tool_idea_btn.removeClass('tool-list-active');
+                            $tool_follow_btn.addClass('tool-list-active');
+                            $tool_menu_list.addClass('g-d-hidei');
+                            $tool_idea_list.addClass('g-d-hidei');
+                            $tool_follow_list.removeClass('g-d-hidei');
+                        }
+                    } else if (action === 'hide') {
+                        $tool_menu_btn.removeClass('tool-list-active');
+                        $tool_idea_btn.removeClass('tool-list-active');
+                        $tool_follow_btn.removeClass('tool-list-active');
+                        $tool_menu_list.addClass('g-d-hidei');
+                        $tool_idea_list.addClass('g-d-hidei');
+                        $tool_follow_list.addClass('g-d-hidei');
+                    }
+                }
+
+
+                /*渲染按钮*/
+                function renderBtn(index) {
+                    if (index === 0) {
+                        /*会议报名*/
+                        $tool_menu_meeting.parent().removeClass('g-d-hidei');
+
+                        $tool_menu_list.addClass('g-d-hidei');
+                        $tool_menu_btn.parent().addClass('g-d-hidei');
+
+                        $tool_idea_list.addClass('g-d-hidei');
+                        $tool_idea_btn.parent().addClass('g-d-hidei');
+                        $tool_idea_textarea.addClass('g-d-hidei');
+
+                        $tool_follow_btn.parent().addClass('g-d-hidei');
+                        $tool_follow_list.addClass('g-d-hidei');
+                    } else if (index === 1) {
+                        /*待办按钮*/
+                        $tool_menu_meeting.parent().addClass('g-d-hidei');
+
+                        $tool_menu_list.addClass('g-d-hidei');
+                        $tool_menu_btn.parent().removeClass('g-d-hidei');
+
+                        $tool_idea_list.addClass('g-d-hidei');
+                        $tool_idea_btn.parent().removeClass('g-d-hidei');
+                        $tool_idea_textarea.addClass('g-d-hidei');
+
+                        $tool_follow_btn.parent().addClass('g-d-hidei');
+                        $tool_follow_list.addClass('g-d-hidei');
+                    } else if (index === 2) {
+                        /*交换跟踪*/
+                        $tool_menu_meeting.parent().addClass('g-d-hidei');
+
+                        $tool_menu_list.addClass('g-d-hidei');
+                        $tool_menu_btn.parent().addClass('g-d-hidei');
+
+                        $tool_idea_list.addClass('g-d-hidei');
+                        $tool_idea_btn.parent().addClass('g-d-hidei');
+                        $tool_idea_textarea.addClass('g-d-hidei');
+
+                        $tool_follow_btn.parent().removeClass('g-d-hidei');
+                        $tool_follow_list.addClass('g-d-hidei');
+                    }
+                }
+
+
+                /*渲染不同模块*/
+                function renderPanel(index, arr) {
+                    /*初始化状态*/
+                    var i = 0,
+                        len = arr.length;
+                    for (i; i < len; i++) {
+                        if (index === i) {
+                            arr[i].removeClass('g-d-hidei');
+                        } else {
+                            arr[i].addClass('g-d-hidei');
+                        }
+                    }
+                    renderBtn(index);
+                }
+
+
+            });
+        });
+    </script>
+</head>
+<body class="g-bc-white">
+<div class="wx-tabpanel-wrap tabpanel-btnright" id="tabswiper_panel">
+    <div class="wx-tabpanel-list">
+        <div class="wx-tabpanel-slide" id="tabswiper_slide">
+            <ul class="wx-tablist-wrap">
+                <li>单个按钮(会议报名)</li>
+                <li>弹层按钮(待办模块)</li>
+                <li>群发(交换跟踪模块)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="wx-tabpanel-grid">
+        <h1>切换查看不同的操作按钮</h1>
+        <ul class="wx-tabcolumn-wrap" id="tabswiper_grid"></ul>
+    </div>
+    <div class="wx-tabpanel-mask" id="tabswiper_mask"></div>
+    <div class="wx-tabpanel-toggle g-d-hidei" id="tabswiper_btn"></div>
+</div>
+
+<!--1层1菜单-->
+<ul class="wx-btnlist-wrap wx-btnlist-item2" id="tool_panel1">
+    <li>
+        <div>按钮1</div>
+    </li>
+    <li>
+        <div>按钮按钮2</div>
+    </li>
+    <li class="wx-btnlist-active">
+        <div>按钮按钮按钮3</div>
+    </li>
+    <li>
+        <div>按钮按钮按钮按钮4</div>
+    </li>
+    <li>
+        <div>按钮按钮5</div>
+    </li>
+</ul>
+
+<!--2层多个菜单-->
+<ul class="wx-lastshowlist-wrap" id="tool_panel2">
+    <li>
+        <h2 class="wx-labeltheme-wrap wx-labeltheme-border">拟办意见/领导批示 <span
+                class="theme-icon theme-icon-toggle toggle-active"></span>
+        </h2>
+        <div>
+            <div class="main-info">
+                <p>呵呵，哈哈，哦哦，嗯嗯</p>
+            </div>
+            <div class="side-info">
+                <p><span>信息化处</span>赖镇先</p>
+                <p>2018-07-08</p>
+            </div>
+        </div>
+        <div class="mainshow">
+            <div class="main-info">
+                <p>文字小了点，加大2号</p>
+                <p>请注意标点符号</p>
+            </div>
+            <div class="side-info side-edit">
+                <p>张三，李四，王五，赵六</p>
+                <p>2018-07-08</p>
+                <div id="edit_idea_btn"></div>
+            </div>
+        </div>
+    </li>
+    <li class="toggle-active">
+        <div class="mainshow">
+            <div class="main-info">
+                <p>在移动设备开发HTML5应用只有两种方法，要不就是全使用HTML5的语法，要不就是仅使用JavaScript引擎。</p>
+                <ul>
+                    <li>HTML5的设计目的.doc<span class="download toshow">查看</span></li>
+                    <li>用HTML5的优点主要在于，这个技术可以进行跨平台的使用.pdf<span class="download">下载</span></li>
+                </ul>
+            </div>
+            <div class="side-info">
+                <p>张三，李四，王五，赵六</p>
+                <p>2018-07-08</p>
+                <div></div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
+<div id="tool_panel3">
+    <!--交换跟踪第一部分-->
+    <div class="wx-followpanel-wrap">
+        <div class="wx-followselect-wrap">
+            <div class="select-title">发送公文<p>2018-08-07 15:35:58</p></div>
+            <div class="select-list-wrap">
+                <ul class="select-list">
+                    <li>发送公文<p>2018-05-05 12:12:12</p></li>
+                    <li>发送公文<p>2018-06-07 13:23:43</p></li>
+                    <li>发送公文<p>2018-07-08 14:53:53</p></li>
+                </ul>
+            </div>
+        </div>
+        <ul class="wx-followdata-wrap">
+            <li class="data-icon"></li>
+            <li class="data-text">
+                <div class="g-c-red1">345</div>
+                <p>发送总数</p>
+            </li>
+            <li class="data-text">
+                <div class="g-c-green1">62</div>
+                <p>已发送</p>
+            </li>
+        </ul>
+    </div>
+
+    <!--交换跟踪第二部分-->
+    <ul class="wx-tabradius-wrap wx-tablist-item3" id="follow_tab">
+        <li class="tabactive">
+            <div>未签收(25)</div>
+        </li>
+        <li>
+            <div>已签收(274)</div>
+        </li>
+        <li>
+            <div>拒收(13)</div>
+        </li>
+    </ul>
+
+    <!--交换跟踪第三部分-->
+    <ul class="wx-followlist-wrap">
+        <li>
+            <div class="follow-theme">
+                <div class="follow-title">Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）</div>
+                <div class="follow-icon"></div>
+            </div>
+        </li>
+        <li>
+            <div class="follow-theme">
+                <div class="follow-title">Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）</div>
+                <div class="follow-icon"></div>
+            </div>
+            <div class="follow-tip"></div>
+        </li>
+        <li>
+            <div class="follow-theme">
+                <div class="follow-title">Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）Test_3-058签收页测试2（软件闪退复现）</div>
+                <div class="follow-icon"></div>
+            </div>
+            <div class="follow-tip">
+                <p>标题有错别字，请修改，标题有错别字，请修改，标题有错别字，请修改</p>
+                <p>时间不正确，请修改</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<!--按钮操作层-->
+<div class="wx-tool-wrap wx-tool-lb-wrap">
+
+
+    <!--弹窗模块-->
+    <!--遮罩层--白色--半透明-->
+    <div class="wx-tool-mask wx-tool-mask-filter g-d-hidei" id="tool_mask_filter"></div>
+    <!--遮罩层--白色--无透明-->
+    <div class="wx-tool-mask wx-tool-mask-back g-d-hidei" id="tool_mask_back"></div>
+    <!--遮罩层--黑色--大比例透明-->
+    <div class="wx-tool-mask wx-tool-mask-transparent g-d-hidei" id="tool_mask_transparent"></div>
+    <!--遮罩层--黑色--半透明-->
+    <div class="wx-tool-mask g-d-hidei" id="tool_mask"></div>
+
+
+    <!--会议报名模块(单个按钮)-->
+    <!--第一级菜单--会议报名按钮(单个按钮)-->
+    <ul class="wx-tool-list wx-tool-toggle g-d-hidei">
+        <li class="tool-menu-meeting" id="tool_menu_meeting"></li>
+    </ul>
+
+
+    <!--待办按钮模块-->
+    <!--左侧待办弹窗按钮(第二级菜单)-->
+    <ul class="wx-tool-list wx-tool-menu g-d-hidei" id="tool_menu_list">
+        <li class="tool-menu-finish tool-menu-item2" data-type="banjie" data-title="办结"><span></span></li>
+        <li class="tool-menu-turn tool-menu-item2" data-type="zhuanban" data-title="转办"><span></span></li>
+        <li class="tool-menu-back tool-menu-item2" data-type="tuiwen" data-title="退文"><span></span></li>
+        <li class="tool-menu-red tool-menu-item2" data-type="taohong" data-title="套红"></li>
+        <li class="tool-menu-editnotice tool-menu-item4" data-type="bianjitongzhi" data-title="编辑通知"><span></span></li>
+        <li class="tool-menu-return tool-menu-item2" data-type="tuijian" data-title="退件"><span></span></li>
+        <li class="tool-menu-handle tool-menu-item4" data-type="songjingbanren" data-title="送经办人"><span></span></li>
+        <li class="tool-menu-layout tool-menu-item3" data-type="songpaiban" data-title="送排版"><span></span></li>
+        <li class="tool-menu-seal tool-menu-item3" data-type="songyongyin" data-title="送用印"><span></span></li>
+        <li class="tool-menu-transfer tool-menu-item3" data-type="songliuzhuan" data-title="送流转"><span></span></li>
+        <li class="tool-menu-look tool-menu-item4" data-type="chakan" data-title="查看公文"><span></span></li>
+        <li class="tool-menu-document tool-menu-item4" data-type="fasonggongwen" data-title="发送公文"><span></span></li>
+        <li class="tool-menu-notice tool-menu-item4" data-type="fasongtongzhi" data-title="发送通知"></li>
+        <li class="tool-menu-save tool-menu-item2" data-type="baocun" data-title="保存"></li>
+        <li class="tool-menu-send tool-menu-item2" data-type="songchu" data-title="送出"><span></span></li>
+        <li class="tool-menu-meeting tool-menu-item4" data-type="huiyibaoming" data-title="会议报名"><span></span></li>
+    </ul>
+    <!--左侧待办操作按钮(第一级菜单)-->
+    <ul class="wx-tool-list wx-tool-toggle g-d-hidei">
+        <li class="tool-list-toggle" id="tool_menu_btn"></li>
+    </ul>
+
+
+    <!--待办意见模块-->
+    <!--右侧意见弹窗列表(第二级菜单)-->
+    <div class="wx-tool-ideaouter g-d-hidei" id="tool_idea_list">
+        <div class="wx-tool-ideainner">
+            <ul>
+                <li>
+                    <div>标题太小,得改</div>
+                </li>
+                <li>
+                    <div>注意标点,注意标点</div>
+                </li>
+                <li>
+                    <div>文字有错误,已经在下面备注上</div>
+                </li>
+                <li>
+                    <div>流程错误,现在需要转经办人</div>
+                </li>
+                <li>
+                    <div>主送单位应当是一个,同时主送,搞乱了行文关系。抄送单位应当是与该申诉事项有关的单位。“×市政府、×区人民政府”,与税务申诉事项无关,不应将该申诉抄送给他们</div>
+                </li>
+                <li>
+                    <div>请示只能够有一个主送机关;若是双重领导机关,则需要向处理该事务的机关请示,另一机关应为抄报机关</div>
+                </li>
+                <li>
+                    <div>1.文号应为:X府发11994]8号;2.标题中不应出现引号,应去掉;3.标题中的“表彰”应与“通报”放在一起,为“关于4.通报类属普发性公文,可不写收文机关;</div>
+                </li>
+                <li>
+                    <div> 1.结尾处不用写“特此通报”;2.发文机关应写全称“X X市人民政府”的表彰通报”;3.发文时间应规范,并具体到日,为一九九四年一月十八日;4.主题词表中无“关于”词,应去掉
+                    </div>
+                </li>
+                <li>
+                    <div>1、缺少文号:改成京海供电字(2005)17号。 2、缺少主道机关:加上:全区用户同志们。3、将“为此,特声明如下”改成:“为此,特通告如下。”</div>
+                </li>
+                <li>
+                    <div>1、结尾的格式套语“特此请示”改成“特此通告”。2、结尾的落款应以单位名称署名,改成:北京市海淀区供电局。3、应在落款下方补上时间:加上2005年10月28日。
+                        4、标题应改成:××供电局通告(或只写“通告”二字作标题)
+                    </div>
+                </li>
+            </ul>
+            <p>输入意见...</p>
+        </div>
+    </div>
+    <!--右侧意见按钮(第一级菜单)-->
+    <ul class="wx-tool-list wx-tool-idea g-d-hidei">
+        <li class="tool-list-toggle" id="tool_idea_btn"></li>
+    </ul>
+    <!--意见弹窗--写信息-->
+    <div class="wx-tool-textarea g-d-hidei" id="tool_idea_textarea">
+        <!--textarea-->
+        <div class="text-info">
+            <h2 class="g-d-hidei">本次意见</h2>
+            <textarea placeholder="请输入意见"></textarea>
+        </div>
+        <!--按钮组1--领导人修改意见按钮-->
+        <ul class="wx-btnaction-wrap wx-btnaction-item2">
+            <li class="wx-btnaction-cancel">取消</li>
+            <li class="wx-btnaction-sure">确定</li>
+        </ul>
+        <!--按钮组1--本次意见按钮-->
+        <ul class="wx-btnaction-wrap wx-btnaction-item3">
+            <li class="wx-btnaction-sure">送出</li>
+            <li class="wx-btnaction-sure">送经办人</li>
+            <li class="wx-btnaction-sure">保存</li>
+        </ul>
+    </div>
+
+
+
+
+    <!--交换跟踪--群发信息按钮模块-->
+    <ul class="wx-tool-list wx-tool-menu g-d-hidei" id="tool_follow_list">
+        <li class="tool-menu-cancel tool-menu-item2" data-type="zuofei" data-title="作废"><span></span></li>
+        <li class="tool-menu-reissue tool-menu-item2" data-type="bufa" data-title="补发"><span></span></li>
+        <li class="tool-menu-tip tool-menu-item2" data-type="tixing" data-title="提醒"><span></span></li>
+        <li class="tool-menu-withdraw tool-menu-item2" data-type="chehui" data-title="撤回"><span></span></li>
+    </ul>
+    <!--左侧待办操作按钮(第一级菜单)-->
+    <ul class="wx-tool-list wx-tool-toggle g-d-hidei">
+        <li class="tool-list-toggle" id="tool_follow_btn"></li>
+    </ul>
+</div>
+
+
+</body>
+</html>

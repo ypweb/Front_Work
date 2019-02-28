@@ -1,0 +1,87 @@
+/*条件查询*/
+.wx-search-condition-function() {
+
+  /*条件容器*/
+  .wx-search-condition {
+    .layout-fixedrb-base(@search-condition-gap, @search-condition-gap * 2, 50);
+    .border-radius-base(50%);
+    height: @search-condition-height;
+    width: @search-condition-height;
+    .user-select-base();
+    /*checkbox*/
+    .wx-search-check {
+      .layout-relative-base(0, 0, 60);
+      width: 100%;
+      height: 100%;
+      display: block;
+      .opacity-base(0);
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        .user-tap-base();
+      }
+    }
+    /*表单容器*/
+    .wx-search-form {
+      .layout-fixedlb-base(0, -200vh, 80);
+      .transition-base(bottom .3s ease-in .2s ~',' background-color .2s ease-in .01s);
+      height:200vh;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0);
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        .user-tap-base();
+      }
+      .weui-cells_form {
+        .layout-absolutelb-base(0, 0, 90);
+        width:100%;
+      }
+    }
+    /*按钮图标*/
+    .wx-search-toggle {
+      .layout-absoluter-base(0, 0, 10);
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: pointer;
+      background-color: @color-global-white;
+      .box-shadow-base(2px 2px 5px 0 @color-gray10);
+      .border-radius-base(50%);
+      overflow: hidden;
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        .user-tap-base();
+      }
+      &:before {
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: @search-condition-height + 5;
+        text-align: center;
+        content: '\e620';
+        font-family: zw_iconfont;
+        color: @main-theme-color;
+        font-size: @font-size-base * 2.4;
+      }
+    }
+    /*激活*/
+    .wx-search-check:checked + .wx-search-form {
+      bottom:0;
+      background-color: rgba(0, 0, 0, .3);
+      .transition-base(bottom .3s ease-in .01s ~',' background-color .2s ease-in .2s);
+    }
+    /*其他*/
+    .search-line-r {
+      border-right: 1px solid @color-gray13;
+    }
+  }
+
+}
+
+/*常用下拉列表--生成*/
+.wx-search-condition-function();

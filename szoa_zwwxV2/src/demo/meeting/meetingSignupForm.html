@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="telephone=no" name="format-detection" />
+    <title>会议报名表--表单</title>
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+</head>
+<body class="wx-btn-body">
+
+<div class="weui-cells weui-cells_form g-clear-m">
+    <div class="weui-cell weui-cell_access">
+        <div class="weui-cell__hd">
+            <label class="weui-label">参会人姓名:</label>
+        </div>
+        <div class="weui-cell__bd wx-form-inputdelete">
+            <input class="weui-input" required  type="text" placeholder="请输入参会人姓名" name="chrxm" />
+            <span class="icon-delete"></span>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </div>
+
+    <div class="weui-cell weui-cell_access g-clear-pt g-clear-pb">
+        <div class="weui-cell__hd">
+            <label class="weui-label">参会人职位:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select g-clear-pl" name="chrzw">
+                <option value="" selected>请选择</option>
+                <option value="1">参会人职位1</option>
+                <option value="2">参会人职位2</option>
+                <option value="3">参会人职位3</option>
+                <option value="4">参会人职位4</option>
+            </select>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">是否请假:</label>
+        </div>
+        <div class="weui-cell__bd weui-cells_radio">
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="sfqj">
+                <span class="weui-icon-checked"></span>
+                否
+            </label>
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="sfqj">
+                <span class="weui-icon-checked"></span>
+                是
+            </label>
+        </div>
+    </div>
+
+    <div class="wx-gap-wrap"></div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">请假原因:</label>
+        </div>
+    </div>
+    <div class="weui-cell g-bt-pse-none">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" maxlength="100" placeholder="请输入请假原因" rows="4"></textarea>
+            <div class="weui-textarea-counter"><span>0</span>/100</div>
+        </div>
+    </div>
+</div>
+
+<ul class="wx-btnaction-wrap wx-btnaction-item3">
+    <li class="wx-btnaction-cancel">取消</li>
+    <li class="wx-btnaction-cancel">取消报名</li>
+    <li class="wx-btnaction-sure">确定</li>
+</ul>
+</body>
+</html>

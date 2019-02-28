@@ -1,0 +1,423 @@
+/*定义tab*/
+.wx-tablist-function() {
+  /*内部变量*/
+  @tab-gap-top: (@tab-list-height - @tab-list-item-height)/2;
+  @tab-icon-width: 30px;
+
+  /*tab组件*/
+  .wx-tablist-wrap,
+  .wx-tabcolumn-wrap {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      .user-tap-base();
+    }
+    width: 100%;
+    font-size: 0;
+    background-color: @color-global-white;
+    > li,
+    > a {
+      display: inline-block;
+      color: @color-gray3;
+      font-size: @font-size-base + 2;
+      padding: @tab-gap-top;
+      text-align: center;
+      line-height: @tab-list-item-height;
+      cursor: pointer;
+      .text-of();
+      .transition-base(all .2s ease-in .01s);
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        .user-tap-base();
+      }
+    }
+  }
+  .wx-tablist-wrap {
+    height: @tab-list-height;
+    > li,
+    > a {
+      width: auto;
+      height: 100%;
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        .user-tap-base();
+      }
+      .user-select-base();
+    }
+    .active,
+    .tabactive {
+      color: @main-theme-color;
+      border-bottom: 2px solid @main-theme-color;
+      &:hover,
+      &:active,
+      &:focus {
+        color: darken(@main-theme-color, 10%);
+        border-bottom: 2px solid darken(@main-theme-color, 10%);
+      }
+    }
+  }
+  ul.wx-tablist-wrap {
+    margin: 0;
+  }
+  .wx-tabcolumn-wrap {
+    @tab-lineheight: @tab-icon-width * 3;
+    height: auto;
+    > li,
+    > a {
+      .layout-relative-base(0, 0, 50);
+      width: 33.33333%;
+      height: @tab-lineheight;
+      overflow: hidden;
+      line-height: @tab-lineheight;
+      &:before,
+      &:after {
+        .layout-absoluter-base(0, 0, -1);
+        width: 100%;
+        height: 50%;
+        font-family: 'zw_iconfont';
+        display: inline-block;
+        text-align: center;
+        margin: 0;
+      }
+      &:before {
+        line-height: @font-size-base * 4;
+        content: '\e62f';
+        color: @color-red1;
+        font-size: @font-size-base + 8;
+      }
+    }
+    .active,
+    .tabactive {
+      background-color: lighten(@color-gray14, 2%);
+      &:hover,
+      &:active,
+      &:focus {
+        color: darken(@main-theme-color, 10%);
+        border-bottom: 2px solid darken(@main-theme-color, 10%);
+      }
+    }
+    &:not(:empty) {
+      border-bottom: 1px solid @color-gray14;
+      border-top: 1px solid @color-gray14;
+    }
+    .menu-border-br {
+      border-bottom: 1px solid @color-gray14;
+      border-right: 1px solid @color-gray14;
+    }
+    .menu-border-b {
+      border-bottom: 1px solid @color-gray14;
+    }
+    .menu-border-r {
+      border-right: 1px solid @color-gray14;
+    }
+
+    /*icon*/
+    /*意见*/
+    .menu-yijian {
+      &:before {
+        content: '\e63c';
+        color: @color-orange1;
+        font-size: @font-size-base + 8;
+      }
+    }
+    /*正文*/
+    .menu-zhengwen {
+      &:before {
+        content: '\e85c';
+        color: @color-green1;
+        font-size: @font-size-base + 8;
+      }
+    }
+    /*资料*/
+    .menu-ziliao {
+      &:before {
+        content: '\e600';
+        color: @color-green1;
+        font-size: @font-size-base + 8;
+      }
+    }
+    /*便签贴*/
+    .menu-bianqian {
+      &:before {
+        content: '\e611';
+        color: @color-orange1;
+        font-size: @font-size-base + 8;
+      }
+    }
+    /*呈批*/
+    .menu-chengpi {
+      &:before {
+        content: '\e6b9';
+        color: @color-blue1;
+        font-size: @font-size-base + 8;
+      }
+    }
+    /*办理*/
+    .menu-banli {
+      &:before {
+        content: '\e654';
+        color: @color-global-purple;
+        font-size: @font-size-base + 12;
+      }
+    }
+    /*跟踪*/
+    .menu-genzong {
+      &:before {
+        content: '\e701';
+        color: @color-blue1;
+        font-weight: bold;
+        font-size: @font-size-base + 4;
+        text-indent: @font-size-base * .9;
+        line-height: @font-size-base * 3;
+      }
+      &:after {
+        content: '\e6fe';
+        color: @color-blue1;
+        font-weight: bold;
+        line-height: @font-size-base * 4;
+        font-size: @font-size-base + 4;
+      }
+    }
+    /*表单*/
+    .menu-biaodan {
+      &:before {
+        content: '\e6ab';
+        color: @color-blue1;
+        font-size: @font-size-base + 8;
+      }
+    }
+    /*签发*/
+    .menu-qianfa {
+      &:before {
+        content: '\e6c5';
+        color: @color-green1;
+        font-size: @font-size-base + 12;
+      }
+      &:after {
+        content: '\e601';
+        color: @color-global-white;
+        font-size: @font-size-base;
+        line-height: @font-size-base * 4;
+        font-weight: bold;
+      }
+    }
+    /*会议信息*/
+    .menu-huiyi {
+      &:before {
+        content: '\e612';
+        color: @color-red1;
+        font-size: @font-size-base + 8;
+      }
+    }
+    /*会议报名表*/
+    .menu-huiyibaoming {
+      &:before {
+        content: '\e612';
+        color: @color-red1;
+        font-size: @font-size-base + 8;
+      }
+    }
+  }
+
+  /*右侧按钮*/
+  .tabpanel-btnright {
+    padding-right: @tab-icon-width;
+    .wx-tabpanel-toggle {
+      right: 0;
+    }
+  }
+  /*左侧按钮*/
+  .tabpanel-btnleft {
+    padding-left: @tab-icon-width;
+    .wx-tabpanel-toggle {
+      left: 0;
+    }
+  }
+  /*左右按钮*/
+  .tabpanel-btnleft,
+  .tabpanel-btnright {
+    /*图标切换按钮*/
+    .wx-tabpanel-toggle {
+      position: absolute;
+      top: 0;
+      z-index: 100;
+      width: @tab-icon-width;
+      height: @tab-list-height;
+      cursor: pointer;
+      text-align: center;
+      background-color: @color-global-white;
+      line-height: @tab-list-height;
+      .user-select-base();
+      &:after {
+        width: @tab-icon-width;
+        height: @tab-icon-width;
+        .border-radius-base(50%);
+        overflow: hidden;
+        display: inline-block;
+        line-height: @tab-icon-width;
+        .transition-base(all .2s linear .01s);
+        margin-top: (@tab-list-height - @tab-icon-width)/2;
+        color: @color-gray6;
+        font-size: @font-size-base * 1.6;
+        content: '\e703';
+        font-family: 'zw_iconfont';
+      }
+    }
+  }
+
+  /*多个定宽情况tab(超过4个以上)*/
+  .wx-tabpanel-wrap {
+    .layout-relative-base(0, 0, 50);
+    width: 100%;
+    height: auto;
+    background-color: @color-global-white;
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      .user-tap-base();
+    }
+  }
+  /*tab显示区*/
+  .wx-tabpanel-list {
+    .layout-relative-base(0, 0, 50);
+    width: 100%;
+    display: block;
+    height: @tab-list-height;
+    overflow: hidden;
+  }
+  .wx-tabpanel-grid {
+    .layout-absolutel-base(0, -100vh, 60);
+    width: 100%;
+    display: block;
+    .transition-base(top .2s ease-in .01s ~',' opacity .2s linear .05s);
+    .opacity-base(0);
+    background-color: @color-global-white;
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      @h-text-gap: 4px;
+
+      display: block;
+      text-align: center;
+      min-height: @tab-list-height;
+      max-height: @tab-list-height * 5;
+      overflow-y: auto;
+      .text-ww();
+      .calc-base(width, '100% - @{tab-icon-width}');
+      line-height: @font-size-base + 10;
+      vertical-align: bottom;
+      color: @color-gray6;
+      font-size: @font-size-base + 4;
+      background-color: @color-global-white;
+      padding: 10px 0 10px @tab-icon-width - @h-text-gap;
+      font-weight: normal;
+    }
+  }
+  /*遮罩区*/
+  .wx-tabpanel-mask {
+    .layout-absolutel-base(0, -100vh, 40);
+    background-color: rgba(255, 255, 255, 0);
+    width: 100vw;
+    height: 100vh;
+    .transition-base(top .05s linear .3s);
+    .user-select-base();
+  }
+  /*tab操作区*/
+  .wx-tabpanel-slide {
+    .layout-absolutel-base(0, 0, 55);
+    .transition-base(left .2s linear .01s);
+    width: 100%;
+    height: @tab-list-height;
+    .user-select-base();
+  }
+  .wx-tabpanel-slide-none {
+    .transition-base(none) !important;
+  }
+  /*tab宫格区*/
+  .wx-tabpanel-column {
+    .wx-tabpanel-list {
+    }
+    .wx-tabpanel-grid {
+      .transition-base(top .2s linear .01s ~',' opacity .2s linear .01s);
+      top: 0;
+      .opacity-base(100);
+    }
+    .wx-tabpanel-toggle:after {
+      .transform-origin-base();
+      .transform-base(rotate(180deg));
+    }
+    .wx-tabpanel-mask {
+      top: 0;
+      .transition-base(none);
+    }
+  }
+
+  /*圆角tab选中*/
+  .wx-tabradius-wrap {
+    @tabradius-gap-top: (@tabradius-list-height - @tabradius-list-item-height) / 2;
+
+    width: 100%;
+    font-size: 0;
+    padding: 0 @grid-list-gap/2;
+    min-height: @tabradius-list-height;
+    margin: 0 0 @grid-list-gap/2 0;
+    background-color: @color-global-white;
+    background-clip: content-box;
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      .user-tap-base();
+    }
+    .user-select-base();
+    > li {
+      display: inline-block;
+      width: auto;
+      height: @tabradius-list-height;
+      padding: @tabradius-gap-top;
+      cursor: pointer;
+      > div {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: @color-gray3;
+        font-size: @font-size-base + 2;
+        line-height: @tabradius-list-item-height;
+        .border-radius-base(@tabradius-list-item-height/2);
+        .text-of();
+        .transition-base(all .2s linear .01s);
+      }
+    }
+    .tabactive > div {
+      background-color: @main-theme-color;
+      color: @color-global-white;
+    }
+  }
+}
+
+/*调用tab*/
+.wx-tablist-function();
+
+/*!--循环生成1-30项平均分配--*/
+.tablist-item-loop(@index) when (@index>0) {
+  .wx-tablist-item@{index} {
+    > li,
+    > a {
+      width: unit(100 / @index, %);
+    }
+  }
+  .tablist-item-loop(@index - 1);
+}
+
+/*平均分配生成调用*/
+.tablist-item-loop(30);
+

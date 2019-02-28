@@ -1,0 +1,101 @@
+///*清除所有间距*/
+.g-clear-gap {
+  margin: 0;
+  padding: 0;
+}
+
+.g-clear-gapi {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/*清除内边距*/
+.g-clear-p {
+  padding: 0;
+}
+
+.g-clear-pi {
+  padding: 0 !important;
+}
+
+/*清除外边距*/
+.g-clear-m {
+  margin: 0;
+}
+
+.g-clear-mi {
+  margin: 0 !important;
+}
+
+/*清除上外边距*/
+.g-clear-mt {
+  margin-top: 0 !important;
+}
+
+/*清除右外边距*/
+.g-clear-mr {
+  margin-right: 0 !important;
+}
+
+/*清除下外边距*/
+.g-clear-mb {
+  margin-bottom: 0 !important;
+}
+
+/*清除左外边距*/
+.g-clear-ml {
+  margin-left: 0 !important;
+}
+
+/*清除上内边距*/
+.g-clear-pt {
+  padding-top: 0 !important;
+}
+
+/*清除右内边距*/
+.g-clear-pr {
+  padding-right: 0 !important;
+}
+
+/*清除下内边距*/
+.g-clear-pb {
+  padding-bottom: 0 !important;
+}
+
+/*清除左内边距*/
+.g-clear-pl {
+  padding-left: 0 !important;
+}
+
+/*生成内外边距*/
+.g-gap-for(@n,@i:1) when (@i =< @n) {
+  /*内边距生成*/
+  .g-gap-pt@{i} {
+    padding-top: @i * 1px !important;
+  }
+  .g-gap-pr@{i} {
+    padding-right: @i * 1px !important;
+  }
+  .g-gap-pb@{i} {
+    padding-bottom: @i * 1px !important;
+  }
+  .g-gap-pl@{i} {
+    padding-left: @i * 1px !important;
+  }
+  /*生成外边距*/
+  .g-gap-mt@{i} {
+    margin-top: @i * 1px !important;
+  }
+  .g-gap-mr@{i} {
+    margin-right: @i * 1px !important;
+  }
+  .g-gap-mb@{i} {
+    margin-bottom: @i * 1px !important;
+  }
+  .g-gap-ml@{i} {
+    margin-left: @i * 1px !important;
+  }
+  .g-gap-for(@n, (@i+1));
+}
+
+.g-gap-for(10);

@@ -1,0 +1,177 @@
+/*form 相关组件*/
+/*正文下载*/
+.wx-download-text-wrap {
+  @download-height: 120px;
+  @download-padding: 10px;
+  @download-gap-inner: @download-padding * 3;
+  @downloan-height-inner: @download-height - @download-gap-inner * 2;
+
+  width: 100%;
+  min-height: @download-height;
+  display: block;
+  padding: @download-padding/2;
+
+  /*引入动画*/
+  .animate-download();
+
+  &.wx-download-edit .download-bg {
+    background-color: @color-blue1;
+    background-image: url('../images/icon_download_edit.png');
+    /*图标*/
+    .download-icon {
+      &:after {
+        color: @color-green1;
+      }
+    }
+    &:hover {
+      background-color: darken(@color-blue1, 5%);
+      .download-icon {
+        &:after {
+          color: darken(@color-green1, 5%);
+        }
+      }
+    }
+    &:active,
+    &:focus {
+      background-color: darken(@color-blue1, 15%);
+      .download-icon {
+        &:after {
+          color: darken(@color-green1, 15%);
+        }
+      }
+    }
+    &:active {
+      /*动画调用*/
+      .animation-base(dl-bgicon .5s ease-in infinite alternate);
+    }
+  }
+  &.wx-download-format .download-bg {
+    background-color: @color-green1;
+    background-image: url('../images/icon_download_format.png');
+    /*图标*/
+    .download-icon {
+      &:after {
+        color: @color-blue1;
+      }
+    }
+    &:hover {
+      background-color: darken(@color-green1, 5%);
+      .download-icon {
+        &:after {
+          color: darken(@color-blue1, 5%);
+        }
+      }
+    }
+    &:active,
+    &:focus {
+      background-color: darken(@color-green1, 15%);
+      .download-icon {
+        &:after {
+          color: darken(@color-blue1, 15%);
+        }
+      }
+    }
+    &:active {
+      /*动画调用*/
+      .animation-base(dl-bgicon .8s ease-out infinite alternate);
+    }
+  }
+
+  /*下载按钮背景*/
+  .download-bg {
+    .border-radius-base(5px);
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    padding: @download-gap-inner 0;
+    line-height: @downloan-height-inner;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: auto 50%;
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      .user-tap-base();
+    }
+    .user-select-base();
+  }
+  .download-text,
+  .download-icon {
+    display: inline-block;
+    height: 100%;
+  }
+  /*下载文字*/
+  .download-text {
+    color: @color-global-white;
+    font-size: @font-size-base + 2;
+    padding: 0 @download-padding 0 0;
+  }
+  /*下载图标*/
+  .download-icon {
+    .layout-relative-base();
+    width: 0;
+    &:before,
+    &:after {
+      .layout-absolutel-base(0, -(@downloan-height-inner + @download-padding)/2);
+      display: inline-block;
+      .border-radius-base(50%);
+    }
+    &:before {
+      background-color: @color-global-white;
+      margin: @download-padding/2 0 0 @download-padding/2;
+      width: @downloan-height-inner - @download-padding;
+      height: @downloan-height-inner - @download-padding;
+      .box-shadow-base(1px 1px 3px 0 @color-gray5);
+      content: '';
+    }
+    &:after {
+      width: @downloan-height-inner;
+      height: @downloan-height-inner;
+      content: '\e782';
+      font-size: @font-size-base * 2;
+      color: @color-green1;
+      text-align: center;
+      font-family: 'zw_iconfont';
+      vertical-align: middle;
+    }
+  }
+
+  /*下载icon*/
+
+  /*动画定义*/
+  .animate-download() {
+    /*动画状态*/
+    .anim-download() {
+      0% {
+        background-position: 0% 100%;
+        background-size: auto 50%;
+      }
+      100% {
+        background-position: -5% 105%;
+        background-size: auto 55%;
+      }
+    }
+    /*动画名称*/
+    @-webkit-keyframes dl-bgicon {
+      .anim-download();
+    }
+    @-moz-keyframes dl-bgicon {
+      .anim-download();
+    }
+    @-ms-keyframes dl-bgicon {
+      .anim-download();
+    }
+    @keyframes dl-bgicon {
+      .anim-download();
+    }
+  }
+}
+
+
+
+
+
+
+
+

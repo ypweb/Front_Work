@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>已签收--条件查询</title>
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+    <link rel="stylesheet" href="../../resource/js/lib/weui/css/jquery-weui.css">
+    <link rel="stylesheet" href="../../app/feishidian/css/sign.css">
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl: '/zwwx/',
+            paths: {
+                'jquery': "resource/js/lib/jquery/jquery.min",
+                'weuiJS': "resource/js/lib/weui/js/jquery-weui.min"
+            },
+            shim: {
+                'weuiJS': {
+                    deps: ['jquery']
+                }
+            }
+        });
+
+
+        /*程序入口*/
+        require(['jquery', 'weuiJS'], function ($, undefined) {
+            $(function () {
+                //页面元素获取
+                var $begin_date = $('#begin_date'),
+                    $end_date = $('#end_date'),
+                    $search_from = $('#search_from');
+
+
+                /*时间日期初始化*/
+                $.each([$begin_date, $end_date], function () {
+                    this.calendar({
+                        dateFormat: 'yyyy-mm-dd'
+                    });
+                });
+
+
+                /*绑定提交表单*/
+                $search_from.on('click', function (e) {
+                    var target = e.target,
+                        nodename = target.nodeName.toString().toLowerCase();
+                    if (nodename === 'div' && target.className.toString().indexOf('wx-search-form') !== -1) {
+                        /*绑定mask区关闭*/
+                        $(target).prev().prop({
+                            'checked': false
+                        });
+                    }else if(nodename==='span' && target.className.toString().indexOf('icon-delete') !== -1){
+                        /*绑定清空内容*/
+                        $(target).prev().val('');
+                    }
+                });
+
+
+
+
+            });
+        });
+    </script>
+</head>
+<body class="g-bc-white">
+
+<!--查询条件-->
+<div class="wx-search-condition">
+    <input class="wx-search-check" type="checkbox" id="hs_search_btn">
+    <div class="wx-search-form" id="search_from">
+        <form>
+            <div class="weui-cells weui-cells_form g-clear-m">
+                <!--文件标题-->
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">文件标题:</label>
+                    </div>
+                    <div class="weui-cell__bd wx-form-inputdelete">
+                        <input class="weui-input" name="wjbt" placeholder="文件标题" required type="text">
+                        <span class="icon-delete"></span>
+                    </div>
+                </div>
+                <!--来文编号-->
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">来文编号:</label>
+                    </div>
+                    <div class="weui-cell__bd wx-form-inputdelete">
+                        <input class="weui-input" name="lwbh" placeholder="来文编号" required type="text">
+                        <span class="icon-delete"></span>
+                    </div>
+                </div>
+                <!--状态-->
+                <div class="weui-cell weui-cell_access g-clear-pt g-clear-pb">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">状态:</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <select class="weui-select g-clear-pl" name="zt">
+                            <option value="" selected>状态</option>
+                            <option value="1">状态1</option>
+                            <option value="2">状态2</option>
+                            <option value="3">状态3</option>
+                        </select>
+                    </div>
+                    <div class="weui-cell__ft"></div>
+                </div>
+                <!--来文时间-->
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">来文时间:</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" placeholder="开始日期" id="begin_date" type="text" readonly>
+                    </div>
+                    <div class="g-w-number6 g-ta-c">-</div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" placeholder="结束日期" id="end_date" type="text" readonly>
+                    </div>
+                </div>
+                <!--来文单位-->
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">来文单位:</label>
+                    </div>
+                    <div class="weui-cell__bd wx-form-inputdelete">
+                        <input class="weui-input" name="lwdw" placeholder="来文单位" required type="text">
+                        <span class="icon-delete"></span>
+                    </div>
+                </div>
+                <!--签发领导-->
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">签发领导:</label>
+                    </div>
+                    <div class="weui-cell__bd wx-form-inputdelete">
+                        <input class="weui-input" name="jfld" placeholder="签发领导" required type="text">
+                        <span class="icon-delete"></span>
+                    </div>
+                </div>
+                <!--来文字号-->
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">来文字号:</label>
+                    </div>
+                    <div class="weui-cell__bd wx-form-inputdelete">
+                        <input class="weui-input" name="lwzh" placeholder="来文字号" required type="text">
+                        <span class="icon-delete"></span>
+                    </div>
+                </div>
+                <div class="weui-cell g-h-number10">
+                    <div class="weui-cell__bd g-ta-c search-line-r">
+                        <label class="g-c-gray8 g-fs6" for="hs_search_btn">关闭</label>
+                    </div>
+                    <div class="weui-cell__bd g-ta-c search-line-r">
+                        <button class="g-b-none g-fs6 g-c-gray8 g-bc-white" type="reset">重置</button>
+                    </div>
+                    <div class="weui-cell__bd g-ta-c">
+                        <label class="g-fs6 g-c-wxextend1" for="hs_search_btn">确定</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="wx-search-toggle"></div>
+</div>
+
+
+<div class="gridStyle gridstyle-search-extend">
+    <div class="row-message">
+        <div class="row-message1">
+            <div class="rowLeft">
+                <div class="priorityStyle" style="background-color:#74cdf5">平件</div>
+            </div>
+            <div class="rowRight">
+                <div class="title">市政府7届24次常务会议</div>
+                <div class="authorname">深圳市人民政府办公厅</div>
+            </div>
+        </div>
+        <div class="row-message2">
+            <div class="rowBottom">
+                <div class="bottomLeft"></div>
+                <div class="bottomRight">签收时间：2018-09-20</div>
+            </div>
+        </div>
+        <div class="hideCldid" style="display:none">FAE72E3315E92B536929F0D7B8F8077D</div>
+    </div>
+    <div class="row-message">
+        <div class="row-message1">
+            <div class="rowLeft">
+                <div class="priorityStyle" style="background-color:#74cdf5">平件</div>
+            </div>
+            <div class="rowRight">
+                <div class="title">市政府7届24次常务会议</div>
+                <div class="authorname">深圳市人民政府办公厅</div>
+            </div>
+        </div>
+        <div class="row-message2">
+            <div class="rowBottom">
+                <div class="bottomLeft"></div>
+                <div class="bottomRight">签收时间：2018-09-20</div>
+            </div>
+        </div>
+        <div class="hideCldid" style="display:none">FAE72E3315E92B536929F0D7B8F8077D</div>
+    </div>
+    <div class="row-message">
+        <div class="row-message1">
+            <div class="rowLeft">
+                <div class="priorityStyle" style="background-color:#74cdf5">平件</div>
+            </div>
+            <div class="rowRight">
+                <div class="title">市政府7届24次常务会议</div>
+                <div class="authorname">深圳市人民政府办公厅</div>
+            </div>
+        </div>
+        <div class="row-message2">
+            <div class="rowBottom">
+                <div class="bottomLeft"></div>
+                <div class="bottomRight">签收时间：2018-09-20</div>
+            </div>
+        </div>
+        <div class="hideCldid" style="display:none">FAE72E3315E92B536929F0D7B8F8077D</div>
+    </div>
+    <div class="row-message">
+        <div class="row-message1">
+            <div class="rowLeft">
+                <div class="priorityStyle" style="background-color:#74cdf5">平件</div>
+            </div>
+            <div class="rowRight">
+                <div class="title">市政府7届24次常务会议</div>
+                <div class="authorname">深圳市人民政府办公厅</div>
+            </div>
+        </div>
+        <div class="row-message2">
+            <div class="rowBottom">
+                <div class="bottomLeft"></div>
+                <div class="bottomRight">签收时间：2018-09-20</div>
+            </div>
+        </div>
+        <div class="hideCldid" style="display:none">FAE72E3315E92B536929F0D7B8F8077D</div>
+    </div>
+    <div class="row-message">
+        <div class="row-message1">
+            <div class="rowLeft">
+                <div class="priorityStyle" style="background-color:#74cdf5">平件</div>
+            </div>
+            <div class="rowRight">
+                <div class="title">市政府7届24次常务会议</div>
+                <div class="authorname">深圳市人民政府办公厅</div>
+            </div>
+        </div>
+        <div class="row-message2">
+            <div class="rowBottom">
+                <div class="bottomLeft"></div>
+                <div class="bottomRight">签收时间：2018-09-20</div>
+            </div>
+        </div>
+        <div class="hideCldid" style="display:none">FAE72E3315E92B536929F0D7B8F8077D</div>
+    </div>
+</div>
+</body>
+</html>

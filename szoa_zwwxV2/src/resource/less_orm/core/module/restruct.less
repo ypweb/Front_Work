@@ -1,0 +1,75 @@
+/*重构重置其他人*/
+.wrap {
+  .swiper-container {
+    .swiper-slide {
+      .calc-base(height, '100vh - 44px') !important;
+      overflow-y: auto;
+    }
+  }
+}
+
+/*表单扩展*/
+.weui-cells_form {
+  /*验证码*/
+  .wx-form-vcode {
+    display: inline-block;
+    padding: 5px 10px 5px 0;
+    width: 90px;
+    > div {
+      width: 100%;
+      border: 1px solid @color-gray12;
+      .border-radius-base(3px);
+      background-color: lighten(@color-gray14, 2%);
+      vertical-align: middle;
+      display: inline-block;
+      cursor: pointer;
+      height: 35px;
+    }
+  }
+  /*带有删除icon功能的*/
+  .wx-form-inputdelete {
+    @delete-width: 25px;
+
+    .layout-relative-base();
+    > .weui-input + span.icon-delete {
+      .transition-base(all .3s ease-in .01s);
+      .layout-absoluter-base();
+      width: @delete-width;
+      height: @delete-width;
+      .border-radius-base(50%);
+      cursor: pointer;
+      overflow: hidden;
+      display: block;
+      .transform-origin-base(50% 50%);
+      .transform-base(scale(.01));
+      &:before {
+        background-color: darken(@color-gray14, 2%);
+        font-family: zw_iconfont;
+        color: @color-global-white;
+        font-size: @font-size-base * 1.2;
+        content: '\e602';
+        float: left;
+        width: 100%;
+        height: 100%;
+        line-height: @delete-width;
+        text-align: center;
+        display: block;
+      }
+    }
+    > .weui-input:valid + span.icon-delete {
+      .transform-base(scale(1));
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

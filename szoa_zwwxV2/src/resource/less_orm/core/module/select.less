@@ -1,0 +1,113 @@
+/*常用下拉列表--定义*/
+.wx-select-function() {
+
+  /*待办--交换跟踪列表*/
+  .wx-followselect-wrap {
+    @title-height: @select-list-height - @select-list-gap * 2;
+
+    .layout-relative-base(0, 0, 10);
+    width: 100%;
+    background-color: @color-global-white;
+    padding: @select-list-gap;
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      .user-tap-base();
+    }
+    .user-select-base();
+    /*下拉列表通用样式*/
+    .select-title,
+    .select-list > li {
+      .layout-relative-base();
+      width: 100%;
+      display: inline-block;
+      height: @select-list-height;
+      padding: @select-list-gap @title-height + 10 @select-list-gap 0;
+      line-height: @title-height;
+      border-bottom: 1px solid @color-gray14;
+      color: @color-gray9;
+      font-size: @font-size-base + 2;
+      .text-ofe();
+      p {
+        display: inline;
+        height: 100%;
+        line-height: @title-height;
+        .text-ofe();
+        color: @color-gray3;
+        padding: 0 0 0 @select-list-gap;
+      }
+      &:after {
+        .layout-absoluter-base();
+        width: @title-height;
+        height: 100%;
+        line-height: @select-list-height;
+        cursor: pointer;
+        text-align: center;
+        font-family: zw_iconfont;
+      }
+    }
+    /*标题*/
+    .select-title {
+      .layout-relative-base(0, 0, 20);
+      &:after {
+        .transition-base(all .3s ease-in .01s);
+        content: '\e703';
+        display: inline-block;
+        color: @color-gray6;
+        font-size: @font-size-base * 1.6;
+      }
+      /*标题激活*/
+      &.title-toggle {
+        &:after {
+          .transform-origin-base();
+          .transform-base(rotate(180deg));
+          color: @main-theme-color;
+        }
+      }
+    }
+    /*下拉列表*/
+    .select-list-wrap {
+      .layout-absolutel-base(0, @select-list-height + @select-list-gap * 1.6, 60);
+      background-color: @color-global-white;
+      padding: 0 @select-list-gap;
+      width: 100%;
+    }
+    .select-list {
+      width: 100%;
+      display: none;
+      max-height: @select-list-height * 6;
+      overflow-y: auto;
+      border-bottom: 1px solid @color-gray12;
+      > li {
+        width: 100%;
+        padding-left: @select-list-gap;
+        &:last-child {
+          border-bottom: none;
+        }
+        &:hover,
+        &:active {
+          background-color: @color-gray14;
+        }
+        &:after {
+          display: none;
+          content: '\e69f';
+          color: @color-red1;
+          font-size: @font-size-base * 1.2;
+        }
+        &.select-active {
+          &:after {
+            display: inline-block;
+          }
+        }
+      }
+      &.list-toggle {
+        display: inline-block;
+      }
+    }
+  }
+
+}
+
+/*常用下拉列表--生成*/
+.wx-select-function();

@@ -1,0 +1,314 @@
+/*按钮列表*/
+.wx-btnlist-wrap {
+  @btn-gapt: 16px;
+  @btn-height: 36px;
+  @btn-font-size: @font-size-base;
+
+  font-size: 0;
+  width: 100%;
+  padding: 0 @body-gap-left @btn-gapt;
+  background-color: @color-global-white;
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    .user-tap-base();
+  }
+  .user-select-base();
+  > li {
+    height: @btn-height;
+    margin: @btn-gapt * .6 0 0 0;
+    display: inline-block;
+    > div {
+      .layout-relative-base();
+      height: 100%;
+      width: 100%;
+      display: inline-block;
+      font-size: @btn-font-size;
+      .border-radius-base(6px);
+      .transition-base(all .2s ease-in .01s);
+      text-align: center;
+      .text-ofe();
+      cursor: pointer;
+      color: @color-gray3;
+      line-height: @btn-height;
+      border: 1px solid darken(@color-gray13, 1.6%);
+      padding: 0 @btn-height/8;
+      &:hover {
+        border: 1px solid @color-gray11;
+      }
+      &:active {
+        border: 1px solid @color-gray9;
+      }
+    }
+  }
+  .wx-btnlist-active {
+    > div {
+      color: @main-theme-color;
+      border: 1px solid @main-theme-color;
+      &:after {
+        .layout-absoluterb-base(0, 0);
+        width: @btn-font-size + 5;
+        height: @btn-font-size + 5;
+        line-height: @btn-font-size + 5;
+        display: inline-block;
+        font-size: @btn-font-size + 20;
+        content: '\e667';
+        .border-radius-base(0 0 4px 0);
+        font-family: 'zw_iconfont';
+        color: @main-theme-color;
+      }
+      &:hover {
+        border: 1px solid darken(@main-theme-color, 10%);
+        color: darken(@main-theme-color, 10%);
+        &:after {
+          color: darken(@main-theme-color, 10%);
+        }
+      }
+      &:active {
+        border: 1px solid darken(@main-theme-color, 15%);
+        color: darken(@main-theme-color, 15%);
+        &:after {
+          color: darken(@main-theme-color, 15%);
+        }
+      }
+    }
+  }
+}
+
+/*按钮分组*/
+/*2列--列表*/
+.wx-btnlist-item2 {
+  > li {
+    width: 50%;
+    &:nth-child(2n) {
+      padding-left: @list-gap-left;
+    }
+    &:nth-child(2n + 1) {
+      padding-right: @list-gap-left;
+    }
+  }
+}
+
+/*3列--列表*/
+.wx-btnlist-item3 {
+  > li {
+    width: 33.33333%;
+    padding: 0 @list-gap-left;
+    &:nth-child(3n + 1) {
+      padding-right: @list-gap-left;
+      padding-left: 0 !important;
+    }
+    &:nth-child(3n) {
+      padding-left: @list-gap-left;
+      padding-right: 0 !important;
+    }
+  }
+}
+
+/*4列--列表*/
+.wx-btnlist-item4 {
+  > li {
+    width: 25%;
+    padding: 0 @list-gap-left;
+    &:nth-child(4n + 1) {
+      padding-right: @list-gap-left;
+      padding-left: 0 !important;
+    }
+    &:nth-child(4n) {
+      padding-left: @list-gap-left;
+      padding-right: 0 !important;
+    }
+  }
+}
+
+/*5列--列表*/
+.wx-btnlist-item5 {
+  > li {
+    width: 20%;
+    padding: 0 @list-gap-left;
+    &:nth-child(5n + 1) {
+      padding-right: @list-gap-left;
+      padding-left: 0 !important;
+    }
+    &:nth-child(5n) {
+      padding-left: @list-gap-left;
+      padding-right: 0 !important;
+    }
+  }
+}
+
+/*自适应列表*/
+.wx-btnlist-auto(@btn-gapt:16px,@btn-height:36px) {
+  > li {
+    width: auto !important;
+    height: auto !important;
+    margin: @btn-gapt * .8 @btn-gapt * .5 0 0;
+    > div {
+      text-align: left;
+      height: auto;
+      width: auto;
+      text-overflow: unset;
+      .text-of(visible, normal);
+      .text-ww();
+      font-size: @font-size-base + 2;
+      line-height: @btn-height * .7;
+      padding:@btn-height/4 @btn-height/2;
+      &:after {
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+/*自适应列表*/
+.wx-btnlist-auto {
+  .wx-btnlist-auto();
+}
+
+/*适配*/
+.wx-btnlist-media(@btn-gapt:17px,@btn-height:36px) {
+  /*480适配*/
+  @media screen and (max-width: 480px) {
+    .wx-btnlist-wrap {
+      padding-left: @body-gap-left/2;
+      padding-right: @body-gap-left/2;
+      padding-bottom: @btn-gapt/2;
+      > li {
+        > div {
+          margin: @btn-gapt/2 0 0 0;
+          .border-radius-base(6px);
+          padding: 0 @btn-gapt/4;
+        }
+      }
+    }
+
+    /*2列--列表*/
+    .wx-btnlist-item2 {
+      > li {
+        &:nth-child(2n) {
+          padding-left: @list-gap-left/2;
+        }
+        &:nth-child(2n + 1) {
+          padding-right: @list-gap-left/2;
+        }
+      }
+    }
+
+    /*3列--列表*/
+    .wx-btnlist-item3 {
+      > li {
+        padding: 0 @list-gap-left/2;
+        &:nth-child(3n + 1) {
+          padding-right: @list-gap-left/2;
+        }
+        &:nth-child(3n) {
+          padding-left: @list-gap-left/2;
+        }
+      }
+    }
+
+    /*4列--列表*/
+    .wx-btnlist-item4 {
+      > li {
+        padding: 0 @list-gap-left/2;
+        &:nth-child(4n + 1) {
+          padding-right: @list-gap-left/2;
+        }
+        &:nth-child(4n) {
+          padding-left: @list-gap-left/2;
+        }
+      }
+    }
+
+    /*5列--列表*/
+    .wx-btnlist-item5 {
+      > li {
+        padding: 0 @list-gap-left/2;
+        &:nth-child(5n + 1) {
+          padding-right: @list-gap-left/2;
+        }
+        &:nth-child(5n) {
+          padding-left: @list-gap-left/2;
+        }
+      }
+    }
+  }
+  /*320适配*/
+  @media screen and (max-width: 320px) {
+    .wx-btnlist-wrap {
+      padding-left: @body-gap-left/4;
+      padding-right: @body-gap-left/4;
+      padding-bottom: @btn-gapt/4;
+      > li {
+        > div {
+          margin: @btn-gapt/4 0 0 0;
+          .border-radius-base(4px);
+          padding: 0 @btn-gapt/6;
+        }
+      }
+    }
+
+    /*2列--列表*/
+    .wx-btnlist-item2 {
+      > li {
+        &:nth-child(2n) {
+          padding-left: @list-gap-left/4;
+        }
+        &:nth-child(2n + 1) {
+          padding-right: @list-gap-left/4;
+        }
+      }
+    }
+
+    /*3列--列表*/
+    .wx-btnlist-item3 {
+      > li {
+        padding: 0 @list-gap-left/4;
+        &:nth-child(3n + 1) {
+          padding-right: @list-gap-left/4;
+        }
+        &:nth-child(3n) {
+          padding-left: @list-gap-left/4;
+        }
+      }
+    }
+
+    /*4列--列表*/
+    .wx-btnlist-item4 {
+      > li {
+        padding: 0 @list-gap-left/4;
+        &:nth-child(4n + 1) {
+          padding-right: @list-gap-left/4;
+        }
+        &:nth-child(4n) {
+          padding-left: @list-gap-left/4;
+        }
+      }
+    }
+
+    /*5列--列表*/
+    .wx-btnlist-item5 {
+      > li {
+        padding: 0 @list-gap-left/4;
+        &:nth-child(5n + 1) {
+          padding-right: @list-gap-left/4;
+        }
+        &:nth-child(5n) {
+          padding-left: @list-gap-left/4;
+        }
+      }
+    }
+  }
+}
+
+/*执行适配*/
+//.wx-btnlist-media();
+
+
+
+
+
+
+
+

@@ -1,0 +1,105 @@
+/*form组件*/
+.wx-form-function() {
+  /*扩展微信表单*/
+  .weui-cells_form{
+    /*签收--选择表单--扩展微信选中*/
+    .wx-weui-cells-checkwrap {
+      font-size: 0;
+      .weui-check__label {
+        .layout-relative-base(0, 0, 1);
+        .user-tap-base();
+        .user-select-base();
+        display: inline-block;
+        margin:0 8px 5px 0;
+        cursor: pointer;
+        padding:0;
+        vertical-align: middle;
+        >input[type='radio'].weui-check,
+        >input[type='checkbox'].weui-check{
+          margin:0;
+          padding:0;
+          .layout-absolutel-base(0, 0, 20);
+          display: inline-block;
+          width:100%;
+          height:100%;
+          .opacity-base(0);
+          &:checked ~ span.weui-icon-checked{
+            border:1px solid @main-theme-color;
+            .layout-relative-base(0,0,1);
+            overflow: hidden;
+            &:after{
+              width:13px;
+              height:13px;
+              line-height: 13px;
+              text-align: right;
+              display: block;
+              color:@main-theme-color;
+              font-size: @font-size-base;
+              .layout-absoluterb-base(-1px,-1px,2);
+              content:'\e61e';
+              font-family: zw_iconfont;
+            }
+          }
+        }
+        >span.weui-icon-checked{
+          cursor: pointer;
+          display: inline-block;
+          width:100%;
+          height:100%;
+          margin:0;
+          padding:0 6px 3px 4px;
+          font-size:@font-size-base + 3;
+          vertical-align: middle;
+          line-height: @font-size-base + 8;
+          color:@color-gray6;
+          border:1px solid @color-gray12;
+          .border-radius-base(3px);
+        }
+      }
+    }
+    /*微信扩展-日历icon*/
+    .weui-cell_datetime{
+      .weui-cell__ft{
+        width:0;
+        .weui-icon-datetime{
+          @dt-width:25px;
+
+          margin:0;
+          height:0;
+          width:0;
+          padding:0;
+          display: inline-block;
+          .layout-relative-base(0,0,1);
+          &:after{
+            .layout-absolutel-base(0,0,10);
+            .user-select-base();
+            cursor: pointer;
+            content:'\e646';
+            color:@color-gray8;
+            text-align: left;
+            vertical-align: middle;
+            font-size: @font-size-base * 1.4;
+            font-family: zw_iconfont;
+            width:@dt-width;
+            height:@dt-width;
+            display: inline-block;
+            margin-left:-@dt-width * .8;
+            margin-top:-@dt-width * .4;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+.wx-form-function();
+
+
+
+
+
+
+
+

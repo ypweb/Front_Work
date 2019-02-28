@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>待办--转办表单意见</title>
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl: '/zwwx/',
+            paths: {
+                "jquery": "resource/js/lib/jquery/jquery.min"
+            },
+            shim: {}
+        });
+
+
+        /*程序入口*/
+        require(['jquery'], function ($) {
+            $(function () {
+                //页面元素获取
+
+            });
+        });
+    </script>
+</head>
+<body class="wx-btn-body">
+
+<!--待办列表-->
+<ul class="wx-selectchk-wrap">
+    <li>
+        <div class="chk-wrap" data-node="拟办" data-name="赖镇先">
+            <div class="chk-info">
+                意见是上级领导机关对下级机关部署工作，指导下级机关工作活动的原则、步骤和方法的一种文体(多选组件)
+            </div>
+        </div>
+        <input type="checkbox" name="chkCB" value="cb1">
+        <div class="chk-icon"></div>
+    </li>
+    <li>
+        <div class="chk-wrap" data-node="批示" data-name="李廷忠">
+            <div class="chk-info">
+                意见，是党的领导机关和国家行政机关对重要问题提出见解和处理办法的一种公文。(多选组件)
+            </div>
+        </div>
+        <input type="checkbox" name="chkCB" value="cb2">
+        <div class="chk-icon"></div>
+    </li>
+    <li>
+        <div class="chk-wrap" data-node="经办调度" data-name="王菲">
+            <div class="chk-info">
+                茶没有喝光早变酸,从来未热恋已失恋(多选组件)
+            </div>
+        </div>
+        <input type="checkbox" name="chkCB" value="cb3">
+        <div class="chk-icon"></div>
+    </li>
+</ul>
+
+<div class="wx-gap-wrap wx-gap-item5x"></div>
+<ul class="wx-selectchk-wrap">
+    <li>
+        <div class="chk-wrap" data-node="拟办" data-name="赖镇先">
+            <div class="chk-info">
+                意见是上级领导机关对下级机关部署工作，指导下级机关工作活动的原则、步骤和方法的一种文体(单选组件)
+            </div>
+        </div>
+        <input type="radio" name="chkR" value="1r">
+        <div class="chk-icon"></div>
+    </li>
+    <li>
+        <div class="chk-wrap g-clear-pb" data-node="" data-name="">
+            <div class="chk-info">
+                这里是没有“办理环节”和“办理人”，且没有间距的组件(单选组件)
+            </div>
+        </div>
+        <input type="radio" name="chkR" value="2r">
+        <div class="chk-icon"></div>
+    </li>
+    <li>
+        <div class="chk-wrap" data-node="" data-name="">
+            <div class="chk-info">
+                这里是没有“办理环节”和“办理人”(单选组件)
+            </div>
+        </div>
+        <input type="radio" name="chkR" value="3r">
+        <div class="chk-icon"></div>
+    </li>
+</ul>
+
+<!--按钮组-->
+<ul class="wx-btnaction-wrap wx-btnaction-item1">
+    <li class="wx-btnaction-sure">确定</li>
+</ul>
+</body>
+</html>

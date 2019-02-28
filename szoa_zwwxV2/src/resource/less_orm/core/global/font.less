@@ -1,0 +1,10 @@
+///*----字体大小----*/
+.g-fsfor(@n,@i:1) when (@i =< @n) {
+  .g-fs@{i} {
+    font-size: 10px + @i !important;
+  }
+  .g-fsfor(@n, (@i+1));
+}
+
+.g-fsfor(30);
+

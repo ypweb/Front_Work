@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>待办--转办表单</title>
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+    <link rel="stylesheet" href="../../resource/js/lib/weui/css/jquery-weui.css">
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl: '/zwwx/',
+            paths: {
+                "jquery": "resource/js/lib/jquery/jquery.min",
+                'weuiJS': "resource/js/lib/weui/js/jquery-weui.min"
+            },
+            shim: {
+                'weuiJS': {
+                    deps: ['jquery']
+                }
+            }
+        });
+
+
+        /*程序入口*/
+        require(['jquery', 'weuiJS'], function ($, undefined) {
+            $(function () {
+                //页面元素获取
+                var $form_input_sx = $('#form_input_sx');
+
+
+                /*时间日期初始化*/
+                $form_input_sx.calendar({
+                    dateFormat:'yyyy-mm-dd'
+                });
+
+
+            });
+        });
+    </script>
+</head>
+<body class="wx-btn-body">
+
+
+<!--表单-->
+<div class="weui-cells weui-cells_form g-clear-m">
+
+    <div class="weui-cell weui-cell_access g-clear-pt g-clear-pb">
+        <div class="weui-cell__hd">
+            <label class="weui-label">转办名义:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select g-clear-pl" name="zbmy">
+                <option value="" selected>请选择</option>
+                <option value="1">深圳市人民政府</option>
+                <option value="2">转办名义1</option>
+                <option value="3">转办名义2</option>
+                <option value="4">转办名义3</option>
+            </select>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">处理方式:</label>
+        </div>
+        <div class="weui-cell__bd weui-cells_radio">
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="sfgz">
+                <span class="weui-icon-checked"></span>
+                回复
+            </label>
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="sfgz">
+                <span class="weui-icon-checked"></span>
+                办结
+            </label>
+        </div>
+    </div>
+
+    <div class="weui-cell weui-cell_datetime">
+        <div class="weui-cell__hd">
+            <label class="weui-label">时限:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="form_input_sx" placeholder="请选择时限" data-toggle="date" type="text" value="">
+        </div>
+        <div class="weui-cell__ft">
+            <i class="weui-icon-datetime"></i>
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">反馈意见:</label>
+        </div>
+        <div class="weui-cell__bd weui-cells_radio">
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="fkyj">
+                <span class="weui-icon-checked"></span>
+                转办
+            </label>
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="fkyj">
+                <span class="weui-icon-checked"></span>
+                不转办
+            </label>
+        </div>
+    </div>
+
+    <div class="weui-cell weui-cell_access g-clear-pt g-clear-pb">
+        <div class="weui-cell__hd">
+            <label class="weui-label">转办单位:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select g-clear-pl" name="zbdw">
+                <option value="" selected>请选择</option>
+                <option value="1">转办单位1</option>
+                <option value="2">转办名义2</option>
+                <option value="3">转办名义3</option>
+                <option value="4">转办名义4</option>
+            </select>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </div>
+
+    <a class="weui-cell weui-cell_access" href="select_idea.html">
+        <div class="weui-cell__hd">
+            <label class="weui-label">选取意见:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" readonly type="text" value="" placeholder="请选取意见">
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <div class="wx-gap-wrap"></div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">处理意见:</label>
+        </div>
+    </div>
+    <div class="weui-cell g-bt-pse-none">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" maxlength="200" placeholder="请输入处理意见" rows="6"></textarea>
+            <div class="weui-textarea-counter"><span>0</span>/200</div>
+        </div>
+    </div>
+</div>
+
+<div class="weui-cells__title">其他标准表单组件示例</div>
+<div class="weui-cells weui-cells_form g-clear-m">
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">姓名:</label>
+        </div>
+        <div class="weui-cell__bd wx-form-inputdelete">
+
+        </div><input class="weui-input" required type="text" value="" placeholder="请输入姓名">
+        <span class="icon-delete"></span>
+    </div>
+    <!--带验证码手机号-->
+    <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd">
+            <label class="weui-label">手机号:</label>
+        </div>
+        <div class="weui-cell__bd wx-form-inputdelete">
+            <input class="weui-input" required type="text" maxlength="11" pattern="[0-9]{11}" placeholder="请输入手机号">
+            <span class="icon-delete"></span>
+        </div>
+        <div class="weui-cell__ft">
+            <button class="weui-vcode-btn">获取验证码</button>
+        </div>
+    </div>
+    <!--验证码-->
+    <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd">
+            <label class="weui-label">验证码:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" maxlength="4" placeholder="请输入验证码">
+        </div>
+        <div class="weui-cell__ft">
+            <div class="wx-form-vcode">
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">兴趣爱好:</label>
+        </div>
+        <div class="weui-cell__bd weui-cells_checkbox">
+            <label class="weui-check__label">
+                <input type="checkbox" class="weui-check" name="xqah">
+                <span class="weui-icon-checked"></span>
+                钓鱼
+            </label>
+            <label class="weui-check__label">
+                <input type="checkbox" class="weui-check" name="xqah">
+                <span class="weui-icon-checked"></span>
+                爬山
+            </label>
+            <label class="weui-check__label">
+                <input type="checkbox" class="weui-check" name="xqah">
+                <span class="weui-icon-checked"></span>
+                乒乓球
+            </label>
+            <label class="weui-check__label">
+                <input type="checkbox" class="weui-check" name="xqah">
+                <span class="weui-icon-checked"></span>
+                骑行
+            </label>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">男票:</label>
+        </div>
+        <div class="weui-cell__bd wx-weui-cells-checkwrap">
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="hy">
+                <span class="weui-icon-checked">刘德华</span>
+            </label>
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="hy">
+                <span class="weui-icon-checked">张学友</span>
+            </label>
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="hy">
+                <span class="weui-icon-checked">谢霆锋</span>
+            </label>
+            <label class="weui-check__label">
+                <input type="radio" class="weui-check" name="hy">
+                <span class="weui-icon-checked">齐秦</span>
+            </label>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">钓鱼:</label>
+        </div>
+        <div class="weui-cell__bd wx-weui-cells-checkwrap">
+            <label class="weui-check__label">
+                <input type="checkbox" class="weui-check" name="dy">
+                <span class="weui-icon-checked">鲫鱼</span>
+            </label>
+            <label class="weui-check__label">
+                <input type="checkbox" class="weui-check" name="dy">
+                <span class="weui-icon-checked">鲤鱼</span>
+            </label>
+            <label class="weui-check__label">
+                <input type="checkbox" class="weui-check" name="dy">
+                <span class="weui-icon-checked">草鱼</span>
+            </label>
+            <label class="weui-check__label">
+                <input type="checkbox" class="weui-check" name="dy">
+                <span class="weui-icon-checked">鳊鱼</span>
+            </label>
+        </div>
+    </div>
+    <div class="weui-cell weui-cell_warn">
+        <div class="weui-cell__hd"><label class="weui-label">卡号:</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="text" maxlength="16" pattern="[0-9]{16}" value="01234567898765"
+                   placeholder="请输入卡号">
+        </div>
+        <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+        </div>
+    </div>
+
+    <div class="weui-cell weui-cell_switch">
+        <div class="weui-cell__bd">开关</div>
+        <div class="weui-cell__ft">
+            <input class="weui-switch" type="checkbox">
+        </div>
+    </div>
+
+    <div class="weui-cell weui-cell_switch">
+        <div class="weui-cell__bd">兼容IE Edge的版本</div>
+        <div class="weui-cell__ft">
+            <label class="weui-switch-cp">
+                <input class="weui-switch-cp__input" type="checkbox" checked="checked">
+                <div class="weui-switch-cp__box"></div>
+            </label>
+        </div>
+    </div>
+</div>
+
+<!--按钮组-->
+<ul class="wx-btnaction-wrap wx-btnaction-item2">
+    <li class="wx-btnaction-cancel">取消</li>
+    <li class="wx-btnaction-sure">确定</li>
+</ul>
+</body>
+</html>
