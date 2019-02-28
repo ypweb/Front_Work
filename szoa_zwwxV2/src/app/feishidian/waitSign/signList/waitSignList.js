@@ -1,7 +1,6 @@
 define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
+	var userId = "";
 	var userInfo;//用户信息
-	var identityId = "";//身份id
-	var deptId = "";//部门id
 	var unitId;//单位id
 	var page = 1;
     var pageSize = 20;
@@ -24,11 +23,15 @@ define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
 	//初始化方法
     function init(){
     	isRefresh = 1;
+    	userId = Util.getParams("login_id");//获取userId
+    	if(!userId){
+    		$.hideLoading();
+    		$.alert("未获取到您的用户信息，请从工作台中的办公系统查看您的待签收信息！");
+    		return false;
+    	}
     	userInfo = Util.getParams("login_userInfo");
     	if(userInfo){
-    		identityId = userInfo.identityId;
-    		deptId = userInfo.deptId;
-    		//unitId = userInfo.unitId;
+    		unitId = userInfo.unitId;
     	}else{
     		$.alert("未获取到用户信息！");
     		return false;
@@ -46,25 +49,21 @@ define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
 		if(nowPage && nowScroll && isRefresh==1){//判断缓存中是否有滚动高度和页码
 			page = 1;
 			pageSize = nowPage*20;
-			$("#grid").css("opacity",0);
 		}
 		isRefresh = 0;
     	$.ajax({
-	        url:"/ajax.sword?ctrl=WeixinCtrlV2_getNoSignList",
+	        url:"/ajax.sword?ctrl=WeixinCtrl_getNoSignList",
 	        dataType:"json",
 	        data:{
-	        	identityId:'F3355C9415344308B65E0AE56578C852',
-	        	deptId:'ZR78c7445b79ecad015b7ff5d2bb10f4',
-	        	//identityId:identityId,
-	        	//deptId:deptId,
 	        	page:page,
 	        	pageSize:pageSize,
+	        	userId:userId
 	        },
 	        success:function (res) {
 	        	$.hideLoading();
-	        	if(res.message.msg=="请求成功"){//请求成功，返回数据
-		        	var noSignList = res.message.data.list;
-		        	var num = res.message.data.num;//待签收总数  接口写好后动态获取
+	        	if(res.message.success==1){//请求成功，返回数据
+		        	var noSignList = res.message.data.todoList;
+		        	var num = res.message.data.todoTotal;//待签收总数  接口写好后动态获取
 		        	var listLength = noSignList.length;
     	        	if(listLength<1 && isPullUp == 0){
     	        		$("#grid").append('<div class="noData">暂无数据!</div>');
@@ -78,33 +77,8 @@ define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
     	        		$(".noData").remove();
 		        		$(".loadingMore").remove();
     		        	for(var i=0;i<noSignList.length;i++){
-    		        		//判断环节名称是否为空
-    		        		var hjmc = noSignList[i].hjmc;
-    		        		if(!hjmc || hjmc=="null"){
-    		        			hjmc = "";
-    		        		}
-			        		//判断标题是否为空
-			        		var bt = noSignList[i].bt;
-    		        		if(!bt || bt=="null"){
-    		        			bt = "";
-    		        		}
-    		        		//判断来文单位名称是否为空
-    		        		var lwdwmc = noSignList[i].lwdwmc;
-    		        		if(!lwdwmc || lwdwmc=="null"){
-    		        			lwdwmc = "";
-    		        		}
-			        		//判断来文字号数据是否存在
-			        		var lwzh = noSignList[i].lwzh;
-    		        		if(!lwzh || lwzh=="null"){
-    		        			lwzh = "";
-    		        		}
-    		        		//判断创建时间是否为空
-    		        		var lrrq = noSignList[i].lrrq;
-    		        		if(!lrrq || lrrq=="null"){
-    		        			lrrq = "";
-    		        		}
     		        		var color="#74cdf5";//默认平件
-    		        		var priorityStr = noSignList[i].hjmc;
+    		        		var priorityStr = noSignList[i].priority;
     		        		if(priorityStr == "特提"){
     		        			color = "#c92929";
     		        		}else if(priorityStr == "特急"){
@@ -121,39 +95,36 @@ define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
     		        		$("#grid").append('<div class="row-message">'+
     		        				'<div class="row-message1">'+
     	        					'<div class="rowLeft">'+
-    	        						'<div class="priorityStyle" style="background-color:'+color+'">'+hjmc+'</div>'+
+    	        						'<div class="priorityStyle" style="background-color:'+color+'">'+noSignList[i].priority+'</div>'+
     	        					'</div>'+
     	        					'<div class="rowRight">'+
-    	        						'<div class="title">'+bt+'</div>'+
-    	        						'<div class="authorname">'+lwdwmc+'</div>'+
+    	        						'<div class="title">'+noSignList[i].title+'</div>'+
+    	        						'<div class="authorname">'+noSignList[i].authorname+'</div>'+
     	        					'</div>'+
     	        			'</div>'+
     		        			'<div class="row-message2">'+
     		        				'<div class="rowBottom">'+
-    		        					'<div class="bottomLeft">'+lwzh+'</div>'+
-    		        					'<div class="bottomRight">创建时间：'+lrrq+'</div>'+
+    		        					'<div class="bottomLeft">'+noSignList[i].gwbh+'</div>'+
+    		        					'<div class="bottomRight">创建时间：'+noSignList[i].createTime+'</div>'+
     		        				'</div>'+
     		        			'</div>'+
     		        			'<div class="hideWorkId" style="display:none">'+noSignList[i].workid+'</div>'+
     		        			'<div class="hideType" style="display:none">'+noSignList[i].type+'</div>'+
     		        		'</div>');
-    		        		if(nowPage && nowScroll){
-    		        			page = nowPage;
-    		        			pageSize = 20;
-    		        			$("html,body").scrollTop(nowScroll);
-    		        			setTimeout(function(){
-    		        				$("#grid").css("opacity",1);
-    		        			},200);
-    		        		}
-    		        		rowClick();
     		        	};
+    		        	if(nowPage && nowScroll){
+		        			page = nowPage;
+		        			pageSize = 20;
+		        			$("html,body").scrollTop(nowScroll);
+		        		}
+		        		rowClick();
     	        	}
-	        	}else{
-	        		if(page>1){//如果是上拉加载操作 加载失败之后要还原上一页page数目
+	        	}else if(res.message.success==0){
+	        		if(page>1){
 	        			page = page-1;
 	        		}
 	        		$(".loadingMore").text("查询失败，请稍后再试！");
-	        		var message = res.message.msg;
+	        		var message = res.message.errors;
 	        		if(message){
 	        			$.alert(message,function(){
 		        			location.reload();
@@ -342,36 +313,28 @@ define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
                 	Util.setSessionParams("nowScroll",null);
             		Util.setSessionParams("nowPage",null);
             		$.ajax({
-            	        url:"/ajax.sword?ctrl=WeixinCtrlV2_getNoSignList",
+            	        url:"/ajax.sword?ctrl=WeixinCtrl_getNoSignList",
             	        dataType:"json",
             	        data:{
-            	        	identityId:'F3355C9415344308B65E0AE56578C852',
-            	        	deptId:'ZR78c7445b79ecad015b7ff5d2bb10f4',
-            	        	//identityId:identityId,
-            	        	//deptId:deptId,
             	        	page:page,
             	        	pageSize:pageSize,
+            	        	userId:userId
             	        },
             	        success:function (res) {
-            	        	if(res.message.msg=="请求成功"){//请求成功，返回数据
+            	        	if(res.message.success==1){//请求成功，返回数据
 	            	        	$("#grid").children().remove();
-	            	        	var noSignList = res.message.data.list;
-	        		        	var num = res.message.data.num;//待签收总数  接口写好后动态获取
+	            	        	var noSignList = res.message.data.todoList;
+	        		        	var num = res.message.data.todoTotal;//待签收总数  接口写好后动态获取
 	            	        	var listLength = noSignList.length;
 	            	        	if(listLength<1){
 	            	        		$("#grid").append('<div class="noData">暂无数据!</div>');
 	            	        		$("title").html("请选择待签收文件  (0)");
-	            	        		scollif = false;
 	            	        	}else{
 	            	        		$("title").html("请选择待签收文件  ("+num+")");
 	            	        		$(".noData").remove();
 	            	        		for(var i=0;i<noSignList.length;i++){
-	            	        			var lwzh = noSignList[i].lwzh;
-	            		        		if(!lwzh || lwzh=="null"){
-	            		        			lwzh = "";
-	            		        		}
 		            	        		var color="#74cdf5";//默认平件
-		            	        		var priorityStr = noSignList[i].hjmc;
+		            	        		var priorityStr = noSignList[i].priority;
 		            	        		if(priorityStr == "特提"){
 		            	        			color = "#c92929";
 		            	        		}else if(priorityStr == "特急"){
@@ -386,24 +349,24 @@ define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
 		            	        			color = "#74cdf5";
 		            	        		}
 		            	        		$("#grid").append('<div class="row-message">'+
-		        		        				'<div class="row-message1">'+
-		        	        					'<div class="rowLeft">'+
-		        	        						'<div class="priorityStyle" style="background-color:'+color+'">'+noSignList[i].hjmc+'</div>'+
-		        	        					'</div>'+
-		        	        					'<div class="rowRight">'+
-		        	        						'<div class="title">'+noSignList[i].bt+'</div>'+
-		        	        						'<div class="authorname">'+noSignList[i].lwdwmc+'</div>'+
-		        	        					'</div>'+
-		        	        			'</div>'+
-		        		        			'<div class="row-message2">'+
-		        		        				'<div class="rowBottom">'+
-		        		        					'<div class="bottomLeft">'+lwzh+'</div>'+
-		        		        					'<div class="bottomRight">创建时间：'+noSignList[i].lrrq+'</div>'+
-		        		        				'</div>'+
-		        		        			'</div>'+
-		        		        			'<div class="hideWorkId" style="display:none">'+noSignList[i].workid+'</div>'+
+		            	        				'<div class="row-message1">'+
+	            	        					'<div class="rowLeft">'+
+	            	        						'<div class="priorityStyle" style="background-color:'+color+'">'+noSignList[i].priority+'</div>'+
+	            	        					'</div>'+
+	            	        					'<div class="rowRight">'+
+	            	        						'<div class="title">'+noSignList[i].title+'</div>'+
+	            	        						'<div class="authorname">'+noSignList[i].authorname+'</div>'+
+	            	        					'</div>'+
+	            	        			'</div>'+
+		            	        			'<div class="row-message2">'+
+		            	        				'<div class="rowBottom">'+
+		            	        					'<div class="bottomLeft">'+noSignList[i].gwbh+'</div>'+
+		            	        					'<div class="bottomRight">创建时间：'+noSignList[i].createTime+'</div>'+
+		            	        				'</div>'+
+		            	        			'</div>'+
+		            	        			'<div class="hideWorkId" style="display:none">'+noSignList[i].workid+'</div>'+
 		        		        			'<div class="hideType" style="display:none">'+noSignList[i].type+'</div>'+
-		        		        		'</div>');
+		            	        		'</div>');
 		            	        	};
 		            	        	scollif = true;
 	            	        	}
@@ -412,7 +375,7 @@ define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
 	            	        	setTimeout(function () {
 	            	        		that.back.call();
 	            	        	},500);
-            	        	}else{
+            	        	}else if(res.message.success==0){
             	        		scollif = true;
             	        		loading.innerHTML = "刷新失败！";
 	            	        	setTimeout(function () {

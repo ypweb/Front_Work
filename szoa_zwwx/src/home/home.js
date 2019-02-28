@@ -1,28 +1,14 @@
 define(["util","UrlBase","WX","weuiJS","css!HomeCss"],function (Util,UrlBase,wx){
-	//var caId = "b339276f549b45498095a1ad74667e23";//试点饶文刚
+	var caId = "b339276f549b45498095a1ad74667e23";//试点饶文刚
 	//var caId = "d5bc0615d3f34f28aaff5e089b329d8d"//试点赖镇先
-	// var caId = "18d88313ee4342c0b04bd7cb1efafaed";//试点陈如桂
+	//var caId = "18d88313ee4342c0b04bd7cb1efafaed";//试点陈如桂
 	//var caId = "d67929d133cc45f6bafc83235726bf89";//试点市领导秘书王少波
 	//var caId = "11ab2a84cbc04dc58f58d8c6fb3f1377";//试点白昱
-	var caId = "ac3bd31066b14e41978dea04136a7f6f";//非试点赵雪菲
-	// var caId = "412ed1ebad174629acbcc7507c0c5092";//非试点孙彦蓉
+	//var caId = "ac3bd31066b14e41978dea04136a7f6f";//非试点赵雪菲
+	//var caId = "412ed1ebad174629acbcc7507c0c5092";//非试点孙彦蓉
 	//var caId = "ca72030438a24a05981bee6a0e51a87a";//非试点任斌昱
 	//var caId = "85a901ef2dce40238573674026655868";//非试点臧磊
 	function init(){
-		/*$.hideLoading();
-		$("#waitCssComplete").show();
-		$.ajax({
-            url:"/ajax.sword?ctrl=WeixinCtrl_test001",
-            dataType:"json",
-            data:{
-            },
-            success:function (res) {
-            	console.log(res);
-            },
-            error:function(res2){
-            	console.log(res2);
-            }
-		});*/
 		$.hideLoading();
 		$("#waitCssComplete").show();
 		getUserInfo();//通过CA的用户id获取登录人的基本信息
@@ -41,6 +27,7 @@ define(["util","UrlBase","WX","weuiJS","css!HomeCss"],function (Util,UrlBase,wx)
             	$.hideLoading();
             	if(res.message.returnValue=="0"){//请求成功，返回数据
             		var userInfo = res.message.data;
+            		console.log(userInfo);
             		if(!userInfo){
             			return false;
             			$.alert("未获取到您的用户信息!");
@@ -50,6 +37,12 @@ define(["util","UrlBase","WX","weuiJS","css!HomeCss"],function (Util,UrlBase,wx)
                 	Util.setParams('login_id',loginId);//把登录人userId存储到本地
                 	var isPilotUnit = userInfo.isPilotUnit;//是否试点单位
                 	var isLeaderSec = userInfo.isLeaderSec;//是否是领导秘书
+                	var isLeader = "0";
+                	var ifLeader = userInfo.checkIsLeader;
+                	if(ifLeader==true){
+                		isLeader = "1";
+                	}
+                	Util.setParams('login_isLeader',isLeader);//把登录人isLeader存储到本地
                 	var isQsRen = userInfo.isQsRen;//是否是签收岗位
                 	var userInformation = {
                 			isPilotUnit:isPilotUnit,

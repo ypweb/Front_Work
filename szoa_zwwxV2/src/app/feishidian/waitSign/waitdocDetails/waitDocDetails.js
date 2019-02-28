@@ -49,7 +49,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
     function getWorkId() {
         var workid = "";
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getJhgzInfo",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getJhgzInfo",
             dataType: "json",
             async: false,
             data: {
@@ -103,7 +103,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
     function getDocDetail() {
         //console.log(hashData)
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_docDetail",
+            url: "/ajax.sword?ctrl=WeixinDocDital_docDetail",
             dataType: "json",
             data: {
                 "id": hashData.workId,
@@ -174,24 +174,27 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
         $.showLoading("努力加载中...");
         // 获取文件下载路径
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getDocFilePath",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getDocFilePath",
             dataType: "json",
             data: {
                 "workId": workId,
                 "docType": type,
             },
             success: function (data) {
-                //console.log(data)
                 var fileData = data.message.data;
+                console.log(fileData)
                 $.hideLoading();
                 if (data.message.success == 1) {
+                    var filePath=fileData.filepath;
+                    var fix=filePath.substring(filePath.lastIndexOf("."));
+                    var fixx=docTitle_base+fix
                     wx.invoke("previewFile", {
                         url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                        // name: titel, // 需要预览文件的文件名(不填的话取url的最后部分)
+                        name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                         // size: 9732096 // 需要预览文件的字节大小(必填)
-                        name: "",
+                        // name: "",
                         size: fileData.filesize
-                    })
+                    });
                 } else {
                     $.alert("获取文件失败！", "");
                 }
@@ -204,7 +207,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
         var val = $('input[name="docType"]:checked').val();
         //console.log(val)
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_signAndDistribute",
+            url: "/ajax.sword?ctrl=WeixinDocDital_signAndDistribute",
             dataType: "json",
             data: {
                 "jhgzId": hashData.workId,
@@ -235,7 +238,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
         $.showLoading("努力加载中...");
         // 获取文件下载路径
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getFJFileUrl",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getFJFileUrl",
             // type: "post",
             dataType: "json",
             data: {
@@ -247,13 +250,16 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 if (data.message.success != 1) {
                     $.alert("获取文件失败！")
                 }
+                var filePath=fileData.filepath;
+                var fix=filePath.substring(filePath.lastIndexOf("."));
+                var fixx=titel+fix;
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    // name:lastTitle , // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
-                    name: "",
+                    // name: "",
                     size: fileData.filesize
-                })
+                });
             }
         });
     }

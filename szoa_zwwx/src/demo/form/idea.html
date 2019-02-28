@@ -88,7 +88,7 @@
         });
     </script>
 </head>
-<body>
+<body class="wx-btn-body">
 <!--待办列表-->
 <h2 class="wx-theme-wrap g-bc-white g-gap-mt5 g-gap-mb5">待办意见</h2>
 <ul class="wx-lastshowlist-wrap" id="idea_btn">
@@ -123,7 +123,7 @@
                 <p>请注意标点符号</p>
             </div>
             <div class="side-info side-edit">
-                <p>张三，李四，王五，赵六</p>
+                <p>张三，李四，王五，赵六，马七，朱八,陈九,刘十,罗十一,杨十二,沈十三</p>
                 <p>2018-07-08</p>
                 <div></div>
             </div>
@@ -153,16 +153,13 @@
     <div class="wx-tool-textarea">
         <!--textarea-->
         <div class="text-info">
+            <h2 class="g-d-hidei">本次意见</h2>
             <textarea placeholder="请输入意见"></textarea>
         </div>
-        <!--按钮组-->
-        <ul class="wx-btnitem-wrap wx-btnitem-item2 g-gap-mb10">
-            <li>
-                <div class="zw-btn zw-btn-wxextend g-br5" id="idea_sure">确定</div>
-            </li>
-            <li>
-                <div class="zw-btn zw-btn-wxextend g-br5" id="idea_cancel">取消</div>
-            </li>
+        <!--按钮组1--领导人修改意见按钮-->
+        <ul class="wx-btnaction-wrap wx-btnaction-item2">
+            <li class="wx-btnaction-cancel" id="idea_cancel">取消</li>
+            <li class="wx-btnaction-sure" id="idea_sure">确定</li>
         </ul>
     </div>
 </div>

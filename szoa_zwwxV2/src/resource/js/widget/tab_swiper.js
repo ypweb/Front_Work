@@ -30,12 +30,14 @@ define(['jquery'], function ($) {
         isswiper: true/*是否组合swiper插件*/,
         btn_width: 30/*侧边按钮宽*/,
         view_width: 0/*视口宽度*/,
+        iseffect: true/*是否采用动效*/,
+        isinit: false/*是否已经初始化*/,
         win_width: 0/*横排模式视口宽度*/,
         swiperVersion: '2'/*默认swiper版本*/,
         tabType: 'tab'/*切换方式:默认为tab类型，分为tab,swiper*/,
         index: 0/*当前高亮值*/,
         item: 3/*默认展现3个菜单*/,
-        effect_time: 500/*动画切换时间*/,
+        effect_time: 200/*动画切换时间*/,
         isbodyhide: true/*默认不开启点击body隐藏*/,
         render: null/*初始化渲染回调*/,
         tabFn: null/*点击渲染回调*/,
@@ -92,6 +94,8 @@ define(['jquery'], function ($) {
         resize();
         /*dom渲染*/
         render();
+        /*确定初始化相关*/
+        initRemoveEffect();
         /*list菜单渲染*/
         renderList();
         /*grid菜单渲染*/
@@ -111,7 +115,7 @@ define(['jquery'], function ($) {
     }
 
     /*初始化渲染*/
-    function render(index) {
+    function render() {
         /*根据选择器查找元素*/
         if (tabMap.selector === 'li') {
             tabMap.$tab_wrap = tabMap.$tabswiper_slide.find('>ul');
@@ -140,6 +144,30 @@ define(['jquery'], function ($) {
                 index: tabMap.index,
                 tab_item: tabMap.$tab_item
             });
+        }
+    }
+
+
+    /*消除效果*/
+    function initRemoveEffect() {
+        /*不是默认索引且为初始化状态过程*/
+        if (tabMap.index !== 0 && !tabMap.isinit && tabMap.slide_size >= 2) {
+            /*清除初始化效果*/
+            tabMap.$tabswiper_slide.addClass('wx-tabpanel-slide-none');
+        } else {
+            /*恢复初始化效果*/
+            initAddEffect();
+        }
+    }
+
+    /*恢复效果*/
+    function initAddEffect() {
+        tabMap.isinit = true;
+        /*tab效果*/
+        tabMap.$tabswiper_slide.removeClass('wx-tabpanel-slide-none');
+        /**/
+        if(swiper_instance){
+            swiper_instance.params.speed=tabMap.effect_time;
         }
     }
 
@@ -200,7 +228,7 @@ define(['jquery'], function ($) {
         if (swiper_instance === null) {
             /*没有绑定则绑定*/
             var tempconfig = {
-                speed: tabMap.effect_time, /*滑块切换速度*/
+                speed: tabMap.isinit ? tabMap.effect_time : 0, /*滑块切换速度*/
                 onSlideChangeStart: function () {
                     tabMap.tabType = 'swiper';
                     tabSlide(tabMap.tabFn);
@@ -216,18 +244,18 @@ define(['jquery'], function ($) {
                     if (Swiper && typeof Swiper === 'function') {
                         swiper_instance = new Swiper(tabMap.swiper_selector, tempconfig);
                         tabMap.tabType = 'swiper';
-                        swiper_instance.activeIndex=tabMap.index;
+                        swiper_instance.activeIndex = tabMap.index;
                         tabMap.$swiper_container = $(tabMap.swiper_selector).find('>.swiper-wrapper');
                         tabMap.$swiper_item = tabMap.$swiper_container.find('>.swiper-slide');
-                    }else{
-                        tabMap.tabType='tab';
+                    } else {
+                        tabMap.tabType = 'tab';
                     }
                 } else {
-                    tabMap.swiper_instance = null;
+                    swiper_instance = null;
                     tabMap.tabType = 'tab';
                 }
             } catch (e) {
-                tabMap.swiper_instance = null;
+                swiper_instance = null;
                 tabMap.tabType = 'tab';
             }
         }
@@ -256,7 +284,7 @@ define(['jquery'], function ($) {
     }
 
     /*slide高亮渲染*/
-    function tabSlide(fn,index) {
+    function tabSlide(fn, index) {
         if (tabMap.tabType === 'swiper') {
             /*swiper滑动模式*/
             tabMap.index = swiper_instance.activeIndex;
@@ -269,6 +297,9 @@ define(['jquery'], function ($) {
             swiper_id = setTimeout(function () {
                 /*修正值*/
                 correctSwiper();
+                if(!tabMap.isinit){
+                    initAddEffect();
+                }
             }, 100);
         }
         if (typeof index !== 'undefined') {
@@ -356,8 +387,8 @@ define(['jquery'], function ($) {
         if (tabMap.isbodyhide) {
             tabMap.$body.on('click', function (e) {
                 var target = e.target,
-                    nodename = target.nodeName.toLowerCase(),
-                    isdelay = false/*是否延迟*/;
+                    nodename = target.nodeName.toLowerCase();
+
                 if (nodename === 'li' || nodename === 'a') {
                     if (target.parentNode.className.indexOf('wx-tablist-wrap') !== -1 || target.parentNode.className.indexOf('wx-tabcolumn-wrap') !== -1) {
                         return false;
@@ -367,11 +398,8 @@ define(['jquery'], function ($) {
                         return false;
                     }
                 } else if (nodename === 'div') {
-                    if (target.className.indexOf('wx-tablist-wrap') !== -1 || target.className.indexOf('wx-tabpanel-slide') !== -1 || target.className.indexOf('wx-tabpanel-list') !== -1 || target.className.indexOf('wx-tabpanel-grid') !== -1 || target.className.indexOf('wx-tabcolumn-wrap') !== -1 || target.className.indexOf('wx-tabpanel-wrap') !== -1 || target.className.indexOf('wx-tabpanel-toggle') !== -1) {
+                    if (target.className.indexOf('wx-tablist-wrap') !== -1 || target.className.indexOf('wx-tabpanel-slide') !== -1 || target.className.indexOf('wx-tabpanel-list') !== -1 || target.className.indexOf('wx-tabpanel-grid') !== -1 || target.className.indexOf('wx-tabcolumn-wrap') !== -1 || target.className.indexOf('wx-tabpanel-wrap') !== -1 || target.className.indexOf('wx-tabpanel-toggle') !== -1 || target.className.indexOf('wx-tabpanel-mask') !== -1) {
                         return false;
-                    } else if (target.className.indexOf('wx-tabpanel-mask') !== -1) {
-                        /*点击mask蒙版*/
-                        isdelay = true;
                     }
                 } else if (nodename === 'h1') {
                     if (target.parentNode.className.indexOf('wx-tabpanel-grid') !== -1) {
@@ -379,17 +407,13 @@ define(['jquery'], function ($) {
                     }
                 }
                 if (isColumn()) {
-                    if (isdelay) {
-                        if (mask_id !== null) {
-                            clearTimeout(mask_id);
-                            mask_id = null;
-                        }
-                        mask_id = setTimeout(function () {
-                            toggle();
-                        }, 250);
-                    } else {
-                        toggle();
-                    }
+                    toggle();
+                }
+            });
+            tabMap.$tabswiper_mask.on('click',function () {
+                /*点击mask蒙版*/
+                if (isColumn()) {
+                    toggle();
                 }
             });
         }
@@ -398,11 +422,11 @@ define(['jquery'], function ($) {
         $(window).on('resize', debouce(function () {
             resize();
             position();
-            if (tabMap.swiper_instance) {
+            if (swiper_instance) {
                 swiper_instance.reInit();
                 correctSwiper();
             }
-        }, 200));
+        }, 228));
 
     }
 
@@ -422,10 +446,19 @@ define(['jquery'], function ($) {
         if (getSwiperVersion() === 2) {
             tabMap.$swiper_item.eq(index).addClass('swiper-slide-visible swiper-slide-active').siblings().removeClass('swiper-slide-visible swiper-slide-active');
             var sleft = index === 0 ? 0 : -(index * tabMap.view_width);
-            tabMap.$swiper_container.css({
-                'transition-duration': tabMap.effect_time / 1000 + 's',
-                'transform': 'translate3d(' + sleft + 'px, 0px, 0px)'
-            });
+            if (tabMap.isinit) {
+                /*如果已经初始化则恢复效果*/
+                tabMap.$swiper_container.css({
+                    'transition-duration': tabMap.effect_time / 1000 + 's',
+                    'transform': 'translate3d(' + sleft + 'px, 0px, 0px)'
+                });
+            } else {
+                /*如果没有初始化则消除效果*/
+                tabMap.$swiper_container.css({
+                    'transition-duration': '0s',
+                    'transform': 'translate3d(' + sleft + 'px, 0px, 0px)'
+                });
+            }
         } else if (getSwiperVersion() === 3) {
             /*to do 3*/
         } else if (getSwiperVersion() === 4) {

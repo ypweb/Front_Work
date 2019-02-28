@@ -15,7 +15,7 @@ define([], function () {
                 "workid": hashData.workId,
                 "trackid": hashData.trackId,
                 "flowid": instance.curFlowInfo.flowId,
-                "isLeader": hashData.isLeader,
+                "isLeader": userInfo.isLeader,
                 "curNodeID": instance.curFlowInfo.curNodeID
             },
             success: function (data) {
@@ -108,7 +108,7 @@ define([], function () {
                 data: {
                     "userid": userInfo.id,
                     "workid": hashData.workId,
-                    "isLeader": hashData.isLeader
+                    "isLeader": userInfo.isLeader
                 },
                 success: function (data) {
                     //console.log(data)
@@ -130,7 +130,7 @@ define([], function () {
                     "userid": userInfo.id,
                     "type": hashData.type,
                     "workid": hashData.workId,
-                    "isLeader": hashData.isLeader
+                    "isLeader": userInfo.isLeader
                 },
                 success: function (data) {
                     //console.log(data)

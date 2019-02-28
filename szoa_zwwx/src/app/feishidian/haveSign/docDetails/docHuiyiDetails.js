@@ -18,7 +18,6 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
             whenSuccess: function (user, hash) {
                 hashData = hash;
                 userInfo = user;
-                notifyValidate();
                 initSwiper();
                 getDocDetail();
             },
@@ -91,6 +90,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 meetEnrollInfo(docData.swid);
                 var fujianArr = docData.attachment;
                 docTitle_base = docData.title;
+                notifyValidate();
                 //绑定各个点击事件
                 bindDocZhengwen();
                 bindFujian();

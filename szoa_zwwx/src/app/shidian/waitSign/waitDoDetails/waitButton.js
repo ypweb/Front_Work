@@ -69,7 +69,7 @@ define(["UrlBase","FirstButtonAction"], function (UrlBase,FirstButtonAction) {
             $tool_ideatextarea.removeClass('g-d-hidei');
             /*获取暂存意见，赋值*/
             //hashData获取数据
-            var userId = hashData.userId,
+            var userId = userInfo.id,
                 workid = hashData.workId,
                 trackid = hashData.trackId;
             /*userInfo获取数据*/
@@ -92,7 +92,7 @@ define(["UrlBase","FirstButtonAction"], function (UrlBase,FirstButtonAction) {
                 return;
             }
             //hashData获取数据
-            var userId = hashData.userId,
+            var userId = userInfo.id,
                 workid = hashData.workId,
                 trackid = hashData.trackId,
                 docType = hashData.type;
@@ -220,7 +220,7 @@ define(["UrlBase","FirstButtonAction"], function (UrlBase,FirstButtonAction) {
 
         /*常用意见的追加*/
         function addcomOptions() {
-            var userId = hashData.userId;
+            var userId = userInfo.id;
             var options = FirstButtonAction.getComOptions(userId);
             // console.log(options);
             var option_str = '',
@@ -233,7 +233,7 @@ define(["UrlBase","FirstButtonAction"], function (UrlBase,FirstButtonAction) {
 
         //根据是否为领导人追加意见框下边的按钮
         function addSendBtn() {
-            var isLeader = hashData.isLeader;
+            var isLeader = userInfo.isLeader;
             if (parseInt(isLeader) === 1) {
                 $send_btn.addClass("wx-btnaction-item3");
                 $send_btn.append('<li class="wx-btnaction-sure" id="idea_send">送出</li>'
@@ -249,7 +249,7 @@ define(["UrlBase","FirstButtonAction"], function (UrlBase,FirstButtonAction) {
         /*其他按钮操作*/
         $send_btn.on('click', 'li', function () {
             //hashData获取数据
-            var userId = hashData.userId,
+            var userId = userInfo.id,
                 workid = hashData.workId,
                 trackid = hashData.trackId,
                 docType = hashData.type;
@@ -282,7 +282,7 @@ define(["UrlBase","FirstButtonAction"], function (UrlBase,FirstButtonAction) {
         /*常用意见下的送出操作*/
         function send(content) {
             //hashData获取数据
-            var userId = hashData.userId,
+            var userId = userInfo.id,
                 workid = hashData.workId,
                 trackid = hashData.trackId,
                 docType = hashData.type;

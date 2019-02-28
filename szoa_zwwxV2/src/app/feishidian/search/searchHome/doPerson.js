@@ -79,7 +79,7 @@ define(["util"], function (Util) {
         }*/
         if (deptsList === null) {
             $.ajax({
-                url: "/ajax.sword?ctrl=SignUpMeetingCtrlV2_receipients",	//获取部门下对应人员
+                url: "/ajax.sword?ctrl=SignUpMeetingCtrl_receipients",	//获取部门下对应人员
                 // url: "/ajax.sword?ctrl=SearchCtrl_receipients",	//获取部门下对应人员
                 dataType: "json",
                 data: {

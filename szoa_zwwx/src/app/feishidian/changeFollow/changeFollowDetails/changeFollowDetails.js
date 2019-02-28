@@ -39,7 +39,7 @@ define(["util"], function (Util) {
                 "workId": hashData.workId,
                 "userId": userInfo.id,
                 "fzbs": nowfzbs,
-                "type": type
+                "type": "2"
             },
             success: function (bdata) {
                 var msgs=bdata.message;
@@ -70,10 +70,10 @@ define(["util"], function (Util) {
                                 <label>微信群发:<input type="checkbox" checked name="message" value="2"></label>\
                                 </div>';
             $.confirm({
-                title: '未签收单位消息提醒',
-                text: message_str,
+                title: '确认发送微信提醒？',
+                // text: message_str,
                 onOK: function () {
-                    var id="";
+                    /*var id="";
                     $('#wx_send_message').find('input:checked').each(function () {
                         id+=$(this).val()+",";
                     });
@@ -81,7 +81,8 @@ define(["util"], function (Util) {
                         sendMsg(id)
                     }else {
                         $.alert("请选择提醒方式！")
-                    }
+                    }*/
+                	sendMsg("2");
                 }
             });
         })
@@ -212,6 +213,7 @@ define(["util"], function (Util) {
             //渲染切换栏，已签收未签收 拒收
             if (data.wqsList.length < 1) {
                 $("#wqs_nb").parent().addClass("g-d-hidei");
+                $("#anniuzu").addClass("g-d-hidei");
             } else {
                 $("#wqs_nb").parent().removeClass("g-d-hidei");
             }
@@ -316,10 +318,11 @@ define(["util"], function (Util) {
                 var $this = $(this),
                     msg = $this.data();
                 $this.addClass('follow-active').parents('li').siblings().find('>div:first-child  .follow-title').removeClass('follow-active');
+                $.showLoading("努力加载中...");
                 $.ajax({
                     url: "/ajax.sword?ctrl=WXDaiBanDocDital_showJhgzTrack",
                     dataType: "json",
-                    async:false,
+                    async:true,
                     data: {
                         "workId": hashData.workId,
                         "userId": userInfo.id,
@@ -327,6 +330,7 @@ define(["util"], function (Util) {
                         "deptId":msg.dept
                     },
                     success: function (bdata) {
+                        $.hideLoading();
                         var bllcInfo=bdata.message.data;
                         var tabData=$("#qianshou_nb_all>.tabactive").data();
                         switch (tabData.id) {
@@ -383,13 +387,17 @@ define(["util"], function (Util) {
         }
 
         function showInfoMsg(list) {
-            $("#follow_process ul").empty();
-            for (var i = 0; i < list.length; i++) {
-                $("#follow_process ul").append(weixinduihuaTemplate(list[i]));
+            if(!list||!list.length||list.length<1){
+                $.alert("文件还未办理！")
+            }else {
+                $("#follow_process ul").empty();
+                for (var i = 0; i < list.length; i++) {
+                    $("#follow_process ul").append(weixinduihuaTemplate(list[i]));
+                }
+                $follow_process.toggleClass('g-d-hidei');
+                $follow_list.addClass('g-d-hidei');
+                $follow_tab.addClass('g-d-hidei');
             }
-            $follow_process.toggleClass('g-d-hidei');
-            $follow_list.addClass('g-d-hidei');
-            $follow_tab.addClass('g-d-hidei');
         }
 
         function showNameMsg(msg) {
@@ -470,9 +478,9 @@ define(["util"], function (Util) {
         function jushouTemplate(data) {
             var html = '<li>' +
                 '<div data-id="' + data.wxid + '" data-name="' + data.linkman + '" data-tel="' + data.tel + '" class="follow-theme"><div data-id="' + data.wxid + '" data-name="' + data.linkman + '" data-tel="' + data.tel + '"  class="follow-title">' + data.department + '</div><div class="follow-icon" data-id="' + data.wxid + '" data-name="' + data.linkman + '" data-tel="' + data.tel + '" ></div></div>' +
-                '<div class="follow-tip">' +
+                '<div class="follow-tip"><div class="tip-show">' +
                 '<p>' + data.reason + '</p>' +
-                '</div>' +
+                '</div></div>' +
                 '</li>';
             return html;
         }

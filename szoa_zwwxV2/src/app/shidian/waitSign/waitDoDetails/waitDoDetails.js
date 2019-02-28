@@ -1,11 +1,11 @@
 /**
  * Created by zhuhao on 2018/8/9.
  */
-define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "Swiper"], function (UrlBase,ChangeFollowDetails, Util, tab_swiper, InitDataUtil) {
+define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "WaitButton", "Swiper"], function (UrlBase, ChangeFollowDetails, Util, tab_swiper, InitDataUtil, WaitButton) {
 
     //传参
     var hashData = {};
-    var userInfo={};
+    var userInfo = {};
     //流程实例对象
     var instance = {}
     //页面title
@@ -16,22 +16,42 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     var GZList = {};
     var toggleFlag = 0;
     var isHaveFujian = false;
+    var $tool_ideawrap = $('#tool_idea').parent();
+    var $button_menu = $('#button_menu');
+
+    /*   //横竖屏切换刷新解决样式问题
+     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+     function hengshuping() {
+     if (window.orientation == 90 || window.orientation == -90) {
+     window.location.reload();
+     } else {
+     window.location.reload();
+     }
+     }*/
+    var flowMsg = {};
 
     function init() {
         Util.getUserInfoAndUrl({
-            whenSuccess: function (user,hash) {
-                hashData=hash;
-                userInfo=user;
+            whenSuccess: function (user, hash) {
+                console.log(user)
+                var isLeader = "0";
+                var ifLeader = user.checkIsLeader;
+                if(ifLeader==true){
+                    isLeader = "1";
+                }
+                user.isLeader=isLeader;
+                hashData = hash;
+                userInfo = user;
                 openInstance();
                 initData();
             },
-            whenUserError:function (resultObj) {
-                $.alert(resultObj.errorMsg,function () {
+            whenUserError: function (resultObj) {
+                $.alert(resultObj.errorMsg, function () {
                     window.history.go(-1);
                 })
             },
-            whenZFError:function (resultObj) {
-                $.alert(resultObj.errorMsg,function () {
+            whenZFError: function (resultObj) {
+                $.alert(resultObj.errorMsg, function () {
                     wx.closeWindow();
                 })
             }
@@ -41,7 +61,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     //获取流程实例锁
     function openInstance() {
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_openInstance",
+            url: "/ajax.sword?ctrl=WeixinDocDital_openInstance",
             dataType: "json",
             async: false,
             data: {
@@ -53,8 +73,9 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             success: function (data) {
                 if (data.message && data.message.data) {
                     instance = data.message.data;
+                    // console.log(instance);
                 } else {
-                    $.alert("暂无权限查看此公文！",function () {
+                    $.alert("暂无权限查看此公文！", function () {
                         window.history.go(-1);
                     })
                 }
@@ -65,7 +86,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     //关闭流程实例
     function closeInstance() {
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_closeInstance",
+            url: "/ajax.sword?ctrl=WeixinDocDital_closeInstance",
             dataType: "json",
             data: {
                 "userid": userInfo.id,
@@ -81,8 +102,10 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
 
     //获取所有表单数据
     function initData() {
-        InitDataUtil.initAll(hashData,userInfo, instance, function (data) {
+        InitDataUtil.initAll(hashData, userInfo, instance, function (data) {
             var allData = data;
+            flowMsg = allData.banliliucheng.data;
+            // console.log(flowMsg);
             //初始化意见栏
             initYijian(allData.yijianList.data);
             //初始化正文
@@ -99,23 +122,26 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             initBaomingBiao(allData.baomingbiao);
             //初始化办理信息
             initBanliXinxi(allData.banlixinxi);
-            //初始化交换跟踪
-            initJHGZ(allData);
+            WaitButton(hashData, userInfo, instance, flowMsg);
+            $("#button_menu").empty();
             //删除隐藏，展示页面
             removeHide();
+            //初始化交换跟踪
+            initJHGZ(allData);
             //初始化滑动页签
             initTabSwiper();
             //关闭流程实例
-            closeInstance();
+            // closeInstance();
             //初始化自定义转发
-            initZhuanFa();
+            // initZhuanFa();
         })
     }
 
     function initJHGZ(allData) {
         if (allData.jiaohuangz.isShow == true) {
+            $("#button_menu").append('<li id="tool_menu_tixing" class="tool-menu-tip tool-menu-item2" data-type="tixing" data-title="提醒"><span></span></li>');
             var list = allData.jiaohuangz.data.data;
-            ChangeFollowDetails.initJiaohuangz(list);
+            ChangeFollowDetails.initJiaohuangz(list, hashData, userInfo);
         } else {
             $("#jiaohuangenzong_tab").remove();
             $("#jiaohuangenzong_swiper").remove();
@@ -128,8 +154,8 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                 "workId": hashData.workId,
                 "type": hashData.type,
                 "unitId": userInfo.unitId,
-                "trackId":hashData.trackId,
-                "isLeader":hashData.isLeader
+                "trackId": hashData.trackId,
+                "isLeader": userInfo.isLeader
             },
             link: UrlBase.URL_SHARE_DAIBAN,
             title: docTitle_base,
@@ -143,12 +169,54 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     }
 
     function initTabSwiper() {
-        if (hashData.isJhgz=="1"){
+        var nodeid = instance.curFlowInfo.curNodeID;
+        if (hashData.isJhgz == "1") {
+            // $("#button_menu").append('<li id="tool_menu_tixing" class="tool-menu-tip tool-menu-item2" data-type="tixing" data-title="提醒"><span></span></li>');
             tab_swiper.init({
-                index:"jiaohuangenzong_tab"
+                index: "jiaohuangenzong_tab",
+                tabFn: function (config) {
+                    var item = config.tab_item;
+                    var tab = item.eq(config.index);
+                    var tabId = tab.attr("id");
+                    var isHaveWQS=$("#wqs_nb").parent().hasClass("g-d-hidei");
+                    if (tabId === "jiaohuangenzong_tab"&&isHaveWQS==false&&hashData.isCX!=1) {
+                        $("#zhezhaoceng").parent().removeClass("g-d-hidei");
+                    } else {
+                        $("#zhezhaoceng").parent().addClass("g-d-hidei");
+                    }
+                    /*点击回调*/
+                    if (config.index === 0 && nodeid.toUpperCase() !== "NODE19") {
+                        $tool_ideawrap.removeClass('g-d-hidei');
+                    } else {
+                        $tool_ideawrap.addClass('g-d-hidei');
+                    }
+                }
             });
-        }else {
-            tab_swiper.init();
+        } else {
+            tab_swiper.init({
+                tabFn: function (config) {
+                    var item = config.tab_item;
+                    var tab = item.eq(config.index)
+                    var tabId = tab.attr("id");
+                    /*if (tabId==="jiaohuangenzong_tab"){
+                        $("#tool_menu_tixing").removeClass("g-d-hidei")
+                    }else {
+                        $("#tool_menu_tixing").addClass("g-d-hidei")
+                    }*/
+                    var isHaveWQS=$("#wqs_nb").parent().hasClass("g-d-hidei");
+                    if (tabId === "jiaohuangenzong_tab"&&isHaveWQS==false&&hashData.isCX!=1) {
+                        $("#zhezhaoceng").parent().removeClass("g-d-hidei")
+                    } else {
+                        $("#zhezhaoceng").parent().addClass("g-d-hidei")
+                    }
+                    /*点击回调*/
+                    if (config.index === 0 && nodeid.toUpperCase() !== "NODE19") {
+                        $tool_ideawrap.removeClass('g-d-hidei');
+                    } else {
+                        $tool_ideawrap.addClass('g-d-hidei');
+                    }
+                }
+            });
         }
         tab_swiper.setTitle(document.title);
     }
@@ -156,6 +224,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     function removeHide() {
         $("#allTab").removeClass("g-d-hidei");
         $("#yijian_div").removeClass("g-d-hidei");
+        $("#anniuzu").removeClass("g-d-hidei");
         $.hideLoading();
     }
 
@@ -214,9 +283,12 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             $("#huiyixinxi_swiper").remove();
 
             /*办理流程样式第二版*/
-            $chengpiliucheng.append('<h2 id="liuchenglable" class="wx-labeltheme-wrap g-bc-white">办理流程<span class="theme-icon theme-icon-toggle"></span></h2>'
-                + '<ul id="liuchengxiangxi" class="wx-processlist-vertical-wrap g-bc-white g-d-hidei"></ul>');
-
+            $chengpiliucheng.append('<h2 id="liuchenglable" class="wx-labeltheme-wrap g-bc-white">办理流程<span class="theme-icon theme-icon-toggle"></span></h2>');
+            if (liuchengData.data.length <= 0) {
+                $chengpiliucheng.append('<div id="liuchengxiangxi" class="wx-empty-panel wx-empty-process wx-empty-item3x g-clear-p g-d-hidei" data-title="暂无流程信息"></div>');
+            } else {
+                $chengpiliucheng.append('<ul id="liuchengxiangxi" class="wx-processlist-vertical-wrap g-bc-white g-d-hidei"></ul>');
+            }
             if (parseInt(hashData.type) === 1) {
                 $chengpixinxiGrid.append('<li>'
                     + '<h2 class="wx-labeltheme-wrap">发文信息</h2>'
@@ -248,8 +320,12 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             $("#biaodan_swiper").remove();
 
             /*办理流程样式第二版*/
-            $huiyiliucheng.append('<h2 id="liuchenglable" class="wx-labeltheme-wrap g-bc-white g-gap-mt5">办理流程<span class="theme-icon theme-icon-toggle"></span></h2>'
-                + '<ul id="liuchengxiangxi" class="wx-processlist-vertical-wrap g-bc-white g-d-hidei"></ul>');
+            $huiyiliucheng.append('<h2 id="liuchenglable" class="wx-labeltheme-wrap g-bc-white g-gap-mt5">办理流程<span class="theme-icon theme-icon-toggle"></span></h2>');
+            if (liuchengData.data.length <= 0) {
+                $huiyiliucheng.append('<div id="liuchengxiangxi" class="wx-empty-panel wx-empty-process wx-empty-item3x g-clear-p g-d-hidei" data-title="暂无流程信息"></div>');
+            } else {
+                $huiyiliucheng.append('<ul id="liuchengxiangxi" class="wx-processlist-vertical-wrap g-bc-white g-d-hidei"></ul>');
+            }
             var meetingList = docDetailList;
             $("#meetingName").html(meetingList.meetingName);
             $("#fileNo").html(meetingList.fwbh);
@@ -265,13 +341,15 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             $("#content").html(meetingList.content);
         }
 
-        var $do = $("#liuchenglable");				//实现办理流程的展示与隐藏
+        var $do = $("#liuchenglable");              //实现办理流程的展示与隐藏
         //办理流程隐藏|显示切换
         $do.on('click', function () {
             $("#liuchenglable span").toggleClass('toggle-active');
             $("#liuchengxiangxi").toggleClass('g-d-hidei');
-        })
-        initLiucheng(liuchengData);
+        });
+        if(liuchengData.data.length>0){
+            initLiucheng(liuchengData);
+        }
     }
 
     //会议列表模板
@@ -347,20 +425,21 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     }
 
     //初始化交换跟踪
-    function initJiaohuangz(list) {
+    /*function initJiaohuangz(list) {
+
         //页面元素获取
         var $follow_toggle = $('#follow_toggle'),
             $follow_select = $('#follow_select'),
             $follow_list = $('#follow_list');
 
-        /*绑定切换显示隐藏*/
+        /!*绑定切换显示隐藏*!/
         $follow_toggle.on('click', function (e) {
-            /*切换发送*/
+            /!*切换发送*!/
             $(this).toggleClass('title-toggle');
             $follow_select.toggleClass('list-toggle');
         });
 
-        /*绑定选中*/
+        /!*绑定选中*!/
         $follow_select.on('click', 'li', function () {
             var $this = $(this),
                 text = $this.html();
@@ -370,17 +449,17 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             $follow_toggle.trigger('click');
         });
 
-        /*绑定查看意见*/
+        /!*绑定查看意见*!/
         $follow_list.on('click', function (e) {
             var target = e.target,
                 nodename = target.nodeName.toLowerCase(),
                 $this = null;
 
-            /*过滤非标签*/
+            /!*过滤非标签*!/
             if (nodename !== 'div') {
                 return false;
             } else if (nodename === 'div' && target.className.indexOf('follow-tip') !== -1) {
-                /*切换查看意见*/
+                /!*切换查看意见*!/
                 $(target).toggleClass('tip-toggle');
             }
         });
@@ -536,7 +615,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             if (!msg.tel || msg.tel == "undefined") {
                 msg.tel = "";
             }
-            var alertWords = '<div class="alertMsg">联系人：<span class="alertDetail">' + msg.name + '</span></div><br><div class="alertMsg">联系电话：<a href="tel:'+ msg.tel + '" class="alertDetail">'+ msg.tel +'</a></div>';
+            var alertWords = '<div class="alertMsg">联系人：<span class="alertDetail">' + msg.name + '</span></div><br><div class="alertMsg">联系电话：<a href="tel:' + msg.tel + '" class="alertDetail">' + msg.tel + '</a></div>';
             $.alert(alertWords, "");
         }
 
@@ -558,19 +637,19 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                 '</li>';
             return html;
         }
-    }
+    }*/
 
     //渲染流程
     function initLiucheng(data) {
-        var $liuchengxx = $("#liuchengxiangxi");		//实现办理流程信息追加
+        var $liuchengxx = $("#liuchengxiangxi");        //实现办理流程信息追加
         var flowMsgList = data.data;
         var openInstanceNodeId = instance.curFlowInfo.curNodeID;
         var len = flowMsgList.length;
         for (var i = 0; i < len; i++) {
-            /*追加流程第二版*/
+            /!*追加流程第二版*!/
             if (flowMsgList[i].isdo === "1") {
                 if (i < len - 1) {
-                    if (flowMsgList[i].cnodeid === openInstanceNodeId.toUpperCase() && parseInt(flowMsgList[i + 1].isdo)=== 0) {
+                    if (flowMsgList[i].cnodeid === openInstanceNodeId.toUpperCase() && parseInt(flowMsgList[i + 1].isdo) === 0) {
                         $liuchengxx.append('<li class="process-now">'
                             + '<div class="process-icon"></div>'
                             + '<div class="process-show">'
@@ -631,7 +710,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             $("#bianqiantie_swiper").remove();
             return;
         }
-        var NoteList = null;	//便签列表
+        var NoteList = null;    //便签列表
         var $noteListGrid = $("#noteListGrid");//用于便签数据追加
         if (data.success === 1) {
             NoteList = data.data;
@@ -672,8 +751,8 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
         $("#distributeDepartment").html(qianfas.distributeDepartment);// 印发部门
         $("#dissributeCount").html(qianfas.dissributeCount);// 印发份数
         $("#issueEmployee").html(qianfas.issueEmployee);//签发人
-        $("#issueDate").html(qianfas.issueDate);	//签发日期
-        $("#disributeDate").html(qianfas.disributeDate);	// 印发日期
+        $("#issueDate").html(qianfas.issueDate);    //签发日期
+        $("#disributeDate").html(qianfas.disributeDate);    // 印发日期
         $("#publicType").html(qianfas.publicType);//公开方式
         $("#reply").html(qianfas.reply);// 需要回复
         $("#replyDate").html(qianfas.replyDate);//回复时限
@@ -751,6 +830,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                     break;
                 }
             }
+            // console.log(index)
             if (index == 0) {
                 $("#zhankaiyijian").addClass("g-d-hidei")
             }
@@ -797,6 +877,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
     //渲染附件列表
     function initFujian(data) {
         var fujianArr = data.data.data.attachment
+        // console.log(fujianArr)
         if (fujianArr && fujianArr.length && fujianArr.length > 0) {
             isHaveFujian = true;
             for (var i = 0; i < fujianArr.length; i++) {
@@ -834,7 +915,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
         var $guanlianxinxi = $("#guanlianxinxi");
         var guanlianList = null;
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getRelationsGW",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getRelationsGW",
             dataType: "json",
             data: {
                 "workid": id
@@ -846,10 +927,10 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                         $("#cankaoziliao_div").parent().addClass("wx-empty-panel wx-empty-document");
                         $("#cankaoziliao_div").addClass("g-d-hidei")
                     }
-                $('<div class="wx-themelist-panel"><h2 class="wx-labeltheme-wrap g-bc-white g-gap-mt5 g-gap-mb5">关联信息</h2></div>').insertBefore($guanlianxinxi);
-                    var guanl_str='';
+                    $('<div class="wx-themelist-panel"><h2 class="wx-labeltheme-wrap g-bc-white g-gap-mt5 g-gap-mb5">关联信息</h2></div>').insertBefore($guanlianxinxi);
+                    var guanl_str = '';
                     for (var i = 0; i < guanlianList.length; i++) {
-                        guanl_str+='<li>'
+                        guanl_str += '<li>'
                             + '<div class="datalist-main">' + guanlianList[i].title + '</div>'
                             + '<div class="datalist-side">'
                             + '<div><span>操作：</span>取消关联</div>'
@@ -882,7 +963,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
 
     //渲染办理信息
     function initBanliXinxi(data) {
-        var $banlixinxiGrid = $("#banlixinxiGrid");  	//用于办理信息列表信息追加
+        var $banlixinxiGrid = $("#banlixinxiGrid");     //用于办理信息列表信息追加
         var proInfoList = data.data;
 
         if (proInfoList && proInfoList.length < 1) {
@@ -1041,7 +1122,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                     var that = this;
                     setTimeout(function () {
                         $.ajax({
-                            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getProInfo",	//获取部门下对应人员
+                            url: "/ajax.sword?ctrl=WeixinDocDital_getProInfo",  //获取部门下对应人员
                             type: "get",
                             dataType: "json",
                             data: {
@@ -1086,7 +1167,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
 
     function banliRender(proInfoList) {
         var $banlixinxiGrid = $("#banlixinxiGrid");
-        var handle_str='';
+        var handle_str = '';
         for (var i = 0; i < proInfoList.length; i++) {
             var dotime = null;
             if (i === proInfoList.length - 1) {
@@ -1094,23 +1175,23 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
             } else {
                 dotime = timeFn(proInfoList[i].starttime, proInfoList[i].endTime);
             }
-            if(i===0){
-                handle_str+='<li class="g-gap-mt5" data-title="'+proInfoList[i].action+'">' +
-                    '<div class="main">' +proInfoList[i].name + '</div>' +
+            if (i === 0) {
+                handle_str += '<li class="g-gap-mt5" data-title="' + proInfoList[i].action + '">' +
+                    '<div class="main">' + proInfoList[i].name + '</div>' +
                     '<div class="side">' +
-                    '<p><span>送达时间：</span>'+proInfoList[i].endTime+'</p>' +
+                    '<p><span>送达时间：</span>' + proInfoList[i].endTime + '</p>' +
                     '</div>' +
                     '<div class="side">' +
-                    '<p><span>办理时长：</span>'+dotime+'</p></div>' +
+                    '<p><span>办理时长：</span>' + dotime + '</p></div>' +
                     '</li>';
-            }else{
-                handle_str+='<li data-title="'+proInfoList[i].action+'">' +
-                    '<div class="main">' +proInfoList[i].name + '</div>' +
+            } else {
+                handle_str += '<li data-title="' + proInfoList[i].action + '">' +
+                    '<div class="main">' + proInfoList[i].name + '</div>' +
                     '<div class="side">' +
-                    '<p><span>送达时间：</span>'+proInfoList[i].endTime+'</p>' +
+                    '<p><span>送达时间：</span>' + proInfoList[i].endTime + '</p>' +
                     '</div>' +
                     '<div class="side">' +
-                    '<p><span>办理时长：</span>'+dotime+'</p></div>' +
+                    '<p><span>办理时长：</span>' + dotime + '</p></div>' +
                     '</li>';
             }
         }
@@ -1150,7 +1231,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
         $.showLoading("努力加载中...");
         // 获取文件下载路径
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getDocFilePath",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getDocFilePath",
             dataType: "json",
             data: {
                 "workId": workId,
@@ -1164,11 +1245,14 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
+                var filePath = fileData.filepath;
+                var fix = filePath.substring(filePath.lastIndexOf("."));
+                var fixx = docTitle_base + fix
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    // name: titel, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
-                    name: "",
+                    // name: "",
                     size: fileData.filesize
                 });
             }
@@ -1180,7 +1264,7 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
         $.showLoading("努力加载中...");
         // 获取文件下载路径
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getFJFileUrl",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getFJFileUrl",
             dataType: "json",
             data: {
                 "workId": workId
@@ -1192,11 +1276,14 @@ define(["UrlBase","ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", "
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
+                var filePath = fileData.filepath;
+                var fix = filePath.substring(filePath.lastIndexOf("."));
+                var fixx = titel + fix;
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    // name: titel, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
-                    name: "",
+                    // name: "",
                     size: fileData.filesize
                 });
             }

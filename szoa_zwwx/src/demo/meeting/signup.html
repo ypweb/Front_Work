@@ -28,6 +28,13 @@
         /*程序入口*/
         require(['jquery'], function ($) {
             $(function () {
+                var $signup_list=$('#signup_list');
+
+                $signup_list.on('click','li',function () {
+                    var $this=$(this);
+
+                    $this.toggleClass('wx-btnlist-active');
+                });
 
             });
         });
@@ -35,14 +42,14 @@
 </head>
 <body class="wx-btn-body">
 
-<ul class="wx-btnlist-wrap wx-btnlist-auto">
+<ul class="wx-btnlist-wrap wx-btnlist-auto" id="signup_list">
     <li>
         <div>收文处室退文</div>
     </li>
     <li>
         <div>来文单位主动要求退文</div>
     </li>
-    <li class="wx-btnlist-active">
+    <li>
         <div>1.内容涉及其他部门职权范围，未征求有关部门意见。</div>
     </li>
     <li>
@@ -52,7 +59,7 @@
         <div>3.属于工作部门职权范围内应处理的事务。</div>
     </li>
 
-    <li class="wx-btnlist-active">
+    <li>
         <div>4.反馈意见未附办公厅办文编号。</div>
     </li>
     <li>
@@ -61,7 +68,7 @@
     <li>
         <div>6.非领导同志交代直接报送领导同志个人。</div>
     </li>
-    <li class="wx-btnlist-active">
+    <li>
         <div>
             7.文件使用错误，请示与报告不分，报告与意见不分。文件使用错误，请示与报告不分，报告与意见不分。文件使用错误，请示与报告不分，报告与意见不分。文件使用错误，请示与报告不分，报告与意见不分。文件使用错误，请示与报告不分，报告与意见不分。
         </div>
@@ -71,7 +78,7 @@
             8.saltreqyeryeryqeryerywrywrtywuweriywpotruypowriywoityowityotrysaltreqyeryeryqeryerywrywrtywuweriywpotruypowriywoityowityotrysaltreqyeryeryqeryerywrywrtywuweriywpotruypowriywoityowityotrysaltreqyeryeryqeryerywrywrtywuweriywpotruypowriywoityowityotrysaltreqyeryeryqeryerywrywrtywuweriywpotruypowriywoityowityotry
         </div>
     </li>
-    <li class="wx-btnlist-active">
+    <li>
         <div>
             9.358294567924867290479867056709568735829456792486729047986705670956873582945679248672904798670567095687358294567924867290479867056709568735829456792486729047986705670956873582945679248672904798670567095687。
         </div>

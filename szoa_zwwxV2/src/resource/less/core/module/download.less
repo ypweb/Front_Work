@@ -7,7 +7,7 @@
   @downloan-height-inner: @download-height - @download-gap-inner * 2;
 
   width: 100%;
-  height: @download-height;
+  min-height: @download-height;
   display: block;
   padding: @download-padding/2;
 
@@ -94,6 +94,7 @@
     &:focus {
       .user-tap-base();
     }
+    .user-select-base();
   }
   .download-text,
   .download-icon {

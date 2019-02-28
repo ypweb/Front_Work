@@ -54,34 +54,50 @@
                         </li>
                         <li id="qstw_btn">
                             <h2 class="wx-labeltheme-wrap">签收分办</h2>
-                            <div class="wx-labelshow">
-                                <div><span>文件类型:</span></div>
-                                <label class="checkbox-inline">
-                                    <input type="radio" checked="checked" name="docType" id="banwen"
-                                           value="办文"> <span>办文</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="radio" name="docType" id="yuejian"
-                                           value="阅件"> <span>阅件</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="radio" name="docType" id="dianbao"
-                                           value="电报"> <span>电报</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="radio" name="docType" id="qita"
-                                           value="其他"> <span>其他</span>
-                                </label>
-                                <!--按钮组-->
-                                <ul class="wx-btnitem-wrap wx-btnitem-item2 g-gap-mb10">
-                                    <li>
-                                        <div id="qianshouDOC" class="zw-btn zw-btn-wxextend g-br5">签收</div>
-                                    </li>
-                                    <li>
-                                        <div id="tuiwenDOC" class="zw-btn zw-btn-default g-br5">退文</div>
-                                    </li>
-                                </ul>
+                            <div class="weui-cells weui-cells_form g-bt-pse-none g-clear-m">
+                                <div class="weui-cell">
+                                    <div class="weui-cell__bd">
+                                        <label class="weui-label">文件类型:</label>
+                                    </div>
+                                </div>
+                                <div class="weui-cell g-bt-pse-none">
+                                    <div class="weui-cell__bd weui-cells_radio">
+                                        <label class="weui-check__label">
+                                            <input type="radio" class="weui-check" checked name="docType" id="banwen"
+                                                   value="办文">
+                                            <span class="weui-icon-checked"></span>
+                                            办文
+                                        </label>
+                                        <label class="weui-check__label">
+                                            <input type="radio" class="weui-check" name="docType" id="yuejian"
+                                                   value="阅件">
+                                            <span class="weui-icon-checked"></span>
+                                            阅件
+                                        </label>
+                                        <label class="weui-check__label">
+                                            <input type="radio" class="weui-check" name="docType" id="dianbao"
+                                                   value="电报">
+                                            <span class="weui-icon-checked"></span>
+                                            电报
+                                        </label>
+                                        <label class="weui-check__label">
+                                            <input type="radio" class="weui-check" name="docType" id="qita"
+                                                   value="其他">
+                                            <span class="weui-icon-checked"></span>
+                                            其他
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
+                            <!--按钮组-->
+                            <ul class="wx-btnitem-wrap wx-btnitem-item2 g-gap-mb10 g-gap-mt10">
+                                <li>
+                                    <div id="qianshouDOC" class="zw-btn zw-btn-wxextend g-br5">签收</div>
+                                </li>
+                                <li>
+                                    <div id="tuiwenDOC" class="zw-btn zw-btn-default g-br5">退文</div>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
 

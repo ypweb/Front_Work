@@ -18,7 +18,6 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
             whenSuccess: function (user, hash) {
                 hashData = hash;
                 userInfo = user;
-                notifyValidate();
                 initSwiper();
                 getDocDetail();
             },
@@ -33,42 +32,6 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 })
             }
         });
-
-        /*// hashData = Util.getHashData();
-         var userInfo = Util.getParams("login_userInfo");
-         if (userInfo && userInfo != null) {
-         unitId = userInfo.unitId;
-         }
-         if (hashData.isZF && hashData.isZF == "1") {
-         if (!unitId || unitId == "undefined" || unitId == "") {
-         $.alert("未获取到您的用户信息，请先打开工作台！");
-         $.hideLoading();
-         return;
-         }
-         if (hashData.unitId && hashData.unitId != unitId) {
-         $.alert("非本单位人员不允许查看报名信息！");
-         $.hideLoading();
-         return;
-         }
-         }
-
-         if (!userInfo.id || userInfo.id == "") {
-         if (hashData.unitId && hashData.unitId != "") {
-         var loginId = Util.getParams("login_id");
-         if (loginId && loginId != "" && loginId != null) {
-         userInfo.id = loginId;
-         } else {
-         $.alert("未获取到您的用户信息，请从工作台中的办公系统查看您的待签收信息！");
-         $.hideLoading();
-         return;
-         }
-         } else {
-         $.alert("未获取到您的用户信息！", function () {
-         window.history.go(-1);
-         });
-         }
-         }*/
-
     }
 
     //初始化滑动切换页面
@@ -111,7 +74,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
     //获取公文详情信息
     function getDocDetail() {
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getDfbInfo",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getDfbInfo",
             dataType: "json",
             data: {
                 "id": hashData.workId,
@@ -127,6 +90,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 meetEnrollInfo(docData.swid);
                 var fujianArr = docData.attachment;
                 docTitle_base = docData.title;
+                notifyValidate();
                 //绑定各个点击事件
                 bindDocZhengwen();
                 bindFujian();
@@ -144,7 +108,6 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 $("#priority").append(docData.receivedinfo.priority);
                 $("#SdocumentNo").append(docData.documentNo);
                 removeHide();
-                initZhuanfa();
             }
         });
     }
@@ -170,7 +133,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
     //获取会议报名列表
     function meetEnrollInfo(swid) {
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_meetEnrollInfo",
+            url: "/ajax.sword?ctrl=WeixinDocDital_meetEnrollInfo",
             dataType: "json",
             data: {
                 "meetId": swid,
@@ -206,7 +169,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
 
     function notifyValidate() {
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_notifyValidate",
+            url: "/ajax.sword?ctrl=WeixinDocDital_notifyValidate",
             dataType: "json",
             data: {
                 "workid": hashData.workId
@@ -215,6 +178,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                 var rul = data.message.data;
                 if (rul && rul.result && rul.result == "true") {
                     $(".wx-tool-lb-wrap").removeClass("g-d-hide");
+                    initZhuanfa();
                 } else {
                     $("#is_tab").html("表单")
                 }
@@ -251,7 +215,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
         $.showLoading("努力加载中...");
         // 获取文件下载路径
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getDocFilePath",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getDocFilePath",
             // type: "post",
             dataType: "json",
             data: {
@@ -265,11 +229,14 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
+                var filePath=fileData.filepath;
+                var fix=filePath.substring(filePath.lastIndexOf("."));
+                var fixx=docTitle_base+fix
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    // name: titel, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
-                    name: "",
+                    // name: "",
                     size: fileData.filesize
                 });
             }
@@ -281,7 +248,7 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
         $.showLoading("努力加载中...");
         // 获取文件下载路径
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getFJFileUrl",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getFJFileUrl",
             // type: "post",
             dataType: "json",
             data: {
@@ -294,11 +261,14 @@ define(["util", "UrlBase", "Swiper"], function (Util, UrlBase) {
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
+                var filePath=fileData.filepath;
+                var fix=filePath.substring(filePath.lastIndexOf("."));
+                var fixx=titel+fix;
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
-                    // name: titel, // 需要预览文件的文件名(不填的话取url的最后部分)
+                    name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
                     // size: 9732096 // 需要预览文件的字节大小(必填)
-                    name: "",
+                    // name: "",
                     size: fileData.filesize
                 });
             }

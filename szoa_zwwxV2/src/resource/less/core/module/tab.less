@@ -47,6 +47,7 @@
       &:focus {
         .user-tap-base();
       }
+      .user-select-base();
     }
     .active,
     .tabactive {
@@ -100,7 +101,7 @@
         border-bottom: 2px solid darken(@main-theme-color, 10%);
       }
     }
-    &:not(:empty){
+    &:not(:empty) {
       border-bottom: 1px solid @color-gray14;
       border-top: 1px solid @color-gray14;
     }
@@ -251,6 +252,7 @@
       text-align: center;
       background-color: @color-global-white;
       line-height: @tab-list-height;
+      .user-select-base();
       &:after {
         width: @tab-icon-width;
         height: @tab-icon-width;
@@ -258,7 +260,7 @@
         overflow: hidden;
         display: inline-block;
         line-height: @tab-icon-width;
-        .transition-base(all .3s ease-in .01s);
+        .transition-base(all .2s linear .01s);
         margin-top: (@tab-list-height - @tab-icon-width)/2;
         color: @color-gray6;
         font-size: @font-size-base * 1.6;
@@ -293,7 +295,7 @@
     .layout-absolutel-base(0, -100vh, 60);
     width: 100%;
     display: block;
-    .transition-base(top .3s ease-in .01s ~',' opacity .3s linear .1s);
+    .transition-base(top .2s ease-in .01s ~',' opacity .2s linear .05s);
     .opacity-base(0);
     background-color: @color-global-white;
     > h1,
@@ -302,11 +304,13 @@
     > h4,
     > h5,
     > h6 {
+      @h-text-gap: 4px;
+
       display: block;
       text-align: center;
       min-height: @tab-list-height;
-      max-height: @tab-list-height * 3;
-      overflow: hidden;
+      max-height: @tab-list-height * 5;
+      overflow-y: auto;
       .text-ww();
       .calc-base(width, '100% - @{tab-icon-width}');
       line-height: @font-size-base + 10;
@@ -314,7 +318,7 @@
       color: @color-gray6;
       font-size: @font-size-base + 4;
       background-color: @color-global-white;
-      padding: 10px 0 10px @tab-icon-width;
+      padding: 10px 0 10px @tab-icon-width - @h-text-gap;
       font-weight: normal;
     }
   }
@@ -324,14 +328,19 @@
     background-color: rgba(255, 255, 255, 0);
     width: 100vw;
     height: 100vh;
-    .transition-base(top .05s linear .8s);
+    .transition-base(top .05s linear .3s);
+    .user-select-base();
   }
   /*tab操作区*/
   .wx-tabpanel-slide {
     .layout-absolutel-base(0, 0, 55);
-    .transition-base(left .5s ease-in .02s);
+    .transition-base(left .2s linear .01s);
     width: 100%;
     height: @tab-list-height;
+    .user-select-base();
+  }
+  .wx-tabpanel-slide-none {
+    .transition-base(none) !important;
   }
   /*tab宫格区*/
   .wx-tabpanel-column {
@@ -346,8 +355,8 @@
       .transform-origin-base();
       .transform-base(rotate(180deg));
     }
-    .wx-tabpanel-mask{
-      top:0;
+    .wx-tabpanel-mask {
+      top: 0;
       .transition-base(none);
     }
   }
@@ -369,6 +378,7 @@
     &:focus {
       .user-tap-base();
     }
+    .user-select-base();
     > li {
       display: inline-block;
       width: auto;

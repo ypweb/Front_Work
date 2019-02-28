@@ -37,7 +37,7 @@ define(['jquery'], function ($) {
         tabType: 'tab'/*切换方式:默认为tab类型，分为tab,swiper*/,
         index: 0/*当前高亮值*/,
         item: 3/*默认展现3个菜单*/,
-        effect_time: 500/*动画切换时间*/,
+        effect_time: 200/*动画切换时间*/,
         isbodyhide: true/*默认不开启点击body隐藏*/,
         render: null/*初始化渲染回调*/,
         tabFn: null/*点击渲染回调*/,
@@ -115,7 +115,7 @@ define(['jquery'], function ($) {
     }
 
     /*初始化渲染*/
-    function render(index) {
+    function render() {
         /*根据选择器查找元素*/
         if (tabMap.selector === 'li') {
             tabMap.$tab_wrap = tabMap.$tabswiper_slide.find('>ul');
@@ -251,11 +251,11 @@ define(['jquery'], function ($) {
                         tabMap.tabType = 'tab';
                     }
                 } else {
-                    tabMap.swiper_instance = null;
+                    swiper_instance = null;
                     tabMap.tabType = 'tab';
                 }
             } catch (e) {
-                tabMap.swiper_instance = null;
+                swiper_instance = null;
                 tabMap.tabType = 'tab';
             }
         }
@@ -387,8 +387,8 @@ define(['jquery'], function ($) {
         if (tabMap.isbodyhide) {
             tabMap.$body.on('click', function (e) {
                 var target = e.target,
-                    nodename = target.nodeName.toLowerCase(),
-                    isdelay = false/*是否延迟*/;
+                    nodename = target.nodeName.toLowerCase();
+
                 if (nodename === 'li' || nodename === 'a') {
                     if (target.parentNode.className.indexOf('wx-tablist-wrap') !== -1 || target.parentNode.className.indexOf('wx-tabcolumn-wrap') !== -1) {
                         return false;
@@ -398,11 +398,8 @@ define(['jquery'], function ($) {
                         return false;
                     }
                 } else if (nodename === 'div') {
-                    if (target.className.indexOf('wx-tablist-wrap') !== -1 || target.className.indexOf('wx-tabpanel-slide') !== -1 || target.className.indexOf('wx-tabpanel-list') !== -1 || target.className.indexOf('wx-tabpanel-grid') !== -1 || target.className.indexOf('wx-tabcolumn-wrap') !== -1 || target.className.indexOf('wx-tabpanel-wrap') !== -1 || target.className.indexOf('wx-tabpanel-toggle') !== -1) {
+                    if (target.className.indexOf('wx-tablist-wrap') !== -1 || target.className.indexOf('wx-tabpanel-slide') !== -1 || target.className.indexOf('wx-tabpanel-list') !== -1 || target.className.indexOf('wx-tabpanel-grid') !== -1 || target.className.indexOf('wx-tabcolumn-wrap') !== -1 || target.className.indexOf('wx-tabpanel-wrap') !== -1 || target.className.indexOf('wx-tabpanel-toggle') !== -1 || target.className.indexOf('wx-tabpanel-mask') !== -1) {
                         return false;
-                    } else if (target.className.indexOf('wx-tabpanel-mask') !== -1) {
-                        /*点击mask蒙版*/
-                        isdelay = true;
                     }
                 } else if (nodename === 'h1') {
                     if (target.parentNode.className.indexOf('wx-tabpanel-grid') !== -1) {
@@ -410,17 +407,13 @@ define(['jquery'], function ($) {
                     }
                 }
                 if (isColumn()) {
-                    if (isdelay) {
-                        if (mask_id !== null) {
-                            clearTimeout(mask_id);
-                            mask_id = null;
-                        }
-                        mask_id = setTimeout(function () {
-                            toggle();
-                        }, 250);
-                    } else {
-                        toggle();
-                    }
+                    toggle();
+                }
+            });
+            tabMap.$tabswiper_mask.on('click',function () {
+                /*点击mask蒙版*/
+                if (isColumn()) {
+                    toggle();
                 }
             });
         }
@@ -429,11 +422,11 @@ define(['jquery'], function ($) {
         $(window).on('resize', debouce(function () {
             resize();
             position();
-            if (tabMap.swiper_instance) {
+            if (swiper_instance) {
                 swiper_instance.reInit();
                 correctSwiper();
             }
-        }, 200));
+        }, 228));
 
     }
 
@@ -463,7 +456,7 @@ define(['jquery'], function ($) {
                 /*如果没有初始化则消除效果*/
                 tabMap.$swiper_container.css({
                     'transition-duration': '0s',
-                    'transform': 'none'
+                    'transform': 'translate3d(' + sleft + 'px, 0px, 0px)'
                 });
             }
         } else if (getSwiperVersion() === 3) {

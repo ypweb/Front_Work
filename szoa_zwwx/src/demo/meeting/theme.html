@@ -16,23 +16,23 @@
     <script>
         /*配置依赖*/
         require.config({
-            baseUrl:'/zwwx/',
-            paths:{
+            baseUrl: '/zwwx/',
+            paths: {
                 "jquery": "resource/js/lib/jquery/jquery.min"
             },
-            shim:{}
+            shim: {}
         });
 
 
         /*程序入口*/
-        require(['jquery'],function($) {
-            $(function() {
+        require(['jquery'], function ($) {
+            $(function () {
                 //页面元素获取
-                var $theme_toggle=$('#theme_toggle');
+                var $theme_toggle = $('#theme_toggle');
 
 
                 /*事件绑定*/
-                $theme_toggle.on('click',function () {
+                $theme_toggle.on('click', function () {
                     $(this).toggleClass('toggle-active');
                 });
             });
@@ -41,18 +41,107 @@
 </head>
 <body>
 <!--待办列表-->
-<h2 class="wx-theme-wrap">默认主题</h2>
+<h2 class="wx-theme-wrap">
+    <span class="theme-left-decorate"></span>默认主题
+    <div class="theme-tip-wrap theme-tip-delete">
+        <div class="theme-tip-btn"></div>
+        <div class="theme-tip-show theme-tip-active">哈哈，点我，点我，赶紧点我</div>
+    </div>
+</h2>
+<div class="wx-gap-wrap g-bc-white"></div>
 
-<h2 class="wx-theme-wrap">默认主题--有编辑按钮<span data-name="张三" class="theme-icon theme-icon-edit"></span></h2>
+<h2 class="wx-theme-wrap">
+    <span class="theme-left-decorate"></span>默认主题--有编辑按钮
+    <span data-name="张三" class="theme-icon theme-icon-edit"></span>
+</h2>
+<div class="wx-gap-wrap"></div>
 
-<h2 class="wx-theme-wrap g-bc-white">白色主题</h2>
+<h2 class="wx-theme-wrap g-bc-white">
+    <span class="theme-left-decorate"></span>白色主题
+    <div class="theme-tip-wrap theme-tip-idea" data-title="参">
+        <input type="checkbox" class="theme-tip-btn theme-tip-btncheck" />
+        <div class="theme-tip-list">
+            <div>
+                从主要指标来看，”稳“的态势在持续；从经济结构来看，”进“的力度在加大；从发展动能来看，”新“的动能在成长；从发展质量来看，”好“的因素在累积
+            </div>
+            <div class="zw-btn zw-btn-wxextend">采用</div>
+        </div>
+    </div>
+</h2>
+<div class="wx-gap-wrap"></div>
 
-<h2 class="wx-theme-wrap g-bc-white">白色主题--有编辑按钮<span data-name="张三" class="theme-icon theme-icon-edit"></span></h2>
+<h2 class="wx-theme-wrap g-bc-white">
+    <span class="theme-left-decorate"></span>白色主题&#45;&#45;有编辑按钮
+    <span data-name="张三" class="theme-icon theme-icon-edit"></span>
+</h2>
+<div class="wx-gap-wrap"></div>
 
-<h2 class="wx-labeltheme-wrap g-gap-mt5">详情列表头部主题</h2>
+<h2 class="wx-theme-wrap g-bc-white">
+    <span class="theme-left-decorate"></span>白色主题&#45;&#45;有编辑按钮(编辑按钮隐藏)
+    <span data-name="张三" class="theme-icon theme-icon-edit theme-icon-edit-off"></span>
+</h2>
+<div class="wx-gap-wrap"></div>
 
-<h2 class="wx-labeltheme-wrap g-gap-mt5"><span data-name="张三" class="theme-icon theme-icon-edit"></span>详情列表头部主题--有编辑按钮</h2>
+<h2 class="wx-labeltheme-wrap">
+    <span class="theme-left-decorate"></span>详情列表头部主题
+    <div class="theme-tip-wrap theme-tip-delete">
+        <div class="theme-tip-btn"></div>
+        <div class="theme-tip-show theme-tip-active">在看我，还在看我，怎么一直在看我，再看我，再看我就把你喝掉...</div>
+    </div>
+</h2>
+<div class="wx-gap-wrap"></div>
 
-<h2 class="wx-labeltheme-wrap g-gap-mt5">详情列表头部主题--可展开<span class="theme-icon theme-icon-toggle" id="theme_toggle"></span></h2>
+<h2 class="wx-labeltheme-wrap">
+    <span class="theme-left-decorate"></span>
+    <span data-name="张三" class="theme-icon theme-icon-edit"></span>详情列表头部主题&#45;&#45;有编辑按钮
+    <div class="theme-tip-wrap theme-tip-idea" data-title="参">
+        <input type="checkbox" class="theme-tip-btn theme-tip-btncheck" />
+        <div class="theme-tip-list">
+            <div>
+                从主要指标来看，”稳“的态势在持续；从经济结构来看，”进“的力度在加大；从发展动能来看，”新“的动能在成长；从发展质量来看，”好“的因素在累积
+            </div>
+            <div class="zw-btn zw-btn-wxextend">采用</div>
+        </div>
+    </div>
+    <span class="theme-icon theme-icon-chk">
+        <input type="checkbox" name="themeCHK"/>全选
+        <span class="chk-decorate"></span>
+    </span>
+</h2>
+<div class="wx-gap-wrap"></div>
+
+<h2 class="wx-labeltheme-wrap">
+    <span class="theme-left-decorate"></span>详情列表头部主题--可展开
+    <div class="theme-tip-wrap theme-tip-delete">
+        <div class="theme-tip-btn"></div>
+        <div class="theme-tip-show theme-tip-active">再一次出现在切换处</div>
+    </div>
+    <div class="theme-action-btn g-f-r">
+        <span class="zw-btn zw-btn-wxextend g-br3">abc</span>
+        <span class="zw-btn zw-btn-wxextend g-br3">ABC</span>
+        <span class="zw-btn zw-btn-wxextend g-br3">2019了</span>
+    </div>
+    <span class="theme-icon theme-icon-toggle" id="theme_toggle"></span>
+</h2>
+<div class="wx-gap-wrap"></div>
+
+
+<h2 class="wx-theme-wrap g-bc-white">
+    <span class="theme-left-decorate"></span>带有全选操作按钮的主题
+    <div class="theme-tip-wrap theme-tip-delete">
+        <div class="theme-tip-btn"></div>
+        <div class="theme-tip-show theme-tip-active">全选也是可以的</div>
+    </div>
+    <div class="theme-action-btn g-f-r">
+        <span class="zw-btn zw-btn-wxextend g-br3">点我，点我</span>
+        <span class="zw-btn zw-btn-wxextend g-br3">我是按钮</span>
+        <span class="zw-btn zw-btn-wxextend g-br3">.zw-btn .zw-btn-wxextend</span>
+    </div>
+    <span class="theme-icon theme-icon-chk">
+        <input type="checkbox" name="themeCHK"/>全选
+        <span class="chk-decorate"></span>
+    </span>
+</h2>
+
 </body>
 </html>

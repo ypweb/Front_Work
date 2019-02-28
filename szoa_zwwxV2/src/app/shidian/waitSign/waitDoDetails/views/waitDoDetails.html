@@ -12,13 +12,13 @@
     <meta content="telephone=no" name="format-detection"/>
     <title></title>
     <!--扩展样式-->
-    <link rel="stylesheet" href="/zwwxV2/resource/css/weui.css">
+    <link rel="stylesheet" href="/zwwx/resource/css/weui.css">
     <!--第三方组件-->
     <link rel="stylesheet" href="/zwwx/resource/js/lib/weui/css/jquery-weui.css"/>
-    <script src="/zwwxV2/resource/js/lib/jquery/jquery.min.js"></script>
-    <script src="/zwwxV2/resource/js/lib/weui/js/jquery-weui.min.js"></script>
-    <script src="/zwwxV2/resource/js/lib/require/require.js"></script>
-    <script src="/zwwxV2/resource/js/config/config.js"></script>
+    <script src="/zwwx/resource/js/lib/jquery/jquery.min.js"></script>
+    <script src="/zwwx/resource/js/lib/weui/js/jquery-weui.min.js"></script>
+    <script src="/zwwx/resource/js/lib/require/require.js"></script>
+    <script src="/zwwx/resource/js/config/config.js"></script>
 </head>
 
 <body>
@@ -59,16 +59,15 @@
                                 </h2>
                             </li>
                         </ul>
-
-                        <!--意见弹窗-->
+                        <!--意见弹窗
                         <div class="wx-tool-wrap wx-tool-lb-wrap g-d-hidei" id="idea_textarea">
-                            <!--写信息-->
+                            &lt;!&ndash;写信息&ndash;&gt;
                             <div class="wx-tool-textarea">
-                                <!--textarea-->
+                                &lt;!&ndash;textarea&ndash;&gt;
                                 <div class="text-info">
                                     <textarea placeholder="请输入意见"></textarea>
                                 </div>
-                                <!--按钮组-->
+                                &lt;!&ndash;按钮组&ndash;&gt;
                                 <ul class="wx-btnitem-wrap wx-btnitem-item2 g-gap-mb10">
                                     <li>
                                         <div class="zw-btn zw-btn-wxextend g-br5" id="idea_sure">确定</div>
@@ -78,7 +77,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
                 <div class="swiper-slide" data-title="暂无正文">
@@ -234,8 +233,7 @@
                         </ul>
 
                         <!--交换跟踪第三部分-->
-                        <ul class="wx-followlist-wrap" id="follow_list">
-                        </ul>
+                        <ul class="wx-followlist-wrap" id="follow_list"></ul>
                     </div>
                 </div>
                 <div class="swiper-slide" data-title="暂无办理信息">
@@ -266,16 +264,55 @@
     <div class="wx-followtext-wrap g-d-hidei" id="follow_process">
         <div class="wx-followtext-show">
             <h1>办文状态</h1>
-            <ul class="wx-processtext-list">
-            </ul>
+            <ul class="wx-processtext-list"></ul>
             <div id="follow_process_sure">确定</div>
+        </div>
+    </div>
+
+    <!--按钮组-->
+    <div id="anniuzu" class="wx-tool-wrap wx-tool-lb-wrap g-d-hidei"  >
+        &lt;!&ndash;遮罩层&ndash;&gt;
+        <div id="zhezhaoceng" class="wx-tool-mask g-d-hidei"></div>
+        &lt;!&ndash;第一级菜单&ndash;&gt;
+        <ul id="button_menu" class="wx-tool-list wx-tool-menu g-d-hidei"></ul>
+        &lt;!&ndash;第一级菜单&ndash;&gt;
+        <ul class="wx-tool-list wx-tool-toggle">
+            <li class="tool-list-toggle tool-list-active" id="tab_menu"></li>
+        </ul>
+
+        &lt;!&ndash;遮罩层&#45;&#45;黑色&#45;&#45;大比例透明&ndash;&gt;
+        <div class="wx-tool-mask wx-tool-mask-transparent g-d-hidei" id="tool_mask_transparent"></div>
+        &lt;!&ndash;第二级菜单&#45;&#45;右侧意见弹窗列表&ndash;&gt;
+        <div class="wx-tool-ideaouter g-d-hidei" id="tool_idealist">
+            <div class="wx-tool-ideainner">
+                <ul id="tool_showidea"></ul>
+                <div id="tool_editidea">其他意见</div>
+            </div>
+        </div>
+        &lt;!&ndash;第一级菜单&#45;&#45;右侧意见按钮&ndash;&gt;
+        <ul class="wx-tool-list wx-tool-idea g-d-hidei">
+            <li class="tool-list-toggle" id="tool_idea"></li>
+        </ul>
+    </div>
+
+    <!--意见弹窗-->
+    <div class="wx-tool-wrap wx-tool-lb-wrap g-d-hidei" id="tool_ideatextarea">
+        <!--写信息-->
+        <div class="wx-tool-textarea">
+            <!--textarea-->
+            <div class="text-info">
+                <h2 id="tool_closeidea">本次意见</h2>
+                <textarea placeholder="请输入意见" id="get_idea"></textarea>
+            </div>
+            <!--按钮组1--本次意见按钮-->
+            <ul class="wx-btnaction-wrap" id="send_btn"></ul>
         </div>
     </div>
 </div>
 <script>
     $.showLoading("努力加载中...");
 </script>
-<script type="text/javascript" src="/zwwxV2/app/shidian/waitSign/waitDoDetails/waitDoDetailsCtrl.js"></script>
+<script type="text/javascript" src="/zwwx/app/shidian/waitSign/waitDoDetails/waitDoDetailsCtrl.js"></script>
 
 </body>
 

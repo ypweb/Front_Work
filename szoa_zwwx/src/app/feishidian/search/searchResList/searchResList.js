@@ -460,7 +460,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     			$.alert("没有获取到跳转页面需要的参数，请稍后重试！");
     			return false;
     		}
-            var param="#userId="+userId+","+"type="+type+","+"workId="+workId+","+"trackId="+trackId+","+"isLeader="+isLeader+","+"unitId="+unitId;
+            var param="#userId="+userId+","+"type="+type+","+"workId="+workId+","+"trackId="+trackId+","+"isCX=1,"+"unitId="+unitId;
             window.location.href=UrlBase.URL_JUMP_WAITHANDLEDETAILS+param;
         });
     }

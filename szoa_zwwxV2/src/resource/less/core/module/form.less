@@ -1,401 +1,98 @@
 /*form组件*/
 .wx-form-function() {
-  /*偏移变量*/
-  @indent-font-size: @form-font-size - 2;
-  @indent-input-icon-width: 20px;
-  @indent-input-icon-gap-right: 10px;
-  @indent-input-gap-top: (@form-item-height - @form-item-inputgap-top)/2;
-
-  .wx-form-wrap {
-    padding: @form-gap-left;
-    /*循环生成1-10倍高度*/
-    .form-item-loop(@index) when (@index>1) {
-      .wx-form-item@{index}x {
-        height: @form-item-height * @index;
-      }
-      .form-item-loop(@index - 1);
-    }
-    /*调用生成倍高度*/
-    .form-item-loop(10);
-    .wx-form-itemhalfx {
-      height: @form-item-height * .5;
-    }
-    /*表单icon*/
-    .wx-form-icon {
-      position: absolute;
-      z-index: 20;
-      top: 0;
-      width: @form-item-height;
-      height: @form-item-height;
-      display: block;
-      &:before {
-        width: 100%;
-        height: 100%;
-        display: inline-block;
-        line-height: @form-item-height;
-        text-align: center;
-        overflow: hidden;
-        font-family: zw_iconfont;
-        font-size: @font-size-base * 1.5;
-        color: @color-gray9;
-      }
-    }
-    .wx-form-icon-right {
-      right: 0;
-    }
-    /*日历图标*/
-    .form-icon-datetime {
-      &:before {
-        content: '\e646';
-      }
-    }
-    /*图片图标*/
-    .form-icon-image {
-      &:before {
-        content: '\e6b7';
-      }
-    }
-    /*文件图标*/
-    .form-icon-file {
-      &:before {
-        content: '\e607';
-      }
-    }
-    /*上传*/
-    .form-icon-upload {
-      &:before {
-        content: '\e783';
-      }
-    }
-    /*下载*/
-    .form-icon-download {
-      &:before {
-        content: '\e782';
-      }
-    }
-    /*文件添加*/
-    .form-icon-addfile {
-      &:before {
-        content: '\e61b';
-      }
-    }
-    /*编辑*/
-    .form-icon-edit {
-      &:before {
-        content: '\e6db';
-      }
-    }
-
-    /*扩展*/
-    .wx-form-vcode {
-      display: inline-block;
-      padding:5px 0;
-      width: 80px;
-      >div{
-        width:100%;
-        border: 1px solid @color-gray12;
-        .border-radius-base(3px);
-        background-color: lighten(@color-gray14, 2%);
-        vertical-align: middle;
-        display: inline-block;
-        cursor: pointer;
-        height: 35px;
-      }
-    }
-  }
-
-  /*表单偏移*/
-  .wx-form-indent {
-    > li {
-      display: inline-block;
-      margin-bottom: @form-item-gap-top;
-      width: 100%;
-      height: @form-item-height;
-    }
-    .wx-form-label {
-      display: inline-block;
-    }
-    /*偏移部分*/
-    .wx-form-label {
-      .layout-relative-base();
-      height: 100%;
-      width: 100%;
+  /*扩展微信表单*/
+  .weui-cells_form{
+    /*签收--选择表单--扩展微信选中*/
+    .wx-weui-cells-checkwrap {
       font-size: 0;
-    }
-    .wx-form-labelauto {
-      height: auto;
-    }
-    /*选项*/
-    .wx-form-require,
-    .wx-form-name,
-    .wx-form-text {
-      display: inline-block;
-      height: 100%;
-    }
-    /*高亮必填*/
-    .wx-form-require {
-      .layout-absolutel-base();
-      color: @color-red1;
-      font-size: @indent-font-size  + 2;
-      line-height: @form-item-height * 1.15;
-    }
-    /*表单名称*/
-    .wx-form-name {
-      .layout-absolutel-base();
-      line-height: @form-item-height;
-      color: @color-gray6;
-      font-size: @indent-font-size;
-      text-align: right;
-      padding: 0 .2em 0 0;
-    }
-    /*表单输入项*/
-    .wx-form-text {
-      .wx-form-pitem {
-        height: 100%;
-        display: inline-block;
-      }
-      width: 100%;
-      > input[type="text"],
-      > input[type="password"],
-      > input[type="date"],
-      > input[type="time"],
-      > input[type="datetime-local"],
-      > textarea,
-      > select {
-        .layout-relative-base();
-      }
-      input[type="text"],
-      input[type="password"],
-      input[type="date"],
-      input[type="time"],
-      input[type="datetime-local"],
-      textarea,
-      select {
-        .transition-base(all .03s ease-in .02s);
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        font-weight: normal;
-        border: 1px solid @color-gray12;
-        background-color: @color-global-white;
-        .border-radius-base(4px);
-        font-size: @indent-font-size + 2;
-        color: @color-gray3;
-        &:focus {
-          border: 1px solid @color-gray10;
-        }
-      }
-      input[type="text"],
-      input[type="password"],
-      input[type="date"],
-      input[type="time"],
-      input[type="datetime-local"],
-      select {
-        padding: @indent-input-gap-top @indent-input-gap-top/2;
-        line-height: @form-item-inputgap-top;
-      }
-      textarea {
-        resize: none;
-        padding: @indent-input-gap-top/2;
-        line-height: @indent-font-size + 10;
-        &:disabled {
-          border: 1px solid @color-gray13;
-          background-color: lighten(@color-gray15, 2%);
-          color: @color-gray8;
-        }
-      }
-    }
-    /*单选和多选*/
-    .wx-form-rc {
-      @rc-gap: (@form-item-height - @indent-input-icon-width)/2;
-      padding: @rc-gap 0;
-      min-width: @form-item-height/2;
-      height: @form-item-height;
-      font-size: @indent-font-size;
-      color: @color-gray6;
-      margin: 0 @rc-gap 0 0;
-      display: inline-block;
-      text-align: center;
-      vertical-align: middle;
-      line-height: @form-item-height - (@form-item-inputgap-top * 2);
-      input[type="radio"],
-      input[type="checkbox"] {
-        vertical-align: middle;
-        width: 16px;
-        height: 16px;
-        margin: 0 5px;
-        display: inline-block;
-      }
-    }
-    /*模拟单选和多选*/
-    .wx-form-rc-simulation {
-      .layout-relative-base();
-      cursor: pointer;
-      > input[type="checkbox"],
-      > input[type="radio"] {
-        width: 0 !important;
-        height: 0 !important;
-        display: none;
-        margin: 0;
-        .opacity-base(0);
-      }
-      &,
-      &:hover,
-      &:active,
-      &:focus {
+      .weui-check__label {
+        .layout-relative-base(0, 0, 1);
         .user-tap-base();
-      }
-      &:before {
-        .layout-absolutel-base(0, (@form-item-height - @indent-input-icon-width)/2);
-        .box-sizing-base();
+        .user-select-base();
         display: inline-block;
-        overflow: hidden;
-        width: @indent-input-icon-width;
-        height: @indent-input-icon-width;
-        margin: 2px 0 0 .5em;
-        content: '';
-        color: @color-gray11;
-        border: 1px solid @color-gray11;
-        background-color: @color-global-white;
-      }
-      &:after {
-        float: left;
-        height: @form-item-height;
-        margin: 0 0 0 @indent-input-icon-width + @indent-font-size * .5 + @indent-input-icon-gap-right;
-        white-space: nowrap;
-        display: inline-block;
-        color: @color-gray9;
-        content: attr(data-title);
-        font-size: @indent-font-size;
+        margin:0 8px 5px 0;
+        cursor: pointer;
+        padding:0;
+        vertical-align: middle;
+        >input[type='radio'].weui-check,
+        >input[type='checkbox'].weui-check{
+          margin:0;
+          padding:0;
+          .layout-absolutel-base(0, 0, 20);
+          display: inline-block;
+          width:100%;
+          height:100%;
+          .opacity-base(0);
+          &:checked ~ span.weui-icon-checked{
+            border:1px solid @main-theme-color;
+            .layout-relative-base(0,0,1);
+            overflow: hidden;
+            &:after{
+              width:13px;
+              height:13px;
+              line-height: 13px;
+              text-align: right;
+              display: block;
+              color:@main-theme-color;
+              font-size: @font-size-base;
+              .layout-absoluterb-base(-1px,-1px,2);
+              content:'\e61e';
+              font-family: zw_iconfont;
+            }
+          }
+        }
+        >span.weui-icon-checked{
+          cursor: pointer;
+          display: inline-block;
+          width:100%;
+          height:100%;
+          margin:0;
+          padding:0 6px 3px 4px;
+          font-size:@font-size-base + 3;
+          vertical-align: middle;
+          line-height: @font-size-base + 8;
+          color:@color-gray6;
+          border:1px solid @color-gray12;
+          .border-radius-base(3px);
+        }
       }
     }
-    .simulation-radio {
-      &:before {
-        .border-radius-base(50%);
-      }
-    }
-    /*单选多选激活*/
-    .simulation-radio.simulation-checked {
-      &:before {
-        border: @indent-input-icon-width * .25 solid @main-theme-color;
-      }
-    }
-    /*多选激活*/
-    .simulation-checkbox.simulation-checked {
-      &:before {
-        line-height: .7em;
-        overflow: visible;
-        content: '\e66b';
-        text-indent: -5px;
-        color: @main-theme-color;
-        font-size: @font-size-base * 1.9;
-        font-family: 'zw_iconfont';
-        border: none;
-      }
-    }
-    /*提示信息*/
-    .wx-form-tip {
-      @tip-fonts-size: @indent-font-size + 4;
+    /*微信扩展-日历icon*/
+    .weui-cell_datetime{
+      .weui-cell__ft{
+        width:0;
+        .weui-icon-datetime{
+          @dt-width:25px;
 
-      .layout-absolutelb-base(0, -@tip-fonts-size);
-      .transition-base(all .5s ease-in .02s);
-      display: inline-block;
-      width: 100%;
-      height: 0;
-      line-height: @indent-font-size;
-      color: @color-red1;
-      font-size: @indent-font-size;
-      text-indent: @indent-input-gap-top * .5;
-      .opacity-base(0);
-      &:not(:empty) {
-        height: @tip-fonts-size;
-        .opacity-base(100);
-      }
-    }
-    /*一半高度*/
-    .wx-form-itemhalfx {
-      /*高亮必填*/
-      .wx-form-require {
-        line-height: @form-item-height * .55;
-      }
-      /*表单名称*/
-      .wx-form-name {
-        line-height: @form-item-height * .5;
-      }
-      /*表单输入项*/
-      .wx-form-text {
-        input[type="text"],
-        input[type="password"],
-        input[type="date"],
-        input[type="time"],
-        input[type="datetime-local"],
-        select {
-          padding: @indent-input-gap-top * .5 @indent-input-gap-top/2;
-          line-height: @form-item-inputgap-top * .5;
-        }
-      }
-      /*单选和多选*/
-      .wx-form-rc {
-        @rc-gap: (@form-item-height - @indent-input-icon-width)/2;
-        padding: 0;
-        height: @form-item-height * .5;
-        margin: 0 @rc-gap 0 0;
-        line-height: @form-item-height * .5;
-      }
-      /*模拟单选和多选*/
-      .wx-form-rc-simulation {
-        &:before {
-          top: 0;
-          margin: 2px 0 0 .5em;
-        }
-        &:after {
-          height: @form-item-height * .5;
-        }
-      }
-      /*多选激活*/
-      .simulation-checkbox.simulation-checked {
-        &:before {
-          line-height: .7em;
+          margin:0;
+          height:0;
+          width:0;
+          padding:0;
+          display: inline-block;
+          .layout-relative-base(0,0,1);
+          &:after{
+            .layout-absolutel-base(0,0,10);
+            .user-select-base();
+            cursor: pointer;
+            content:'\e646';
+            color:@color-gray8;
+            text-align: left;
+            vertical-align: middle;
+            font-size: @font-size-base * 1.4;
+            font-family: zw_iconfont;
+            width:@dt-width;
+            height:@dt-width;
+            display: inline-block;
+            margin-left:-@dt-width * .8;
+            margin-top:-@dt-width * .4;
+          }
         }
       }
     }
+
   }
-  /*循环生成1-10倍偏移*/
-  .form-indent-loop(@index) when (@index>0) {
-    @indent-gap: @index - 5;
-    .wx-form-indent@{index} {
-      .wx-form-require {
-        left: unit(@indent-gap, em) * .1;
-      }
-      .wx-form-label {
-        padding-left: @form-font-size * @index;
-      }
-      .wx-form-name {
-        width: @form-font-size * @index;
-      }
-      .wx-form-tip {
-        padding-left: @form-font-size * @index;
-      }
-      .wx-form-icon-left {
-        left: @form-font-size * @index;
-      }
-    }
-    .form-indent-loop(@index - 1);
-  }
-  /*调用生成倍偏移*/
-  .form-indent-loop(10);
-
-  .wx-formlist-wrap {
-    width: 100%;
-    background-color: @color-global-white;
-    padding: 0 @formlist-gap-left/2;
-    > li {
-      width: 100%;
-    }
-  }
-
-
 }
+
 
 .wx-form-function();
 

@@ -17,7 +17,15 @@
 
 // method2 accessbility
 .weui-cell-radio-function() {
-  @radio-width: 22px;
+  /*radio宽度*/
+  @radio-width: 20px;
+  /*radio在正常16px字体下的偏移*/
+  @radio-gap: (@radio-width - (@font-size-base + 2)) * .5;
+  /*radio内部宽度*/
+  @inner-radio-width: 8px;
+  /*radio内部定位*/
+  @radio-pos:(@radio-width - @inner-radio-width) * .5 - 1;
+
   .weui-cells_radio {
     &,
     &:hover,
@@ -25,47 +33,61 @@
     &:focus {
       .user-tap-base();
     }
+    .user-select-base();
     .weui-cell__ft {
       padding-left: @weuiCellInnerGapH;
     }
     > label.weui-check__label {
       margin-right: @radio-width * .8;
     }
-  }
-  .weui-check {
-    // radio
-    .weui-cells_radio & {
-      & + .weui-icon-checked {
-        .layout-relative-base();
-        width: @radio-width;
-        height: @radio-width;
-        display: inline-block;
-        overflow: hidden;
-        &:before {
-          .layout-absolutel-base();
-          width: 100%;
-          height: 100%;
-          line-height: @radio-width - 5;
-          text-align: center;
-          .transition-base(color .3s linear .01s);
-          vertical-align: middle;
-          font-family: zw_iconfont;
-          display: block;
-          content: '\e712';
-          padding: 0;
-          margin: 0;
-          color: @color-gray12;
-          font-size: @font-size-base + 6;
-        }
+    .weui-check + .weui-icon-checked{
+      .layout-relative-base(0,0,2);
+      margin: -@radio-gap 4px 0 0;
+      padding:0;
+      width: @radio-width;
+      height: @radio-width;
+      display: inline-block;
+      .border-radius-base(50%);
+      background-color: @color-global-white;
+      border: 1px solid @color-gray12;
+      &:before,
+      &:after{
+        position: absolute;
+        left:@radio-pos;
+        top:@radio-pos;
+        .border-radius-base(50%);
+        display: block;
+        content: '';
+        padding: 0;
+        margin: 0;
       }
-      &:checked {
-        & + .weui-icon-checked {
-          &:before {
-            line-height: @radio-width - 1;
-            content: '\e71f';
-            color: @weuiColorPrimary;
-          }
-        }
+      &:before{
+        z-index: 5;
+        width: @inner-radio-width;
+        height: @inner-radio-width;
+        .transition-base(color .3s linear .01s);
+      }
+      &:after{
+        z-index: 1;
+        background-color: @weuiColorPrimary;
+        .transform-origin-base(50% 50%);
+        width:0;
+        height:0;
+        .opacity-base(100);
+      }
+    }
+    .weui-check:checked + .weui-icon-checked{
+      border-color: @weuiColorPrimary;
+      background-color: @weuiColorPrimary;
+      &:before {
+        background-color: @color-global-white;
+      }
+      &:after{
+        width: @inner-radio-width;
+        height: @inner-radio-width;
+        .transition-base(transform .2s linear 0s ~',' opacity .2s linear .05s);
+        .transform-base(scale(4));
+        .opacity-base(0);
       }
     }
   }

@@ -29,6 +29,7 @@
   /*带有删除icon功能的*/
   .wx-form-inputdelete {
     @delete-width: 25px;
+
     .layout-relative-base();
     > .weui-input + span.icon-delete {
       .transition-base(all .3s ease-in .01s);
@@ -42,10 +43,10 @@
       .transform-origin-base(50% 50%);
       .transform-base(scale(.01));
       &:before {
-        background-color: @color-gray14;
+        background-color: darken(@color-gray14, 2%);
         font-family: zw_iconfont;
         color: @color-global-white;
-        font-size: @font-size-base;
+        font-size: @font-size-base * 1.2;
         content: '\e602';
         float: left;
         width: 100%;
@@ -55,12 +56,11 @@
         display: block;
       }
     }
-    > .weui-input:valid + span.icon-delete{
+    > .weui-input:valid + span.icon-delete {
       .transform-base(scale(1));
     }
   }
 }
-
 
 
 

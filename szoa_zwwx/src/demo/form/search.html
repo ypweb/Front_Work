@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>查询</title>
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+    <link rel="stylesheet" href="../../resource/js/lib/weui/css/jquery-weui.css">
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl: '/zwwx/',
+            paths: {
+                "jquery": "resource/js/lib/jquery/jquery.min",
+                'weuiJS': "resource/js/lib/weui/js/jquery-weui.min"
+            },
+            shim: {
+                'weuiJS': {
+                    deps: ['jquery']
+                }
+            }
+        });
+
+
+        /*程序入口*/
+        require(['jquery', 'weuiJS'], function ($, undefined) {
+            $(function () {
+                //页面元素获取
+                var $theme_toggle = $('#theme_toggle'),
+                    $search_more = $('#search_more'),
+                    $begin_date = $('#begin_date'),
+                    $end_date = $('#end_date');
+
+
+                /*切换高级查询*/
+                $theme_toggle.on('click', function (e) {
+                    /*切换按钮*/
+                    var nodename = e.target.nodeName.toLowerCase(),
+                        $this = null;
+                    if (nodename === 'div') {
+                        $this = $(e.target).find('span');
+                    } else if (nodename === 'span') {
+                        $this = $(e.target);
+                    }
+                    $this.toggleClass('toggle-active');
+                    /*切换高级查询*/
+                    $search_more.toggleClass('g-d-hidei');
+                });
+
+
+                /*时间日期初始化*/
+                $.each([$begin_date, $end_date], function () {
+                    this.calendar({
+                        dateFormat: 'yyyy-mm-dd'
+                    });
+                });
+
+
+            });
+        });
+    </script>
+</head>
+<body class="wx-btn-body">
+
+
+<!--表单-->
+<div class="weui-cells weui-cells_form g-clear-m">
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">文件编号:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="文件编号" type="text">
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">文件标题:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="文件标题" type="text">
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">日期范围:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="开始日期" id="begin_date" type="text" readonly>
+        </div>
+        <div class="g-w-number6 g-ta-c">-</div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="结束日期" id="end_date" type="text" readonly>
+        </div>
+    </div>
+
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">批示领导:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="批示领导" type="text">
+        </div>
+    </div>
+
+    <div class="weui-cell weui-cell_access">
+        <div class="weui-cell__hd">
+            <label class="weui-label">经办处室:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="经办处室" readonly type="text">
+        </div>
+        <div class="weui-cell__ft"></div>
+    </div>
+
+    <div class="weui-cell weui-cell_access">
+        <div class="weui-cell__hd">
+            <label class="weui-label">经办人:</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="经办人" readonly type="text">
+        </div>
+        <div class="weui-cell__ft"></div>
+    </div>
+
+    <div class="wx-gap-wrap wx-gap-item2x"></div>
+
+    <div class="wx-labeltheme-wrap g-c-wxextend1" id="theme_toggle">高级查询<span
+            class="theme-icon theme-icon-toggle"></span></div>
+    <div class="g-w-percent100 g-d-hidei" id="search_more">
+        <div class="weui-cell g-bb-pse-none">
+            <div class="weui-cell__hd">
+                <label class="weui-label">高级条件1:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="高级条件1" type="text">
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd">
+                <label class="weui-label">高级条件2:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="高级条件2" readonly type="text">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+
+        <div class="weui-cell weui-cell_access g-clear-pt g-clear-pb">
+            <div class="weui-cell__hd">
+                <label class="weui-label">高级条件3:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select g-clear-pl" name="zbmy">
+                    <option value="" selected>请选择</option>
+                    <option value="1">高级条件31</option>
+                    <option value="2">高级条件32</option>
+                    <option value="3">高级条件33</option>
+                </select>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+    </div>
+</div>
+
+<!--按钮组-->
+<ul class="wx-btnaction-wrap wx-btnaction-item2">
+    <li class="wx-btnaction-cancel">取消</li>
+    <li class="wx-btnaction-sure">确定</li>
+</ul>
+</body>
+</html>

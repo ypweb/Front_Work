@@ -1,7 +1,7 @@
 define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
-	var userInfo;//用户信息
-	var identityId = "";//身份id
+	var userId = "";//用户id
 	var unitId;//单位id
+	var userName = "";//用户姓名
 	var page = 1;//查询页数
     var pageSize = 20;//每页显示条数
     var colorFlag = 1;//判断查询页面是否展开，1未展开 2展开
@@ -13,7 +13,6 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	var realSearchCode = "全部";//点击确定之后要真查询的状态
 	var isChangeStatus = 0;//是否为切换状态查询，新查询要判断是上拉加载还是重新按状态查询
 	var isLeaderSec=0;//是否是领导秘书（因为领导秘书的待办用单独的接口）1是 0不是
-	var isLeader = 0;//是否领导 0不是 1 是
 	//下拉刷新需要的全局变量
     var isScrollLeft = false;//判断是否有信息处于最左端状态
     var isScroll = false;//判断是否有信息处于左划状态
@@ -30,14 +29,19 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     	$("#searchTouch").show();
     	isRefresh = 1;//新加载标记
     	var userInfo = Util.getParams('login_userInfo');//获取用户基本信息
-    	userInfo = Util.getParams("login_userInfo");
     	if(userInfo){
-    		identityId = userInfo.identityId;
-    		//unitId = userInfo.unitId;
+    		var isSec = userInfo.isLeaderSec;
+        	if(isSec==true){
+        		isLeaderSec=1;
+        	}
+        	userName = userInfo.truename;
+        	unitId = userInfo.unitId;
     	}else{
-    		$.alert("未获取到用户信息！");
+    		$.hideLoading();
+    		$.alert("未获取到您的用户信息，请从工作台中的办公系统查看您的待办信息！");
     		return false;
     	}
+    	userId = Util.getParams("login_id");//获取userId
     	//先看sessionStroge中有没有，有就用session没有默认全部
     	var dbSearchCode = Util.getSessionParams("dbSearchCode");
     	if(dbSearchCode){
@@ -63,12 +67,12 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 		}
 		isRefresh = 0;
     	$.ajax({
-	        url:"/ajax.sword?ctrl=WeixinCtrlV2_getWaitHandleList",
+	        url:"/ajax.sword?ctrl=WeixinCtrl_getWaitHandleList",
 	        dataType:"json",
 	        data:{
 	        	page:page,
 	        	pageSize:pageSize,
-	        	identityId:'F3355C9415344308B65E0AE56578C852',
+	        	userId:userId,
 	        	status:realSearchCode,
 	        	isLeaderSec:isLeaderSec
 	        },
@@ -79,9 +83,9 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	        		$("#grid").children().remove();
 	        		$("html,body").scrollTop(0);
 	        	}
-	        	if(res.message.msg=="请求成功"){//请求成功，返回数据
-		        	var waitHandleList = res.message.data.resList;//待办列表数据
-		        	var num = res.message.data.num;//待办总数
+	        	if(res.message.success==1){//请求成功，返回数据
+		        	var waitHandleList = res.message.data.todoList;//待办列表数据
+		        	var num = res.message.data.todoTotal;//待办总数
 		        	var listLength = waitHandleList.length;
     	        	if(listLength<1 && isPullUp==0){
     	        		$("#grid").append('<div class="noData">暂无数据!</div>');
@@ -94,28 +98,8 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     	        		$(".noData").remove();
 		        		$(".loadingMore").remove();
     		        	for(var i=0;i<waitHandleList.length;i++){
-    		        		//判断环节名称是否为空
-    		        		var hjMc = waitHandleList[i].hjMc;
-    		        		if(!hjMc || hjMc=="null"){
-    		        			hjMc = "";
-    		        		}
-    		        		//判断标题是否为空
-    		        		var bt = waitHandleList[i].bt;
-    		        		if(!bt || bt=="null"){
-    		        			bt = "";
-    		        		}
-    		        		//判断传入人是否为空
-    		        		var fsrymc = waitHandleList[i].fsrymc;
-    		        		if(!fsrymc || fsrymc=="null"){
-    		        			fsrymc = "";
-    		        		}
-    		        		//判断当前时间到达时间是否为空
-    		        		var dqhjddsj = waitHandleList[i].dqhjddsj;
-    		        		if(!dqhjddsj || dqhjddsj=="null"){
-    		        			dqhjddsj = "";
-    		        		}
     		        		var color="#74cdf5";//默认平件
-    		        		var priorityStr = waitHandleList[i].hjMc;
+    		        		var priorityStr = waitHandleList[i].priority;
     		        		if(priorityStr == "特提"){
     		        			color = "#c92929";
     		        		}else if(priorityStr == "特急"){
@@ -129,26 +113,26 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     		        		}else if(priorityStr == "平件"){
     		        			color = "#74cdf5";
     		        		}
-    		        		//var reminded = waitHandleList[i].reminded;//提醒
+    		        		var reminded = waitHandleList[i].reminded;//提醒
     		        		var informWords = "";
-    		        		/*if(reminded){//有提醒的操作
+    		        		if(reminded){//有提醒的操作
     		        			informWords='<div class="row-message3"><div class="rowBottom2"><div class="bottomAll">提醒：'+reminded+'</div></div></div>';
     		        		}else{
     		        			informWords='<div class="row-message3"><div class="rowBottom2"></div></div>';
-    		        		}*/
+    		        		}
     		        		$("#grid").append('<div class="row-message">'+
     		        				'<div class="row-message1">'+
     		        					'<div class="rowLeft">'+
-    		        						'<div class="priorityStyle" style="background-color:'+color+'">'+hjMc+'</div>'+
+    		        						'<div class="priorityStyle" style="background-color:'+color+'">'+waitHandleList[i].priority+'</div>'+
     		        					'</div>'+
     		        					'<div class="rowRight">'+
-    		        						'<div class="title">'+bt+'</div>'+
+    		        						'<div class="title">'+waitHandleList[i].title+'</div>'+
     		        					'</div>'+
     		        			'</div>'+
     		        			'<div class="row-message2">'+
     		        				'<div class="rowBottom">'+
-    		        					'<div class="bottomLeft">传入人：'+fsrymc+'</div>'+
-    		        					'<div class="bottomRight">传入时间：'+dqhjddsj+'</div>'+
+    		        					'<div class="bottomLeft">传入人：'+waitHandleList[i].sendUsername+'</div>'+
+    		        					'<div class="bottomRight">传入时间：'+waitHandleList[i].sendTime+'</div>'+
     		        				'</div>'+
     		        			'</div>'+
     		        			informWords+
@@ -158,16 +142,18 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     		        		'</div>');
     		        	};
     		        	if(nowPage && nowScroll){
-    		        		alert("1");
 		        			page = nowPage;
 		        			pageSize = 20;
 		        			$("html,body").scrollTop(nowScroll);
 		        		}
 		        		rowClick();
     	        	}
-	        	}else{
+	        	}else if(res.message.success==0){
+	        		if(page>1){
+	        			page = page-1;
+	        		}
 	        		$(".loadingMore").text("查询失败，请稍后再试！");
-	        		var message = res.message.msg;
+	        		var message = res.message.errors;
 	        		if(message){
 	        			$.alert(message,function(){
 		        			location.reload();
@@ -357,20 +343,20 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
                 	Util.setSessionParams("nowScroll",null);
             		Util.setSessionParams("nowPage",null);
             		$.ajax({
-            	        url:"/ajax.sword?ctrl=WeixinCtrlV2_getWaitHandleList",
+            	        url:"/ajax.sword?ctrl=WeixinCtrl_getWaitHandleList",
             	        dataType:"json",
             	        data:{
             	        	page:page,
             	        	pageSize:pageSize,
-            	        	identityId:'F3355C9415344308B65E0AE56578C852',
+            	        	userId:userId,
             	        	status:realSearchCode,
             	        	isLeaderSec:isLeaderSec
             	        },
             	        success:function (res) {
-            	        	if(res.message.msg=="请求成功"){//请求成功，返回数据
+            	        	if(res.message.success==1){//请求成功，返回数据
 	            	        	$("#grid").children().remove();
-	            	        	var waitHandleList = res.message.data.resList;
-	        		        	var num = res.message.data.num;//待办总数
+	            	        	var waitHandleList = res.message.data.todoList;
+	        		        	var num = res.message.data.todoTotal;//待办总数  接口写好后动态获取
 	            	        	var listLength = waitHandleList.length;
 	            	        	if(listLength<1){
 	            	        		$("#grid").append('<div class="noData">暂无数据!</div>');
@@ -378,28 +364,8 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	            	        		$(".noData").remove();
 	            	        		$("title").html("请选择待办文件  ("+num+")");
 	            		        	for(var i=0;i<waitHandleList.length;i++){
-	            		          		//判断环节名称是否为空
-	            		        		var hjMc = waitHandleList[i].hjMc;
-	            		        		if(!hjMc || hjMc=="null"){
-	            		        			hjMc = "";
-	            		        		}
-	            		        		//判断标题是否为空
-	            		        		var bt = waitHandleList[i].bt;
-	            		        		if(!bt || bt=="null"){
-	            		        			bt = "";
-	            		        		}
-	            		        		//判断传入人是否为空
-	            		        		var fsrymc = waitHandleList[i].fsrymc;
-	            		        		if(!fsrymc || fsrymc=="null"){
-	            		        			fsrymc = "";
-	            		        		}
-	            		        		//判断当前时间到达时间是否为空
-	            		        		var dqhjddsj = waitHandleList[i].dqhjddsj;
-	            		        		if(!dqhjddsj || dqhjddsj=="null"){
-	            		        			dqhjddsj = "";
-	            		        		}
 	            		        		var color="#74cdf5";//默认平件
-	            		        		var priorityStr = waitHandleList[i].hjMc;
+	            		        		var priorityStr = waitHandleList[i].priority;
 	            		        		if(priorityStr == "特提"){
 	            		        			color = "#c92929";
 	            		        		}else if(priorityStr == "特急"){
@@ -413,26 +379,26 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	            		        		}else if(priorityStr == "平件"){
 	            		        			color = "#74cdf5";
 	            		        		}
-	            		        		//var reminded = waitHandleList[i].reminded;//提醒
+	            		        		var reminded = waitHandleList[i].reminded;//提醒
 	            		        		var informWords = "";
-	            		        		/*if(reminded){//有提醒的操作
+	            		        		if(reminded){//有提醒的操作
 	            		        			informWords='<div class="row-message3"><div class="rowBottom2"><div class="bottomAll">提醒：'+reminded+'</div></div></div>';
 	            		        		}else{
 	            		        			informWords='<div class="row-message3"><div class="rowBottom2"></div></div>';
-	            		        		}*/
+	            		        		}
 	            		        		$("#grid").append('<div class="row-message">'+
 	            		        				'<div class="row-message1">'+
 	            		        					'<div class="rowLeft">'+
-	            		        						'<div class="priorityStyle" style="background-color:'+color+'">'+hjMc+'</div>'+
+	            		        						'<div class="priorityStyle" style="background-color:'+color+'">'+waitHandleList[i].priority+'</div>'+
 	            		        					'</div>'+
 	            		        					'<div class="rowRight">'+
-	            		        						'<div class="title">'+bt+'</div>'+
+	            		        						'<div class="title">'+waitHandleList[i].title+'</div>'+
 	            		        					'</div>'+
 	            		        			'</div>'+
 	            		        			'<div class="row-message2">'+
 	            		        				'<div class="rowBottom">'+
-	            		        					'<div class="bottomLeft">传入人：'+fsrymc+'</div>'+
-	            		        					'<div class="bottomRight">传入时间：'+dqhjddsj+'</div>'+
+	            		        					'<div class="bottomLeft">传入人：'+waitHandleList[i].sendUsername+'</div>'+
+	            		        					'<div class="bottomRight">传入时间：'+waitHandleList[i].sendTime+'</div>'+
 	            		        				'</div>'+
 	            		        			'</div>'+
 	            		        			informWords+
@@ -448,7 +414,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 	            	        	setTimeout(function () {
 	            	        		that.back.call();
 	            	        	},500);
-            	        	}else{
+            	        	}else if(res.message.success==0){
             	        		scollif = true;
             	        		loading.innerHTML = "刷新失败！";
 	            	        	setTimeout(function () {
@@ -480,12 +446,12 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
     		var workId = $(this).find(".hideWorkId").text();
     		var type = $(this).find(".hideType").text();
     		var trackId = $(this).find(".hideTrackId").text();
-    		if(!workId || !type || !userId || !trackId){
+    		if(!workId || !type || !userName || !userId || !trackId){
     			$.alert("没有获取到跳转页面需要的参数，请稍后重试！");
     			return false;
     		}
         	//跳转到详细页面
-			var param="#userId="+userId+","+"type="+type+","+"workId="+workId+","+"trackId="+trackId+","+"isLeader="+isLeader+","+"unitId="+unitId;
+			var param="#userId="+userId+","+"type="+type+","+"workId="+workId+","+"trackId="+trackId+","+"unitId="+unitId;
 			window.location.href=UrlBase.URL_JUMP_WAITHANDLEDETAILS+param;
     	});
     }
@@ -548,7 +514,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 		   }
 	   });
 	   //选择状态点击事件
-	   $(".dropWrap").unbind("click").bind("click",function(){
+	   $(".dropWrap").click(function(){
 		   $(".dropChild2").text("");
 		   $(this).find(".dropChild2").text("√");
 		   tempSearchCode = $(this).find(".dropChild").text();
@@ -563,7 +529,7 @@ define(["util","UrlBase","css!HandleCss"],function (Util,UrlBase){
 		   $("#shadeDiv").hide();
 	   });
 	   //点击确定事件
-	   $("#ensureBtn").unbind('click').bind('click',function(){
+	   $("#ensureBtn").click(function(){
 		   $("#upBtn").hide();
 		   $("#downBtn").show();
 		   colorFlag = 1;

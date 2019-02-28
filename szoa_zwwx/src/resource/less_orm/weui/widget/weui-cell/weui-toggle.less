@@ -1,0 +1,22 @@
+
+@import "../../base/fn";
+
+.weui-cell_toggle {
+    .setTapColor();
+    color: inherit;
+    &:active {
+        background-color: #ECECEC;
+    }
+    .weui-cell__bd {
+        padding-right: 13px;
+        position: relative;
+        &:after {
+            content: " ";
+            .setArrow(down, 6px, #C8C8CD, 2px);
+            position: absolute;
+            top: 50%;
+            margin-top: -4px;
+            right: 2px;
+        }
+    }
+}

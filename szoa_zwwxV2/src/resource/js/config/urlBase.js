@@ -12,55 +12,58 @@ define(function () {
     /***************************非试点：会议报名（已签收）页面地址相关*********************************/
 
         //转发会议页和已签收页url(会议报名和已签收是使用的同一套页面)
-    var shareHuiYiUrl = baseUrl + "/zwwxV2/app/feishidian/haveSign/docDetails/views/docHuiyiDetails.html";
+    var shareHuiYiUrl = baseUrl + "/zwwx/app/feishidian/haveSign/docDetails/views/docHuiyiDetails.html";
     //报名图标地址路径（自定义转发会议报名和已签收时使用）
-    var baoMingIMGUrl = baseUrl + "/zwwxV2/resource/images/home/baoming.png";
+    var baoMingIMGUrl = baseUrl + "/zwwx/resource/images/home/baoming.png";
     //修改会议报名地址（会议报名页面，修改已报名的报名表）
-    var editBaoMing = "/zwwxV2/app/feishidian/haveSign/signUpMeeting/views/changeSignUpInfo.html";
+    var editBaoMing = "/zwwx/app/feishidian/haveSign/signUpMeeting/views/changeSignUpInfo.html";
     //新增报名（会议报名页面，点击报名按钮跳转报名页面）
-    var addBaoMing = "/zwwxV2/app/feishidian/haveSign/signUpMeeting/views/signUp.html";
+    var addBaoMing = "/zwwx/app/feishidian/haveSign/signUpMeeting/views/signUp.html";
 
     /************************************非试点：待签收页面地址相关******************************************/
 
         //退文页面地址
-    var tuiWen = "/zwwxV2/app/feishidian/waitSign/waitdocDetails/views/returnDoc.html";
+    var tuiWen = "/zwwx/app/feishidian/waitSign/waitdocDetails/views/returnDoc.html";
 
     /****************************************试点：待办页面地址相关*****************************************/
 
         //转发待办页面url
-    var shareDaiBan = baseUrl + "/zwwxV2/app/shidian/waitSign/waitDoDetails/views/waitDoDetails.html";
+    var shareDaiBan = baseUrl + "/zwwx/app/shidian/waitSign/waitDoDetails/views/waitDoDetails.html";
     //待办图标地址
-    var daiBanIMGUrl = baseUrl + "/zwwxV2/resource/images/home/daiban.png";
+    var daiBanIMGUrl = baseUrl + "/zwwx/resource/images/home/daiban.png";
     
     
     
     //跳转到待签收详情页
-    var jumpWaitSignDetails = "/zwwxV2/app/feishidian/waitSign/waitdocDetails/views/waitDocDetails.html";
+    var jumpWaitSignDetails = "/zwwx/app/feishidian/waitSign/waitdocDetails/views/waitDocDetails.html";
     //跳转到已签收详情页
-    var jumpSignDoneDetails = "/zwwxV2/app/feishidian/haveSign/docDetails/views/docHuiyiDetails.html";
+    var jumpSignDoneDetails = "/zwwx/app/feishidian/haveSign/docDetails/views/docHuiyiDetails.html";
     //跳转到待办详情页
-    var jumpWaitHandleDetails = "/zwwxV2/app/shidian/waitSign/waitDoDetails/views/waitDoDetails.html";
+    var jumpWaitHandleDetails = "/zwwx/app/shidian/waitSign/waitDoDetails/views/waitDoDetails.html";
     //跳转到交换跟踪详情页
-    var jumpExchangeDetails = "/zwwxV2/app/feishidian/changeFollow/changeFollowDetails/views/changeFollowDetails.html";    
+    var jumpExchangeDetails = "/zwwx/app/feishidian/changeFollow/changeFollowDetails/views/changeFollowDetails.html";    
 
     //跳转到待签收列表
-    var jumpWaitSign = "/zwwxV2/app/feishidian/waitSign/signList/views/waitSignList.html";
+    var jumpWaitSign = "/zwwx/app/feishidian/waitSign/signList/views/waitSignList.html";
     //跳转到报名列表
-    var jumpHaveSign = "/zwwxV2/app/feishidian/haveSign/signList/views/haveSignList.html";
+    var jumpHaveSign = "/zwwx/app/feishidian/haveSign/signList/views/haveSignList.html";
     //跳转到已签收列表
-    var jumpSignDone = "/zwwxV2/app/feishidian/signDone/signList/views/signDoneList.html";
+    var jumpSignDone = "/zwwx/app/feishidian/signDone/signList/views/signDoneList.html";
     //跳转到待办列表
-    var jumpWaitHandle = "/zwwxV2/app/shidian/waitHandle/waitHandleList/views/waitHandleList.html";
+    var jumpWaitHandle = "/zwwx/app/shidian/waitHandle/waitHandleList/views/waitHandleList.html";
     //跳转到交换跟踪列表
-    var jumpExchange = "/zwwxV2/app/feishidian/changeFollow/changeList/views/changeList.html";
+    var jumpExchange = "/zwwx/app/feishidian/changeFollow/changeList/views/changeList.html";
     //跳转到查询页面
-    var jumpSearch = "/zwwxV2/app/feishidian/search/searchHome/views/search.html";
+    var jumpSearch = "/zwwx/app/feishidian/search/searchHome/views/search.html";
     //跳转查询后数据列表
-    var jumpSearchResList = "/zwwxV2/app/feishidian/search/searchResList/views/searchResList.html";
+    var jumpSearchResList = "/zwwx/app/feishidian/search/searchResList/views/searchResList.html";
     //跳转经办人选择
-    var jumpSearchdoPerson = "/zwwxV2/app/feishidian/search/searchHome/views/doPerson.html";
+    var jumpSearchdoPerson = "/zwwx/app/feishidian/search/searchHome/views/doPerson.html";
     //跳转经办处室选择
-    var jumpSearchdoDept = "/zwwxV2/app/feishidian/search/searchHome/views/doDept.html";
+    var jumpSearchdoDept = "/zwwx/app/feishidian/search/searchHome/views/doDept.html";
+
+    //送出下一节点选择
+    var jumpSendOut = "/zwwx/app/shidian/waitSign/waitDoDetails/views/sendOut.html";
     
     
     return {
@@ -87,6 +90,7 @@ define(function () {
         URL_JUMP_SEARCHRESLIST:jumpSearchResList,
         URL_JUMP_SEARCHDOPERSON:jumpSearchdoPerson,
         URL_JUMP_SEARCHDODEPT:jumpSearchdoDept,
+        URL_JUMP_SENDOUT:jumpSendOut,
 
 
     };

@@ -17,18 +17,21 @@ define(["util", "rule"], function (Util, Rule) {
         if (value === 1) {
             isLeave = value;
             $workOffReason.prop("disabled", false);
+            $workOffReason.attr("placeholder","请输入请假原因");
+
         } else {
             isLeave = 2;
             $workOffReason.val("").prop("disabled", true);
+            $workOffReason.attr("placeholder","");
         }
-        $this.addClass("simulation-checked").siblings().removeClass("simulation-checked");
+        // $this.addClass("simulation-checked").siblings().removeClass("simulation-checked");
     });
     //确定修改
     $sure.on('click', function () {
         job = Rule.checkName($job.val());
         leaveRerson = Rule.checkName($workOffReason.val());
         $.ajax({
-            url: "/ajax.sword?ctrl=SignUpMeetingCtrlV2_editRegistration",	//修改报名
+            url: "/ajax.sword?ctrl=SignUpMeetingCtrl_editRegistration",	//修改报名
             dataType: "json",
             data: {
                 Id: id,
@@ -38,9 +41,11 @@ define(["util", "rule"], function (Util, Rule) {
             },
             success: function (data) {
                 if (data.message.success === 1) {
-                    window.history.go(-1);
+                    $.toast("修改成功",500,function () {
+                        window.history.go(-1);
+                    });
                 } else {
-                    $.alert(data.message.data.result);
+                    $.toast(data.message.data.result,"cancel");
                 }
             }
         });
@@ -52,16 +57,18 @@ define(["util", "rule"], function (Util, Rule) {
     //取消报名
     $cancelSignUp.on('click', function () {
         $.ajax({
-            url: "/ajax.sword?ctrl=SignUpMeetingCtrlV2_cancelRegistration",	//取消报名
+            url: "/ajax.sword?ctrl=SignUpMeetingCtrl_cancelRegistration",	//取消报名
             dataType: "json",
             data: {
                 Id: id
             },
             success: function (data) {
                 if (data.message.success === 1) {
-                    window.history.go(-1);
+                    $.toast("已取消报名",500,function () {
+                        window.history.go(-1);
+                    });
                 } else {
-                    $.alert(data.message.data.result);
+                    $.toast(data.message.data.result,"cancel");
                 }
             }
         });
@@ -77,7 +84,6 @@ define(["util", "rule"], function (Util, Rule) {
         } else {
             isLeave = 1;
         }
-        ;
         leaveRerson = hashData.leaveperson;
         $job.val(hashData.job);
         $personName.val(hashData.meetman);
@@ -86,7 +92,9 @@ define(["util", "rule"], function (Util, Rule) {
             var $this = $(this),
                 value = parseInt($this.val(), 10);
             if (value === isLeave) {
-                $this.parent().addClass('simulation-checked');
+                $this.prop({
+                    'checked':true
+                });
                 if (isLeave === 2) {
                     $workOffReason.val("").prop("disabled", true);
                 } else {

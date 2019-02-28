@@ -5,7 +5,7 @@ define([], function () {
 
     function initAll(hashData, userInfo, instance, fun) {
         $.ajax({
-            url: "/ajax.sword?ctrl=WXDaiBanDocDitalV2_getAllData",
+            url: "/ajax.sword?ctrl=WXDaiBanDocDital_getAllData",
             dataType: "json",
             async: true,
             data: {
@@ -15,7 +15,7 @@ define([], function () {
                 "workid": hashData.workId,
                 "trackid": hashData.trackId,
                 "flowid": instance.curFlowInfo.flowId,
-                "isLeader": hashData.isLeader,
+                "isLeader": userInfo.isLeader,
                 "curNodeID": instance.curFlowInfo.curNodeID
             },
             success: function (data) {
@@ -40,7 +40,7 @@ define([], function () {
 
         function initYijian() {
             $.ajax({
-                url: "/ajax.sword?ctrl=WXDaiBanDocDitalV2_yijian",
+                url: "/ajax.sword?ctrl=WXDaiBanDocDital_yijian",
                 dataType: "json",
                 async: true,
                 data: {
@@ -61,7 +61,7 @@ define([], function () {
 
         function initZhengwen() {
             $.ajax({
-                url: "/ajax.sword?ctrl=WXDaiBanDocDitalV2_zhengWen",
+                url: "/ajax.sword?ctrl=WXDaiBanDocDital_zhengWen",
                 dataType: "json",
                 async: true,
                 data: {
@@ -81,7 +81,7 @@ define([], function () {
 
         function liuchengAndQianfa() {
             $.ajax({
-                url: "/ajax.sword?ctrl=WXDaiBanDocDitalV2_liuchengAndQianfa",
+                url: "/ajax.sword?ctrl=WXDaiBanDocDital_liuchengAndQianfa",
                 dataType: "json",
                 async: true,
                 data: {
@@ -102,13 +102,13 @@ define([], function () {
 
         function initBianqiantie() {
             $.ajax({
-                url: "/ajax.sword?ctrl=WXDaiBanDocDitalV2_bianqiantie",
+                url: "/ajax.sword?ctrl=WXDaiBanDocDital_bianqiantie",
                 dataType: "json",
                 async: true,
                 data: {
                     "userid": userInfo.id,
                     "workid": hashData.workId,
-                    "isLeader": hashData.isLeader
+                    "isLeader": userInfo.isLeader
                 },
                 success: function (data) {
                     //console.log(data)
@@ -123,14 +123,14 @@ define([], function () {
 
         function initBiaodan() {
             $.ajax({
-                url: "/ajax.sword?ctrl=WXDaiBanDocDitalV2_biaodan",
+                url: "/ajax.sword?ctrl=WXDaiBanDocDital_biaodan",
                 dataType: "json",
                 async: true,
                 data: {
                     "userid": userInfo.id,
                     "type": hashData.type,
                     "workid": hashData.workId,
-                    "isLeader": hashData.isLeader
+                    "isLeader": userInfo.isLeader
                 },
                 success: function (data) {
                     //console.log(data)
@@ -145,7 +145,7 @@ define([], function () {
 
         function initBanlixinxi() {
             $.ajax({
-                url: "/ajax.sword?ctrl=WXDaiBanDocDitalV2_banlixinxi",
+                url: "/ajax.sword?ctrl=WXDaiBanDocDital_banlixinxi",
                 dataType: "json",
                 async: true,
                 data: {
@@ -164,7 +164,7 @@ define([], function () {
 
         function initFankuixinxi() {
             $.ajax({
-                url: "/ajax.sword?ctrl=WXDaiBanDocDitalV2_fankuixinxi",
+                url: "/ajax.sword?ctrl=WXDaiBanDocDital_fankuixinxi",
                 dataType: "json",
                 async: true,
                 data: {

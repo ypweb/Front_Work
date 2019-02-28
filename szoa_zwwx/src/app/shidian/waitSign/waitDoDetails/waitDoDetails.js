@@ -16,7 +16,7 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
     var GZList = {};
     var toggleFlag = 0;
     var isHaveFujian = false;
-    var $tool_ideawrap=$('#tool_idea').parent();
+    var $tool_ideawrap = $('#tool_idea').parent();
     var $button_menu = $('#button_menu');
 
     /*   //横竖屏切换刷新解决样式问题
@@ -33,6 +33,13 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
     function init() {
         Util.getUserInfoAndUrl({
             whenSuccess: function (user, hash) {
+                console.log(user)
+                var isLeader = "0";
+                var ifLeader = user.checkIsLeader;
+                if(ifLeader==true){
+                    isLeader = "1";
+                }
+                user.isLeader=isLeader;
                 hashData = hash;
                 userInfo = user;
                 openInstance();
@@ -115,12 +122,12 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
             initBaomingBiao(allData.baomingbiao);
             //初始化办理信息
             initBanliXinxi(allData.banlixinxi);
-            WaitButton(hashData, userInfo,instance,flowMsg);
+            WaitButton(hashData, userInfo, instance, flowMsg);
             $("#button_menu").empty();
-            //初始化交换跟踪
-            initJHGZ(allData);
             //删除隐藏，展示页面
             removeHide();
+            //初始化交换跟踪
+            initJHGZ(allData);
             //初始化滑动页签
             initTabSwiper();
             //关闭流程实例
@@ -134,7 +141,7 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
         if (allData.jiaohuangz.isShow == true) {
             $("#button_menu").append('<li id="tool_menu_tixing" class="tool-menu-tip tool-menu-item2" data-type="tixing" data-title="提醒"><span></span></li>');
             var list = allData.jiaohuangz.data.data;
-            ChangeFollowDetails.initJiaohuangz(list,hashData,userInfo);
+            ChangeFollowDetails.initJiaohuangz(list, hashData, userInfo);
         } else {
             $("#jiaohuangenzong_tab").remove();
             $("#jiaohuangenzong_swiper").remove();
@@ -148,7 +155,7 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
                 "type": hashData.type,
                 "unitId": userInfo.unitId,
                 "trackId": hashData.trackId,
-                "isLeader": hashData.isLeader
+                "isLeader": userInfo.isLeader
             },
             link: UrlBase.URL_SHARE_DAIBAN,
             title: docTitle_base,
@@ -168,16 +175,17 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
             tab_swiper.init({
                 index: "jiaohuangenzong_tab",
                 tabFn: function (config) {
-                    var item=config.tab_item;
-                    var tab=item.eq(config.index)
-                    var tabId=tab.attr("id");
-                    if (tabId==="jiaohuangenzong_tab"){
-                        $("#zhezhaoceng").parent().removeClass("g-d-hidei")
-                    }else {
-                        $("#zhezhaoceng").parent().addClass("g-d-hidei")
+                    var item = config.tab_item;
+                    var tab = item.eq(config.index);
+                    var tabId = tab.attr("id");
+                    var isHaveWQS=$("#wqs_nb").parent().hasClass("g-d-hidei");
+                    if (tabId === "jiaohuangenzong_tab"&&isHaveWQS==false&&hashData.isCX!=1) {
+                        $("#zhezhaoceng").parent().removeClass("g-d-hidei");
+                    } else {
+                        $("#zhezhaoceng").parent().addClass("g-d-hidei");
                     }
                     /*点击回调*/
-                    if (config.index === 0&&nodeid.toUpperCase() !== "NODE19") {
+                    if (config.index === 0 && nodeid.toUpperCase() !== "NODE19") {
                         $tool_ideawrap.removeClass('g-d-hidei');
                     } else {
                         $tool_ideawrap.addClass('g-d-hidei');
@@ -187,21 +195,22 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
         } else {
             tab_swiper.init({
                 tabFn: function (config) {
-                    var item=config.tab_item;
-                    var tab=item.eq(config.index)
-                    var tabId=tab.attr("id");
+                    var item = config.tab_item;
+                    var tab = item.eq(config.index)
+                    var tabId = tab.attr("id");
                     /*if (tabId==="jiaohuangenzong_tab"){
                         $("#tool_menu_tixing").removeClass("g-d-hidei")
                     }else {
                         $("#tool_menu_tixing").addClass("g-d-hidei")
                     }*/
-                    if (tabId==="jiaohuangenzong_tab"){
+                    var isHaveWQS=$("#wqs_nb").parent().hasClass("g-d-hidei");
+                    if (tabId === "jiaohuangenzong_tab"&&isHaveWQS==false&&hashData.isCX!=1) {
                         $("#zhezhaoceng").parent().removeClass("g-d-hidei")
-                    }else {
+                    } else {
                         $("#zhezhaoceng").parent().addClass("g-d-hidei")
                     }
                     /*点击回调*/
-                    if (config.index === 0&&nodeid.toUpperCase() !== "NODE19") {
+                    if (config.index === 0 && nodeid.toUpperCase() !== "NODE19") {
                         $tool_ideawrap.removeClass('g-d-hidei');
                     } else {
                         $tool_ideawrap.addClass('g-d-hidei');
@@ -274,9 +283,12 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
             $("#huiyixinxi_swiper").remove();
 
             /*办理流程样式第二版*/
-            $chengpiliucheng.append('<h2 id="liuchenglable" class="wx-labeltheme-wrap g-bc-white">办理流程<span class="theme-icon theme-icon-toggle"></span></h2>'
-                + '<ul id="liuchengxiangxi" class="wx-processlist-vertical-wrap g-bc-white g-d-hidei"></ul>');
-
+            $chengpiliucheng.append('<h2 id="liuchenglable" class="wx-labeltheme-wrap g-bc-white">办理流程<span class="theme-icon theme-icon-toggle"></span></h2>');
+            if (liuchengData.data.length <= 0) {
+                $chengpiliucheng.append('<div id="liuchengxiangxi" class="wx-empty-panel wx-empty-process wx-empty-item3x g-clear-p g-d-hidei" data-title="暂无流程信息"></div>');
+            } else {
+                $chengpiliucheng.append('<ul id="liuchengxiangxi" class="wx-processlist-vertical-wrap g-bc-white g-d-hidei"></ul>');
+            }
             if (parseInt(hashData.type) === 1) {
                 $chengpixinxiGrid.append('<li>'
                     + '<h2 class="wx-labeltheme-wrap">发文信息</h2>'
@@ -308,8 +320,12 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
             $("#biaodan_swiper").remove();
 
             /*办理流程样式第二版*/
-            $huiyiliucheng.append('<h2 id="liuchenglable" class="wx-labeltheme-wrap g-bc-white g-gap-mt5">办理流程<span class="theme-icon theme-icon-toggle"></span></h2>'
-                + '<ul id="liuchengxiangxi" class="wx-processlist-vertical-wrap g-bc-white g-d-hidei"></ul>');
+            $huiyiliucheng.append('<h2 id="liuchenglable" class="wx-labeltheme-wrap g-bc-white g-gap-mt5">办理流程<span class="theme-icon theme-icon-toggle"></span></h2>');
+            if (liuchengData.data.length <= 0) {
+                $huiyiliucheng.append('<div id="liuchengxiangxi" class="wx-empty-panel wx-empty-process wx-empty-item3x g-clear-p g-d-hidei" data-title="暂无流程信息"></div>');
+            } else {
+                $huiyiliucheng.append('<ul id="liuchengxiangxi" class="wx-processlist-vertical-wrap g-bc-white g-d-hidei"></ul>');
+            }
             var meetingList = docDetailList;
             $("#meetingName").html(meetingList.meetingName);
             $("#fileNo").html(meetingList.fwbh);
@@ -330,8 +346,10 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
         $do.on('click', function () {
             $("#liuchenglable span").toggleClass('toggle-active');
             $("#liuchengxiangxi").toggleClass('g-d-hidei');
-        })
-        initLiucheng(liuchengData);
+        });
+        if(liuchengData.data.length>0){
+            initLiucheng(liuchengData);
+        }
     }
 
     //会议列表模板
@@ -628,7 +646,7 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
         var openInstanceNodeId = instance.curFlowInfo.curNodeID;
         var len = flowMsgList.length;
         for (var i = 0; i < len; i++) {
-            /*追加流程第二版*/
+            /!*追加流程第二版*!/
             if (flowMsgList[i].isdo === "1") {
                 if (i < len - 1) {
                     if (flowMsgList[i].cnodeid === openInstanceNodeId.toUpperCase() && parseInt(flowMsgList[i + 1].isdo) === 0) {
@@ -1227,9 +1245,9 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
-                var filePath=fileData.filepath;
-                var fix=filePath.substring(filePath.lastIndexOf("."));
-                var fixx=docTitle_base+fix
+                var filePath = fileData.filepath;
+                var fix = filePath.substring(filePath.lastIndexOf("."));
+                var fixx = docTitle_base + fix
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
                     name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)
@@ -1258,9 +1276,9 @@ define(["UrlBase", "ChangeFollowDetails", "util", "tab_swiper", "InitDataUtil", 
                     $.alert("获取文件失败！", "提示");
                     return;
                 }
-                var filePath=fileData.filepath;
-                var fix=filePath.substring(filePath.lastIndexOf("."));
-                var fixx=titel+fix;
+                var filePath = fileData.filepath;
+                var fix = filePath.substring(filePath.lastIndexOf("."));
+                var fixx = titel + fix;
                 wx.invoke("previewFile", {
                     url: fileData.filepath, // 需要预览文件的地址(必填，可以使用相对路径)
                     name: fixx, // 需要预览文件的文件名(不填的话取url的最后部分)

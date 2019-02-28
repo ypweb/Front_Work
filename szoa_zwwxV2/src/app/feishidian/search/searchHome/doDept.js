@@ -61,7 +61,7 @@ define(["util", "weuiJS"], function (Util) {
     function getDeptsByUser() {
         if (depts === null) {
             $.ajax({
-                url: "/ajax.sword?ctrl=SearchCtrlV2_getDeptsByUser",	//获取部门
+                url: "/ajax.sword?ctrl=SearchCtrl_getDeptsByUser",	//获取部门
                 dataType: "json",
                 data: {
                     userId: userId

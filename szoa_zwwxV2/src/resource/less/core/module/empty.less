@@ -1,6 +1,6 @@
 /*空信息面板*/
 .wx-empty-panel {
-  @circle-width:@font-size-base * 8;
+  @circle-width: @font-size-base * 8;
 
   width: 100%;
   padding: @grid-list-gap/2;
@@ -26,11 +26,11 @@
     line-height: @circle-width;
   }
   &:after {
-    .layout-absolutel-base(0,50%);
-    margin-top:@circle-width/2;
+    .layout-absolutel-base(0, 50%);
+    margin-top: @circle-width/2;
     text-align: center;
-    width:100%;
-    height:@font-size-base * 2;
+    width: 100%;
+    height: @font-size-base * 2;
     line-height: @font-size-base * 2;
     display: block;
     content: attr(data-title);
@@ -96,3 +96,44 @@
     font-size: @font-size-base * 4.4;
   }
 }
+.wx-empty-process{
+  &:before {
+    content: '\e67f';
+    font-size: @font-size-base * 4.4;
+  }
+}
+
+/*循环输出自定义空值高度*/
+.wx-empty-height-loop(@index) when (@index<=4) {
+  .wx-empty-item@{index}x when not(@index<=1) {
+    @circle-width: @font-size-base * (@index + 4);
+    height: unit(80 * @index, px) !important;
+    &:before {
+      font-size: @font-size-base * (@index + .8);
+      width: @circle-width;
+      height: @circle-width;
+      line-height: @circle-width;
+    }
+    &:after {
+      margin-top: @circle-width/2;
+    }
+  }
+  .wx-empty-item@{index}x when (@index<=1){
+    @circle-width: @font-size-base * (@index + 2.8);
+    height: unit(120 * @index, px) !important;
+    &:before {
+      font-size: @font-size-base * (@index + 1.2);
+      width: @circle-width;
+      height: @circle-width;
+      line-height: @circle-width;
+    }
+    &:after {
+      margin-top: @circle-width/2;
+    }
+  }
+  .wx-empty-height-loop(@index + 1);
+}
+
+/*执行输出*/
+.wx-empty-height-loop(1);
+

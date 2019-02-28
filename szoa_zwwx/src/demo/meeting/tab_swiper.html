@@ -19,7 +19,7 @@
     <script>
         /*配置依赖*/
         require.config({
-            baseUrl: '/szoa_zwwx/src/',
+            baseUrl: '/zwwx/',
             paths: {
                 "jquery": "resource/js/lib/jquery/jquery.min",
                 'swiper': "resource/js/lib/swiper/idangerous.swiper.min",
@@ -187,23 +187,43 @@
         </div>
         <!--签发-->
         <div class="swiper-slide">
-            <ul class="wx-form-wrap wx-form-indent wx-form-indent4">
+            <ul class="wx-detaillist-wrap wx-detaillist-indent wx-detaillist-indent3">
                 <li>
-                    <label class="wx-form-label">
-                        <span class="wx-form-require">*</span>
-                        <div class="wx-form-name">手机号码</div>
-                        <div class="wx-form-text"><input type="text" placeholder="请输入手机号码" name="chrxm" /></div>
-                        <div class="wx-form-tip">提示信息</div>
-                    </label>
+                    <h2 class="wx-labeltheme-wrap">普通列表标题</h2>
+                    <div class="wx-labelshow">
+                        <div>
+                            <span>手机号:</span>
+                            <p>135 4679 9767</p>
+                        </div>
+                        <div>
+                            <span>签发人:</span>张三
+                        </div>
+                        <div>
+                            <span>签发人:</span>卡死了都放假时刻登记非试点九分裤圣诞节疯狂时代峻峰时间飞逝肯德基福克斯剪短发快圣诞节疯狂圣诞节疯狂圣诞节疯狂送的飞
+                        </div>
+                    </div>
                 </li>
                 <li>
-                    <label class="wx-form-label">
-                        <span class="wx-form-require"></span>
-                        <div class="wx-form-name">详细地址</div>
-                        <div class="wx-form-text"><input type="text" placeholder="请输入详细地址" name="chrdw" /></div>
-                        <div class="wx-form-tip"></div>
-                    </label>
+                    <h2 class="wx-labeltheme-wrap">这是带图标的列表</h2>
+                    <div class="wx-labelshow">
+                        <div class="label-showinline">
+                            <span class="label-icon label-icon-download"></span>
+                            <p>详情列表详情列表详情列表详情列表详情列表详情列表详情列表详情列表详情列表详情列表</p>
+                        </div>
+                        <div>
+                            <span>等级:</span>
+                            <p>平级</p><em>Tel:</em>
+                            <p>136 5476 7656</p>
+                        </div>
+                        <div>
+                            <span>超数字:</span>
+                            4582245964587209485639470505967045785360970596049
+                            <em>超级数字:</em>
+                            <p>740614870845822459645872094853895956089456980659847689689704</p>
+                        </div>
+                    </div>
                 </li>
+
             </ul>
         </div>
         <!--便签贴-->
@@ -373,28 +393,40 @@
                         <div><span>签发人:</span>张三<p>这里也可以放张三</p></div>
                     </div>
                 </li>
+                <li>
+                    <h2 class="wx-labeltheme-wrap">流程<span class="theme-icon theme-icon-toggle"></span></h2>
+                    <ul class="wx-processlist-vertical-wrap g-bc-white">
+                        <li class="process-already">
+                            <div class="process-icon"></div>
+                            <div class="process-show">
+                                <h1>张三</h1>
+                                <p>拟稿</p>
+                            </div>
+                        </li>
+                        <li class="process-already">
+                            <div class="process-icon"></div>
+                            <div class="process-show">
+                                <h1>张三</h1>
+                                <p>拟稿</p>
+                            </div>
+                        </li>
+                        <li class="process-now">
+                            <div class="process-icon"></div>
+                            <div class="process-show">
+                                <h1>张三</h1>
+                                <p>拟稿</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="process-icon"></div>
+                            <div class="process-show">
+                                <h1>张三</h1>
+                                <p>拟稿</p>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
             </ul>
-            <div class="wx-detailprocess-vertical-wrap">
-                <p>流程开始</p>
-                <ul>
-                    <li>
-                        <div data-name="拟稿"><p>赖镇先</p></div>
-                    </li>
-                    <li>
-                        <div data-name="拟稿"><p>陈朝祥</p></div>
-                    </li>
-                    <li class="process-current">
-                        <div data-name="批示"><p>陈如桂</p></div>
-                    </li>
-                    <li class="process-undo">
-                        <div data-name="经办调度"><p>赖镇先</p></div>
-                    </li>
-                    <li class="process-undo">
-                        <div data-name="签发"><p>陈如桂</p></div>
-                    </li>
-                </ul>
-                <p>流程结束</p>
-            </div>
         </div>
         <!--会议信息-->
         <div class="swiper-slide">

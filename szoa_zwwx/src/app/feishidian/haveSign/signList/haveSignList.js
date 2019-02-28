@@ -103,7 +103,7 @@ define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
 			        			'<div class="row-message2">'+
 			        				'<div class="rowBottom">'+
 			        					'<div class="bottomLeft">'+haveSignList[i].gwbh+'</div>'+
-			        					'<div class="bottomRight">创建时间：'+haveSignList[i].createTime+'</div>'+
+			        					'<div class="bottomRight">签收时间：'+haveSignList[i].createTime+'</div>'+
 			        				'</div>'+
 			        			'</div>'+
 			        			'<div class="hideWorkId" style="display:none">'+haveSignList[i].workid+'</div>'+
@@ -354,7 +354,7 @@ define(["util","UrlBase","css!SignCss"],function (Util,UrlBase){
 		            	        			'<div class="row-message2">'+
 		            	        				'<div class="rowBottom">'+
 		            	        					'<div class="bottomLeft">'+haveSignList[i].gwbh+'</div>'+
-		            	        					'<div class="bottomRight">创建时间：'+haveSignList[i].createTime+'</div>'+
+		            	        					'<div class="bottomRight">签收时间：'+haveSignList[i].createTime+'</div>'+
 		            	        				'</div>'+
 		            	        			'</div>'+
 		            	        			'<div class="hideWorkId" style="display:none">'+haveSignList[i].workid+'</div>'+

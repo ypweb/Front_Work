@@ -41,9 +41,11 @@ define(["util", "rule"], function (Util, Rule) {
             },
             success: function (data) {
                 if (data.message.success === 1) {
-                    window.history.go(-1);
+                    $.toast("修改成功",500,function () {
+                        window.history.go(-1);
+                    });
                 } else {
-                    $.alert(data.message.data.result);
+                    $.toast(data.message.data.result,"cancel");
                 }
             }
         });
@@ -62,9 +64,11 @@ define(["util", "rule"], function (Util, Rule) {
             },
             success: function (data) {
                 if (data.message.success === 1) {
-                    window.history.go(-1);
+                    $.toast("已取消报名",500,function () {
+                        window.history.go(-1);
+                    });
                 } else {
-                    $.alert(data.message.data.result);
+                    $.toast(data.message.data.result,"cancel");
                 }
             }
         });

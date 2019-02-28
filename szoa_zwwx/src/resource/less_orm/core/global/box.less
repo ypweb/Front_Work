@@ -1,0 +1,73 @@
+///*显示隐藏*/
+.g-d-show {
+  display: block;
+}
+
+.g-d-hide {
+  display: none;
+}
+
+.g-d-show-i {
+  display: inline;
+}
+
+.g-d-show-ib {
+  display: inline-block;
+}
+
+.g-d-showi {
+  display: block !important;
+}
+
+.g-d-hidei {
+  display: none !important;
+}
+
+///*盒模型*/
+.g-box-c {
+  .box-sizing-base(content-box);
+}
+
+.g-box-b {
+  .box-sizing-base();
+}
+
+///*左浮动*/
+.g-f-l {
+  float: left;
+}
+
+.g-f-li {
+  float: left !important;
+}
+
+/*右浮动*/
+.g-f-r {
+  float: right;
+}
+
+.g-f-ri {
+  float: right !important;
+}
+
+/*清除浮动*/
+.g-clearfix{
+  &:extend(.clearfix-base);
+}
+
+///*----透明度--opacity----*/
+.g-opacityfor(@n,@i:0) when (@i =< @n) {
+  .g-opacity@{i} {
+    .opacity-base(@i * 10);
+  }
+  .g-opacityfor(@n, (@i+1));
+}
+
+.g-opacityfor(10);
+
+
+
+
+
+
+

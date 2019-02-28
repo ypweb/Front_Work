@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <title>签收表单</title>
+    <link rel="stylesheet" href="../../resource/css/weui.css">
+    <link rel="stylesheet" href="../../resource/css/font.css">
+    <link rel="stylesheet" href="../../resource/css/global.css">
+    <link rel="stylesheet" href="../../resource/css/base.css">
+    <!--require js-->
+    <script src="../../resource/js/lib/require/require.js"></script>
+    <script>
+        /*配置依赖*/
+        require.config({
+            baseUrl: '/zwwx/',
+            paths: {
+                "jquery": "resource/js/lib/jquery/jquery.min"
+            },
+            shim: {}
+        });
+
+
+        /*程序入口*/
+        require(['jquery'], function ($) {
+            $(function () {
+                var $signup_list = $('#signup_list');
+
+                $signup_list.on('click', 'li', function () {
+                    var $this = $(this);
+
+                    $this.toggleClass('wx-btnlist-active');
+                });
+
+            });
+        });
+    </script>
+</head>
+<body>
+
+<ul class="wx-detaillist-wrap wx-detaillist-indent wx-detaillist-indent3">
+    <li>
+        <h2 class="wx-labeltheme-wrap">
+            <span data-name="严乐天" data-param="" class="theme-icon theme-icon-edit theme-icon-edit-off"></span>
+        </h2>
+        <div class="wx-labelshow">
+            <div>
+                <span>手机号:</span>
+                <p>135 4679 9767</p>
+            </div>
+            <div>
+                <span>签发人:</span>张三
+            </div>
+            <div>
+                <span>签发人:</span>卡死了都放假时刻登记非试点九分裤圣诞节疯狂时代峻峰时间飞逝肯德基福克斯剪短发快圣诞节疯狂圣诞节疯狂圣诞节疯狂送的飞
+            </div>
+        </div>
+    </li>
+    <li>
+        <h2 class="wx-labeltheme-wrap">签收分办</h2>
+        <div class="weui-cells weui-cells_form g-bt-pse-none g-clear-m">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">文件类型:</label>
+                </div>
+                <div class="weui-cell__bd wx-weui-cells-checkwrap">
+                    <label class="weui-check__label">
+                        <input type="radio" class="weui-check" checked name="docType"
+                               id="banwen" value="01"><span
+                            class="weui-icon-checked">办文</span>
+                    </label>
+                    <label class="weui-check__label">
+                        <input type="radio" class="weui-check" name="docType" id="yuejian"
+                               value="02">
+                        <span class="weui-icon-checked">阅件</span>
+                    </label>
+                    <label class="weui-check__label">
+                        <input type="radio" class="weui-check" name="docType" id="dianbao"
+                               value="03">
+                        <span class="weui-icon-checked">电报</span>
+                    </label>
+                    <label class="weui-check__label">
+                        <input type="radio" class="weui-check" name="docType" id="qita"
+                               value="04">
+                        <span class="weui-icon-checked">其他</span>
+                    </label>
+                </div>
+            </div>
+            <a class="weui-cell weui-cell_access" href="../form/select_idea.html">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">分办人员:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" readonly type="text" value="" placeholder="请选取分办人员">
+                </div>
+                <div class="weui-cell__ft"></div>
+            </a>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">分办意见:</label>
+                </div>
+            </div>
+            <div class="weui-cell g-bt-pse-none">
+                <div class="weui-cell__bd">
+                    <textarea class="weui-textarea" maxlength="200" placeholder="请输入分办意见" rows="6"></textarea>
+                    <div class="weui-textarea-counter"><span>0</span>/200</div>
+                </div>
+            </div>
+        </div>
+        <div class="wx-gap-wrap"></div>
+        <ul class="wx-btnitem-wrap wx-btnitem-item2 g-gap-mb10 g-gap-mt10">
+            <li>
+                <div id="qianshouDOC" class="zw-btn zw-btn-wxextend g-br5">签收分办</div>
+            </li>
+            <li>
+                <div id="tuiwenDOC" class="zw-btn zw-btn-default g-br5">退文</div>
+            </li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

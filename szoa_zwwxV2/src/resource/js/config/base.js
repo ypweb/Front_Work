@@ -3,7 +3,7 @@ define(["WX","Config","weuiJS"], function (wx) {
     window.wx = wx;
 
     $.ajax({
-        url: "/ajax.sword?ctrl=WeixinSDKV2_getSDKSignature",
+        url: "/ajax.sword?ctrl=WeixinSDK_getSDKSignature",
         async: false,
         data: {
             "url": window.location.href

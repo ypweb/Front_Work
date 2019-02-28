@@ -9,7 +9,7 @@ define(["util"], function (Util) {
     //初始化
     function init() {
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_getReturnMsg",
+            url: "/ajax.sword?ctrl=WeixinDocDital_getReturnMsg",
             dataType: "json",
             success: function (data) {
                 if (data.message.returnReason.success !== 1) {
@@ -122,7 +122,7 @@ define(["util"], function (Util) {
          curNodeName:当前的办理节点id
          userId：登录人的id*/
         $.ajax({
-            url: "/ajax.sword?ctrl=WeixinDocDitalV2_returnDoc",
+            url: "/ajax.sword?ctrl=WeixinDocDital_returnDoc",
             // type: "post",
             dataType: "json",
             data: datas,

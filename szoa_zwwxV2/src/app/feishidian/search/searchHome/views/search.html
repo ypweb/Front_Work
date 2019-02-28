@@ -8,24 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta content="telephone=no" name="format-detection"/>
     <title>公文查询</title>
-    <link rel="stylesheet" href="/zwwxV2/resource/css/weui.css">
-    <link rel="stylesheet" href="/zwwxV2/resource/js/lib/weui/css/jquery-weui.css" />
+    <link rel="stylesheet" href="/zwwx/resource/css/weui.css">
+    <link rel="stylesheet" href="/zwwx/resource/js/lib/weui/css/jquery-weui.css" />
 
-    <script src="/zwwxV2/resource/js/lib/jquery/jquery.min.js"></script>
-    <script src="/zwwxV2/resource/js/lib/weui/js/jquery-weui.min.js"></script>
-    <script src="/zwwxV2/resource/js/lib/require/require.js"></script>
-    <script src="/zwwxV2/resource/js/config/config.js"></script>
-    <style>
-        my-ui{
-            left:0px;
-        }
-    </style>
-
+    <script src="/zwwx/resource/js/lib/jquery/jquery.min.js"></script>
+    <script src="/zwwx/resource/js/lib/weui/js/jquery-weui.min.js"></script>
+    <script src="/zwwx/resource/js/lib/require/require.js"></script>
+    <script src="/zwwx/resource/js/config/config.js"></script>
 </head>
 <body >
 <div style="display:none">
     <!--待办列表-->
-    <div class="weui-cells weui-cells_form my-ui">
+    <div class="weui-cells weui-cells_form g-clear-m">
         <div class="weui-cell">
             <div class="weui-cell__hd">
                 <label class="weui-label">文件编号</label>
@@ -49,7 +43,7 @@
             <div class="weui-cell__bd">
                 <input id="startTime" type="text" class="weui-input" data-toggle='date' placeholder="开始日期" readonly/>
             </div>
-            <div class="g-w-percent10">-</div>
+            <div class="g-w-percent10 g-ta-c">-</div>
             <div class="weui-cell__bd">
                 <input id="endTime" type="text" class="weui-input" data-toggle='date' placeholder="结束日期" readonly/>
             </div>
@@ -90,6 +84,6 @@
 <script type="text/javascript">
     $.showLoading("努力加载中...");
 </script>
-<script type="text/javascript" src="/zwwxV2/app/feishidian/search/searchHome/searchCtrl.js"></script>
+<script type="text/javascript" src="/zwwx/app/feishidian/search/searchHome/searchCtrl.js"></script>
 </body>
 </html>
